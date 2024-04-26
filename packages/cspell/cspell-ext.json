@@ -1,0 +1,27 @@
+{
+  "id": "taskward",
+  "name": "taskward",
+  "description": "CSpell dictionary configuration for Taskward.",
+  "readonly": true,
+  "allowCompoundWords": true,
+  "enableFiletypes": ["astro"],
+  "dictionaryDefinitions": [
+    {
+      "name": "taskward",
+      "path": "./dicts/taskward.txt",
+      "description": "Taskward CSpell dictionary."
+    }
+  ],
+  "dictionaries": [],
+  "languageSettings": [
+    {
+      "languageId": "*",
+      "locale": "*",
+      "includeRegExpList": [],
+      "ignoreRegExpList": [],
+      "patterns": [],
+      "dictionaries": ["taskward"],
+      "dictionaryDefinitions": []
+    }
+  ]
+}
