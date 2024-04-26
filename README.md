@@ -1,6 +1,6 @@
 # Taskward
 
-<img src="/assets/logo.png" alt="Taskward" width="256" height="256" />
+<img src="/assets/logo.png" alt="Taskward" width="128" height="128" />
 
 > ✅ A minimalist Todo&Tasks web application.
 
