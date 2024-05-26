@@ -1,6 +1,6 @@
 # @taskward/cspell
 
-> Taskward CSpell dictionary configuration.
+> ✅ Taskward CSpell dictionary configuration.
 
 ## License
 

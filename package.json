@@ -4,6 +4,7 @@
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "version": "0.0.0",
   "scripts": {
+    "dev:mobile:web": "pnpm -F mobile web",
     "lint:check": "pnpm nx run-many -t type:check cspell:check eslint:check prettier:check --all --parallel=10",
     "type:check": "pnpm nx run-many -t type:check --all",
     "cspell:sort:dicts": "pnpm bo cspell:sort:dicts",
@@ -16,7 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@nx/next": "^18.3.4"
+    "@nx/next": "^19.1.0"
   },
   "devDependencies": {
     "@bit-ocean/cli": "^0.0.19",
@@ -28,15 +29,15 @@
     "@bit-ocean/tsconfig": "^0.0.19",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@nx/workspace": "18.3.4",
+    "@nx/workspace": "19.1.0",
     "@taskward/cspell": "workspace:^",
     "commitizen": "^4.3.0",
-    "cspell": "^8.7.0",
+    "cspell": "^8.8.3",
     "cz-git": "^1.9.1",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "nx": "18.3.4",
+    "lint-staged": "^15.2.5",
+    "nx": "19.1.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },

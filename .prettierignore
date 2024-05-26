@@ -4,3 +4,5 @@ coverage
 node_modules
 pnpm-lock.yaml
 .husky
+.expo
+expo-env.d.ts

@@ -1,0 +1,12 @@
+{
+  "extends": "@bit-ocean/eslint-config/react-native",
+  "overrides": [
+    {
+      "files": ["*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-use-before-define": "off",
+        "react/require-default-props": "off" // Optional props don't care about default values
+      }
+    }
+  ]
+}

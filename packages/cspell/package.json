@@ -1,12 +1,12 @@
 {
   "name": "@taskward/cspell",
-  "description": "Taskward CSpell dictionary configuration.",
+  "description": "✅ Taskward CSpell dictionary configuration.",
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "homepage": "https://github.com/taskward/taskward#readme",
   "bugs": "https://github.com/taskward/taskward/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/taskward/infra.git",
+    "url": "https://github.com/taskward/taskward.git",
     "directory": "packages/cspell"
   },
   "keywords": [
