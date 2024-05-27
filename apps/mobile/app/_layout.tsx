@@ -7,6 +7,10 @@ export default function RootLayout() {
         name="(tabs)"
         options={{ title: '首页', headerShown: false }}
       />
+      <Stack.Screen
+        name="(auth)/login/index"
+        options={{ title: '登录', headerShown: false }}
+      />
     </Stack>
   )
 }

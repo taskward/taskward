@@ -2,9 +2,7 @@ import { router } from 'expo-router'
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native'
 
 export default function HomeScreen() {
-  const onPressImage = () => {
-    router.push('/webview')
-  }
+  const onPressImage = () => router.replace('/login')
 
   return (
     <View style={styles.container}>
