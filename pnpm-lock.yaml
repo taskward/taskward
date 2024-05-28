@@ -17,7 +17,7 @@ importers:
         version: 0.0.19
       '@bit-ocean/commitlint-config':
         specifier: ^0.0.19
-        version: 0.0.19(@commitlint/cli@19.3.0(@types/node@20.12.12)(typescript@5.4.5))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.12.12)(typescript@5.4.5))(cz-git@1.9.1)
+        version: 0.0.19(@commitlint/cli@19.3.0(@types/node@20.12.12)(typescript@5.4.5))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.12.12)(typescript@5.4.5))(cz-git@1.9.2)
       '@bit-ocean/cspell':
         specifier: ^0.0.19
         version: 0.0.19(cspell@8.8.3)
@@ -52,8 +52,8 @@ importers:
         specifier: ^8.8.3
         version: 8.8.3
       cz-git:
-        specifier: ^1.9.1
-        version: 1.9.1
+        specifier: ^1.9.2
+        version: 1.9.2
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -3339,8 +3339,8 @@ packages:
     resolution: {integrity: sha512-U466fIzU5U22eES5lTNiNbZ+d8dfcHcssH4o7QsdWaCcRs/feIPCxKYSWkYBNs5mny7MvEfwpTLWjvbm94hecw==}
     engines: {node: '>= 10'}
 
-  cz-git@1.9.1:
-    resolution: {integrity: sha512-GK3EI5R7GApS8u+g9QPvy/50z0NiG7ijc1NASxZaDnQn0ARzr73MjZb3Lt4cZQvKJBd8GrfvOWqHgwMQQ/OlaA==}
+  cz-git@1.9.2:
+    resolution: {integrity: sha512-HqwSIZBl/Vtlq56wsHuQHhQ0CF7rABEvhvbSAaGViLeM5YucLu5o+U2XLow1Y2bwIAfAIKZHfgg9fxP7P3XU3Q==}
     engines: {node: '>=v12.20.0'}
 
   dag-map@1.0.2:
@@ -8992,13 +8992,13 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@bit-ocean/commitlint-config@0.0.19(@commitlint/cli@19.3.0(@types/node@20.12.12)(typescript@5.4.5))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.12.12)(typescript@5.4.5))(cz-git@1.9.1)':
+  '@bit-ocean/commitlint-config@0.0.19(@commitlint/cli@19.3.0(@types/node@20.12.12)(typescript@5.4.5))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.12.12)(typescript@5.4.5))(cz-git@1.9.2)':
     dependencies:
       '@commitlint/cli': 19.3.0(@types/node@20.12.12)(typescript@5.4.5)
       '@commitlint/config-conventional': 19.2.2
       commitizen: 4.3.0(@types/node@20.12.12)(typescript@5.4.5)
     optionalDependencies:
-      cz-git: 1.9.1
+      cz-git: 1.9.2
 
   '@bit-ocean/config@0.0.19': {}
 
@@ -12602,7 +12602,7 @@ snapshots:
       - '@types/node'
       - typescript
 
-  cz-git@1.9.1: {}
+  cz-git@1.9.2: {}
 
   dag-map@1.0.2: {}
 
