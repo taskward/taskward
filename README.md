@@ -8,8 +8,9 @@
 
 ### `/apps`
 
-- [`website`](/apps/website/README.md): Front-end web application.
-- [`server`](/apps/server/README.md): Back-end server application.
+- [`website`](/apps/website/README.md): Front-end web application based on Next.js.
+- [`mobile`](/apps/mobile/README.md): Mobile application based on React Native Expo.
+- [`server`](/apps/server/README.md): Back-end API server based on Nest.js.
 
 ### `/packages`
 

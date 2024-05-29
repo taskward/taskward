@@ -6,6 +6,8 @@ dist-ssr
 temp
 /out-tsc
 build
+.temp
+.tmp
 
 # Dependencies
 node_modules
@@ -38,6 +40,7 @@ node_modules
 /.sass-cache
 /connect.lock
 /coverage
+/.nyc_output
 /libpeerconnection.log
 npm-debug.log*
 yarn-debug.log*
@@ -45,6 +48,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 testem.log
+logs
+*.log
 /typings
 
 # System files
@@ -60,6 +65,15 @@ Thumbs.db
 # Zip
 *.zip
 *.rar
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # cache
 .cspellcache
