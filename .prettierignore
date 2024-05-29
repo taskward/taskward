@@ -6,3 +6,6 @@ pnpm-lock.yaml
 .husky
 .expo
 expo-env.d.ts
+
+apps/server/src/generated
+apps/server/src/metadata.ts
