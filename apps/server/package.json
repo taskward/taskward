@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "@taskward/server",
   "description": "✅ Taskward API server.",
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "homepage": "https://github.com/taskward/taskward#readme",

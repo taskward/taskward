@@ -4,8 +4,10 @@
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "version": "0.0.0",
   "scripts": {
-    "mobile:dev:web": "pnpm -F mobile web",
-    "server:dev": "pnpm -F server dev",
+    "admin:dev": "pnpm -F @taskward/admin dev",
+    "mobile:dev:web": "pnpm -F @taskward/mobile web",
+    "server:dev": "pnpm -F @taskward/server dev",
+    "docker:dev": "docker compose up -d",
     "lint:check": "pnpm nx run-many -t type:check cspell:check eslint:check prettier:check --all --parallel=10",
     "type:check": "pnpm nx run-many -t type:check --all",
     "cspell:sort:dicts": "pnpm bo cspell:sort:dicts",
