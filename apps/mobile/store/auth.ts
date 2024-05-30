@@ -31,6 +31,6 @@ useAuthStore.subscribe(
     }
   },
   {
-    fireImmediately: true
+    fireImmediately: false
   }
 )

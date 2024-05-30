@@ -4,8 +4,8 @@
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "version": "0.0.0",
   "scripts": {
-    "dev:mobile:web": "pnpm -F mobile web",
-    "dev:server": "pnpm -F server dev",
+    "mobile:dev:web": "pnpm -F mobile web",
+    "server:dev": "pnpm -F server dev",
     "lint:check": "pnpm nx run-many -t type:check cspell:check eslint:check prettier:check --all --parallel=10",
     "type:check": "pnpm nx run-many -t type:check --all",
     "cspell:sort:dicts": "pnpm bo cspell:sort:dicts",
