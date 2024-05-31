@@ -1,0 +1,7 @@
+services:
+  admin:
+    container_name: taskward-admin
+    build:
+      context: .
+    ports:
+      - 4070:80
