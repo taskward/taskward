@@ -1,8 +1,132 @@
-generator client {
-  provider = "prisma-client-js"
-}
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["omitApi", "relationJoins"]
+  binaryTargets   = ["native"]
+}
+
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  username    String    @unique
+  nickName    String    @map("nick_name")
+  password    String
+  phoneNumber String?   @unique @map("phone_number")
+  email       String?   @unique
+  firstName   String?   @map("first_name")
+  middleName  String?   @map("middle_name")
+  lastName    String?   @map("last_name")
+  avatarUrl   String?   @map("avatar_url")
+  gender      String?
+  contry      String?
+  province    String?
+  city        String?
+  address     String?
+  biography   String?
+  website     String?
+  profile     String?
+  birthDate   DateTime? @map("birth_date")
+  enabled     Boolean   @default(true)
+  authFlag    Boolean   @default(false) @map("auth_flag")
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdBy Int?      @map("created_by")
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedBy Int?      @map("updated_by")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedBy Int?      @map("deleted_by")
+
+  userAuth UserAuth[]
+  tasks    Task[]
+  tags     Tag[]
+
+  @@map("system_users")
+}
+
+model UserAuth {
+  id           Int     @id @default(autoincrement())
+  provider     String
+  openId       String? @map("open_id")
+  accessToken  String? @map("access_token")
+  refreshToken String? @map("refresh_token")
+  expiresIn    Int?    @map("expires_in")
+  metadata     Json?   @db.Json
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdBy Int?      @map("created_by")
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedBy Int?      @map("updated_by")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedBy Int?      @map("deleted_by")
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int  @map("user_id")
+
+  @@unique([provider, openId])
+  @@map("system_user_auth")
+}
+
+model Task {
+  id          Int       @id @default(autoincrement())
+  title       String?
+  description String?
+  type        String?
+  status      String?
+  priority    String?
+  expiredAt   DateTime? @map("expired_at")
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdBy Int?      @map("created_by")
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedBy Int?      @map("updated_by")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedBy Int?      @map("deleted_by")
+
+  tags TagsOnTasks[]
+
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?  @map("user_id")
+
+  parentId Int?
+  parent   Task?  @relation("TaskSubtasks", fields: [parentId], references: [id])
+  children Task[] @relation("TaskSubtasks")
+
+  @@map("tasks")
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  title String @unique
+
+  sortValue Int       @default(0) @map("sort_value")
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdBy Int?      @map("created_by")
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedBy Int?      @map("updated_by")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedBy Int?      @map("deleted_by")
+
+  tasks TagsOnTasks[]
+
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?  @map("user_id")
+
+  @@map("tags")
+}
+
+model TagsOnTasks {
+  tag    Tag  @relation(fields: [tagId], references: [id])
+  tagId  Int  @map("tag_id")
+  task   Task @relation(fields: [taskId], references: [id])
+  taskId Int  @map("task_id")
+
+  @@id([tagId, taskId])
+  @@map("tags_on_tasks")
 }

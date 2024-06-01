@@ -1,0 +1,118 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table system_users {
+  id Int [pk, increment]
+  username String [unique, not null]
+  nickName String [not null]
+  password String [not null]
+  phoneNumber String [unique]
+  email String [unique]
+  firstName String
+  middleName String
+  lastName String
+  avatarUrl String
+  gender String
+  contry String
+  province String
+  city String
+  address String
+  biography String
+  website String
+  profile String
+  birthDate DateTime
+  enabled Boolean [not null, default: true]
+  authFlag Boolean [not null, default: false]
+  createdAt DateTime [default: `now()`, not null]
+  createdBy Int
+  updatedAt DateTime
+  updatedBy Int
+  deletedAt DateTime
+  deletedBy Int
+  userAuth system_user_auth [not null]
+  tasks tasks [not null]
+  tags tags [not null]
+}
+
+Table system_user_auth {
+  id Int [pk, increment]
+  provider String [not null]
+  openId String
+  accessToken String
+  refreshToken String
+  expiresIn Int
+  metadata Json
+  createdAt DateTime [default: `now()`, not null]
+  createdBy Int
+  updatedAt DateTime
+  updatedBy Int
+  deletedAt DateTime
+  deletedBy Int
+  user system_users [not null]
+  userId Int [not null]
+
+  indexes {
+    (provider, openId) [unique]
+  }
+}
+
+Table tasks {
+  id Int [pk, increment]
+  title String
+  description String
+  type String
+  status String
+  priority String
+  expiredAt DateTime
+  createdAt DateTime [default: `now()`, not null]
+  createdBy Int
+  updatedAt DateTime
+  updatedBy Int
+  deletedAt DateTime
+  deletedBy Int
+  tags tags_on_tasks [not null]
+  user system_users
+  userId Int
+  parentId Int
+  parent tasks
+  children tasks [not null]
+}
+
+Table tags {
+  id Int [pk, increment]
+  title String [unique, not null]
+  sortValue Int [not null, default: 0]
+  createdAt DateTime [default: `now()`, not null]
+  createdBy Int
+  updatedAt DateTime
+  updatedBy Int
+  deletedAt DateTime
+  deletedBy Int
+  tasks tags_on_tasks [not null]
+  user system_users
+  userId Int
+}
+
+Table tags_on_tasks {
+  tag tags [not null]
+  tagId Int [not null]
+  task tasks [not null]
+  taskId Int [not null]
+
+  indexes {
+    (tagId, taskId) [pk]
+  }
+}
+
+Ref: system_user_auth.userId > system_users.id
+
+Ref: tasks.userId > system_users.id
+
+Ref: tasks.parentId - tasks.id
+
+Ref: tags.userId > system_users.id
+
+Ref: tags_on_tasks.tagId > tags.id
+
+Ref: tags_on_tasks.taskId > tasks.id
