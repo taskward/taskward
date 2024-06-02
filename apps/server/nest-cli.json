@@ -9,6 +9,17 @@
     "manualRestart": true,
     "tsConfigPath": "tsconfig.build.json",
     "typeCheck": true,
+    "assets": [
+      "**/*.css",
+      {
+        "include": "**/*.html",
+        "watchAssets": true
+      },
+      {
+        "include": "i18n/**/*",
+        "watchAssets": true
+      }
+    ],
     "watchAssets": false
   },
   "generateOptions": {
