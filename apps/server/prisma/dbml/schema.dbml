@@ -82,6 +82,7 @@ Table tasks {
 Table tags {
   id Int [pk, increment]
   title String [unique, not null]
+  description String
   sortValue Int [not null, default: 0]
   createdAt DateTime [default: `now()`, not null]
   createdBy Int
@@ -99,6 +100,12 @@ Table tags_on_tasks {
   tagId Int [not null]
   task tasks [not null]
   taskId Int [not null]
+  createdAt DateTime [default: `now()`, not null]
+  createdBy Int
+  updatedAt DateTime
+  updatedBy Int
+  deletedAt DateTime
+  deletedBy Int
 
   indexes {
     (tagId, taskId) [pk]

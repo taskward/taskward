@@ -1,6 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("POSTGRES_URL")
 }
 
 generator client {
@@ -102,8 +102,9 @@ model Task {
 }
 
 model Tag {
-  id    Int    @id @default(autoincrement())
-  title String @unique
+  id          Int     @id @default(autoincrement())
+  title       String  @unique
+  description String?
 
   sortValue Int       @default(0) @map("sort_value")
   createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
@@ -126,6 +127,13 @@ model TagsOnTasks {
   tagId  Int  @map("tag_id")
   task   Task @relation(fields: [taskId], references: [id])
   taskId Int  @map("task_id")
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdBy Int?      @map("created_by")
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedBy Int?      @map("updated_by")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedBy Int?      @map("deleted_by")
 
   @@id([tagId, taskId])
   @@map("tags_on_tasks")
