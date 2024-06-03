@@ -1,6 +1,0 @@
-Avenir
-dbml
-fkey
-gloursdocker
-nestjs
-pkey
