@@ -1,0 +1,36 @@
+model User {
+  id          Int       @id @default(autoincrement())
+  username    String    @unique
+  nickName    String    @map("nick_name")
+  password    String
+  phoneNumber String?   @unique @map("phone_number")
+  email       String?   @unique
+  firstName   String?   @map("first_name")
+  middleName  String?   @map("middle_name")
+  lastName    String?   @map("last_name")
+  avatarUrl   String?   @map("avatar_url")
+  gender      String?
+  contry      String?
+  province    String?
+  city        String?
+  address     String?
+  biography   String?
+  website     String?
+  profile     String?
+  birthDate   DateTime? @map("birth_date")
+  enabled     Boolean   @default(true)
+  authFlag    Boolean   @default(false) @map("auth_flag")
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdBy Int?      @map("created_by")
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedBy Int?      @map("updated_by")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedBy Int?      @map("deleted_by")
+
+  userAuth UserAuth[]
+  tasks    Task[]
+  tags     Tag[]
+
+  @@map("system_users")
+}

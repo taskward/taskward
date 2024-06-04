@@ -1,0 +1,16 @@
+model TagsOnTasks {
+  tag    Tag  @relation(fields: [tagId], references: [id])
+  tagId  Int  @map("tag_id")
+  task   Task @relation(fields: [taskId], references: [id])
+  taskId Int  @map("task_id")
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdBy Int?      @map("created_by")
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedBy Int?      @map("updated_by")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedBy Int?      @map("deleted_by")
+
+  @@id([tagId, taskId])
+  @@map("tags_on_tasks")
+}

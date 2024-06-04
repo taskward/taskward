@@ -1,0 +1,27 @@
+model Task {
+  id          Int       @id @default(autoincrement())
+  title       String?
+  description String?
+  type        String?
+  status      String?
+  priority    String?
+  expiredAt   DateTime? @map("expired_at")
+
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdBy Int?      @map("created_by")
+  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedBy Int?      @map("updated_by")
+  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedBy Int?      @map("deleted_by")
+
+  tags TagsOnTasks[]
+
+  user   User? @relation(fields: [userId], references: [id])
+  userId Int?  @map("user_id")
+
+  parentId Int?
+  parent   Task?  @relation("TaskSubtasks", fields: [parentId], references: [id])
+  children Task[] @relation("TaskSubtasks")
+
+  @@map("tasks")
+}
