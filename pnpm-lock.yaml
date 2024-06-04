@@ -13,26 +13,26 @@ importers:
         version: 19.1.2(@babel/core@7.24.6)(@babel/traverse@7.24.6)(@swc/core@1.5.24)(@types/node@20.14.1)(@zkochan/js-yaml@0.0.7)(eslint@8.57.0)(next@14.2.3(@babel/core@7.24.6)(@opentelemetry/api@1.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.3))(nx@19.1.2(@swc/core@1.5.24))(typescript@5.4.5)(webpack@5.91.0(@swc/core@1.5.24))
     devDependencies:
       '@bit-ocean/cli':
-        specifier: ^0.0.20
-        version: 0.0.20
+        specifier: ^0.0.21
+        version: 0.0.21
       '@bit-ocean/commitlint-config':
-        specifier: ^0.0.20
-        version: 0.0.20(@commitlint/cli@19.3.0(@types/node@20.14.1)(typescript@5.4.5))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.1)(typescript@5.4.5))(cz-git@1.9.2)
+        specifier: ^0.0.21
+        version: 0.0.21(@commitlint/cli@19.3.0(@types/node@20.14.1)(typescript@5.4.5))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.1)(typescript@5.4.5))(cz-git@1.9.2)
       '@bit-ocean/cspell':
-        specifier: ^0.0.20
-        version: 0.0.20(cspell@8.8.4)
+        specifier: ^0.0.21
+        version: 0.0.21(cspell@8.8.4)
       '@bit-ocean/eslint-config':
-        specifier: ^0.0.20
-        version: 0.0.20(eslint@8.57.0)(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.5.24)(@types/node@20.14.1)(typescript@5.4.5)))(typescript@5.4.5)
+        specifier: ^0.0.21
+        version: 0.0.21(eslint@8.57.0)(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.5.24)(@types/node@20.14.1)(typescript@5.4.5)))(typescript@5.4.5)
       '@bit-ocean/prettier-config':
-        specifier: ^0.0.20
-        version: 0.0.20(prettier@3.3.0)
+        specifier: ^0.0.21
+        version: 0.0.21(prettier@3.3.0)
       '@bit-ocean/renovate-config':
-        specifier: ^0.0.20
-        version: 0.0.20
+        specifier: ^0.0.21
+        version: 0.0.21
       '@bit-ocean/tsconfig':
-        specifier: ^0.0.20
-        version: 0.0.20(typescript@5.4.5)
+        specifier: ^0.0.21
+        version: 0.0.21(typescript@5.4.5)
       '@commitlint/cli':
         specifier: ^19.3.0
         version: 19.3.0(@types/node@20.14.1)(typescript@5.4.5)
@@ -1093,12 +1093,12 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@bit-ocean/cli@0.0.20':
-    resolution: {integrity: sha512-Ex6hEpwwCDPAgRRhgOaNwczSXIrHBraznDl0UPd0iVRaBG9aWO8nHCIr6owgtcW6msuYIFlnCjwLINY6Sphluw==}
+  '@bit-ocean/cli@0.0.21':
+    resolution: {integrity: sha512-HacpOZ6lWkoLSDyA4kbiLlM/2PP/BVhdD1BWkMiRqoCLvvPi9XDY5yhX2IFuuIGvtkS88xPwrJnbAaGDPLUVpg==}
     hasBin: true
 
-  '@bit-ocean/commitlint-config@0.0.20':
-    resolution: {integrity: sha512-YILYp3eqisnWvy1k8a2nNsV8zqqzc9BaoMGY/SiOeqMA1rNyMQzaTayonwR0zCUieotbF7ulVCFlTSzgGJ4BAA==}
+  '@bit-ocean/commitlint-config@0.0.21':
+    resolution: {integrity: sha512-nDm1yVPbcLt6vI+VbMrVPrNexsdINNhcJ6nVZcvn72llq9XRpUU2J1aTOeNrdr7BeAT5ozFMsASF7B6A3hmvSQ==}
     peerDependencies:
       '@commitlint/cli': ^19.3.0
       '@commitlint/config-conventional': ^19.2.2
@@ -1108,29 +1108,29 @@ packages:
       cz-git:
         optional: true
 
-  '@bit-ocean/config@0.0.20':
-    resolution: {integrity: sha512-BJVFRLN3JSl0pwz95nrtd8yaWiHqrm8GOuork5v0aKvqqowPEluiqTt9O5nUemtWg8awsGFEd2mKD9jmPOaA8w==}
+  '@bit-ocean/config@0.0.21':
+    resolution: {integrity: sha512-IDD38Tw/JnhZD9TAucvQMUdrMM/U5twiLFqLH/LUkwm4fxL1BOrg1ztm2JRp6LWWAPl77ifx/jynW9R8Ejizkw==}
 
-  '@bit-ocean/cspell@0.0.20':
-    resolution: {integrity: sha512-ne/NSB+q8hqnnuR/CRIuZLh6vMwNBLJiq6v+wOj0gYf2LFvpvtL0BZ0q9LpheB6uYNFAnua9m2Vx3yXCNWzZAg==}
+  '@bit-ocean/cspell@0.0.21':
+    resolution: {integrity: sha512-s4oHsTdmoDPBuhcDCJBSvygFlm/Rn5JB7Gtmlg7AMoFBizMezTdI/VF8gLXG5BzQO2e5wqDDr/H1CImAsrD/mQ==}
     peerDependencies:
       cspell: ^8.0.0
 
-  '@bit-ocean/eslint-config@0.0.20':
-    resolution: {integrity: sha512-kOH+k3n1hDZ4qZ8lGFTgtkE//Xnd/dYJosVMS7TweZmqYqYUVlwxbM/KJ9PwtBJ0/5IBEbQVRJgn9ICTQq9wgA==}
+  '@bit-ocean/eslint-config@0.0.21':
+    resolution: {integrity: sha512-lkyx8nelieyOjerR+dFJWn3yU2ImokJy9p7PLKsHmn6pLJEcUko24Rm+yb3EKplNOOUINJ4UgYkwUf34vfoO2Q==}
     peerDependencies:
       eslint: ^8.0.0
 
-  '@bit-ocean/prettier-config@0.0.20':
-    resolution: {integrity: sha512-4bgU3KnaaOt3d8v1dsPV3MAsc/L6qyo/kiydWlwpRQq8iBKccGECz7FBSk/TJnz0d0/VBXb2JrT4ELNT0tilzw==}
+  '@bit-ocean/prettier-config@0.0.21':
+    resolution: {integrity: sha512-qK69I97UpIM34imMO7c0yELKHZzDfq8mmTcMgFbOj+avAs7d+4ZJQN5HSZL1XttKtlXWvlQTvwAnDoSCDTm0MQ==}
     peerDependencies:
       prettier: ^3.3.0
 
-  '@bit-ocean/renovate-config@0.0.20':
-    resolution: {integrity: sha512-g0DguK+NwRIp/d0EneeDgvkCwuvbS7OxbOteN2x+vmpB3zNOwH9vXrZM3LjczrXldSBVYcoDAbhLZNK4spwkWg==}
+  '@bit-ocean/renovate-config@0.0.21':
+    resolution: {integrity: sha512-W2m4MJe0562DoqQUgcdYtl9gfD/ltiAKhy2iXCuWmXAzSAp+ED5xAH9ZbjNeUzT5jAs76MIQobWqLkPomDFJCQ==}
 
-  '@bit-ocean/tsconfig@0.0.20':
-    resolution: {integrity: sha512-tgr9j+EurFUsDLZ0N1jRx3Y6hRZPEWYl3lGlxe0U36fyt9Xj3XDHeNOVTUDtccem0Ghsbb8cqEbk52JTkhg8zg==}
+  '@bit-ocean/tsconfig@0.0.21':
+    resolution: {integrity: sha512-PXOVynpNykI9hAa+VbAStyIdJld0gj1spKTyaVUXkXdK51baY7mubDgpYPiGeKCLcNpdhMwGLbkdVv76a2J8GA==}
     peerDependencies:
       typescript: ^5.0.0
 
@@ -3044,10 +3044,6 @@ packages:
     resolution: {integrity: sha512-OwLUIWZJry80O99zvqXVEioyniJMa+d2GrqpUTqi5/v5D5rOrppJVBPa0yKCblcigC0/aYAzxxqQ1B+DS2RYsg==}
     engines: {node: ^16.0.0 || >=18.0.0}
 
-  '@typescript-eslint/scope-manager@7.11.0':
-    resolution: {integrity: sha512-27tGdVEiutD4POirLZX4YzT180vevUURJl4wJGmm6TrQoiYwuxTIY98PBp6L2oN+JQxzE0URvYlzJaBHIekXAw==}
-    engines: {node: ^18.18.0 || >=20.0.0}
-
   '@typescript-eslint/scope-manager@7.12.0':
     resolution: {integrity: sha512-itF1pTnN6F3unPak+kutH9raIkL3lhH1YRPGgt7QQOh43DQKVJXmWkpb+vpc/TiDHs6RSd9CTbDsc/Y+Ygq7kg==}
     engines: {node: ^18.18.0 || >=20.0.0}
@@ -3066,10 +3062,6 @@ packages:
     resolution: {integrity: sha512-1kFmZ1rOm5epu9NZEZm1kckCDGj5UJEf7P1kliH4LKu/RkwpsfqqGmY2OOcUs18lSlQBKLDYBOGxRVtrMN5lpg==}
     engines: {node: ^16.0.0 || >=18.0.0}
 
-  '@typescript-eslint/types@7.11.0':
-    resolution: {integrity: sha512-MPEsDRZTyCiXkD4vd3zywDCifi7tatc4K37KqTprCvaXptP7Xlpdw0NR2hRJTetG5TxbWDB79Ys4kLmHliEo/w==}
-    engines: {node: ^18.18.0 || >=20.0.0}
-
   '@typescript-eslint/types@7.12.0':
     resolution: {integrity: sha512-o+0Te6eWp2ppKY3mLCU+YA9pVJxhUJE15FV7kxuD9jgwIAa+w/ycGJBMrYDTpVGUM/tgpa9SeMOugSabWFq7bg==}
     engines: {node: ^18.18.0 || >=20.0.0}
@@ -3077,15 +3069,6 @@ packages:
   '@typescript-eslint/typescript-estree@6.21.0':
     resolution: {integrity: sha512-6npJTkZcO+y2/kr+z0hc4HwNfrrP4kNYh57ek7yCNlrBjWQ1Y0OS7jiZTkgumrvkX5HkEKXFZkkdFNkaW2wmUQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
-  '@typescript-eslint/typescript-estree@7.11.0':
-    resolution: {integrity: sha512-cxkhZ2C/iyi3/6U9EPc5y+a6csqHItndvN/CzbNXTNrsC3/ASoYQZEt9uMaEp+xFNjasqQyszp5TumAVKKvJeQ==}
-    engines: {node: ^18.18.0 || >=20.0.0}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
@@ -3116,10 +3099,6 @@ packages:
   '@typescript-eslint/visitor-keys@6.21.0':
     resolution: {integrity: sha512-JJtkDduxLi9bivAB+cYOVMtbkqdPOhZ+ZI5LC47MIRrDV4Yn2o+ZnW10Nkmr28xRpSpdJ6Sm42Hjf2+REYXm0A==}
     engines: {node: ^16.0.0 || >=18.0.0}
-
-  '@typescript-eslint/visitor-keys@7.11.0':
-    resolution: {integrity: sha512-7syYk4MzjxTEk0g/w3iqtgxnFQspDJfn6QKD36xMuuhTzjcxY7F8EmBLnALjVyaOF1/bVocu3bS/2/F7rXrveQ==}
-    engines: {node: ^18.18.0 || >=20.0.0}
 
   '@typescript-eslint/visitor-keys@7.12.0':
     resolution: {integrity: sha512-uZk7DevrQLL3vSnfFl5bj4sL75qC9D6EdjemIdbtkuUmIheWpuiiylSY01JxJE7+zGrOWDZrp1WxOuDntvKrHQ==}
@@ -10685,9 +10664,9 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@bit-ocean/cli@0.0.20':
+  '@bit-ocean/cli@0.0.21':
     dependencies:
-      '@bit-ocean/config': 0.0.20
+      '@bit-ocean/config': 0.0.21
       commander: 12.1.0
       cross-fetch: 4.0.0
       cross-spawn: 7.0.3
@@ -10697,7 +10676,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@bit-ocean/commitlint-config@0.0.20(@commitlint/cli@19.3.0(@types/node@20.14.1)(typescript@5.4.5))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.1)(typescript@5.4.5))(cz-git@1.9.2)':
+  '@bit-ocean/commitlint-config@0.0.21(@commitlint/cli@19.3.0(@types/node@20.14.1)(typescript@5.4.5))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.1)(typescript@5.4.5))(cz-git@1.9.2)':
     dependencies:
       '@commitlint/cli': 19.3.0(@types/node@20.14.1)(typescript@5.4.5)
       '@commitlint/config-conventional': 19.2.2
@@ -10705,13 +10684,13 @@ snapshots:
     optionalDependencies:
       cz-git: 1.9.2
 
-  '@bit-ocean/config@0.0.20': {}
+  '@bit-ocean/config@0.0.21': {}
 
-  '@bit-ocean/cspell@0.0.20(cspell@8.8.4)':
+  '@bit-ocean/cspell@0.0.21(cspell@8.8.4)':
     dependencies:
       cspell: 8.8.4
 
-  '@bit-ocean/eslint-config@0.0.20(eslint@8.57.0)(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.5.24)(@types/node@20.14.1)(typescript@5.4.5)))(typescript@5.4.5)':
+  '@bit-ocean/eslint-config@0.0.21(eslint@8.57.0)(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.5.24)(@types/node@20.14.1)(typescript@5.4.5)))(typescript@5.4.5)':
     dependencies:
       '@tanstack/eslint-plugin-query': 5.35.6(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/eslint-plugin': 7.12.0(@typescript-eslint/parser@7.12.0(eslint@8.57.0)(typescript@5.4.5))(eslint@8.57.0)(typescript@5.4.5)
@@ -10740,7 +10719,7 @@ snapshots:
       - tailwindcss
       - typescript
 
-  '@bit-ocean/prettier-config@0.0.20(prettier@3.3.0)':
+  '@bit-ocean/prettier-config@0.0.21(prettier@3.3.0)':
     dependencies:
       prettier: 3.3.0
       prettier-plugin-astro: 0.14.0
@@ -10761,9 +10740,9 @@ snapshots:
       - prettier-plugin-style-order
       - prettier-plugin-svelte
 
-  '@bit-ocean/renovate-config@0.0.20': {}
+  '@bit-ocean/renovate-config@0.0.21': {}
 
-  '@bit-ocean/tsconfig@0.0.20(typescript@5.4.5)':
+  '@bit-ocean/tsconfig@0.0.21(typescript@5.4.5)':
     dependencies:
       typescript: 5.4.5
 
@@ -13637,11 +13616,6 @@ snapshots:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/visitor-keys': 6.21.0
 
-  '@typescript-eslint/scope-manager@7.11.0':
-    dependencies:
-      '@typescript-eslint/types': 7.11.0
-      '@typescript-eslint/visitor-keys': 7.11.0
-
   '@typescript-eslint/scope-manager@7.12.0':
     dependencies:
       '@typescript-eslint/types': 7.12.0
@@ -13661,8 +13635,6 @@ snapshots:
 
   '@typescript-eslint/types@6.21.0': {}
 
-  '@typescript-eslint/types@7.11.0': {}
-
   '@typescript-eslint/types@7.12.0': {}
 
   '@typescript-eslint/typescript-estree@6.21.0(typescript@5.4.5)':
@@ -13673,21 +13645,6 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
-      semver: 7.6.2
-      ts-api-utils: 1.3.0(typescript@5.4.5)
-    optionalDependencies:
-      typescript: 5.4.5
-    transitivePeerDependencies:
-      - supports-color
-
-  '@typescript-eslint/typescript-estree@7.11.0(typescript@5.4.5)':
-    dependencies:
-      '@typescript-eslint/types': 7.11.0
-      '@typescript-eslint/visitor-keys': 7.11.0
-      debug: 4.3.4
-      globby: 11.1.0
-      is-glob: 4.0.3
-      minimatch: 9.0.4
       semver: 7.6.2
       ts-api-utils: 1.3.0(typescript@5.4.5)
     optionalDependencies:
@@ -13738,11 +13695,6 @@ snapshots:
   '@typescript-eslint/visitor-keys@6.21.0':
     dependencies:
       '@typescript-eslint/types': 6.21.0
-      eslint-visitor-keys: 3.4.3
-
-  '@typescript-eslint/visitor-keys@7.11.0':
-    dependencies:
-      '@typescript-eslint/types': 7.11.0
       eslint-visitor-keys: 3.4.3
 
   '@typescript-eslint/visitor-keys@7.12.0':
@@ -14159,9 +14111,9 @@ snapshots:
   astro-eslint-parser@1.0.2(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.8.0
-      '@typescript-eslint/scope-manager': 7.11.0
-      '@typescript-eslint/types': 7.11.0
-      '@typescript-eslint/typescript-estree': 7.11.0(typescript@5.4.5)
+      '@typescript-eslint/scope-manager': 7.12.0
+      '@typescript-eslint/types': 7.12.0
+      '@typescript-eslint/typescript-estree': 7.12.0(typescript@5.4.5)
       astrojs-compiler-sync: 1.0.0(@astrojs/compiler@2.8.0)
       debug: 4.3.4
       entities: 4.5.0
