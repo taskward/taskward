@@ -8,9 +8,10 @@
 
 ### `/apps`
 
-- [`website`](/apps/website/README.md): Front-end web application based on Next.js.
+- [`client`](/apps/client/README.md): Front-end client application based on Next.js.
 - [`mobile`](/apps/mobile/README.md): Mobile application based on React Native Expo.
 - [`server`](/apps/server/README.md): Back-end API server based on Nest.js.
+- [`website`](/apps/website/README.md): Front-end web application based on Next.js.
 
 ### `/packages`
 

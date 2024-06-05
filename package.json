@@ -5,6 +5,7 @@
   "version": "0.0.0",
   "scripts": {
     "admin:dev": "pnpm -F @taskward/admin dev",
+    "client:dev": "pnpm -F @taskward/client dev",
     "mobile:dev:web": "pnpm -F @taskward/mobile web",
     "server:dev": "pnpm -F @taskward/server dev",
     "docker:dev": "docker compose up -d",
@@ -16,6 +17,7 @@
     "prettier:check": "pnpm nx run-many -t prettier:check --all",
     "prettier:fix": "pnpm nx run-many -t prettier:fix --all",
     "bo:cspell": "pnpm bo cspell",
+    "bo:bump": "pnpm up -r '@bit-ocean/*' --latest",
     "cz": "git-cz",
     "prepare": "husky"
   },
@@ -23,13 +25,13 @@
     "@nx/next": "^19.1.2"
   },
   "devDependencies": {
-    "@bit-ocean/cli": "^0.0.21",
-    "@bit-ocean/commitlint-config": "^0.0.21",
-    "@bit-ocean/cspell": "^0.0.21",
-    "@bit-ocean/eslint-config": "^0.0.21",
-    "@bit-ocean/prettier-config": "^0.0.21",
-    "@bit-ocean/renovate-config": "^0.0.21",
-    "@bit-ocean/tsconfig": "^0.0.21",
+    "@bit-ocean/cli": "^0.0.25",
+    "@bit-ocean/commitlint-config": "^0.0.25",
+    "@bit-ocean/cspell": "^0.0.25",
+    "@bit-ocean/eslint-config": "^0.0.25",
+    "@bit-ocean/prettier-config": "^0.0.25",
+    "@bit-ocean/renovate-config": "^0.0.25",
+    "@bit-ocean/tsconfig": "^0.0.25",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@nx/workspace": "19.1.2",
@@ -41,7 +43,7 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "nx": "19.1.2",
-    "prettier": "^3.3.0"
+    "prettier": "^3.3.1"
   },
   "config": {
     "commitizen": {
