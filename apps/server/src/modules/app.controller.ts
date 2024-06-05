@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
+import { type AppConfig, appConfig } from '@taskward/config'
 
 import { AppService } from './app.service'
 
@@ -13,13 +14,13 @@ export class AppController {
     return this.appService.getHello()
   }
 
-  @Get('health')
-  healthCheck(): string {
-    return 'OK'
-  }
-
   @Get('version')
   getVersion(): string {
     return '1.0.0'
+  }
+
+  @Get('info')
+  getInfo(): AppConfig {
+    return appConfig
   }
 }

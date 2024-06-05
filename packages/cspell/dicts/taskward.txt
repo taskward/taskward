@@ -1,3 +1,3 @@
-monokai
 arta
+monokai
 nord

@@ -9,6 +9,7 @@
     "mobile:dev:web": "pnpm -F @taskward/mobile web",
     "server:dev": "pnpm -F @taskward/server dev",
     "docker:dev": "docker compose up -d",
+    "build:packages": "pnpm nx run-many -t build -p @taskward/*",
     "lint:check": "pnpm nx run-many -t type:check cspell:check eslint:check prettier:check --all --parallel=10",
     "type:check": "pnpm nx run-many -t type:check --all",
     "cspell:check": "pnpm nx run-many -t cspell:check --all",
@@ -43,7 +44,8 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "nx": "19.1.2",
-    "prettier": "^3.3.1"
+    "prettier": "^3.3.1",
+    "tsup": "^8.1.0"
   },
   "config": {
     "commitizen": {

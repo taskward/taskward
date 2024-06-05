@@ -15,6 +15,7 @@
 
 ### `/packages`
 
+- [`config`](/packages/config/README.md): Project configuration.
 - [`cspell`](/packages/cspell/README.md): CSpell dictionary configuration.
 
 ## License

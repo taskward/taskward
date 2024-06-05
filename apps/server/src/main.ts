@@ -4,6 +4,7 @@ import { ClassSerializerInterceptor, HttpStatus, VersioningType } from '@nestjs/
 import { NestFactory, Reflector } from '@nestjs/core'
 import type { NestExpressApplication } from '@nestjs/platform-express'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
+import { appConfig } from '@taskward/config'
 import compression from 'compression'
 import helmet from 'helmet'
 
@@ -50,8 +51,8 @@ async function bootstrap() {
   app.setViewEngine('pug')
 
   const config = new DocumentBuilder()
-    .setTitle('Taskward')
-    .setDescription('✅ A minimalist Todo&Tasks web application.')
+    .setTitle(appConfig.appName)
+    .setDescription(appConfig.description)
     .setVersion('1.0')
     .addBearerAuth({
       type: 'http',
