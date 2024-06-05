@@ -4,10 +4,10 @@
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "version": "0.0.0",
   "scripts": {
-    "admin:dev": "pnpm -F @taskward/admin dev",
-    "client:dev": "pnpm -F @taskward/client dev",
-    "mobile:dev:web": "pnpm -F @taskward/mobile web",
-    "server:dev": "pnpm -F @taskward/server dev",
+    "admin:dev": "pnpm -F admin dev",
+    "client:dev": "pnpm -F client dev",
+    "mobile:dev:web": "pnpm -F mobile web",
+    "server:dev": "pnpm -F server dev",
     "docker:dev": "docker compose up -d",
     "build:packages": "pnpm nx run-many -t build -p @taskward/*",
     "lint:check": "pnpm nx run-many -t type:check cspell:check eslint:check prettier:check --all --parallel=10",
@@ -23,7 +23,8 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@nx/next": "^19.1.2"
+    "@nx/next": "^19.1.2",
+    "@taskward/config": "workspace:^"
   },
   "devDependencies": {
     "@bit-ocean/cli": "^0.0.25",
