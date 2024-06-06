@@ -1,7 +1,7 @@
+import { appConfig } from '@taskward/config'
 import { router } from 'expo-router'
 import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native'
 
-import { AppMetadata } from '@/constants'
 import { useAuthStore } from '@/store'
 
 export default function LoginScreen() {
@@ -23,7 +23,7 @@ export default function LoginScreen() {
         source={require('@/assets/images/logo_dev.png')}
         style={styles.image}
       />
-      <Text style={styles.title}>{AppMetadata.APP_NAME}</Text>
+      <Text style={styles.title}>{appConfig.appName}</Text>
       <TextInput placeholder="请输入用户名" />
       <TextInput placeholder="请输入密码" />
       <Button

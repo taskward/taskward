@@ -2,7 +2,6 @@
   "name": "taskward",
   "description": "✅ A minimalist Todo&Tasks web application.",
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
-  "version": "0.0.0",
   "scripts": {
     "admin:dev": "pnpm -F admin dev",
     "client:dev": "pnpm -F client dev",
@@ -23,7 +22,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@nx/next": "^19.1.2",
+    "@nx/next": "^19.2.0",
     "@taskward/config": "workspace:^"
   },
   "devDependencies": {
@@ -36,7 +35,7 @@
     "@bit-ocean/tsconfig": "^0.0.25",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@nx/workspace": "19.1.2",
+    "@nx/workspace": "^19.2.0",
     "@taskward/cspell": "workspace:^",
     "commitizen": "^4.3.0",
     "cspell": "^8.8.4",
@@ -44,7 +43,7 @@
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
-    "nx": "19.1.2",
+    "nx": "^19.2.0",
     "prettier": "^3.3.1",
     "tsup": "^8.1.0"
   },
