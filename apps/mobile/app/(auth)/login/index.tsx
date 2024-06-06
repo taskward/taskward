@@ -23,7 +23,7 @@ export default function LoginScreen() {
         source={require('@/assets/images/logo_dev.png')}
         style={styles.image}
       />
-      <Text style={styles.title}>{appConfig.appName}</Text>
+      <Text style={styles.title}>{appConfig.APP_NAME}</Text>
       <TextInput placeholder="请输入用户名" />
       <TextInput placeholder="请输入密码" />
       <Button

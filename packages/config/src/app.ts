@@ -1,8 +1,8 @@
 import type { AppConfig } from './types'
 
 export const appConfig = Object.freeze<Readonly<AppConfig>>({
-  appName: 'Taskward',
-  description: '✅ A minimalist Todo&Tasks web application.',
-  githubURL: 'https://github.com/taskward',
-  websiteURL: 'https://taskward.bit-ocean.studio'
+  APP_NAME: 'Taskward',
+  DESCRIPTION: '✅ A minimalist Todo&Tasks web application.',
+  GITHUB_URL: 'https://github.com/taskward',
+  WEBSITE_URL: 'https://taskward.bit-ocean.studio'
 })

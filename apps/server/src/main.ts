@@ -51,8 +51,8 @@ async function bootstrap() {
   app.setViewEngine('pug')
 
   const config = new DocumentBuilder()
-    .setTitle(appConfig.appName)
-    .setDescription(appConfig.description)
+    .setTitle(appConfig.APP_NAME)
+    .setDescription(appConfig.DESCRIPTION)
     .setVersion('1.0')
     .addBearerAuth({
       type: 'http',
