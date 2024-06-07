@@ -1,7 +1,6 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": "@bit-ocean/tsconfig/expo",
   "compilerOptions": {
-    "strict": true,
     "paths": {
       "@/*": ["./*"]
     }
