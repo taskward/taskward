@@ -27,7 +27,7 @@
     "prisma:generate:watch": "dotenv -e ../../.env -- prisma generate --watch",
     "prisma:migrate:dev": "dotenv -e ../../.env -- prisma migrate dev --skip-seed",
     "prisma:migrate:deploy": "dotenv -e ../../.env -- prisma migrate deploy",
-    "prisma:seed": "prisma db seed",
+    "prisma:seed": "dotenv -e ../../.env prisma db seed",
     "prisma:reset": "prisma migrate reset",
     "prisma:studio": "prisma studio",
     "prisma:validate": "prisma validate",
@@ -49,6 +49,7 @@
     "@nestjs/terminus": "^10.2.3",
     "@node-rs/bcrypt": "^1.10.4",
     "@prisma/client": "5.15.0",
+    "@taskward/config": "workspace:^",
     "axios": "^1.7.2",
     "class-transformer": "^0.5.1",
     "compression": "^1.7.4",
@@ -67,7 +68,6 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.2",
     "@types/supertest": "^6.0.2",
-    "bun": "^1.1.12",
     "dotenv-cli": "^7.4.2",
     "jest": "^29.7.0",
     "prisma": "^5.15.0",
@@ -99,7 +99,7 @@
   },
   "prisma": {
     "schema": "prisma/schema",
-    "seed": "bun run prisma/seed/index.ts"
+    "seed": "ts-node prisma/seed/index.ts"
   },
   "private": true,
   "license": "MIT"

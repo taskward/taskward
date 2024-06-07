@@ -1,7 +1,8 @@
 {
   "extends": "@bit-ocean/tsconfig/nest",
   "compilerOptions": {
-    "baseUrl": "./",
+    "outDir": "dist",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
