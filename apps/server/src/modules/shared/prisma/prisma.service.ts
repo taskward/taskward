@@ -12,21 +12,21 @@ export class PrismaService
   constructor(
     @Optional()
     @Inject(PRISMA_SERVICE_OPTIONS)
-    private readonly prismaServiceOptions: PrismaServiceOptions = {}
+    private readonly options: PrismaServiceOptions = {}
   ) {
-    super(prismaServiceOptions.prismaOptions)
+    super(options.prismaOptions)
 
-    if (this.prismaServiceOptions.middlewares) {
-      this.prismaServiceOptions.middlewares.forEach((middleware) => this.$use(middleware))
+    if (this.options.middlewares) {
+      this.options.middlewares.forEach((middleware) => this.$use(middleware))
     }
 
-    if (this.prismaServiceOptions.extensions) {
-      this.prismaServiceOptions.extensions.forEach((extension) => this.$extends(extension))
+    if (this.options.extensions) {
+      this.options.extensions.forEach((extension) => this.$extends(extension))
     }
   }
 
   async onModuleInit() {
-    if (this.prismaServiceOptions.explicitConnect) {
+    if (this.options.explicitConnect) {
       await this.$connect()
     }
   }

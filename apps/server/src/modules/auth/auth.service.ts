@@ -4,12 +4,13 @@ import { plainToClass } from 'class-transformer'
 
 import type { CustomRequest, JwtPayload } from '@/shared/interfaces'
 
+import { PrismaService } from '../shared/prisma/prisma.service'
 import { UserVo } from '../users/vo'
 import type { LoginDto } from './dto'
 
 @Injectable()
 export class AuthService {
-  // constructor(private readonly prismaService: PrismaService) {}
+  constructor(private readonly prismaService: PrismaService) {}
 
   async login(loginDto: LoginDto, req: CustomRequest) {
     const userVo = await this.loginByUsername(loginDto)
@@ -22,16 +23,13 @@ export class AuthService {
 
   async loginByUsername(loginDto: LoginDto) {
     const { username, password } = loginDto
-    const user = {
-      password: ''
-    }
-    // await this.prismaService.user.findUnique({
-    //   where: {
-    //     username,
-    //     enabled: true,
-    //     deletedAt: null
-    //   }
-    // })
+    const user = await this.prismaService.user.findUnique({
+      where: {
+        username,
+        enabled: true,
+        deletedAt: null
+      }
+    })
 
     if (!user) {
       throw new BadRequestException('用户名不存在')

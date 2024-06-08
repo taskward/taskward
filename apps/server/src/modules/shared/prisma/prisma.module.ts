@@ -16,7 +16,7 @@ export class PrismaModule {
       providers: [
         {
           provide: PRISMA_SERVICE_OPTIONS,
-          useValue: options.options
+          useValue: options.prismaServiceOptions
         }
       ]
     }
@@ -26,7 +26,7 @@ export class PrismaModule {
     return {
       global: options.isGlobal,
       module: PrismaModule,
-      imports: options.imports || [],
+      imports: options.imports ?? [],
       providers: this.createAsyncProviders(options)
     }
   }
@@ -38,10 +38,14 @@ export class PrismaModule {
 
     return [
       ...this.createAsyncOptionsProvider(options),
-      {
-        provide: options.useClass,
-        useClass: options.useClass
-      } as Provider
+      ...(options.useClass
+        ? [
+            {
+              provide: options.useClass,
+              useClass: options.useClass
+            }
+          ]
+        : [])
     ]
   }
 
@@ -51,17 +55,33 @@ export class PrismaModule {
         {
           provide: PRISMA_SERVICE_OPTIONS,
           useFactory: options.useFactory,
-          inject: options.inject || []
+          inject: options.inject ?? []
         }
       ]
     }
-    return [
-      {
-        provide: PRISMA_SERVICE_OPTIONS,
-        useFactory: async (optionsFactory: PrismaOptionsFactory) =>
-          optionsFactory.createPrismaOptions(),
-        inject: [options.useExisting || options.useClass]
-      } as Provider
-    ]
+
+    if (options.useExisting) {
+      return [
+        {
+          provide: PRISMA_SERVICE_OPTIONS,
+          useFactory: async (optionsFactory: PrismaOptionsFactory) =>
+            optionsFactory.createPrismaOptions(),
+          inject: [options.useExisting]
+        }
+      ]
+    }
+
+    if (options.useClass) {
+      return [
+        {
+          provide: PRISMA_SERVICE_OPTIONS,
+          useFactory: async (optionsFactory: PrismaOptionsFactory) =>
+            optionsFactory.createPrismaOptions(),
+          inject: [options.useClass]
+        }
+      ]
+    }
+
+    return []
   }
 }

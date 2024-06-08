@@ -9,6 +9,7 @@ import { AppController } from './app.controller'
 import { AuthModule } from './auth/auth.module'
 import { HealthModule } from './health/health.module'
 import { PrismaModule } from './shared/prisma/prisma.module'
+import { UsersModule } from './users/users.module'
 
 @Module({
   imports: [
@@ -21,9 +22,12 @@ import { PrismaModule } from './shared/prisma/prisma.module'
     }),
     PrismaModule.forRoot({
       isGlobal: true,
-      options: {
-        explicitConnect: true,
-        prismaOptions: {}
+      prismaServiceOptions: {
+        prismaOptions: {
+          log: [],
+          errorFormat: 'pretty'
+        },
+        explicitConnect: true
       }
     }),
     ThrottlerModule.forRoot([
@@ -32,7 +36,8 @@ import { PrismaModule } from './shared/prisma/prisma.module'
       { name: 'long', ttl: 60000, limit: 600 }
     ]),
     HealthModule,
-    AuthModule
+    AuthModule,
+    UsersModule
   ],
   controllers: [AppController],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }]
