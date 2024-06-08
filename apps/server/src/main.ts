@@ -1,6 +1,11 @@
 import { join } from 'node:path'
 
-import { ClassSerializerInterceptor, HttpStatus, VersioningType } from '@nestjs/common'
+import {
+  ClassSerializerInterceptor,
+  HttpStatus,
+  ValidationPipe,
+  VersioningType
+} from '@nestjs/common'
 import { NestFactory, Reflector } from '@nestjs/core'
 import type { NestExpressApplication } from '@nestjs/platform-express'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
@@ -37,7 +42,16 @@ async function bootstrap() {
 
   app.enableVersioning({ type: VersioningType.URI })
 
-  app.useGlobalPipes()
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true
+      },
+      stopAtFirstError: true
+    })
+  )
 
   app.useGlobalFilters()
 

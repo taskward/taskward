@@ -10,7 +10,7 @@ import {
 } from '@nestjs/terminus'
 import { PrismaClient } from '@prisma/client'
 
-@ApiTags('Health Check')
+@ApiTags('健康检查')
 @Controller('health')
 export class HealthController {
   constructor(

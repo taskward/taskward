@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import { type AppConfig, appConfig } from '@taskward/config'
 
-@ApiTags('App')
+@ApiTags('应用')
 @Controller('app')
 export class AppController {
   @Get('version')

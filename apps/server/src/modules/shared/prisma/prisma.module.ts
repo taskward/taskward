@@ -16,7 +16,7 @@ export class PrismaModule {
       providers: [
         {
           provide: PRISMA_SERVICE_OPTIONS,
-          useValue: options.prismaServiceOptions
+          useValue: options.options
         }
       ]
     }

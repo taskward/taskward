@@ -6,7 +6,7 @@ export interface PrismaModuleOptions {
    * If `true`, the `PrismaService` will be a global module.
    */
   isGlobal?: boolean
-  prismaServiceOptions?: PrismaServiceOptions
+  options?: PrismaServiceOptions
 }
 
 export interface PrismaServiceOptions {
