@@ -1,8 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common'
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger'
 
-import { Jwt } from '@/shared/decorators'
-
 import { CreateUserDto } from './dto/create-user.dto'
 import { UsersService } from './users.service'
 
@@ -14,8 +12,8 @@ export class UsersController {
 
   @ApiOperation({ summary: '创建用户' })
   @Post()
-  create(@Body() createUserDto: CreateUserDto, @Jwt('sub') createdBy: number) {
-    return this.usersService.create(createUserDto, createdBy)
+  create(@Body() createUserDto: CreateUserDto) {
+    return this.usersService.create(createUserDto)
   }
 
   @ApiOperation({ summary: '用户列表' })

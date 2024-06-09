@@ -1,21 +1,35 @@
-import { Injectable } from '@nestjs/common'
+import { Inject, Injectable, Scope } from '@nestjs/common'
+import { REQUEST } from '@nestjs/core'
+
+import type { CustomRequest } from '@/shared/interfaces'
 
 import { PrismaService } from '../shared/prisma/prisma.service'
 import { CreateUserDto } from './dto/create-user.dto'
 
-@Injectable()
+@Injectable({ scope: Scope.REQUEST })
 export class UsersService {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(
+    private readonly prismaService: PrismaService,
+    @Inject(REQUEST) private readonly request: CustomRequest
+  ) {}
 
-  create(createUserDto: CreateUserDto, createdBy: number) {
-    return 'This action adds a new user'
+  async create(createUserDto: CreateUserDto) {
+    await this.prismaService.user.create({
+      data: {
+        ...createUserDto,
+        nickName: 'test',
+        createdBy: this.request.jwtPayload!.sub!
+      }
+    })
   }
 
-  findAll() {
-    return this.prismaService.user.findMany()
+  async findAll() {
+    await this.prismaService.user.findMany()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`
+  async findOne(id: number) {
+    await this.prismaService.user.findUnique({
+      where: { id }
+    })
   }
 }
