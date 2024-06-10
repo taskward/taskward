@@ -21,9 +21,6 @@
     "cz": "git-cz",
     "prepare": "husky"
   },
-  "dependencies": {
-    "@nx/next": "19.2.2"
-  },
   "devDependencies": {
     "@bit-ocean/cli": "^0.0.27",
     "@bit-ocean/commitlint-config": "^0.0.27",
