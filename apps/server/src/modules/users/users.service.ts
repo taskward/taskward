@@ -3,7 +3,7 @@ import { REQUEST } from '@nestjs/core'
 
 import type { CustomRequest } from '@/shared/interfaces'
 
-import type { PrismaService } from '../shared/prisma/prisma.service'
+import { PrismaService } from '../shared/prisma/prisma.service'
 import { CreateUserDto } from './dto/create-user.dto'
 
 @Injectable({ scope: Scope.REQUEST })
