@@ -18,8 +18,8 @@ export class UsersController {
 
   @ApiOperation({ summary: '用户列表' })
   @Get()
-  findAll() {
-    return this.usersService.findAll()
+  findMany() {
+    return this.usersService.findMany()
   }
 
   @ApiOperation({ summary: '用户详情 [id]' })
