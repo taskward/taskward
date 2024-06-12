@@ -2,7 +2,7 @@ import { Inject, Injectable, type OnModuleDestroy, OnModuleInit, Optional } from
 import { Prisma, PrismaClient } from '@prisma/client'
 
 import { PRISMA_SERVICE_OPTIONS } from './constants'
-import { PrismaServiceOptions } from './interfaces'
+import { type PrismaServiceOptions } from './interfaces'
 
 @Injectable()
 export class PrismaService
@@ -18,10 +18,6 @@ export class PrismaService
 
     if (this.options.middlewares) {
       this.options.middlewares.forEach((middleware) => this.$use(middleware))
-    }
-
-    if (this.options.extensions) {
-      this.options.extensions.forEach((extension) => this.$extends(extension))
     }
   }
 

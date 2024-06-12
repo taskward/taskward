@@ -1,10 +1,10 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
 import { compare } from '@node-rs/bcrypt'
+import { PrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
 import type { CustomRequest, JwtPayload } from '@/shared/interfaces'
 
-import { PrismaService } from '../shared/prisma/prisma.service'
 import { UserVo } from '../users/vo'
 import type { LoginDto } from './dto'
 

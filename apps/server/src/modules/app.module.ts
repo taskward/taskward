@@ -2,13 +2,13 @@ import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { APP_GUARD } from '@nestjs/core'
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
+import { PrismaModule } from '@taskward/prisma'
 
 import { postgresConfig } from '@/shared/configs'
 
 import { AppController } from './app.controller'
 import { AuthModule } from './auth/auth.module'
 import { HealthModule } from './health/health.module'
-import { PrismaModule } from './shared/prisma/prisma.module'
 import { UsersModule } from './users/users.module'
 
 @Module({

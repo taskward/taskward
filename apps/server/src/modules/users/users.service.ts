@@ -1,9 +1,9 @@
 import { Inject, Injectable, Scope } from '@nestjs/common'
 import { REQUEST } from '@nestjs/core'
+import { PrismaService } from '@taskward/prisma'
 
 import type { CustomRequest } from '@/shared/interfaces'
 
-import { PrismaService } from '../shared/prisma/prisma.service'
 import { CreateUserDto } from './dto/create-user.dto'
 
 @Injectable({ scope: Scope.REQUEST })
@@ -14,7 +14,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    await this.prismaService.user.create({
+    return this.prismaService.user.create({
       data: {
         ...createUserDto,
         nickName: 'test'
@@ -23,11 +23,11 @@ export class UsersService {
   }
 
   async findMany() {
-    await this.prismaService.user.findMany()
+    return this.prismaService.user.findMany()
   }
 
   async findOne(id: number) {
-    await this.prismaService.user.findUnique({
+    return this.prismaService.user.findUnique({
       where: { id }
     })
   }

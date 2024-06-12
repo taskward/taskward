@@ -3,9 +3,12 @@ import type { Prisma } from '@prisma/client'
 
 export interface PrismaModuleOptions {
   /**
-   * If `true`, the `PrismaService` will be a global module.
+   * If `true`, the `PrismaModule` will be a global module.
    */
   isGlobal?: boolean
+  /**
+   * Options for `PrismaService`.
+   */
   prismaServiceOptions?: PrismaServiceOptions
 }
 
@@ -27,15 +30,10 @@ export interface PrismaServiceOptions {
    * @see https://www.prisma.io/docs/orm/prisma-client/client-extensions/middleware
    */
   middlewares?: Prisma.Middleware[]
-  /**
-   * Apply Prisma extensions to extend the functionality of the Prisma Client.
-   * @see https://www.prisma.io/docs/orm/prisma-client/client-extensions
-   */
-  extensions?: ReturnType<typeof Prisma.defineExtension>[]
 }
 
 export interface PrismaOptionsFactory {
-  createPrismaOptions(): PrismaServiceOptions | Promise<PrismaServiceOptions>
+  createPrismaOptions: () => PrismaServiceOptions | Promise<PrismaServiceOptions>
 }
 
 export interface PrismaModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
