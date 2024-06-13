@@ -2,7 +2,7 @@ import { Inject, Injectable, type OnModuleDestroy, OnModuleInit, Optional } from
 import { Prisma, PrismaClient } from '@prisma/client'
 
 import { PRISMA_SERVICE_OPTIONS } from './constants'
-import { type PrismaServiceOptions } from './interfaces'
+import { type PrismaServiceOptions } from './types'
 
 @Injectable()
 export class PrismaService
