@@ -3,7 +3,8 @@ import type { Prisma } from '@prisma/client'
 
 export interface PrismaModuleOptions {
   /**
-   * If `true`, the `PrismaModule` will be a global module.
+   * If `true`, registers `PrismaModule` as a global module.
+   * @See https://docs.nestjs.com/modules#global-modules
    */
   isGlobal?: boolean
   /**
@@ -37,6 +38,10 @@ export interface PrismaOptionsFactory {
 }
 
 export interface PrismaModuleAsyncOptions extends Pick<ModuleMetadata, 'imports'> {
+  /**
+   * If `true`, registers `PrismaModule` as a global module.
+   * @See https://docs.nestjs.com/modules#global-modules
+   */
   isGlobal?: boolean
   useExisting?: Type<PrismaOptionsFactory>
   useClass?: Type<PrismaOptionsFactory>

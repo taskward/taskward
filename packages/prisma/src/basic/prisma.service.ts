@@ -1,8 +1,8 @@
 import { Inject, Injectable, type OnModuleDestroy, OnModuleInit, Optional } from '@nestjs/common'
 import { Prisma, PrismaClient } from '@prisma/client'
 
-import { PRISMA_SERVICE_OPTIONS } from './constants'
-import { type PrismaServiceOptions } from './types'
+import { PRISMA_SERVICE_OPTIONS } from './prisma.constants'
+import { type PrismaServiceOptions } from './prisma.interfaces'
 
 @Injectable()
 export class PrismaService

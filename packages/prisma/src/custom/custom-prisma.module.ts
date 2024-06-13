@@ -1,13 +1,13 @@
 import { DynamicModule, Logger, Module, Provider } from '@nestjs/common'
 
-import { CUSTOM_PRISMA_CLIENT } from './constants'
-import { CustomPrismaService } from './custom-prisma.service'
+import { CUSTOM_PRISMA_CLIENT } from './custom-prisma.constants'
 import {
   CustomPrismaClientFactory,
   CustomPrismaModuleAsyncOptions,
   CustomPrismaModuleOptions,
   PrismaClientLike
-} from './types'
+} from './custom-prisma.interfaces'
+import { CustomPrismaService } from './custom-prisma.service'
 
 @Module({})
 export class CustomPrismaModule {
@@ -20,7 +20,10 @@ export class CustomPrismaModule {
       global: options.isGlobal,
       module: CustomPrismaModule,
       providers: [
-        { provide: CUSTOM_PRISMA_CLIENT, useValue: options.client },
+        {
+          provide: CUSTOM_PRISMA_CLIENT,
+          useValue: options.client
+        },
         {
           provide: options.name,
           useClass: CustomPrismaService

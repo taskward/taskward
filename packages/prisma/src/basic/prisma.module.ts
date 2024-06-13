@@ -1,8 +1,12 @@
 import { DynamicModule, Module, Provider } from '@nestjs/common'
 
-import { PRISMA_SERVICE_OPTIONS } from './constants'
+import { PRISMA_SERVICE_OPTIONS } from './prisma.constants'
+import {
+  PrismaModuleAsyncOptions,
+  PrismaModuleOptions,
+  PrismaOptionsFactory
+} from './prisma.interfaces'
 import { PrismaService } from './prisma.service'
-import { PrismaModuleAsyncOptions, PrismaModuleOptions, PrismaOptionsFactory } from './types'
 
 @Module({
   providers: [PrismaService],
