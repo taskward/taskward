@@ -2,15 +2,14 @@ import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { APP_GUARD } from '@nestjs/core'
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
-import { CustomPrismaModule, PrismaModule } from '@taskward/prisma'
+import { CustomPrismaModule } from '@taskward/prisma'
 
 import { postgresConfig } from '@/shared/configs'
 
 import { AppController } from './app.controller'
 import { AuthModule } from './auth/auth.module'
 import { HealthModule } from './health/health.module'
-import { extendedPrismaClient } from './shared/prisma/extended-prisma-client'
-import { EXTENDED_PRISMA_CLIENT } from './shared/prisma/extended-prisma-client.constants'
+import { EXTENDED_PRISMA_CLIENT, extendedPrismaClient } from './shared/prisma'
 import { UsersModule } from './users/users.module'
 
 @Module({
@@ -21,16 +20,6 @@ import { UsersModule } from './users/users.module'
       cache: true,
       expandVariables: true,
       load: [postgresConfig]
-    }),
-    PrismaModule.forRoot({
-      isGlobal: true,
-      prismaServiceOptions: {
-        prismaOptions: {
-          log: [],
-          errorFormat: 'pretty'
-        },
-        explicitConnect: true
-      }
     }),
     CustomPrismaModule.forRootAsync({
       isGlobal: true,

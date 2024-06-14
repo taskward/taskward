@@ -1,16 +1,20 @@
-import { BadRequestException, Injectable } from '@nestjs/common'
+import { BadRequestException, Inject, Injectable } from '@nestjs/common'
 import { compare } from '@node-rs/bcrypt'
-import { PrismaService } from '@taskward/prisma'
+import { CustomPrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
 import type { CustomRequest, JwtPayload } from '@/shared/interfaces'
 
+import { EXTENDED_PRISMA_CLIENT, type ExtendedPrismaClient } from '../shared/prisma'
 import { UserVo } from '../users/vo'
 import type { LoginDto } from './dto'
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prismaService: PrismaService) {}
+  constructor(
+    @Inject(EXTENDED_PRISMA_CLIENT)
+    private readonly prisma: CustomPrismaService<ExtendedPrismaClient>
+  ) {}
 
   async login(loginDto: LoginDto, req: CustomRequest) {
     const userVo = await this.loginByUsername(loginDto)
@@ -23,7 +27,7 @@ export class AuthService {
 
   async loginByUsername(loginDto: LoginDto) {
     const { username, password } = loginDto
-    const user = await this.prismaService.user.findUnique({
+    const user = await this.prisma.client.user.findUnique({
       where: {
         username,
         enabled: true,
