@@ -3,7 +3,7 @@
   "settings": {
     // https://nextjs.org/docs/app/building-your-application/configuring/eslint#custom-settings
     "next": {
-      "rootDir": "apps/client/"
+      "rootDir": "apps/client"
     }
   }
 }
