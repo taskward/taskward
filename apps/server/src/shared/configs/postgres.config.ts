@@ -3,10 +3,8 @@ import { env } from 'node:process'
 import { registerAs } from '@nestjs/config'
 
 import { EnvUndefinedError } from './env-undefined-error'
-import type { PostgresConfig } from './interfaces'
-import { POSTGRES_CONFIG_KEY } from './tokens'
 
-export const postgresConfig = registerAs<PostgresConfig>(POSTGRES_CONFIG_KEY, () => {
+export const PostgresEnvConfig = registerAs('postgres', () => {
   if (!env.POSTGRES_USER) {
     throw new EnvUndefinedError('POSTGRES_USER')
   }

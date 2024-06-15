@@ -1,3 +1,4 @@
 arta
 monokai
 nord
+picocolors

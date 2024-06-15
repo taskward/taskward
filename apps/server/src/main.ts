@@ -6,6 +6,8 @@ import {
   ValidationPipe,
   VersioningType
 } from '@nestjs/common'
+import type { ConfigType } from '@nestjs/config'
+import { ConfigService } from '@nestjs/config'
 import { NestFactory, Reflector } from '@nestjs/core'
 import type { NestExpressApplication } from '@nestjs/platform-express'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
@@ -15,21 +17,28 @@ import helmet from 'helmet'
 
 import { AppModule } from '@/modules/app.module'
 
+import { CustomLogger } from './modules/shared/logger/logger.service'
+import type { AppEnvConfig } from './shared/configs'
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     abortOnError: false,
     bodyParser: true,
     bufferLogs: true
-    // logger: false
   })
 
+  const configService = app.get(ConfigService)
+  const appEnvConfig = configService.get<ConfigType<typeof AppEnvConfig>>('app')!
+
+  app.useLogger(new CustomLogger())
   app.use(helmet())
   app.use(compression())
 
   const corsOriginWhiteList = ['https://bit-ocean.studio']
 
-  // TODO: Enable CORS localhost in STAGING env.
-  corsOriginWhiteList.push('http://localhost:*')
+  if (!appEnvConfig) {
+    corsOriginWhiteList.push('http://localhost:*')
+  }
 
   app.enableCors({
     origin: corsOriginWhiteList,
@@ -67,7 +76,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle(appConfig.APP_NAME)
     .setDescription(appConfig.DESCRIPTION)
-    .setVersion('1.0')
+    .setVersion(appEnvConfig.APP_VERSION)
     .addBearerAuth({
       type: 'http',
       description: 'JWT Bearer token authentication',
@@ -96,6 +105,6 @@ async function bootstrap() {
     }
   })
 
-  await app.listen(4077)
+  await app.listen(appEnvConfig.APP_PORT)
 }
 bootstrap()
