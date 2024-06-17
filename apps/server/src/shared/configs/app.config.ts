@@ -11,12 +11,12 @@ export enum AppEnv {
 }
 
 export const AppEnvConfig = registerAs('app', () => {
-  if (!env.APP_PORT) {
-    throw new EnvUndefinedError('APP_PORT')
+  if (!env.SERVER_PORT) {
+    throw new EnvUndefinedError('SERVER_PORT')
   }
 
-  if (!env.APP_VERSION) {
-    throw new EnvUndefinedError('APP_VERSION')
+  if (!env.SERVER_VERSION) {
+    throw new EnvUndefinedError('SERVER_VERSION')
   }
 
   if (!validateNodeEnv(env.NODE_ENV)) {
@@ -24,8 +24,8 @@ export const AppEnvConfig = registerAs('app', () => {
   }
 
   return Object.freeze({
-    APP_PORT: parseInt(env.APP_PORT, 10),
-    APP_VERSION: env.APP_VERSION,
+    APP_PORT: parseInt(env.SERVER_PORT, 10),
+    APP_VERSION: env.SERVER_VERSION,
     APP_ENV: env.NODE_ENV,
     IS_DEV: env.NODE_ENV === AppEnv.DEV,
     IS_STAGING: env.NODE_ENV === AppEnv.STAGING,
