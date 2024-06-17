@@ -7,6 +7,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import type { PropsWithChildren } from 'react'
 
+import { AntdProvider } from '@/providers'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -30,7 +32,9 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
           'max-w-screen flex min-h-screen flex-col overflow-x-hidden'
         )}
       >
-        <AntdRegistry>{children}</AntdRegistry>
+        <AntdRegistry>
+          <AntdProvider>{children}</AntdProvider>
+        </AntdRegistry>
       </body>
     </html>
   )

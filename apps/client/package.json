@@ -21,6 +21,7 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
+    "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/nextjs-registry": "^1.0.0",
     "@taskward/config": "workspace:^",
     "antd": "^5.18.2",
