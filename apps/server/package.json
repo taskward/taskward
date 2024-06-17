@@ -30,7 +30,7 @@
     "prisma:migrate:deploy": "pnpm set:env -- prisma migrate deploy",
     "prisma:seed": "pnpm set:env -- prisma db seed",
     "prisma:reset": "prisma migrate reset",
-    "prisma:studio": "prisma studio",
+    "prisma:studio": "pnpm set:env -- prisma studio",
     "prisma:validate": "prisma validate",
     "prisma:format": "prisma format",
     "type:check": "tsc --pretty --noEmit",
