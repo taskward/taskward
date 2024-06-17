@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 import { Controller, Get } from '@nestjs/common'
 import { ApiTags } from '@nestjs/swagger'
 import {
@@ -28,12 +30,15 @@ export class HealthController {
       () => this.http.pingCheck('nestjs-docs', 'https://docs.nestjs.com'),
       () =>
         this.http.responseCheck(
-          'Taskward API',
-          'http://localhost:4077/info',
+          'Taskward API Version',
+          'http://localhost:4077/app/version',
           (res) => res.status === 200
         ),
       () =>
-        this.disk.checkStorage('storage', { thresholdPercent: 1 * 1024 * 1024 * 1024, path: '/' }), // 1GB
+        this.disk.checkStorage('storage', {
+          thresholdPercent: 1 * 1024 * 1024 * 1024,
+          path: process.platform === 'win32' ? 'C:\\' : '/'
+        }), // 1GB
       () => this.memory.checkHeap('memory_heap', 150 * 1024 * 1024), // 150MB
       () => this.memory.checkRSS('memory_rss', 150 * 1024 * 1024), // 150MB
       async () => this.prismaHealth.pingCheck('prisma', new PrismaClient()) // TODO: Use Prisma shared instance

@@ -10,7 +10,7 @@
     "directory": "apps/client"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "type:check": "tsc --pretty --noEmit",
@@ -23,10 +23,13 @@
   "dependencies": {
     "@taskward/config": "workspace:^",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.11",
+    "immer": "^10.1.1",
     "next": "^14.2.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sass": "^1.77.5"
+    "sass": "^1.77.5",
+    "use-immer": "^0.10.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
