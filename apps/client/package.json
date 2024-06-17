@@ -21,7 +21,9 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.0",
     "@taskward/config": "workspace:^",
+    "antd": "^5.18.2",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "immer": "^10.1.1",

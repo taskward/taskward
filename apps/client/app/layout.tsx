@@ -1,5 +1,6 @@
 import './globals.scss'
 
+import { AntdRegistry } from '@ant-design/nextjs-registry'
 import { appConfig } from '@taskward/config'
 import clsx from 'clsx'
 import type { Metadata } from 'next'
@@ -29,7 +30,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
           'max-w-screen flex min-h-screen flex-col overflow-x-hidden'
         )}
       >
-        {children}
+        <AntdRegistry>{children}</AntdRegistry>
       </body>
     </html>
   )
