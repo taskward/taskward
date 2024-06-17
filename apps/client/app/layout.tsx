@@ -4,12 +4,12 @@ import { AntdRegistry } from '@ant-design/nextjs-registry'
 import { appConfig } from '@taskward/config'
 import clsx from 'clsx'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Nunito } from 'next/font/google'
 import type { PropsWithChildren } from 'react'
 
 import { AntdProvider } from '@/providers'
 
-const inter = Inter({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ['latin'], display: 'auto' })
 
 export const metadata: Metadata = {
   title: appConfig.APP_NAME,
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       </head>
       <body
         className={clsx(
-          inter.className,
+          nunito.className,
           'max-w-screen flex min-h-screen flex-col overflow-x-hidden'
         )}
       >
