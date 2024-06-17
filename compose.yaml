@@ -12,4 +12,7 @@ services:
     ports:
       - 5432:5432
     env_file:
-      - .env
+      - path: .env.local
+        required: false
+      - path: .env
+        required: false
