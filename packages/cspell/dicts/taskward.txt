@@ -2,3 +2,4 @@ arta
 monokai
 nord
 picocolors
+nextjs

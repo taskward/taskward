@@ -2,21 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  // main {
-  //   ::before {
-  //     background-size: 100px 100px;
-  //     z-index: -2;
-  //     background-image: url(/images/background/grid.png);
-  //     background-position-y: -9px;
-  //     -webkit-mask-image: linear-gradient(to bottom, transparent, 10%, white, 90%, transparent);
-  //     mask-image: linear-gradient(to bottom, transparent, 10%, white, 90%, transparent);
-  //     position: absolute;
-  //     aspect-ratio: 1 / 1;
-  //     width: 100%;
-  //     content: '';
-  //     -webkit-mask-image: linear-gradient(to bottom, white, transparent);
-  //     mask-image: linear-gradient(to bottom, white, transparent);
-  //   }
-  // }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+[data-theme='dark'] {
+  color: #ffffff;
 }
