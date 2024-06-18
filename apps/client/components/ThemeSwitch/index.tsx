@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { Theme } from '@/enums'
 import { ThemeUtils } from '@/utils'
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitch() {
   const [theme, setTheme] = useState(Theme.LIGHT)
 
   const toggleTheme = () => {
