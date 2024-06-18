@@ -1,1 +1,1 @@
-export { default as ThemeSwitcher } from './ThemeSwitcher.ts'
+export { default as ThemeSwitch } from './ThemeSwitch'

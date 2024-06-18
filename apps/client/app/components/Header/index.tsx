@@ -1,6 +1,6 @@
 import { appConfig } from '@taskward/config'
 
-import { ThemeSwitcher } from '@/components'
+import { ThemeSwitch } from '@/components'
 
 export default function Header() {
   return (
@@ -8,7 +8,7 @@ export default function Header() {
       <div className="select-none font-semibold">{appConfig.APP_NAME}</div>
 
       <div className="flex items-center">
-        <ThemeSwitcher />
+        <ThemeSwitch />
       </div>
     </div>
   )
