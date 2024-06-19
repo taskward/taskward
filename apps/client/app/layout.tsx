@@ -22,7 +22,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
       <head>
         <link
           rel="icon"
-          href="/images/logo/arc.png"
+          href="/favicon.ico"
           sizes="any"
         />
       </head>

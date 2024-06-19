@@ -1,0 +1,74 @@
+@use 'tailwind.scss';
+@use 'fonts.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  font-family:
+    Nunito,
+    Noto Sans SC,
+    system-ui,
+    -apple-system,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  height: auto;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+[data-theme='dark'] {
+  color: #ffffff;
+}
+
+.taskward-hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  -webkit-overflow-scrolling: touch; /* iOS (Safari and Chrome) */
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background: transparent; /* Chrome, Safari, and Edge */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 9999;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+}
+
+[data-theme='dark']::view-transition-old(root) {
+  z-index: 1;
+}
+
+[data-theme='dark']::view-transition-new(root) {
+  z-index: 9999;
+}
