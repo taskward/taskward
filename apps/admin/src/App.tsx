@@ -1,11 +1,14 @@
-import { Button } from 'antd'
+import { Content, Header, Sidebar } from './pages/components'
 
 function App() {
   return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-      <div className="text-red-600">content</div>
-    </div>
+    <main className="flex h-screen flex-col">
+      <Header />
+      <div className="flex grow">
+        <Sidebar />
+        <Content />
+      </div>
+    </main>
   )
 }
 
