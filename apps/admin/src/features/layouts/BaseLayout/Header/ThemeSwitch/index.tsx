@@ -1,8 +1,8 @@
 import { Switch } from 'antd'
 import { useState } from 'react'
 
-import { Theme } from '../../enums'
-import { ThemeUtils } from '../../utils/theme'
+import { Theme } from '@/shared/enums'
+import { ThemeUtils } from '@/shared/utils'
 
 export default function ThemeSwitch() {
   const [theme, setTheme] = useState(Theme.LIGHT)
