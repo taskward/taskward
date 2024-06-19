@@ -1,6 +1,6 @@
 # @taskward/admin
 
-> ✅ Taskward Admin Panel.
+> ✅ Taskward admin app.
 
 ## License
 

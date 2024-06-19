@@ -8,6 +8,7 @@
 
 ### `/apps`
 
+- [`admin`](/apps/admin/README.md): Front-end admin application based on React and Vite.
 - [`client`](/apps/client/README.md): Front-end client application based on Next.js.
 - [`mobile`](/apps/mobile/README.md): Mobile application based on React Native Expo.
 - [`server`](/apps/server/README.md): Back-end API server based on Nest.js.

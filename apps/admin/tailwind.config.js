@@ -5,5 +5,6 @@ export default {
     extend: {}
   },
   plugins: [],
-  darkMode: ['class', '[data-theme="dark"]']
+  // eslint-disable-next-line global-require
+  presets: [require('@bit-ocean/tailwind')]
 }

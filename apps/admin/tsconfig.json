@@ -1,10 +1,10 @@
 {
+  "extends": "@bit-ocean/tsconfig/react",
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "extends": "@bit-ocean/tsconfig/react",
   "include": ["src"],
   "references": [
     {
