@@ -2,11 +2,12 @@ import '@/assets/styles/main.scss'
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
 
-import App from '@/app'
+import { router } from '@/routes'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
