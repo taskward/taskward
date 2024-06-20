@@ -3,6 +3,8 @@ import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 
 import ReactSWC from '@vitejs/plugin-react-swc'
+import AutoImport from 'unplugin-auto-import/vite'
+import Icons from 'unplugin-icons/vite'
 import { defineConfig, loadEnv, type ProxyOptions } from 'vite'
 
 export default defineConfig(({ mode }) => {
@@ -32,7 +34,19 @@ export default defineConfig(({ mode }) => {
 
   return {
     envDir: '../..',
-    plugins: [ReactSWC()],
+    plugins: [
+      ReactSWC(),
+      AutoImport({
+        dts: '@types/auto-imports.d.ts',
+        include: [/\.[tj]sx?$/, /\.md$/],
+        imports: ['react']
+      }),
+      Icons({
+        autoInstall: true,
+        compiler: 'jsx',
+        jsx: 'react'
+      })
+    ],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('src', import.meta.url))

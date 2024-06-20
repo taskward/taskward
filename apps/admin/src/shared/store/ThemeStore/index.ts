@@ -21,3 +21,11 @@ export const useThemeStore = create<ThemeStore>()(
     }
   }))
 )
+
+useThemeStore.subscribe(
+  (state) => state.theme,
+  (theme) => useThemeStore.getState().changeTheme(theme),
+  {
+    fireImmediately: true
+  }
+)
