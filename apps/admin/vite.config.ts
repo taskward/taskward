@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import ReactSWC from '@vitejs/plugin-react-swc'
 import AutoImport from 'unplugin-auto-import/vite'
+import Icons from 'unplugin-icons/vite'
 import { defineConfig, loadEnv, type ProxyOptions } from 'vite'
 
 export default defineConfig(({ mode }) => {
@@ -37,11 +38,13 @@ export default defineConfig(({ mode }) => {
       ReactSWC(),
       AutoImport({
         dts: '@types/auto-imports.d.ts',
-        include: [
-          /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-          /\.md$/ // .md
-        ],
+        include: [/\.[tj]sx?$/, /\.md$/],
         imports: ['react']
+      }),
+      Icons({
+        autoInstall: true,
+        compiler: 'jsx',
+        jsx: 'react'
       })
     ],
     resolve: {

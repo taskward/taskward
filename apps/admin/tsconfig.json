@@ -1,6 +1,7 @@
 {
   "extends": "@bit-ocean/tsconfig/react",
   "compilerOptions": {
+    "types": ["unplugin-icons/types/react"],
     "paths": {
       "@/*": ["./src/*"]
     }
