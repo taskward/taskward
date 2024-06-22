@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  font-family:
+    Nunito,
+    Noto Sans SC,
+    system-ui,
+    -apple-system,
+    Roboto,
+    Helvetica Neue,
+    Arial,
+    sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
 *,
 *::before,
 *::after {

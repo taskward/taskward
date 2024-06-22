@@ -9,5 +9,7 @@ pnpm-lock.yaml
 expo-env.d.ts
 .next
 
+apps/client/@types/auto-imports.d.ts
+
 apps/server/src/generated
 apps/server/src/metadata.ts

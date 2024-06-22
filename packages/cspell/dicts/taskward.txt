@@ -3,3 +3,4 @@ monokai
 nord
 picocolors
 nextjs
+libc

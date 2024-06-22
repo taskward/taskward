@@ -1,6 +1,6 @@
 import { appConfig } from '@taskward/config'
 
-import { ThemeSwitch } from '@/components'
+import { ThemeSwitch } from '@/shared/components'
 
 export default function Header() {
   return (

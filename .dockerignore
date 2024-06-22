@@ -1,5 +1,8 @@
+Dockerfile
 node_modules
 .git
 .gitignore
 *.md
 dist
+.next
+.git
