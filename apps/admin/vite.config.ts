@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from 'node:url'
 import ReactSWC from '@vitejs/plugin-react-swc'
 import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
+import TurboConsole from 'unplugin-turbo-console/vite'
 import { defineConfig, loadEnv, type ProxyOptions } from 'vite'
 
 export default defineConfig(({ mode }) => {
@@ -45,7 +46,8 @@ export default defineConfig(({ mode }) => {
         autoInstall: true,
         compiler: 'jsx',
         jsx: 'react'
-      })
+      }),
+      TurboConsole()
     ],
     resolve: {
       alias: {

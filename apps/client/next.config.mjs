@@ -1,5 +1,6 @@
 import { antdResolver } from '@bit-ocean/auto-import'
 import AutoImport from 'unplugin-auto-import/webpack'
+import TurboConsole from 'unplugin-turbo-console/webpack'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -17,7 +18,8 @@ const nextConfig = {
         ],
         resolvers: [antdResolver()],
         dts: '@types/auto-imports.d.ts'
-      })
+      }),
+      TurboConsole()
     )
     return config
   },
