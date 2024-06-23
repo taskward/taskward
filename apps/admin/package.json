@@ -22,11 +22,17 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
+    "@taskward/config": "workspace:^",
+    "@taskward/theme": "workspace:^",
     "antd": "^5.18.3",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.11",
+    "immer": "^10.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "6",
     "react-router-dom": "6",
+    "use-immer": "^0.10.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
@@ -43,6 +49,7 @@
     "typescript": "^5.4.5",
     "unplugin-auto-import": "^0.17.6",
     "unplugin-icons": "^0.19.0",
+    "unplugin-turbo-console": "^1.8.6",
     "vite": "^5.3.1"
   },
   "private": true,
