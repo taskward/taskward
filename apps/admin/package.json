@@ -22,6 +22,7 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
+    "@ant-design/cssinjs": "^1.21.0",
     "@taskward/config": "workspace:^",
     "@taskward/theme": "workspace:^",
     "antd": "^5.18.3",

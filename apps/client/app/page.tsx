@@ -1,4 +1,4 @@
-import { Content, Header, Sidebar } from './components'
+import { Content, Header, Sidebar } from '@/features/layouts/BaseLayout'
 
 export default function Home() {
   return (
