@@ -26,7 +26,11 @@ const nextConfig = {
   experimental: {
     turbo: {
       resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.json']
-    }
+    },
+    /** @see https://nextjs.org/docs/app/building-your-application/configuring/typescript */
+    typedRoutes: true,
+    /** @see https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation */
+    instrumentationHook: true
   }
 }
 export default nextConfig

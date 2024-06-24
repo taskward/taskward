@@ -8,6 +8,8 @@ import Icons from 'unplugin-icons/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
 import { defineConfig, loadEnv, type ProxyOptions } from 'vite'
 
+const DEFAULT_APP_PORT = 4070
+
 export default defineConfig(({ mode }) => {
   const envPath = path.resolve(process.cwd(), '../..')
   const environment = loadEnv(mode, envPath) as ImportMetaEnv
@@ -19,7 +21,7 @@ export default defineConfig(({ mode }) => {
     VITE_ADMIN_MOCK_API_URL
   } = environment
 
-  const port = Number.parseInt(VITE_ADMIN_PORT, 10) || 5173
+  const port = Number.parseInt(VITE_ADMIN_PORT, 10) || DEFAULT_APP_PORT
   const proxy: Record<string, string | ProxyOptions> = {
     [VITE_ADMIN_BASE_API_PREFIX]: {
       target: VITE_ADMIN_BASE_API_URL,
