@@ -51,7 +51,9 @@
     "unplugin-auto-import": "^0.17.6",
     "unplugin-icons": "^0.19.0",
     "unplugin-turbo-console": "^1.8.6",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-webfont-dl": "^3.9.4"
   },
   "private": true,
   "license": "MIT"
