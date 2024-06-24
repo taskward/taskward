@@ -17,7 +17,7 @@ import { UsersModule } from './users/users.module'
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: ['../../.env.local', '../../.env'],
+      envFilePath: ['.env.local', '.env'],
       cache: true,
       expandVariables: true,
       load: [AppEnvConfig, PostgresEnvConfig]

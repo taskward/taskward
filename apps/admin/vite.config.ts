@@ -11,7 +11,7 @@ import { defineConfig, loadEnv, type ProxyOptions } from 'vite'
 const DEFAULT_APP_PORT = 4070
 
 export default defineConfig(({ mode }) => {
-  const envPath = path.resolve(process.cwd(), '../..')
+  const envPath = path.resolve(process.cwd())
   const environment = loadEnv(mode, envPath) as ImportMetaEnv
   const {
     VITE_ADMIN_PORT,
@@ -36,7 +36,6 @@ export default defineConfig(({ mode }) => {
   }
 
   return {
-    envDir: '../..',
     plugins: [
       ReactSWC(),
       AutoImport({

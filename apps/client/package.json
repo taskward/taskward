@@ -10,11 +10,10 @@
     "directory": "apps/client"
   },
   "scripts": {
-    "set:env": "dotenv -e ../../.env.local -e ../../.env",
-    "dev": "pnpm set:env -- PORT=$CLIENT_PORT next dev",
-    "dev:turbo": "pnpm set:env -- next dev --turbo",
-    "build": "pnpm set:env -- next build",
-    "start": "pnpm set:env -- next start",
+    "dev": "next dev -p 4071",
+    "dev:turbo": "next dev -p 4071 --turbo",
+    "build": "next build",
+    "start": "next start -p 4071",
     "type:check": "tsc --pretty --noEmit",
     "cspell:check": "cspell --no-progress --show-suggestions --show-context --cache **",
     "eslint:check": "eslint . --color --cache",
@@ -44,7 +43,6 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
-    "dotenv-cli": "^7.4.2",
     "postcss": "^8.4.38",
     "sass": "^1.77.6",
     "tailwindcss": "^3.4.4",
