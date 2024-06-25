@@ -27,6 +27,7 @@
     "@ant-design/nextjs-registry": "^1.0.0",
     "@taskward/config": "workspace:^",
     "@taskward/theme": "workspace:^",
+    "@taskward/utils": "workspace:^",
     "antd": "^5.18.3",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",

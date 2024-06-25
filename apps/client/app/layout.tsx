@@ -2,11 +2,14 @@ import './globals.scss'
 
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 import clsx from 'clsx'
+import { enableMapSet } from 'immer'
 import type { PropsWithChildren } from 'react'
 
 import { nunito } from '@/features/fonts'
 import { SEO } from '@/features/seo'
 import { AntdProvider } from '@/shared/providers'
+
+enableMapSet()
 
 export const metadata = SEO()
 

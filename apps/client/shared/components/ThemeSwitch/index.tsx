@@ -1,7 +1,6 @@
 'use client'
 
-import { Theme } from '@/shared/enums'
-import { ThemeUtils } from '@/shared/utils'
+import { Theme, ThemeUtils } from '@taskward/utils'
 
 export default function ThemeSwitch() {
   const [theme, setTheme] = useState(Theme.LIGHT)

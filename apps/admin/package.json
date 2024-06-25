@@ -28,7 +28,6 @@
     "@taskward/theme": "workspace:^",
     "@taskward/utils": "workspace:^",
     "antd": "^5.18.3",
-    "client": "workspace:^",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "immer": "^10.1.1",

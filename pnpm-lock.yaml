@@ -92,9 +92,6 @@ importers:
       antd:
         specifier: ^5.18.3
         version: 5.18.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      client:
-        specifier: workspace:^
-        version: link:../client
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -195,6 +192,9 @@ importers:
       '@taskward/theme':
         specifier: workspace:^
         version: link:../../packages/theme
+      '@taskward/utils':
+        specifier: workspace:^
+        version: link:../../packages/utils
       antd:
         specifier: ^5.18.3
         version: 5.18.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

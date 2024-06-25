@@ -13,10 +13,10 @@
   margin: 0;
 }
 
-.dark {
+html.dark {
   color-scheme: dark;
 }
 
-[data-theme='dark'] {
+html[data-theme='dark'] {
   color: #ffffff;
 }
