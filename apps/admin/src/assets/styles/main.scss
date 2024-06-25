@@ -31,11 +31,12 @@ html.dark {
   color-scheme: dark;
 }
 
+/* antd dark theme will override this. */
 html[data-theme='dark'] {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
-.taskward-hide-scrollbar {
+.global-hide-scrollbar {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   -webkit-overflow-scrolling: touch; /* iOS (Safari and Chrome) */
@@ -65,10 +66,10 @@ html[data-theme='dark'] {
   z-index: 1;
 }
 
-[data-theme='dark']::view-transition-old(root) {
+html[data-theme='dark']::view-transition-old(root) {
   z-index: 1;
 }
 
-[data-theme='dark']::view-transition-new(root) {
+html[data-theme='dark']::view-transition-new(root) {
   z-index: 9999;
 }

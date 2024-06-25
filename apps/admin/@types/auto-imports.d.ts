@@ -7,6 +7,7 @@ export {}
 declare global {
   const App: (typeof import('antd'))['App']
   const ConfigProvider: (typeof import('antd'))['ConfigProvider']
+  const Switch: (typeof import('antd'))['Switch']
   const createRef: (typeof import('react'))['createRef']
   const forwardRef: (typeof import('react'))['forwardRef']
   const lazy: (typeof import('react'))['lazy']

@@ -86,9 +86,15 @@ importers:
       '@taskward/theme':
         specifier: workspace:^
         version: link:../../packages/theme
+      '@taskward/utils':
+        specifier: workspace:^
+        version: link:../../packages/utils
       antd:
         specifier: ^5.18.3
         version: 5.18.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      client:
+        specifier: workspace:^
+        version: link:../client
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -121,8 +127,8 @@ importers:
         specifier: ^0.0.31
         version: 0.0.31(unplugin-auto-import@0.17.6(rollup@4.18.0))
       '@iconify/json':
-        specifier: ^2.2.220
-        version: 2.2.220
+        specifier: ^2.2.222
+        version: 2.2.222
       '@svgr/core':
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.4.5)
@@ -160,8 +166,8 @@ importers:
         specifier: ^0.19.0
         version: 0.19.0(@svgr/core@8.1.0(typescript@5.4.5))
       unplugin-turbo-console:
-        specifier: ^1.8.6
-        version: 1.8.6(esbuild@0.21.4)(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.8)(sass@1.77.6))(webpack@5.90.1(@swc/core@1.6.5)(esbuild@0.21.4))
+        specifier: ^1.8.7
+        version: 1.8.7(esbuild@0.21.4)(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.8)(less@4.1.3)(sass@1.77.6)(stylus@0.59.0)(terser@5.31.0))(webpack@5.90.1(@swc/core@1.6.5)(esbuild@0.21.4))
       vite:
         specifier: ^5.3.1
         version: 5.3.1(@types/node@20.14.8)(less@4.1.3)(sass@1.77.6)(stylus@0.59.0)(terser@5.31.0)
@@ -503,6 +509,8 @@ importers:
       antd:
         specifier: ^5.18.3
         version: 5.18.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
+  packages/utils: {}
 
 packages:
 
@@ -2027,8 +2035,8 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
 
-  '@iconify/json@2.2.220':
-    resolution: {integrity: sha512-EpKZAK99E5qmgeOS5XOxzlzPaYXOkhLneypLFvbKIU3/KGmxGS/k6pgaEX6wTId4oF2HPGBDJnXyvckHiOHQiA==}
+  '@iconify/json@2.2.222':
+    resolution: {integrity: sha512-7Q3wTaWCOk/npMrH1fyy37noARUBTb3B6daGr23+CiNCrTpV3byH+d5LEqPPVi+RT369IEKEcE8+s5MFN1hcOg==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -9578,6 +9586,35 @@ packages:
       webpack:
         optional: true
 
+  unplugin-turbo-console@1.8.7:
+    resolution: {integrity: sha512-TuXYa2B3w6v6zNZKs3LiVz87PBeq1aS7VOk5jJJ7OMMXioJ/DxrFda6u7zId0CQeiIL6MfAh+MFeKQUJ0MPy4w==}
+    peerDependencies:
+      '@nuxt/kit': '>=3'
+      '@nuxt/schema': '>=3'
+      astro: '>=3'
+      esbuild: '*'
+      rollup: '>=3'
+      vite: '>=3'
+      vue: '>=2.7 || >=3.2.13'
+      webpack: ^4 || ^5
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      '@nuxt/schema':
+        optional: true
+      astro:
+        optional: true
+      esbuild:
+        optional: true
+      rollup:
+        optional: true
+      vite:
+        optional: true
+      vue:
+        optional: true
+      webpack:
+        optional: true
+
   unplugin@1.10.1:
     resolution: {integrity: sha512-d6Mhq8RJeGA8UfKCu54Um4lFA0eSaRa3XxdAJg8tIdxbu1ubW0hBCZUL7yI2uGyYCRndvbK8FLHzqy2XKfeMsg==}
     engines: {node: '>=14.0.0'}
@@ -12075,7 +12112,7 @@ snapshots:
 
   '@humanwhocodes/object-schema@2.0.3': {}
 
-  '@iconify/json@2.2.220':
+  '@iconify/json@2.2.222':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
@@ -21249,6 +21286,24 @@ snapshots:
       - supports-color
 
   unplugin-turbo-console@1.8.6(esbuild@0.21.4)(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.8)(sass@1.77.6))(webpack@5.90.1(@swc/core@1.6.5)(esbuild@0.21.4)):
+    dependencies:
+      '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
+      ast-kit: 0.12.2
+      get-port-please: 3.1.2
+      h3: 1.12.0
+      launch-editor: 2.8.0
+      magic-string: 0.30.10
+      pathe: 1.1.2
+      unplugin: 1.10.1
+    optionalDependencies:
+      esbuild: 0.21.4
+      rollup: 4.18.0
+      vite: 5.3.1(@types/node@20.14.8)(less@4.1.3)(sass@1.77.6)(stylus@0.59.0)(terser@5.31.0)
+      webpack: 5.90.1(@swc/core@1.6.5)(esbuild@0.21.4)
+    transitivePeerDependencies:
+      - uWebSockets.js
+
+  unplugin-turbo-console@1.8.7(esbuild@0.21.4)(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.8)(less@4.1.3)(sass@1.77.6)(stylus@0.59.0)(terser@5.31.0))(webpack@5.90.1(@swc/core@1.6.5)(esbuild@0.21.4)):
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.18.0)
       ast-kit: 0.12.2

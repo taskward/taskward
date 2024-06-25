@@ -1,4 +1,4 @@
-import { Theme } from '@/shared/enums'
+import { Theme } from './enums'
 
 /**
  * 主题工具类

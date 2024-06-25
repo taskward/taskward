@@ -2,10 +2,12 @@ import 'dayjs/locale/zh-cn'
 
 import { px2remTransformer, StyleProvider } from '@ant-design/cssinjs'
 import { HappyProvider } from '@ant-design/happy-work-theme'
-import { lightThemeConfigPresets, messageConfig } from '@taskward/theme'
+import { messageConfig } from '@taskward/theme'
 import { message } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import type { PropsWithChildren } from 'react'
+
+import { useThemeStore } from '@/shared/store'
 
 message.config(messageConfig)
 
@@ -16,9 +18,16 @@ const px2rem = px2remTransformer({
 
 export default function AntdProvider(props: PropsWithChildren) {
   const { children } = props
+
+  const themeStore = useThemeStore()
+
   return (
     <ConfigProvider
-      theme={{ ...lightThemeConfigPresets, cssVar: true, hashed: false }}
+      theme={{
+        ...(themeStore.isLightTheme() ? themeStore.lightThemeConfig : themeStore.darkThemeConfig),
+        cssVar: true,
+        hashed: false
+      }}
       locale={zhCN}
     >
       <StyleProvider
