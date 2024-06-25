@@ -27,12 +27,12 @@ body {
   height: auto;
 }
 
-.dark {
+html.dark {
   color-scheme: dark;
 }
 
-[data-theme='dark'] {
-  color: #ffffff;
+html[data-theme='dark'] {
+  color: #ffffff !important;
 }
 
 .taskward-hide-scrollbar {
