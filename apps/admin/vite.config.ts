@@ -3,6 +3,7 @@ import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 
 import { antdResolver } from '@bit-ocean/auto-import'
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import ReactSWC from '@vitejs/plugin-react-swc'
 import AutoImport from 'unplugin-auto-import/vite'
 import iconsResolver from 'unplugin-icons/resolver'
@@ -42,6 +43,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       ReactSWC(),
+      TanStackRouterVite(),
       AutoImport({
         dts: '@types/auto-imports.d.ts',
         include: [/\.[tj]sx?$/, /\.md$/],

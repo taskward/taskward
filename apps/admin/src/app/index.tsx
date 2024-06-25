@@ -1,14 +1,15 @@
+import { RouterProvider } from '@tanstack/react-router'
 import { enableMapSet } from 'immer'
 
-import { BaseLayout } from '@/features/layouts'
 import { AntdProvider } from '@/shared/providers'
+import { router } from '@/shared/router'
 
 enableMapSet()
 
 export default function App() {
   return (
     <AntdProvider>
-      <BaseLayout />
+      <RouterProvider router={router} />
     </AntdProvider>
   )
 }
