@@ -2,9 +2,10 @@ import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 
+import { antdResolver } from '@bit-ocean/auto-import'
 import ReactSWC from '@vitejs/plugin-react-swc'
 import AutoImport from 'unplugin-auto-import/vite'
-import IconsResolver from 'unplugin-icons/resolver'
+import iconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
 import { defineConfig, loadEnv, type ProxyOptions } from 'vite'
@@ -46,7 +47,8 @@ export default defineConfig(({ mode }) => {
         include: [/\.[tj]sx?$/, /\.md$/],
         imports: ['react'],
         resolvers: [
-          IconsResolver({
+          antdResolver(),
+          iconsResolver({
             prefix: false,
             extension: 'jsx',
             enabledCollections: []

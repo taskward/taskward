@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.0",
+    "@ant-design/happy-work-theme": "^1.0.0",
     "@taskward/config": "workspace:^",
     "@taskward/theme": "workspace:^",
     "antd": "^5.18.3",
@@ -37,6 +38,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@bit-ocean/auto-import": "^0.0.31",
     "@iconify/json": "^2.2.220",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
