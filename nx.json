@@ -5,7 +5,8 @@
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": ["default"],
     "sharedGlobals": [],
-    "noMarkdown": ["!{projectRoot}/**/*.md"]
+    "noMarkdown": ["!{projectRoot}/**/*.md"],
+    "noPackageJson": ["!{projectRoot}/package.json"]
   },
   "plugins": [],
   "tasksRunnerOptions": {
@@ -30,14 +31,54 @@
       "inputs": ["noMarkdown", "^noMarkdown"],
       "cache": true
     },
-    "@nx/eslint:lint": {
-      "cache": true,
+    "type:check": {
       "inputs": [
         "default",
         "{workspaceRoot}/.eslintrc.json",
         "{workspaceRoot}/.eslintignore",
-        "{workspaceRoot}/eslint.config.js"
-      ]
+        "noMarkdown",
+        "noPackageJson"
+      ],
+      "cache": true
+    },
+    "cspell:check": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "noMarkdown",
+        "noPackageJson"
+      ],
+      "cache": true
+    },
+    "eslint:check": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "noMarkdown",
+        "noPackageJson"
+      ],
+      "cache": true
+    },
+    "prettier:check": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "noMarkdown",
+        "noPackageJson"
+      ],
+      "cache": true
+    },
+    "@nx/eslint:lint": {
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/.eslintignore",
+        "noMarkdown"
+      ],
+      "cache": true
     }
   }
 }
