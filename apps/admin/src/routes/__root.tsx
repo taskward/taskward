@@ -1,4 +1,5 @@
-import { createRootRoute, Outlet, ScrollRestoration } from '@tanstack/react-router'
+import type { QueryClient } from '@tanstack/react-query'
+import { createRootRouteWithContext, Outlet, ScrollRestoration } from '@tanstack/react-router'
 import { Suspense } from 'react'
 
 const TanStackRouterDevtools = import.meta.env.PROD
@@ -9,7 +10,15 @@ const TanStackRouterDevtools = import.meta.env.PROD
       }))
     )
 
-export const Route = createRootRoute({
+const ReactQueryDevtools = import.meta.env.PROD
+  ? () => null
+  : lazy(() =>
+      import('@tanstack/react-query-devtools').then((res) => ({
+        default: res.ReactQueryDevtools
+      }))
+    )
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   component: Root,
   notFoundComponent: NotFoundComponent
 })
@@ -21,6 +30,7 @@ function Root() {
       <Outlet />
       <Suspense fallback={null}>
         <TanStackRouterDevtools position="bottom-right" />
+        <ReactQueryDevtools buttonPosition="bottom-left" />
       </Suspense>
     </>
   )

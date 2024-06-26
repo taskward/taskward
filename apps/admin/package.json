@@ -24,6 +24,7 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/happy-work-theme": "^1.0.0",
+    "@tanstack/react-query": "^5.48.0",
     "@tanstack/react-router": "^1.40.0",
     "@taskward/config": "workspace:^",
     "@taskward/theme": "workspace:^",

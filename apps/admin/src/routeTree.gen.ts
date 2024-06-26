@@ -16,32 +16,49 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
-const IndexLazyImport = createFileRoute('/')()
+const BaseRouteLazyImport = createFileRoute('/_base')()
+const BaseIndexRouteLazyImport = createFileRoute('/_base/')()
 
 // Create/Update Routes
 
-const IndexLazyRoute = IndexLazyImport.update({
-  path: '/',
+const BaseRouteLazyRoute = BaseRouteLazyImport.update({
+  id: '/_base',
   getParentRoute: () => rootRoute
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/_base/route.lazy').then((d) => d.Route))
+
+const BaseIndexRouteLazyRoute = BaseIndexRouteLazyImport.update({
+  path: '/',
+  getParentRoute: () => BaseRouteLazyRoute
+} as any).lazy(() => import('./routes/_base/index/route.lazy').then((d) => d.Route))
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_base': {
+      id: '/_base'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof BaseRouteLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/_base/': {
+      id: '/_base/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof BaseIndexRouteLazyImport
+      parentRoute: typeof BaseRouteLazyImport
     }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexLazyRoute })
+export const routeTree = rootRoute.addChildren({
+  BaseRouteLazyRoute: BaseRouteLazyRoute.addChildren({
+    BaseIndexRouteLazyRoute
+  })
+})
 
 /* prettier-ignore-end */
 
@@ -51,11 +68,18 @@ export const routeTree = rootRoute.addChildren({ IndexLazyRoute })
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/_base"
       ]
     },
-    "/": {
-      "filePath": "index.lazy.tsx"
+    "/_base": {
+      "filePath": "_base/route.lazy.tsx",
+      "children": [
+        "/_base/"
+      ]
+    },
+    "/_base/": {
+      "filePath": "_base/index/route.lazy.tsx",
+      "parent": "/_base"
     }
   }
 }
