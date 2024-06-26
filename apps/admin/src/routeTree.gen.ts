@@ -19,9 +19,20 @@ import { Route as BaseIndexRouteImport } from './routes/_base/index/route'
 
 // Create Virtual Routes
 
+const PublicRouteLazyImport = createFileRoute('/_public')()
 const BaseRouteLazyImport = createFileRoute('/_base')()
+const PublicSignupRouteLazyImport = createFileRoute('/_public/signup')()
+const PublicLoginRouteLazyImport = createFileRoute('/_public/login')()
+const PublicForgotPasswordRouteLazyImport = createFileRoute(
+  '/_public/forgot-password',
+)()
 
 // Create/Update Routes
+
+const PublicRouteLazyRoute = PublicRouteLazyImport.update({
+  id: '/_public',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/_public/route.lazy').then((d) => d.Route))
 
 const BaseRouteLazyRoute = BaseRouteLazyImport.update({
   id: '/_base',
@@ -32,6 +43,28 @@ const SplatRouteRoute = SplatRouteImport.update({
   path: '/$',
   getParentRoute: () => rootRoute,
 } as any)
+
+const PublicSignupRouteLazyRoute = PublicSignupRouteLazyImport.update({
+  path: '/signup',
+  getParentRoute: () => PublicRouteLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_public/signup/route.lazy').then((d) => d.Route),
+)
+
+const PublicLoginRouteLazyRoute = PublicLoginRouteLazyImport.update({
+  path: '/login',
+  getParentRoute: () => PublicRouteLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_public/login/route.lazy').then((d) => d.Route),
+)
+
+const PublicForgotPasswordRouteLazyRoute =
+  PublicForgotPasswordRouteLazyImport.update({
+    path: '/forgot-password',
+    getParentRoute: () => PublicRouteLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_public/forgot-password/route.lazy').then((d) => d.Route),
+  )
 
 const Base404RouteRoute = Base404RouteImport.update({
   path: '/404',
@@ -65,6 +98,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BaseRouteLazyImport
       parentRoute: typeof rootRoute
     }
+    '/_public': {
+      id: '/_public'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof PublicRouteLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/_base/': {
       id: '/_base/'
       path: '/'
@@ -79,6 +119,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Base404RouteImport
       parentRoute: typeof BaseRouteLazyImport
     }
+    '/_public/forgot-password': {
+      id: '/_public/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof PublicForgotPasswordRouteLazyImport
+      parentRoute: typeof PublicRouteLazyImport
+    }
+    '/_public/login': {
+      id: '/_public/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof PublicLoginRouteLazyImport
+      parentRoute: typeof PublicRouteLazyImport
+    }
+    '/_public/signup': {
+      id: '/_public/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof PublicSignupRouteLazyImport
+      parentRoute: typeof PublicRouteLazyImport
+    }
   }
 }
 
@@ -89,6 +150,11 @@ export const routeTree = rootRoute.addChildren({
   BaseRouteLazyRoute: BaseRouteLazyRoute.addChildren({
     BaseIndexRouteRoute,
     Base404RouteRoute,
+  }),
+  PublicRouteLazyRoute: PublicRouteLazyRoute.addChildren({
+    PublicForgotPasswordRouteLazyRoute,
+    PublicLoginRouteLazyRoute,
+    PublicSignupRouteLazyRoute,
   }),
 })
 
@@ -101,7 +167,8 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/$",
-        "/_base"
+        "/_base",
+        "/_public"
       ]
     },
     "/$": {
@@ -114,6 +181,14 @@ export const routeTree = rootRoute.addChildren({
         "/_base/404"
       ]
     },
+    "/_public": {
+      "filePath": "_public/route.lazy.tsx",
+      "children": [
+        "/_public/forgot-password",
+        "/_public/login",
+        "/_public/signup"
+      ]
+    },
     "/_base/": {
       "filePath": "_base/index/route.tsx",
       "parent": "/_base"
@@ -121,6 +196,18 @@ export const routeTree = rootRoute.addChildren({
     "/_base/404": {
       "filePath": "_base/404/route.tsx",
       "parent": "/_base"
+    },
+    "/_public/forgot-password": {
+      "filePath": "_public/forgot-password/route.lazy.tsx",
+      "parent": "/_public"
+    },
+    "/_public/login": {
+      "filePath": "_public/login/route.lazy.tsx",
+      "parent": "/_public"
+    },
+    "/_public/signup": {
+      "filePath": "_public/signup/route.lazy.tsx",
+      "parent": "/_public"
     }
   }
 }
