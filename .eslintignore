@@ -1,2 +1,6 @@
+apps/admin/@types/auto-imports.d.ts
+
+apps/client/@types/auto-imports.d.ts
+
 apps/server/src/generated
 apps/server/src/metadata.ts

@@ -1,4 +1,8 @@
-@layer tailwind-base, antd;
+@layer tailwind-base, global, antd;
+
+@layer global {
+  @import 'global.scss';
+}
 
 @layer tailwind-base {
   @tailwind base;

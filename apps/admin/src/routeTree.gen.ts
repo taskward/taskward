@@ -13,28 +13,51 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as SplatRouteImport } from './routes/$/route'
+import { Route as Base404RouteImport } from './routes/_base/404/route'
+import { Route as BaseIndexRouteImport } from './routes/_base/index/route'
 
 // Create Virtual Routes
 
 const BaseRouteLazyImport = createFileRoute('/_base')()
-const BaseIndexRouteLazyImport = createFileRoute('/_base/')()
 
 // Create/Update Routes
 
 const BaseRouteLazyRoute = BaseRouteLazyImport.update({
   id: '/_base',
-  getParentRoute: () => rootRoute
+  getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/_base/route.lazy').then((d) => d.Route))
 
-const BaseIndexRouteLazyRoute = BaseIndexRouteLazyImport.update({
+const SplatRouteRoute = SplatRouteImport.update({
+  path: '/$',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const Base404RouteRoute = Base404RouteImport.update({
+  path: '/404',
+  getParentRoute: () => BaseRouteLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_base/404/route.lazy').then((d) => d.Route),
+)
+
+const BaseIndexRouteRoute = BaseIndexRouteImport.update({
   path: '/',
-  getParentRoute: () => BaseRouteLazyRoute
-} as any).lazy(() => import('./routes/_base/index/route.lazy').then((d) => d.Route))
+  getParentRoute: () => BaseRouteLazyRoute,
+} as any).lazy(() =>
+  import('./routes/_base/index/route.lazy').then((d) => d.Route),
+)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRoute
+    }
     '/_base': {
       id: '/_base'
       path: ''
@@ -46,7 +69,14 @@ declare module '@tanstack/react-router' {
       id: '/_base/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof BaseIndexRouteLazyImport
+      preLoaderRoute: typeof BaseIndexRouteImport
+      parentRoute: typeof BaseRouteLazyImport
+    }
+    '/_base/404': {
+      id: '/_base/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof Base404RouteImport
       parentRoute: typeof BaseRouteLazyImport
     }
   }
@@ -55,9 +85,11 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren({
+  SplatRouteRoute,
   BaseRouteLazyRoute: BaseRouteLazyRoute.addChildren({
-    BaseIndexRouteLazyRoute
-  })
+    BaseIndexRouteRoute,
+    Base404RouteRoute,
+  }),
 })
 
 /* prettier-ignore-end */
@@ -68,17 +100,26 @@ export const routeTree = rootRoute.addChildren({
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
+        "/$",
         "/_base"
       ]
+    },
+    "/$": {
+      "filePath": "$/route.tsx"
     },
     "/_base": {
       "filePath": "_base/route.lazy.tsx",
       "children": [
-        "/_base/"
+        "/_base/",
+        "/_base/404"
       ]
     },
     "/_base/": {
-      "filePath": "_base/index/route.lazy.tsx",
+      "filePath": "_base/index/route.tsx",
+      "parent": "/_base"
+    },
+    "/_base/404": {
+      "filePath": "_base/404/route.tsx",
       "parent": "/_base"
     }
   }

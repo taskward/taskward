@@ -1,3 +1,6 @@
 {
-  "extends": "@bit-ocean"
+  "extends": "@bit-ocean",
+  "rules": {
+    "react/require-default-props": "off"
+  }
 }

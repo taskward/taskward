@@ -1,13 +1,6 @@
 @use 'tailwind.scss';
 @use 'fonts.scss';
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
 html,
 body {
   font-family:

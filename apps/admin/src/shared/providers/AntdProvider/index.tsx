@@ -7,8 +7,6 @@ import { message } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import type { PropsWithChildren } from 'react'
 
-import { useThemeStore } from '@/shared/store'
-
 message.config(messageConfig)
 
 const px2rem = px2remTransformer({

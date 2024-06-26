@@ -9,6 +9,9 @@ pnpm-lock.yaml
 expo-env.d.ts
 .next
 
+apps/admin/@types/auto-imports.d.ts
+apps/admin/src/routeTree.gen.ts
+
 apps/client/@types/auto-imports.d.ts
 
 apps/server/src/generated

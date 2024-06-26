@@ -10,7 +10,7 @@ export const router = createRouter({
   context: { queryClient },
   defaultPreload: 'intent', // 默认预加载策略
   defaultPreloadStaleTime: 0, // 使用外部缓存库 Tanstack Query 来管理缓存，需要设置为 0
-  defaultPendingComponent: () => <div>loading...</div>,
+  defaultPendingComponent: GlobalLoading,
   defaultErrorComponent: () => <div>error</div>
 })
 

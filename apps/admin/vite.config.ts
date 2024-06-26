@@ -47,7 +47,25 @@ export default defineConfig(({ mode }) => {
       AutoImport({
         dts: '@types/auto-imports.d.ts',
         include: [/\.[tj]sx?$/, /\.md$/],
-        imports: ['react'],
+        imports: [
+          'react',
+          {
+            from: '@/shared/router',
+            imports: ['router']
+          },
+          {
+            from: '@/shared/query-client',
+            imports: ['queryClient']
+          }
+        ],
+        dirs: [
+          'src/shared/api/*',
+          'src/shared/components/*',
+          'src/shared/hooks/*',
+          'src/shared/providers/*',
+          'src/shared/store/*',
+          'src/shared/utils/*'
+        ],
         resolvers: [
           antdResolver(),
           iconsResolver({
