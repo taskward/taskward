@@ -17,7 +17,8 @@ export async function initAdminUser(prisma: PrismaClient) {
     password: await hash(ADMIN_PASSWORD),
     email: ADMIN_EMAIL,
     avatarUrl: ADMIN_AVATAR_URL,
-    enabled: true
+    enabled: true,
+    authFlag: true
   })
 
   const adminUser = await prisma.user.findUnique({

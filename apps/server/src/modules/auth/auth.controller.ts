@@ -1,7 +1,8 @@
-import { Body, Controller, Post, Req } from '@nestjs/common'
+import { Body, Controller, Post, Req, UseGuards } from '@nestjs/common'
 import { ApiOperation, ApiTags } from '@nestjs/swagger'
 import { SkipThrottle } from '@nestjs/throttler'
 
+import { RefreshTokenGuard } from '@/core/guards'
 import { SkipAuth } from '@/shared/decorators'
 import type { CustomRequest } from '@/shared/interfaces'
 
@@ -31,9 +32,14 @@ export class AuthController {
   @Post('logout')
   async logout() {}
 
+  @ApiOperation({ summary: '强制下线' })
+  @Post('force-logout')
+  async forceLogout() {}
+
   @ApiOperation({ summary: '刷新令牌' })
   @SkipThrottle()
   @SkipAuth()
+  @UseGuards(RefreshTokenGuard)
   @Post('refresh')
   async refresh() {}
 }

@@ -1,14 +1,16 @@
-import { Inject, Injectable, Scope } from '@nestjs/common'
+import { Inject, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common'
 import { CustomPrismaService } from '@taskward/prisma'
 
 import { EXTENDED_PRISMA_CLIENT, ExtendedPrismaClient } from '../shared/prisma'
+import { RequestContextService } from '../shared/request-context/request-context.service'
 import { CreateUserDto } from './dto/create-user.dto'
 
-@Injectable({ scope: Scope.REQUEST })
+@Injectable()
 export class UsersService {
   constructor(
     @Inject(EXTENDED_PRISMA_CLIENT)
-    private readonly prisma: CustomPrismaService<ExtendedPrismaClient>
+    private readonly prisma: CustomPrismaService<ExtendedPrismaClient>,
+    private readonly requestContextService: RequestContextService
   ) {}
 
   async create(createUserDto: CreateUserDto) {
@@ -21,8 +23,33 @@ export class UsersService {
     return this.prisma.client.user.findMany()
   }
 
+  async findCurrent() {
+    const id = this.requestContextService.getUserId()
+    const user = await this.prisma.client.user.findUnique({
+      where: {
+        id,
+        // enabled: true,
+        // authFlag: true,
+        deletedAt: null
+      }
+    })
+    if (!user) {
+      throw new UnauthorizedException('用户未授权')
+    }
+    return user
+  }
+
   async findOne(id: number) {
-    return this.prisma.client.user.findUnique({ where: { id } })
+    const user = this.prisma.client.user.findUnique({
+      where: {
+        id,
+        deletedAt: null
+      }
+    })
+    if (!user) {
+      throw new NotFoundException('用户不存在')
+    }
+    return user
   }
 
   async update(id: number) {

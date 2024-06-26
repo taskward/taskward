@@ -1,8 +1,11 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common'
+import type { ConfigType } from '@nestjs/config'
+import { JwtService } from '@nestjs/jwt'
 import { compare } from '@node-rs/bcrypt'
 import { CustomPrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
+import { JwtEnvConfig } from '@/shared/configs'
 import type { CustomRequest, JwtPayload } from '@/shared/interfaces'
 
 import { EXTENDED_PRISMA_CLIENT, type ExtendedPrismaClient } from '../shared/prisma'
@@ -13,7 +16,9 @@ import type { LoginDto } from './dto'
 export class AuthService {
   constructor(
     @Inject(EXTENDED_PRISMA_CLIENT)
-    private readonly prisma: CustomPrismaService<ExtendedPrismaClient>
+    private readonly prisma: CustomPrismaService<ExtendedPrismaClient>,
+    @Inject(JwtEnvConfig.KEY) private readonly jwtEnvConfig: ConfigType<typeof JwtEnvConfig>,
+    private readonly jwtService: JwtService
   ) {}
 
   async login(loginDto: LoginDto, req: CustomRequest) {
@@ -48,7 +53,16 @@ export class AuthService {
     return userVo
   }
 
-  async generateTokens(jwtPayload: JwtPayload) {}
+  private async generateTokens(payload: JwtPayload) {
+    const { accessTokenSecret, accessTokenExp, refreshTokenSecret, refreshTokenExp } =
+      this.jwtEnvConfig
+    const [accessToken, refreshToken] = await Promise.all([
+      this.jwtService.signAsync(payload, { secret: accessTokenSecret, expiresIn: accessTokenExp }),
+      this.jwtService.signAsync(payload, { secret: refreshTokenSecret, expiresIn: refreshTokenExp })
+    ])
+
+    return { accessToken, refreshToken }
+  }
 
   async refreshToken(jwtPayload: JwtPayload) {}
 }

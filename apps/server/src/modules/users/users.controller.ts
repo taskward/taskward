@@ -22,6 +22,12 @@ export class UsersController {
     return this.usersService.findMany()
   }
 
+  @ApiOperation({ summary: '个人信息' })
+  @Get('profile')
+  findCurrent() {
+    return this.usersService.findCurrent()
+  }
+
   @ApiOperation({ summary: '用户详情 [id]' })
   @Get(':id(\\d+)')
   findOne(@Param('id') id: number) {

@@ -1,16 +1,19 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { APP_GUARD } from '@nestjs/core'
+import { JwtModule } from '@nestjs/jwt'
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
 import { CustomPrismaModule } from '@taskward/prisma'
 
-import { AppEnvConfig, PostgresEnvConfig } from '@/shared/configs'
+import { AccessTokenGuard } from '@/core/guards'
+import { AppEnvConfig, JwtEnvConfig, PostgresEnvConfig } from '@/shared/configs'
 
 import { AppController } from './app.controller'
 import { AuthModule } from './auth/auth.module'
 import { HealthModule } from './health/health.module'
 import { LoggerModule } from './shared/logger/logger.module'
 import { EXTENDED_PRISMA_CLIENT, extendedPrismaClient } from './shared/prisma'
+import { RequestContextModule } from './shared/request-context/request-context.module'
 import { UsersModule } from './users/users.module'
 
 @Module({
@@ -20,7 +23,10 @@ import { UsersModule } from './users/users.module'
       envFilePath: ['.env.local', '.env'],
       cache: true,
       expandVariables: true,
-      load: [AppEnvConfig, PostgresEnvConfig]
+      load: [AppEnvConfig, JwtEnvConfig, PostgresEnvConfig]
+    }),
+    JwtModule.register({
+      global: true
     }),
     CustomPrismaModule.forRootAsync({
       isGlobal: true,
@@ -33,11 +39,15 @@ import { UsersModule } from './users/users.module'
       { name: 'long', ttl: 60000, limit: 600 }
     ]),
     LoggerModule,
+    RequestContextModule,
     HealthModule,
     AuthModule,
     UsersModule
   ],
   controllers: [AppController],
-  providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }]
+  providers: [
+    { provide: APP_GUARD, useClass: ThrottlerGuard },
+    { provide: APP_GUARD, useClass: AccessTokenGuard }
+  ]
 })
 export class AppModule {}
