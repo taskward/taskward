@@ -107,4 +107,4 @@ async function bootstrap() {
 
   await app.listen(appEnvConfig.APP_PORT)
 }
-bootstrap()
+bootstrap().catch((e) => new CustomLogger().error(e))
