@@ -8,6 +8,7 @@ import {
 import { CustomPrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
+// eslint-disable-next-line import/no-cycle
 import { AuthService } from '../auth/auth.service'
 import { ContextService } from '../shared/context/context.service'
 import { EXTENDED_PRISMA_CLIENT, ExtendedPrismaClient } from '../shared/prisma'
@@ -24,7 +25,7 @@ export class UsersService {
     private readonly contextService: ContextService
   ) {}
 
-  async create(createUserDto: CreateUserDto): Promise<UserVo> {
+  async create(createUserDto: CreateUserDto) {
     const createdBy = this.contextService.getUserId()
     const password = await this.authService.hashPassword(createUserDto.password)
     const user = await this.prisma.client.user.create({
@@ -45,7 +46,7 @@ export class UsersService {
     return this.prisma.client.user.findMany()
   }
 
-  async findCurrent(): Promise<UserVo> {
+  async findCurrent() {
     const id = this.contextService.getUserId()
     const user = await this.prisma.client.user.findUnique({
       where: {
@@ -62,7 +63,7 @@ export class UsersService {
     return userVo
   }
 
-  async findOne(id: number): Promise<UserVo> {
+  async findOne(id: number) {
     const user = this.prisma.client.user.findUnique({
       where: {
         id,

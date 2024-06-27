@@ -5,7 +5,6 @@ import { R } from '@/shared/class'
 
 import { CreateUserDto } from './dto/create-user.dto'
 import { UsersService } from './users.service'
-import type { UserVo } from './vo'
 
 @ApiTags('用户')
 @ApiBearerAuth('bearer')
@@ -15,7 +14,7 @@ export class UsersController {
 
   @ApiOperation({ summary: '创建用户' })
   @Post()
-  async create(@Body() createUserDto: CreateUserDto): Promise<R<UserVo>> {
+  async create(@Body() createUserDto: CreateUserDto) {
     return new R({
       data: await this.usersService.create(createUserDto)
     })
@@ -29,7 +28,7 @@ export class UsersController {
 
   @ApiOperation({ summary: '个人信息' })
   @Get('profile')
-  async findCurrent(): Promise<R<UserVo>> {
+  async findCurrent() {
     return new R({
       data: await this.usersService.findCurrent()
     })
@@ -37,7 +36,7 @@ export class UsersController {
 
   @ApiOperation({ summary: '用户详情 [id]' })
   @Get(':id(\\d+)')
-  async findOne(@Param('id') id: number): Promise<R<UserVo>> {
+  async findOne(@Param('id') id: number) {
     return new R({
       data: await this.usersService.findOne(id)
     })

@@ -6,4 +6,8 @@ export class TokenVo {
 
   @ApiProperty({ description: '刷新令牌' })
   refreshToken: string
+
+  constructor(tokenVo?: Partial<TokenVo>) {
+    Object.assign(this, tokenVo)
+  }
 }

@@ -440,6 +440,9 @@ importers:
       rxjs:
         specifier: ^7.8.1
         version: 7.8.1
+      uuid:
+        specifier: ^10.0.0
+        version: 10.0.0
     devDependencies:
       '@nestjs/cli':
         specifier: ^10.3.2
@@ -477,6 +480,9 @@ importers:
       '@types/supertest':
         specifier: ^6.0.2
         version: 6.0.2
+      '@types/uuid':
+        specifier: ^10.0.0
+        version: 10.0.0
       dotenv-cli:
         specifier: ^7.4.2
         version: 7.4.2
@@ -3565,6 +3571,9 @@ packages:
 
   '@types/tough-cookie@4.0.5':
     resolution: {integrity: sha512-/Ad8+nIOV7Rl++6f1BdKxFSMgmoqEoYbHRpPcx3JEfv8VRsQe9Z4mCXeJBzxs7mbHY/XOZZuXlRNfhpVPbs6ZA==}
+
+  '@types/uuid@10.0.0':
+    resolution: {integrity: sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==}
 
   '@types/validator@13.11.10':
     resolution: {integrity: sha512-e2PNXoXLr6Z+dbfx5zSh9TRlXJrELycxiaXznp4S5+D2M3b9bqJEitNHA5923jhnB2zzFiZHa2f0SI1HoIahpg==}
@@ -9833,6 +9842,10 @@ packages:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
 
+  uuid@10.0.0:
+    resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
+    hasBin: true
+
   uuid@3.4.0:
     resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
     deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
@@ -14167,6 +14180,8 @@ snapshots:
       '@types/superagent': 8.1.7
 
   '@types/tough-cookie@4.0.5': {}
+
+  '@types/uuid@10.0.0': {}
 
   '@types/validator@13.11.10': {}
 
@@ -21712,6 +21727,8 @@ snapshots:
       which-typed-array: 1.1.15
 
   utils-merge@1.0.1: {}
+
+  uuid@10.0.0: {}
 
   uuid@3.4.0: {}
 
