@@ -34,7 +34,7 @@ export class UsersService {
       }
     })
     if (!user) {
-      throw new UnauthorizedException('用户未授权')
+      throw new UnauthorizedException('用户授权失败')
     }
     return user
   }

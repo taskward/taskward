@@ -7,6 +7,8 @@ import type { CustomRequest, JwtPayload } from '@/shared/interfaces'
 export class RequestContextService {
   private readonly contextMap = new Map<string, any>()
 
+  private readonly JWT_PAYLOAD = 'jwtPayload'
+
   constructor(@Inject(REQUEST) private readonly request: CustomRequest) {}
 
   get<T>(key: string): T | undefined {
@@ -24,10 +26,18 @@ export class RequestContextService {
   getJwtPayload(): JwtPayload
   getJwtPayload<K extends keyof JwtPayload>(key: K): JwtPayload[K]
   getJwtPayload<K extends keyof JwtPayload>(key?: K) {
-    if (key !== undefined) {
-      return this.request.jwtPayload?.[key]
+    const jwtPayload = this.get(this.JWT_PAYLOAD) as JwtPayload | undefined
+    if (!jwtPayload) {
+      return undefined
     }
-    return this.request.jwtPayload
+    if (key !== undefined) {
+      return jwtPayload?.[key]
+    }
+    return jwtPayload
+  }
+
+  setJwtPayload(jwtPayload: JwtPayload) {
+    this.set(this.JWT_PAYLOAD, jwtPayload)
   }
 
   getUserId(): number {
