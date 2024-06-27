@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
-import { APP_GUARD } from '@nestjs/core'
+import { APP_FILTER, APP_GUARD } from '@nestjs/core'
 import { JwtModule } from '@nestjs/jwt'
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
 import { CustomPrismaModule } from '@taskward/prisma'
 
+import { HttpExceptionFilter, PrismaExceptionFilter } from '@/core/filters'
 import { AccessTokenGuard } from '@/core/guards'
 import { AppEnvConfig, JwtEnvConfig, PostgresEnvConfig } from '@/shared/configs'
 
@@ -47,7 +48,9 @@ import { UsersModule } from './users/users.module'
   controllers: [AppController],
   providers: [
     { provide: APP_GUARD, useClass: ThrottlerGuard },
-    { provide: APP_GUARD, useClass: AccessTokenGuard }
+    { provide: APP_GUARD, useClass: AccessTokenGuard },
+    { provide: APP_FILTER, useClass: HttpExceptionFilter },
+    { provide: APP_FILTER, useClass: PrismaExceptionFilter }
   ]
 })
 export class AppModule {}
