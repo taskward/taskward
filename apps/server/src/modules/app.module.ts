@@ -11,9 +11,9 @@ import { AppEnvConfig, JwtEnvConfig, PostgresEnvConfig } from '@/shared/configs'
 import { AppController } from './app.controller'
 import { AuthModule } from './auth/auth.module'
 import { HealthModule } from './health/health.module'
+import { ContextModule } from './shared/context/context.module'
 import { LoggerModule } from './shared/logger/logger.module'
 import { EXTENDED_PRISMA_CLIENT, extendedPrismaClient } from './shared/prisma'
-import { RequestContextModule } from './shared/request-context/request-context.module'
 import { UsersModule } from './users/users.module'
 
 @Module({
@@ -39,7 +39,7 @@ import { UsersModule } from './users/users.module'
       { name: 'long', ttl: 60000, limit: 600 }
     ]),
     LoggerModule,
-    RequestContextModule,
+    ContextModule,
     HealthModule,
     AuthModule,
     UsersModule

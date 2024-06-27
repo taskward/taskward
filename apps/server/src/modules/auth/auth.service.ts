@@ -1,7 +1,7 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common'
 import type { ConfigType } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
-import { compare } from '@node-rs/bcrypt'
+import { compare, hash } from '@node-rs/bcrypt'
 import { CustomPrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
@@ -65,4 +65,8 @@ export class AuthService {
   }
 
   async refreshToken(jwtPayload: JwtPayload) {}
+
+  async hashPassword(password: string) {
+    return hash(password)
+  }
 }

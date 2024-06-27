@@ -4,7 +4,7 @@ import { ContextIdFactory, ModuleRef } from '@nestjs/core'
 import { PassportStrategy } from '@nestjs/passport'
 import { ExtractJwt, Strategy } from 'passport-jwt'
 
-import { RequestContextService } from '@/modules/shared/request-context/request-context.service'
+import { ContextService } from '@/modules/shared/context/context.service'
 import { JwtEnvConfig } from '@/shared/configs'
 import type { CustomRequest, JwtPayload } from '@/shared/interfaces'
 
@@ -28,10 +28,10 @@ export class RefreshTokenStrategy extends PassportStrategy(Strategy, 'refresh-to
     }
 
     const contextId = ContextIdFactory.getByRequest(req)
-    const requestContextService = await this.moduleRef.resolve(RequestContextService, contextId, {
+    const contextService = await this.moduleRef.resolve(ContextService, contextId, {
       strict: false
     })
-    requestContextService.set('jwtPayload', jwtPayload)
+    contextService.set('jwtPayload', jwtPayload)
 
     return jwtPayload
   }

@@ -1,5 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger'
-import { IsNotEmpty, IsString, Length, Matches, NotContains } from 'class-validator'
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
+import { IsNotEmpty, IsString, Length, Matches, MaxLength, NotContains } from 'class-validator'
 
 export class CreateUserDto {
   @ApiProperty({ description: '用户名' })
@@ -8,6 +8,13 @@ export class CreateUserDto {
   @IsString({ message: '用户名必须为字符串' })
   @IsNotEmpty({ message: '用户名不能为空' })
   username: string
+
+  @ApiPropertyOptional({ description: '昵称' })
+  @MaxLength(16, { message: '昵称长度不得超过 16 位' })
+  @NotContains(' ', { message: '昵称不能包含空格' })
+  @IsString({ message: '昵称必须为字符串' })
+  @IsNotEmpty({ message: '昵称不能为空' })
+  nickName: string
 
   @ApiProperty({ description: '密码' })
   @Matches(/[0-9]/, { message: '密码至少包含一位数字' })

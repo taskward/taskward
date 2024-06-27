@@ -4,7 +4,7 @@ import { REQUEST } from '@nestjs/core'
 import type { CustomRequest, JwtPayload } from '@/shared/interfaces'
 
 @Injectable({ scope: Scope.REQUEST })
-export class RequestContextService {
+export class ContextService {
   private readonly contextMap = new Map<string, any>()
 
   private readonly JWT_PAYLOAD = 'jwtPayload'

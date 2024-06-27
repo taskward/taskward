@@ -17,60 +17,55 @@ export class UserVo extends ResourceVo {
   @Exclude()
   password: string
 
-  @ApiPropertyOptional({ description: '手机号', nullable: true })
+  @ApiPropertyOptional({ description: '手机号' })
   phoneNumber?: string
 
-  @ApiPropertyOptional({ description: '邮箱', nullable: true })
+  @ApiPropertyOptional({ description: '邮箱' })
   email?: string
 
-  @ApiPropertyOptional({ description: '名', nullable: true })
+  @ApiPropertyOptional({ description: '名' })
   firstName?: string
 
-  @ApiPropertyOptional({ description: '中间名', nullable: true })
+  @ApiPropertyOptional({ description: '中间名' })
   middleName?: string
 
-  @ApiPropertyOptional({ description: '姓', nullable: true })
+  @ApiPropertyOptional({ description: '姓' })
   lastName?: string
 
-  @ApiPropertyOptional({
-    name: 'fullName',
-    description: '全名',
-    type: () => String,
-    nullable: true
-  })
+  @ApiPropertyOptional({ name: 'fullName', description: '全名' })
   @Expose({ name: 'fullName' })
   getFullName(): string {
-    return [this.firstName, this.middleName ?? '', this.lastName].filter((item) => item).join(' ')
+    return [this.firstName, this.middleName ?? '', this.lastName].filter((i) => i).join(' ')
   }
 
-  @ApiPropertyOptional({ description: '头像', nullable: true })
+  @ApiPropertyOptional({ description: '头像' })
   avatarUrl?: string
 
-  @ApiPropertyOptional({ description: '性别', nullable: true })
+  @ApiPropertyOptional({ description: '性别' })
   gender?: string
 
-  @ApiPropertyOptional({ description: '国家', nullable: true })
+  @ApiPropertyOptional({ description: '国家' })
   country?: string
 
-  @ApiPropertyOptional({ description: '省份', nullable: true })
+  @ApiPropertyOptional({ description: '省份' })
   province?: string
 
-  @ApiPropertyOptional({ description: '城市', nullable: true })
+  @ApiPropertyOptional({ description: '城市' })
   city?: string
 
-  @ApiPropertyOptional({ description: '地址', nullable: true })
+  @ApiPropertyOptional({ description: '地址' })
   address?: string
 
-  @ApiPropertyOptional({ description: '个人简介', nullable: true })
+  @ApiPropertyOptional({ description: '个人简介' })
   biography?: string
 
-  @ApiPropertyOptional({ description: '个人网站', nullable: true })
+  @ApiPropertyOptional({ description: '个人网站' })
   website?: string
 
-  @ApiPropertyOptional({ description: '个人主页', nullable: true })
+  @ApiPropertyOptional({ description: '个人主页' })
   profile?: string
 
-  @ApiProperty({ description: '出生日期', nullable: true })
+  @ApiProperty({ description: '出生日期' })
   birthDate?: Date
 
   @ApiProperty({ description: '是否启用' })
