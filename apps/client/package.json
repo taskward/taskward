@@ -36,21 +36,21 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "use-immer": "^0.10.0",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@bit-ocean/auto-import": "^0.0.31",
     "@tanstack/react-query-devtools": "^5.48.0",
-    "@types/node": "^20.14.8",
+    "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "sass": "^1.77.6",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.2",
     "unplugin-auto-import": "^0.17.6",
-    "unplugin-turbo-console": "^1.8.6"
+    "unplugin-turbo-console": "^1.8.9"
   },
   "private": true,
   "license": "MIT"
