@@ -1,16 +1,27 @@
-import { BadRequestException, Inject, Injectable } from '@nestjs/common'
+import {
+  BadRequestException,
+  forwardRef,
+  Inject,
+  Injectable,
+  NotImplementedException
+} from '@nestjs/common'
 import type { ConfigType } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
-import { compare } from '@node-rs/bcrypt'
+import { compare, hash } from '@node-rs/bcrypt'
 import { CustomPrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
 import { JwtEnvConfig } from '@/shared/configs'
-import type { CustomRequest, JwtPayload } from '@/shared/interfaces'
+import type { JwtPayload } from '@/shared/interfaces'
+import { GeneratorUtils } from '@/shared/utils'
 
+import type { ContextService } from '../shared/context/context.service'
 import { EXTENDED_PRISMA_CLIENT, type ExtendedPrismaClient } from '../shared/prisma'
+// eslint-disable-next-line import/no-cycle
+import { UsersService } from '../users/users.service'
 import { UserVo } from '../users/vo'
-import type { LoginDto } from './dto'
+import type { LoginDto, SignupDto } from './dto'
+import { TokenVo } from './vo'
 
 @Injectable()
 export class AuthService {
@@ -18,16 +29,47 @@ export class AuthService {
     @Inject(EXTENDED_PRISMA_CLIENT)
     private readonly prisma: CustomPrismaService<ExtendedPrismaClient>,
     @Inject(JwtEnvConfig.KEY) private readonly jwtEnvConfig: ConfigType<typeof JwtEnvConfig>,
-    private readonly jwtService: JwtService
+    private readonly jwtService: JwtService,
+    @Inject(forwardRef(() => UsersService)) private readonly usersService: UsersService,
+    private readonly contextService: ContextService
   ) {}
 
-  async login(loginDto: LoginDto, req: CustomRequest) {
+  async signup(signupDto: SignupDto) {
+    const userVo = await this.usersService.create(signupDto)
+
+    const { id: sub } = userVo
+
+    const jwtPayload: JwtPayload = {
+      sub,
+      jti: GeneratorUtils.generateUuid()
+    }
+
+    const tokens = await this.generateTokens(jwtPayload)
+    const tokenVo = new TokenVo(tokens)
+
+    // TODO: Add jwt to Redis for blacklisting
+    this.contextService.setJwtPayload(jwtPayload)
+
+    return tokenVo
+  }
+
+  async login(loginDto: LoginDto) {
     const userVo = await this.loginByUsername(loginDto)
 
-    const { id } = userVo
-    const jwtPayload: JwtPayload = { sub: id, jti: '' }
+    const { id: sub } = userVo
 
-    req.jwtPayload = jwtPayload
+    const jwtPayload: JwtPayload = {
+      sub,
+      jti: GeneratorUtils.generateUuid()
+    }
+
+    const tokens = await this.generateTokens(jwtPayload)
+    const tokenVo = new TokenVo({ ...tokens })
+
+    // TODO: Add jwt to Redis for blacklisting
+    this.contextService.setJwtPayload(jwtPayload)
+
+    return tokenVo
   }
 
   async loginByUsername(loginDto: LoginDto) {
@@ -36,6 +78,7 @@ export class AuthService {
       where: {
         username,
         enabled: true,
+        authFlag: true,
         deletedAt: null
       }
     })
@@ -45,12 +88,21 @@ export class AuthService {
     }
 
     if (!(await compare(password, user.password))) {
-      throw new BadRequestException('账户、密码错误')
+      throw new BadRequestException('账户或密码错误')
     }
 
     const userVo = plainToClass(UserVo, user)
 
     return userVo
+  }
+
+  async logout() {
+    throw new NotImplementedException('暂不支持该方法')
+  }
+
+  async forceLogout(jti: string) {
+    console.log(jti)
+    throw new NotImplementedException('暂不支持该方法')
   }
 
   private async generateTokens(payload: JwtPayload) {
@@ -64,5 +116,19 @@ export class AuthService {
     return { accessToken, refreshToken }
   }
 
-  async refreshToken(jwtPayload: JwtPayload) {}
+  async refreshTokens() {
+    const { sub, jti } = this.contextService.getJwtPayload()
+    const user = await this.usersService.findOne(sub)
+
+    const tokenVo = await this.generateTokens({
+      sub: user.id,
+      jti
+    })
+
+    return new TokenVo(tokenVo)
+  }
+
+  async hashPassword(password: string) {
+    return hash(password)
+  }
 }

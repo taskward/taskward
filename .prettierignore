@@ -8,6 +8,7 @@ pnpm-lock.yaml
 .expo
 expo-env.d.ts
 .next
+.vercel
 
 apps/admin/@types/auto-imports.d.ts
 apps/admin/src/routeTree.gen.ts

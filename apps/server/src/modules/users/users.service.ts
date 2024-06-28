@@ -1,22 +1,45 @@
-import { Inject, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common'
+import {
+  forwardRef,
+  Inject,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException
+} from '@nestjs/common'
 import { CustomPrismaService } from '@taskward/prisma'
+import { plainToClass } from 'class-transformer'
 
+// eslint-disable-next-line import/no-cycle
+import { AuthService } from '../auth/auth.service'
+import { ContextService } from '../shared/context/context.service'
 import { EXTENDED_PRISMA_CLIENT, ExtendedPrismaClient } from '../shared/prisma'
-import { RequestContextService } from '../shared/request-context/request-context.service'
 import { CreateUserDto } from './dto/create-user.dto'
+import { UserVo } from './vo'
 
 @Injectable()
 export class UsersService {
   constructor(
     @Inject(EXTENDED_PRISMA_CLIENT)
     private readonly prisma: CustomPrismaService<ExtendedPrismaClient>,
-    private readonly requestContextService: RequestContextService
+    @Inject(forwardRef(() => AuthService))
+    private readonly authService: AuthService,
+    private readonly contextService: ContextService
   ) {}
 
   async create(createUserDto: CreateUserDto) {
-    return this.prisma.client.user.create({
-      data: { ...createUserDto, nickName: 'test' }
+    const createdBy = this.contextService.getUserId()
+    const password = await this.authService.hashPassword(createUserDto.password)
+    const user = await this.prisma.client.user.create({
+      data: {
+        ...createUserDto,
+        password,
+        createdBy
+      },
+      omit: {
+        password: true
+      }
     })
+    const userVo = plainToClass(UserVo, user)
+    return userVo
   }
 
   async findMany() {
@@ -24,19 +47,20 @@ export class UsersService {
   }
 
   async findCurrent() {
-    const id = this.requestContextService.getUserId()
+    const id = this.contextService.getUserId()
     const user = await this.prisma.client.user.findUnique({
       where: {
         id,
-        // enabled: true,
-        // authFlag: true,
+        enabled: true,
+        authFlag: true,
         deletedAt: null
       }
     })
     if (!user) {
       throw new UnauthorizedException('用户授权失败')
     }
-    return user
+    const userVo = plainToClass(UserVo, user)
+    return userVo
   }
 
   async findOne(id: number) {
@@ -49,11 +73,17 @@ export class UsersService {
     if (!user) {
       throw new NotFoundException('用户不存在')
     }
-    return user
+    const userVo = plainToClass(UserVo, user)
+    return userVo
   }
 
   async update(id: number) {
-    return this.prisma.client.user.update({ where: { id }, data: {} })
+    return this.prisma.client.user.update({
+      where: {
+        id
+      },
+      data: {}
+    })
   }
 
   async remove(id: number) {

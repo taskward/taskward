@@ -1,6 +1,8 @@
 {
   "extends": "@bit-ocean/tsconfig/nest",
   "compilerOptions": {
+    // TODO: Move to infra
+    "useDefineForClassFields": false,
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {

@@ -1,6 +1,8 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger'
 
+import { R } from '@/shared/class'
+
 import { CreateUserDto } from './dto/create-user.dto'
 import { UsersService } from './users.service'
 
@@ -12,8 +14,10 @@ export class UsersController {
 
   @ApiOperation({ summary: '创建用户' })
   @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto)
+  async create(@Body() createUserDto: CreateUserDto) {
+    return new R({
+      data: await this.usersService.create(createUserDto)
+    })
   }
 
   @ApiOperation({ summary: '用户列表' })
@@ -24,14 +28,18 @@ export class UsersController {
 
   @ApiOperation({ summary: '个人信息' })
   @Get('profile')
-  findCurrent() {
-    return this.usersService.findCurrent()
+  async findCurrent() {
+    return new R({
+      data: await this.usersService.findCurrent()
+    })
   }
 
   @ApiOperation({ summary: '用户详情 [id]' })
   @Get(':id(\\d+)')
-  findOne(@Param('id') id: number) {
-    return this.usersService.findOne(id)
+  async findOne(@Param('id') id: number) {
+    return new R({
+      data: await this.usersService.findOne(id)
+    })
   }
 
   @ApiOperation({ summary: '更新用户' })

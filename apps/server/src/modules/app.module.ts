@@ -1,19 +1,22 @@
-import { Module } from '@nestjs/common'
+import { type MiddlewareConsumer, Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
-import { APP_GUARD } from '@nestjs/core'
+import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
 import { JwtModule } from '@nestjs/jwt'
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
 import { CustomPrismaModule } from '@taskward/prisma'
 
+import { HttpExceptionFilter, PrismaExceptionFilter } from '@/core/filters'
 import { AccessTokenGuard } from '@/core/guards'
-import { AppEnvConfig, JwtEnvConfig, PostgresEnvConfig } from '@/shared/configs'
+import { ErrorsInterceptor } from '@/core/interceptors'
+import { DelayMiddleware } from '@/core/middlewares'
+import { AppEnvConfig, DevEnvConfig, JwtEnvConfig, PostgresEnvConfig } from '@/shared/configs'
 
 import { AppController } from './app.controller'
 import { AuthModule } from './auth/auth.module'
 import { HealthModule } from './health/health.module'
+import { ContextModule } from './shared/context/context.module'
 import { LoggerModule } from './shared/logger/logger.module'
 import { EXTENDED_PRISMA_CLIENT, extendedPrismaClient } from './shared/prisma'
-import { RequestContextModule } from './shared/request-context/request-context.module'
 import { UsersModule } from './users/users.module'
 
 @Module({
@@ -23,7 +26,7 @@ import { UsersModule } from './users/users.module'
       envFilePath: ['.env.local', '.env'],
       cache: true,
       expandVariables: true,
-      load: [AppEnvConfig, JwtEnvConfig, PostgresEnvConfig]
+      load: [AppEnvConfig, DevEnvConfig, JwtEnvConfig, PostgresEnvConfig]
     }),
     JwtModule.register({
       global: true
@@ -39,7 +42,7 @@ import { UsersModule } from './users/users.module'
       { name: 'long', ttl: 60000, limit: 600 }
     ]),
     LoggerModule,
-    RequestContextModule,
+    ContextModule,
     HealthModule,
     AuthModule,
     UsersModule
@@ -47,7 +50,14 @@ import { UsersModule } from './users/users.module'
   controllers: [AppController],
   providers: [
     { provide: APP_GUARD, useClass: ThrottlerGuard },
-    { provide: APP_GUARD, useClass: AccessTokenGuard }
+    { provide: APP_GUARD, useClass: AccessTokenGuard },
+    { provide: APP_FILTER, useClass: HttpExceptionFilter },
+    { provide: APP_FILTER, useClass: PrismaExceptionFilter },
+    { provide: APP_INTERCEPTOR, useClass: ErrorsInterceptor }
   ]
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(DelayMiddleware).forRoutes('*')
+  }
+}

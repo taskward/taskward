@@ -1,1 +1,2 @@
-export * from './resource.vo'
+export * from './page'
+export * from './res'
