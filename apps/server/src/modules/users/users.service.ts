@@ -8,6 +8,8 @@ import {
 import { CustomPrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
+import type { WrapperType } from '@/shared/interfaces'
+
 // eslint-disable-next-line import/no-cycle
 import { AuthService } from '../auth/auth.service'
 import { ContextService } from '../shared/context/context.service'
@@ -21,7 +23,7 @@ export class UsersService {
     @Inject(EXTENDED_PRISMA_CLIENT)
     private readonly prisma: CustomPrismaService<ExtendedPrismaClient>,
     @Inject(forwardRef(() => AuthService))
-    private readonly authService: AuthService,
+    private readonly authService: WrapperType<AuthService>,
     private readonly contextService: ContextService
   ) {}
 

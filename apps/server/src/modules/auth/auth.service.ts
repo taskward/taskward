@@ -12,10 +12,10 @@ import { CustomPrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
 import { JwtEnvConfig } from '@/shared/configs'
-import type { JwtPayload } from '@/shared/interfaces'
+import type { JwtPayload, WrapperType } from '@/shared/interfaces'
 import { GeneratorUtils } from '@/shared/utils'
 
-import type { ContextService } from '../shared/context/context.service'
+import { ContextService } from '../shared/context/context.service'
 import { EXTENDED_PRISMA_CLIENT, type ExtendedPrismaClient } from '../shared/prisma'
 // eslint-disable-next-line import/no-cycle
 import { UsersService } from '../users/users.service'
@@ -30,7 +30,8 @@ export class AuthService {
     private readonly prisma: CustomPrismaService<ExtendedPrismaClient>,
     @Inject(JwtEnvConfig.KEY) private readonly jwtEnvConfig: ConfigType<typeof JwtEnvConfig>,
     private readonly jwtService: JwtService,
-    @Inject(forwardRef(() => UsersService)) private readonly usersService: UsersService,
+    @Inject(forwardRef(() => UsersService))
+    private readonly usersService: WrapperType<UsersService>,
     private readonly contextService: ContextService
   ) {}
 
