@@ -41,11 +41,11 @@
   },
   "devDependencies": {
     "@bit-ocean/auto-import": "^0.0.31",
-    "@iconify/json": "^2.2.222",
+    "@iconify/json": "^2.2.223",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tanstack/router-devtools": "^1.40.0",
-    "@tanstack/router-plugin": "^1.39.13",
+    "@tanstack/router-plugin": "^1.40.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
@@ -57,7 +57,7 @@
     "unplugin-auto-import": "^0.17.6",
     "unplugin-icons": "^0.19.0",
     "unplugin-turbo-console": "^1.8.9",
-    "vite": "^5.3.1",
+    "vite": "^5.3.2",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-webfont-dl": "^3.9.4"
   },
