@@ -18,11 +18,13 @@ export class RefreshTokenStrategy extends PassportStrategy(Strategy, 'refresh-to
       jwtFromRequest: ExtractJwt.fromUrlQueryParameter('token'),
       ignoreExpiration: false,
       secretOrKey: jwtEnvConfig.refreshTokenSecret,
+      issuer: jwtEnvConfig.refreshTokenIss,
       passReqToCallback: true
     })
   }
 
   async validate(req: CustomRequest, jwtPayload: JwtPayload) {
+    // TODO: Check if the token is blacklisted
     if (!jwtPayload.jti) {
       return false
     }

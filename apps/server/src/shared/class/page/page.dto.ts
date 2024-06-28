@@ -2,7 +2,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
 import { Transform } from 'class-transformer'
 import { IsEnum, IsISO8601, IsOptional, IsPositive, IsString } from 'class-validator'
 
-import { ToISOString, Trim } from '@/shared/decorators'
+import { ToISOString, Trim } from '@/shared/decorators/tranformer'
 import { SortColumnKey, SortOrder } from '@/shared/enums'
 
 export class PageDto {

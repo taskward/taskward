@@ -107,11 +107,23 @@ export class AuthService {
   }
 
   private async generateTokens(payload: JwtPayload) {
-    const { accessTokenSecret, accessTokenExp, refreshTokenSecret, refreshTokenExp } =
-      this.jwtEnvConfig
+    const {
+      accessTokenSecret,
+      accessTokenExp,
+      accessTokenIss,
+      refreshTokenSecret,
+      refreshTokenExp,
+      refreshTokenIss
+    } = this.jwtEnvConfig
     const [accessToken, refreshToken] = await Promise.all([
-      this.jwtService.signAsync(payload, { secret: accessTokenSecret, expiresIn: accessTokenExp }),
-      this.jwtService.signAsync(payload, { secret: refreshTokenSecret, expiresIn: refreshTokenExp })
+      this.jwtService.signAsync(
+        { ...payload, iss: accessTokenIss },
+        { secret: accessTokenSecret, expiresIn: accessTokenExp }
+      ),
+      this.jwtService.signAsync(
+        { ...payload, iss: refreshTokenIss },
+        { secret: refreshTokenSecret, expiresIn: refreshTokenExp }
+      )
     ])
 
     return { accessToken, refreshToken }

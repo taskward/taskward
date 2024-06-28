@@ -3,7 +3,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common'
 import { Reflector } from '@nestjs/core'
 import { AuthGuard } from '@nestjs/passport'
 
-import { SKIP_AUTH } from '@/shared/constants'
+import { IS_PUBLIC } from '@/shared/constants'
 
 @Injectable()
 export class AccessTokenGuard extends AuthGuard('access-token') {
@@ -12,12 +12,12 @@ export class AccessTokenGuard extends AuthGuard('access-token') {
   }
 
   async canActivate(context: ExecutionContext) {
-    const skipAuth = this.reflector.getAllAndOverride<boolean>(SKIP_AUTH, [
+    const isPublic = this.reflector.getAllAndOverride<boolean>(IS_PUBLIC, [
       context.getHandler(),
       context.getClass()
     ])
 
-    if (skipAuth) {
+    if (isPublic) {
       return true
     }
 
@@ -32,6 +32,7 @@ export class AccessTokenGuard extends AuthGuard('access-token') {
     if (err || !jwtPayload) {
       throw new UnauthorizedException('认证失败')
     }
+
     return jwtPayload
   }
 }

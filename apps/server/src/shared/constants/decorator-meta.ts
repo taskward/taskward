@@ -1,2 +1,1 @@
-export const AUTH = 'AUTH'
-export const SKIP_AUTH = 'SKIP_AUTH'
+export const IS_PUBLIC = 'IS_PUBLIC'

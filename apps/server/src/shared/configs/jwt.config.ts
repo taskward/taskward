@@ -21,7 +21,9 @@ export const JwtEnvConfig = registerAs('jwt', () => {
   return Object.freeze({
     accessTokenSecret: env.JWT_ACCESS_TOKEN_SECRET,
     accessTokenExp: env.JWT_ACCESS_TOKEN_EXP,
+    accessTokenIss: env.JWT_ACCESS_TOKEN_ISS,
     refreshTokenSecret: env.JWT_REFRESH_TOKEN_SECRET,
-    refreshTokenExp: env.JWT_REFRESH_TOKEN_EXP
+    refreshTokenExp: env.JWT_REFRESH_TOKEN_EXP,
+    refreshTokenIss: env.JWT_REFRESH_TOKEN_ISS
   })
 })

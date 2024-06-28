@@ -58,7 +58,7 @@ async function bootstrap() {
       transformOptions: {
         enableImplicitConversion: true
       },
-      stopAtFirstError: true
+      stopAtFirstError: false
     })
   )
 

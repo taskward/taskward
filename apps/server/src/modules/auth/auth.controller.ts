@@ -1,13 +1,14 @@
-import { Body, Controller, Post, Query, UseGuards } from '@nestjs/common'
-import { ApiOperation, ApiTags } from '@nestjs/swagger'
+import { Body, Controller, HttpCode, HttpStatus, Post, Query, UseGuards } from '@nestjs/common'
+import { ApiBody, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger'
 import { SkipThrottle } from '@nestjs/throttler'
 
 import { RefreshTokenGuard } from '@/core/guards'
 import { R } from '@/shared/class'
-import { SkipAuth } from '@/shared/decorators'
+import { ApiCreatedObjectResponse, ApiOkObjectResponse, IsPublic } from '@/shared/decorators'
 
 import { AuthService } from './auth.service'
-import type { LoginDto, SignupDto } from './dto'
+import { LoginDto, SignupDto } from './dto'
+import { TokenVo } from './vo'
 
 @ApiTags('认证')
 @Controller('auth')
@@ -15,8 +16,21 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @ApiOperation({ summary: '注册' })
+  @ApiCreatedObjectResponse(TokenVo)
+  @ApiBody({
+    type: SignupDto,
+    examples: {
+      user: {
+        value: {
+          username: 'admin',
+          nickName: 'Bruce',
+          password: '123456'
+        }
+      }
+    }
+  })
   @SkipThrottle()
-  @SkipAuth()
+  @IsPublic()
   @Post('signup')
   async signup(@Body() signupDto: SignupDto) {
     return new R({
@@ -26,8 +40,21 @@ export class AuthController {
   }
 
   @ApiOperation({ summary: '登录' })
+  @ApiOkObjectResponse(TokenVo)
+  @ApiBody({
+    type: LoginDto,
+    examples: {
+      admin: {
+        value: {
+          username: 'admin',
+          password: '123456'
+        }
+      }
+    }
+  })
   @SkipThrottle()
-  @SkipAuth()
+  @IsPublic()
+  @HttpCode(HttpStatus.OK)
   @Post('login')
   async login(@Body() loginDto: LoginDto) {
     return new R({
@@ -37,6 +64,7 @@ export class AuthController {
   }
 
   @ApiOperation({ summary: '登出' })
+  @HttpCode(HttpStatus.OK)
   @Post('logout')
   async logout() {
     await this.authService.logout()
@@ -44,6 +72,7 @@ export class AuthController {
   }
 
   @ApiOperation({ summary: '强制下线' })
+  @HttpCode(HttpStatus.OK)
   @Post('force-logout')
   async forceLogout(@Query('jti') jti: string) {
     await this.authService.forceLogout(jti)
@@ -51,9 +80,12 @@ export class AuthController {
   }
 
   @ApiOperation({ summary: '刷新令牌' })
-  @SkipThrottle()
-  @SkipAuth()
+  @ApiOkObjectResponse(TokenVo)
+  @ApiQuery({ name: 'token', required: true })
   @UseGuards(RefreshTokenGuard)
+  @SkipThrottle()
+  @IsPublic()
+  @HttpCode(HttpStatus.OK)
   @Post('refresh')
   async refresh() {
     return new R({

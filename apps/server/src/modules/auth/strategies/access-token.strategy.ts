@@ -18,11 +18,13 @@ export class AccessTokenStrategy extends PassportStrategy(Strategy, 'access-toke
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
       secretOrKey: jwtEnvConfig.accessTokenSecret,
+      issuer: jwtEnvConfig.accessTokenIss,
       passReqToCallback: true
     })
   }
 
   async validate(req: CustomRequest, jwtPayload: JwtPayload) {
+    // TODO: Check if the token is blacklisted
     if (!jwtPayload.jti) {
       return false
     }
