@@ -16,13 +16,13 @@ export class AppController {
 
   @Get('version')
   getVersion(): string {
-    this.logger.log(`获取应用版本：${this.appEnvConfig.APP_VERSION}`)
+    this.logger.log(`APP_VERSION: ${this.appEnvConfig.APP_VERSION}`)
     return this.appEnvConfig.APP_VERSION
   }
 
   @Get('info')
   getInfo(): AppConfig {
-    this.logger.log('获取应用信息：')
+    this.logger.log('APP_INFO:')
     // eslint-disable-next-line no-console
     console.table(appConfig)
     return appConfig

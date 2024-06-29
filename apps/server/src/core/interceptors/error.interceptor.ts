@@ -10,9 +10,13 @@ export class ErrorsInterceptor implements NestInterceptor {
   intercept(_context: ExecutionContext, next: CallHandler): Observable<any> {
     return next.handle().pipe(
       catchError((err) => {
-        const { msg, error, statusCode } = err?.response ?? {}
-        stdout.write(`调用失败：${statusCode} ${error}\n`)
-        stdout.write(`错误信息：${msg}\n`)
+        const { msg = '', error = '', statusCode = '' } = err?.response ?? {}
+        if (statusCode || error) {
+          stdout.write(`Call failed: ${statusCode} ${error}\n`)
+        }
+        if (msg) {
+          stdout.write(`Error Message: ${msg}\n`)
+        }
         return throwError(() => err)
       })
     )

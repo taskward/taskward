@@ -24,7 +24,7 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/happy-work-theme": "^1.0.0",
-    "@bit-ocean/config": "^0.0.31",
+    "@bit-ocean/config": "^0.0.35",
     "@tanstack/react-query": "^5.49.0",
     "@tanstack/react-router": "^1.43.1",
     "@taskward/config": "workspace:^",
@@ -41,7 +41,7 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
-    "@bit-ocean/auto-import": "^0.0.31",
+    "@bit-ocean/auto-import": "^0.0.35",
     "@iconify/json": "^2.2.223",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",

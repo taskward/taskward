@@ -18,7 +18,7 @@ import helmet from 'helmet'
 import { AppModule } from '@/modules/app.module'
 
 import { CustomLogger } from './modules/shared/logger/logger.service'
-import type { AppEnvConfig } from './shared/configs'
+import type { AppEnvConfig, DevEnvConfig } from './shared/configs'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
@@ -29,6 +29,7 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService)
   const appEnvConfig = configService.get<ConfigType<typeof AppEnvConfig>>('app')!
+  const devEnvConfig = configService.get<ConfigType<typeof DevEnvConfig>>('dev')!
 
   app.useLogger(new CustomLogger())
   app.use(helmet())
@@ -36,7 +37,7 @@ async function bootstrap() {
 
   const corsOriginWhiteList = ['https://bit-ocean.studio']
 
-  if (!appEnvConfig) {
+  if (!appEnvConfig.IS_PROD) {
     corsOriginWhiteList.push('http://localhost:*')
   }
 
@@ -86,24 +87,25 @@ async function bootstrap() {
   await SwaggerModule.loadPluginMetadata(() => import('./metadata'))
   const document = SwaggerModule.createDocument(app, config, {})
 
-  // TODO: Only enable Swagger in DEV env.
-  SwaggerModule.setup('swagger', app, document, {
-    swaggerOptions: {
-      displayOperationId: false,
-      defaultModelsExpandDepth: 3,
-      defaultModelExpandDepth: 3,
-      docExpansion: 'list',
-      filter: true,
-      syntaxHighlight: {
-        activated: true,
-        theme: 'monokai' // ["agate"*, "arta", "monokai", "nord", "obsidian", "tomorrow-night", "idea"]
-      },
-      tryItOutEnabled: false,
-      // maxDisplayedTags: 10,
-      displayRequestDuration: true,
-      persistAuthorization: true
-    }
-  })
+  if (devEnvConfig.enableSwagger) {
+    SwaggerModule.setup('swagger', app, document, {
+      swaggerOptions: {
+        displayOperationId: false,
+        defaultModelsExpandDepth: 3,
+        defaultModelExpandDepth: 3,
+        docExpansion: 'list',
+        filter: true,
+        syntaxHighlight: {
+          activated: true,
+          theme: 'monokai' // ["agate"*, "arta", "monokai", "nord", "obsidian", "tomorrow-night", "idea"]
+        },
+        tryItOutEnabled: false,
+        // maxDisplayedTags: 10,
+        displayRequestDuration: true,
+        persistAuthorization: true
+      }
+    })
+  }
 
   await app.listen(appEnvConfig.APP_PORT)
 }

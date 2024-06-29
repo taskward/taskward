@@ -14,20 +14,16 @@ export class PrismaExceptionFilter implements ExceptionFilter {
 
     switch (code) {
       case 'P2002':
-        // 处理 Prisma Unique 字段冲突异常
-        response.status(HttpStatus.CONFLICT).json(new R({ msg: '字段冲突异常' }))
+        response.status(HttpStatus.CONFLICT).json(new R({ msg: 'Field conflict' }))
         break
       case 'P2003':
-        // 处理 Prisma 操作失败异常
-        response.status(HttpStatus.BAD_REQUEST).json(new R({ msg: '操作失败异常' }))
+        response.status(HttpStatus.BAD_REQUEST).json(new R({ msg: 'Operation failed' }))
         break
       case 'P2021':
-        // 处理 Prisma 表不存在
         response.status(HttpStatus.INTERNAL_SERVER_ERROR).json('Internal server error')
         break
       case 'P2025':
-        // 处理 Prisma 资源未找到异常
-        response.status(HttpStatus.NOT_FOUND).json(new R({ msg: '资源未找到异常' }))
+        response.status(HttpStatus.NOT_FOUND).json(new R({ msg: 'Resource not found' }))
         break
       default:
         // eslint-disable-next-line no-console

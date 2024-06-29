@@ -28,7 +28,7 @@ export async function initAdminUser(prisma: PrismaClient) {
   })
 
   if (adminUser) {
-    stdout.write('超级管理员已存在，无需重复创建\n')
+    stdout.write('Super admin already exists, no need to create again!\n')
   } else {
     await prisma.user.create({
       data: {
