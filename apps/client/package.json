@@ -39,7 +39,7 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
-    "@bit-ocean/auto-import": "^0.0.35",
+    "@bit-ocean/auto-import": "^0.0.36",
     "@tanstack/react-query-devtools": "^5.48.0",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",

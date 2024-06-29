@@ -30,7 +30,10 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "peerDependencies": {
-    "axios": "^1.7.2"
+    "@tanstack/react-router": "^1.43.2",
+    "antd": "^5.18.3",
+    "axios": "^1.7.2",
+    "i18next": "^23.11.5"
   },
   "private": true,
   "license": "MIT"

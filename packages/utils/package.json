@@ -14,7 +14,8 @@
     "utils"
   ],
   "files": [
-    "dist"
+    "dist",
+    "meta.json"
   ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -28,6 +29,14 @@
     "eslint:fix": "eslint . --color --cache --fix",
     "prettier:check": "prettier --check --cache --ignore-unknown --ignore-path=../../.prettierignore .",
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
+  },
+  "peerDependencies": {
+    "dayjs": "^1.11.11"
+  },
+  "peerDependenciesMeta": {
+    "dayjs": {
+      "optional": true
+    }
   },
   "private": true,
   "license": "MIT"

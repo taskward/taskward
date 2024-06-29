@@ -4,8 +4,8 @@
     {
       "files": ["*.tsx"],
       "rules": {
-        "@typescript-eslint/no-use-before-define": "off",
-        "react/require-default-props": "off" // Optional props don't care about default values
+        // TODO: Move to infra.
+        "@typescript-eslint/no-use-before-define": "off"
       }
     }
   ]
