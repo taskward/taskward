@@ -1,5 +1,5 @@
 import { Body, Controller, HttpCode, HttpStatus, Post, Query, UseGuards } from '@nestjs/common'
-import { ApiBody, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger'
+import { ApiBody, ApiOperation, ApiTags } from '@nestjs/swagger'
 import { SkipThrottle } from '@nestjs/throttler'
 
 import { RefreshTokenGuard } from '@/core/guards'
@@ -7,7 +7,7 @@ import { R } from '@/shared/class'
 import { ApiCreatedObjectResponse, ApiOkObjectResponse, IsPublic } from '@/shared/decorators'
 
 import { AuthService } from './auth.service'
-import { LoginDto, SignupDto } from './dto'
+import { LoginDto, RefreshDto, SignupDto } from './dto'
 import { TokenVo } from './vo'
 
 @ApiTags('认证')
@@ -81,7 +81,7 @@ export class AuthController {
 
   @ApiOperation({ summary: '刷新令牌' })
   @ApiOkObjectResponse(TokenVo)
-  @ApiQuery({ name: 'token', required: true })
+  @ApiBody({ type: RefreshDto })
   @UseGuards(RefreshTokenGuard)
   @SkipThrottle()
   @IsPublic()

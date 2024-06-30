@@ -15,7 +15,7 @@ export class RefreshTokenStrategy extends PassportStrategy(Strategy, 'refresh-to
     private readonly moduleRef: ModuleRef
   ) {
     super({
-      jwtFromRequest: ExtractJwt.fromUrlQueryParameter('token'),
+      jwtFromRequest: ExtractJwt.fromBodyField('token'),
       ignoreExpiration: false,
       secretOrKey: jwtEnvConfig.refreshTokenSecret,
       issuer: jwtEnvConfig.refreshTokenIss,

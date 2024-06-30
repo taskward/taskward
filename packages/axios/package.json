@@ -35,6 +35,23 @@
     "axios": "^1.7.2",
     "i18next": "^23.11.5"
   },
+  "peerDependenciesMeta": {
+    "@tanstack/react-router": {
+      "optional": true
+    },
+    "antd": {
+      "optional": true
+    },
+    "axios": {
+      "optional": true
+    },
+    "i18next": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@taskward/utils": "workspace:^"
+  },
   "private": true,
   "license": "MIT"
 }
