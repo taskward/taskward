@@ -1,4 +1,5 @@
 import { createRouter } from '@tanstack/react-router'
+import nprogress from 'nprogress'
 import type { JSXElementConstructor } from 'react'
 
 import { routeTree } from '@/routeTree.gen'
@@ -16,6 +17,10 @@ export const router = createRouter({
 
 export const getRouterStaticData = (path: string) =>
   router.matchRoutes(path, {}).at(-1)!.staticData ?? {}
+
+nprogress.configure({ showSpinner: false })
+router.subscribe('onBeforeLoad', ({ pathChanged }) => pathChanged && nprogress.start())
+router.subscribe('onLoad', () => nprogress.done())
 
 declare module '@tanstack/react-router' {
   interface Register {
