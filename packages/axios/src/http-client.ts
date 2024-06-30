@@ -277,9 +277,9 @@ export class HttpClient {
 
     const token = AuthUtils.getRefreshToken()
 
-    const { accessToken, refreshToken } = (
-      await this.#instance.post<Tokens>('/auth/refresh', { token })
-    ).data
+    const { accessToken, refreshToken } = await this.POST<Tokens>('/auth/refresh', {
+      token
+    })
 
     AuthUtils.setAccessToken(accessToken)
     AuthUtils.setRefreshToken(refreshToken)
@@ -327,8 +327,8 @@ export class HttpClient {
    * httpClient.request({ url: '/api/users', method: 'GET' })
    * ```
    */
-  request<T, D = any>(config: AxiosRequestConfig<D>): Promise<T> {
-    return this.#instance(config)
+  request<T>(config: AxiosRequestConfig): Promise<T> {
+    return this.#instance.request(config)
   }
 
   /**
@@ -404,8 +404,12 @@ export class HttpClient {
    * httpClient.GET('/api/users')
    * ```
    */
-  GET(...args: Parameters<HttpClient['get']>) {
-    return this.get(...args)
+  GET<T, D = any>(
+    url: string,
+    params: Record<string, any>,
+    config?: AxiosRequestConfig<D>
+  ): Promise<T> {
+    return this.#instance.get(url, { params, ...config })
   }
 
   /**
@@ -417,8 +421,8 @@ export class HttpClient {
    * httpClient.POST('/api/users', { id: 1, name: 'Bruce' })
    * ```
    */
-  POST(...args: Parameters<HttpClient['post']>) {
-    return this.post(...args)
+  POST<T, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<T> {
+    return this.#instance.post(url, data, config)
   }
 
   /**
@@ -430,8 +434,8 @@ export class HttpClient {
    * httpClient.PUT('/api/users/1', { name: 'Bruce' })
    * ```
    */
-  PUT(...args: Parameters<HttpClient['put']>) {
-    return this.put(...args)
+  PUT<T, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<T> {
+    return this.#instance.put(url, data, config)
   }
 
   /**
@@ -443,8 +447,8 @@ export class HttpClient {
    * httpClient.DELETE('/api/users/1')
    * ```
    */
-  DELETE(...args: Parameters<HttpClient['delete']>) {
-    return this.delete(...args)
+  DELETE<T, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<T> {
+    return this.#instance.delete(url, config)
   }
 
   /**
@@ -456,7 +460,7 @@ export class HttpClient {
    * httpClient.PATCH('/api/users/1', { name: 'Bruce' })
    * ```
    */
-  PATCH(...args: Parameters<HttpClient['patch']>) {
-    return this.patch(...args)
+  PATCH<T, D = any>(url: string, data?: D, config?: AxiosRequestConfig<D>): Promise<T> {
+    return this.#instance.patch(url, data, config)
   }
 }
