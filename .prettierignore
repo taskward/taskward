@@ -11,7 +11,7 @@ expo-env.d.ts
 .vercel
 
 apps/admin/@types/auto-imports.d.ts
-apps/admin/src/routeTree.gen.ts
+apps/admin/src/shared/router/routeTree.gen.ts
 
 apps/client/@types/auto-imports.d.ts
 

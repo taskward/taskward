@@ -12,12 +12,12 @@ import { createFileRoute } from '@tanstack/react-router'
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as PublicRouteImport } from './routes/_public/route'
-import { Route as BaseRouteImport } from './routes/_base/route'
-import { Route as SplatRouteImport } from './routes/$/route'
-import { Route as Base404RouteImport } from './routes/_base/404/route'
-import { Route as BaseIndexRouteImport } from './routes/_base/index/route'
+import { Route as rootRoute } from './../../routes/__root'
+import { Route as PublicRouteImport } from './../../routes/_public/route'
+import { Route as BaseRouteImport } from './../../routes/_base/route'
+import { Route as SplatRouteImport } from './../../routes/$/route'
+import { Route as Base404RouteImport } from './../../routes/_base/404/route'
+import { Route as BaseIndexRouteImport } from './../../routes/_base/index/route'
 
 // Create Virtual Routes
 
@@ -32,12 +32,16 @@ const PublicForgotPasswordRouteLazyImport = createFileRoute(
 const PublicRouteRoute = PublicRouteImport.update({
   id: '/_public',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/_public/route.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import('./../../routes/_public/route.lazy').then((d) => d.Route),
+)
 
 const BaseRouteRoute = BaseRouteImport.update({
   id: '/_base',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/_base/route.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import('./../../routes/_base/route.lazy').then((d) => d.Route),
+)
 
 const SplatRouteRoute = SplatRouteImport.update({
   path: '/$',
@@ -48,14 +52,14 @@ const PublicSignupRouteLazyRoute = PublicSignupRouteLazyImport.update({
   path: '/signup',
   getParentRoute: () => PublicRouteRoute,
 } as any).lazy(() =>
-  import('./routes/_public/signup/route.lazy').then((d) => d.Route),
+  import('./../../routes/_public/signup/route.lazy').then((d) => d.Route),
 )
 
 const PublicLoginRouteLazyRoute = PublicLoginRouteLazyImport.update({
   path: '/login',
   getParentRoute: () => PublicRouteRoute,
 } as any).lazy(() =>
-  import('./routes/_public/login/route.lazy').then((d) => d.Route),
+  import('./../../routes/_public/login/route.lazy').then((d) => d.Route),
 )
 
 const PublicForgotPasswordRouteLazyRoute =
@@ -63,21 +67,23 @@ const PublicForgotPasswordRouteLazyRoute =
     path: '/forgot-password',
     getParentRoute: () => PublicRouteRoute,
   } as any).lazy(() =>
-    import('./routes/_public/forgot-password/route.lazy').then((d) => d.Route),
+    import('./../../routes/_public/forgot-password/route.lazy').then(
+      (d) => d.Route,
+    ),
   )
 
 const Base404RouteRoute = Base404RouteImport.update({
   path: '/404',
   getParentRoute: () => BaseRouteRoute,
 } as any).lazy(() =>
-  import('./routes/_base/404/route.lazy').then((d) => d.Route),
+  import('./../../routes/_base/404/route.lazy').then((d) => d.Route),
 )
 
 const BaseIndexRouteRoute = BaseIndexRouteImport.update({
   path: '/',
   getParentRoute: () => BaseRouteRoute,
 } as any).lazy(() =>
-  import('./routes/_base/index/route.lazy').then((d) => d.Route),
+  import('./../../routes/_base/index/route.lazy').then((d) => d.Route),
 )
 
 // Populate the FileRoutesByPath interface

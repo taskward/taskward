@@ -1,4 +1,5 @@
 apps/admin/@types/auto-imports.d.ts
+apps/admin/src/shared/router/routeTree.gen.ts
 
 apps/client/@types/auto-imports.d.ts
 
