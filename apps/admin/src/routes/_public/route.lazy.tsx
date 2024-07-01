@@ -1,11 +1,11 @@
 import { createLazyFileRoute, Outlet } from '@tanstack/react-router'
 
-import { AuthLayout } from '@/features/layouts'
+import { PublicLayout } from '@/features/layouts'
 
 export const Route = createLazyFileRoute('/_public')({
   component: () => (
-    <AuthLayout>
+    <PublicLayout>
       <Outlet />
-    </AuthLayout>
+    </PublicLayout>
   )
 })

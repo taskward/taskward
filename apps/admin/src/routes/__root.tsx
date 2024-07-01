@@ -1,5 +1,6 @@
 import type { QueryClient } from '@tanstack/react-query'
 import { createRootRouteWithContext, Outlet, ScrollRestoration } from '@tanstack/react-router'
+import { AnimatePresence } from 'framer-motion'
 import { Suspense } from 'react'
 
 const TanStackRouterDevtools = import.meta.env.PROD
@@ -27,7 +28,9 @@ function Root() {
   return (
     <>
       <ScrollRestoration />
-      <Outlet />
+      <AnimatePresence>
+        <Outlet />
+      </AnimatePresence>
       <Suspense fallback={null}>
         <TanStackRouterDevtools position="bottom-right" />
         <ReactQueryDevtools buttonPosition="bottom-left" />
