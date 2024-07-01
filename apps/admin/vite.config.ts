@@ -50,6 +50,10 @@ export default defineConfig(({ mode }) => {
         imports: [
           'react',
           {
+            from: 'clsx',
+            imports: [['default', 'clsx']]
+          },
+          {
             from: '@/shared/router',
             imports: ['router']
           },
@@ -71,7 +75,7 @@ export default defineConfig(({ mode }) => {
           iconsResolver({
             prefix: false,
             extension: 'jsx',
-            enabledCollections: []
+            enabledCollections: ['logos']
           })
         ]
       }),

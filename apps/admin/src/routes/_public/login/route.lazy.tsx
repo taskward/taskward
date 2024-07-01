@@ -1,6 +1,6 @@
 import { createLazyFileRoute } from '@tanstack/react-router'
 
-import { CarouselArea, LoginArea, PageContainer } from './-components'
+import { LoginArea, PageContainer } from './-components'
 
 export const Route = createLazyFileRoute('/_public/login')({
   component: Page
@@ -9,7 +9,6 @@ export const Route = createLazyFileRoute('/_public/login')({
 function Page() {
   return (
     <PageContainer>
-      <CarouselArea />
       <LoginArea />
     </PageContainer>
   )

@@ -1,5 +1,10 @@
 import { createLazyFileRoute } from '@tanstack/react-router'
 
 export const Route = createLazyFileRoute('/_public/signup')({
-  component: () => <div>Hello /_public/signup!</div>
+  component: () => (
+    <ErrorPage
+      title="开发中"
+      subTitle="🚀 该功能正在火速开发中"
+    />
+  )
 })

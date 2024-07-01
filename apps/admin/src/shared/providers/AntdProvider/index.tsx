@@ -27,6 +27,7 @@ export default function AntdProvider({ children }: PropsWithChildren) {
       locale={zhCN}
     >
       <StyleProvider
+        // TODO: https://github.com/ant-design/ant-design/issues/49377
         layer
         transformers={[px2rem]}
       >
