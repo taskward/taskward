@@ -535,6 +535,12 @@ importers:
         specifier: ^5.5.3
         version: 5.5.3
 
+  packages/api:
+    dependencies:
+      '@taskward/axios':
+        specifier: workspace:^
+        version: link:../axios
+
   packages/axios:
     dependencies:
       '@tanstack/react-router':

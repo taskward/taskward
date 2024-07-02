@@ -1,4 +1,4 @@
-import { QueryClient } from '@tanstack/react-query'
+import { MutationCache, QueryClient } from '@tanstack/react-query'
 
 export const STALE = Object.freeze({
   MINUTES: {
@@ -20,9 +20,20 @@ export const STALE = Object.freeze({
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1e3 * 5,
+      staleTime: STALE.MINUTES.TWO,
       gcTime: STALE.MINUTES.FIVE,
       retry: 1
     }
-  }
+  },
+  /**
+   * Automatically invalidate queries after a mutation.
+   * @see https://tkdodo.eu/blog/automatic-query-invalidation-after-mutations#tie-it-to-the-mutationkey
+   */
+  mutationCache: new MutationCache({
+    onSuccess: (_data, _variables, _context, mutation) => {
+      queryClient.invalidateQueries({
+        queryKey: mutation.options.mutationKey
+      })
+    }
+  })
 })

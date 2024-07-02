@@ -11,9 +11,9 @@ export default function PublicLayout(props: PropsWithChildren) {
   const themeStore = useThemeStore()
 
   return (
-    <div className="h-screen w-screen p-10">
+    <div className="h-screen w-screen sm:p-10">
       <div
-        className="h-full rounded-3xl bg-cover bg-no-repeat shadow-sm transition-[background-image] duration-1000"
+        className="h-full bg-cover bg-no-repeat p-4 shadow-sm transition-[background-image] duration-1000 sm:rounded-3xl"
         style={{
           /**
            * NOTE: Use `linear-gradient` to make background image darker.
