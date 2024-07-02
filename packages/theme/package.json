@@ -30,7 +30,7 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "peerDependencies": {
-    "antd": "^5.18.3"
+    "antd": "^5.19.0"
   },
   "peerDependenciesMeta": {
     "antd": {

@@ -7,7 +7,9 @@ export default function App() {
   return (
     <QueryProvider>
       <AntdProvider>
-        <RouterProvider router={router} />
+        <AxiosProvider>
+          <RouterProvider router={router} />
+        </AxiosProvider>
       </AntdProvider>
     </QueryProvider>
   )

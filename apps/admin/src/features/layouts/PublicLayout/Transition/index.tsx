@@ -24,8 +24,9 @@ export default function Transition(props: PropsWithChildren) {
         y: -30
       }}
       transition={{
-        ease: 'easeOut',
-        duration: 0.5
+        type: 'spring',
+        damping: 10,
+        stiffness: 100
       }}
     >
       {children}

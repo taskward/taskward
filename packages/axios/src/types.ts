@@ -1,4 +1,4 @@
-import type { AnyRouter } from '@tanstack/react-router'
+import type { Router } from '@tanstack/react-router'
 import type { MessageInstance } from 'antd/es/message/interface'
 import type { AxiosRequestConfig } from 'axios'
 import type { i18n } from 'i18next'
@@ -34,7 +34,7 @@ export interface InterceptorInitOptions {
   /**
    * Tanstack Router instance.
    */
-  router?: AnyRouter
+  router?: Router<any, any>
   /**
    * i18n instance.
    */

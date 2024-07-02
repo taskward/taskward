@@ -14,7 +14,9 @@ const px2rem = px2remTransformer({
   mediaQuery: true
 })
 
-export default function AntdProvider({ children }: PropsWithChildren) {
+export default function AntdProvider(props: PropsWithChildren) {
+  const { children } = props
+
   const themeStore = useThemeStore()
 
   return (
