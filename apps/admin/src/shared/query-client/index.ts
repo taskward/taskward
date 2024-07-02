@@ -20,7 +20,7 @@ export const STALE = Object.freeze({
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: STALE.MINUTES.FIVE,
+      staleTime: 1e3 * 5,
       gcTime: STALE.MINUTES.FIVE,
       retry: 1
     }

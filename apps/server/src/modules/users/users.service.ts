@@ -15,7 +15,7 @@ import { AuthService } from '../auth/auth.service'
 import { ContextService } from '../shared/context/context.service'
 import { EXTENDED_PRISMA_CLIENT, ExtendedPrismaClient } from '../shared/prisma'
 import { CreateUserDto } from './dto/create-user.dto'
-import { UserVo } from './vo'
+import { PageUserVo, UserVo } from './vo'
 
 @Injectable()
 export class UsersService {
@@ -45,7 +45,9 @@ export class UsersService {
   }
 
   async findMany() {
-    return this.prisma.client.user.findMany()
+    const users = this.prisma.client.user.findMany()
+    const usersVo = plainToClass(PageUserVo, users)
+    return usersVo
   }
 
   async findCurrent() {

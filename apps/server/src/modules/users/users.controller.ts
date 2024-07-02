@@ -22,8 +22,10 @@ export class UsersController {
 
   @ApiOperation({ summary: '用户列表' })
   @Get()
-  findMany() {
-    return this.usersService.findMany()
+  async findMany() {
+    return new R({
+      data: await this.usersService.findMany()
+    })
   }
 
   @ApiOperation({ summary: '个人信息' })

@@ -35,9 +35,9 @@ export class HttpClient {
 
   /**
    * The URL to refresh the token.
-   * @default '/refresh'
+   * @default '/auth/refresh'
    */
-  #refreshTokenUrl = '/refresh'
+  #refreshTokenUrl = '/auth/refresh'
 
   /**
    * The flag to indicate whether the interceptors are loaded.
@@ -114,7 +114,7 @@ export class HttpClient {
           throw err
         }
 
-        // Prevent repeating the request when the token is refreshing.
+        // Process the refresh token API error.
         if (this.#isRefreshTokenAPI(config?.url)) {
           this.#isTokenRefreshing = false
           throw response?.data.data
@@ -205,7 +205,6 @@ export class HttpClient {
      * 3. Use the default message `Unknown error!`.
      */
     const errorMsg = data?.msg ?? errorMessageMap.get(status) ?? 'Unknown error!'
-    this.#handleMessage(errorMsg, message, 'error')
 
     switch (status) {
       case HttpStatusCode.Unauthorized: {
@@ -222,20 +221,24 @@ export class HttpClient {
         } catch {
           //
         }
+        this.#handleMessage(errorMsg, message, 'error')
         this.#handleUnauthorized(router)
         break
       }
       case HttpStatusCode.Forbidden: {
         router?.navigate({ to: '/403', replace: true })
+        this.#handleMessage(errorMsg, message, 'error')
         break
       }
       case HttpStatusCode.InternalServerError:
       case HttpStatusCode.BadGateway:
       case HttpStatusCode.GatewayTimeout: {
         router?.navigate({ to: '/500', replace: true })
+        this.#handleMessage(errorMsg, message, 'error')
         break
       }
       default: {
+        this.#handleMessage(errorMsg, message, 'error')
         break
       }
     }
@@ -274,13 +277,18 @@ export class HttpClient {
    * - Retry the current request and pending requests after get new tokens.
    */
   async #refresh(config?: AxiosRequestConfig) {
+    const { baseAPIPrefix } = this.#instanceOptions
+
     this.#isTokenRefreshing = true
 
     const token = AuthUtils.getRefreshToken()
 
-    const { accessToken, refreshToken } = await this.POST<Tokens>('/auth/refresh', {
-      token
-    })
+    const { accessToken, refreshToken } = await this.POST<Tokens>(
+      `${baseAPIPrefix ?? ''}/auth/refresh`,
+      {
+        token
+      }
+    )
 
     AuthUtils.setAccessToken(accessToken)
     AuthUtils.setRefreshToken(refreshToken)
@@ -342,7 +350,7 @@ export class HttpClient {
    */
   get<T, D = any>(
     url: string,
-    params: Record<string, any>,
+    params?: Record<string, any>,
     config?: AxiosRequestConfig<D>
   ): Promise<T> {
     return this.#instance.get(url, { params, ...config })
@@ -407,7 +415,7 @@ export class HttpClient {
    */
   GET<T, D = any>(
     url: string,
-    params: Record<string, any>,
+    params?: Record<string, any>,
     config?: AxiosRequestConfig<D>
   ): Promise<T> {
     return this.#instance.get(url, { params, ...config })
