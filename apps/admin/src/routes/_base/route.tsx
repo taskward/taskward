@@ -1,11 +1,16 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
+import { AuthUtils } from '@taskward/utils'
 
 export const Route = createFileRoute('/_base')({
-  beforeLoad: () => {
-    if (!localStorage.getItem('accessToken')) {
+  beforeLoad: (ctx) => {
+    const { location } = ctx
+    if (!AuthUtils.isAuthenticated()) {
       throw redirect({
         to: '/login',
-        replace: true
+        replace: true,
+        search: {
+          redirect: location.pathname === '/' ? undefined : location.pathname
+        }
       })
     }
   }

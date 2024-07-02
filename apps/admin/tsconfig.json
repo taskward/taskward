@@ -1,7 +1,8 @@
 {
   "extends": "@bit-ocean/tsconfig/react",
   "compilerOptions": {
-    "types": ["unplugin-icons/types/react"],
+    // TODO: Remove `@taskward/axios/@types/axios`.
+    "types": ["unplugin-icons/types/react", "@taskward/axios/@types/axios"],
     "paths": {
       "@/*": ["./src/*"]
     }

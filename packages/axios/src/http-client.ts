@@ -64,10 +64,11 @@ export class HttpClient {
    * Initialize the interceptors.
    */
   async initInterceptors(options?: InterceptorInitOptions) {
-    // if (this.#interceptorsLoaded) {
-    //   return
-    // }
-    // this.#interceptorsLoaded = true
+    // NOTE: Prevent repeating the initialization.
+    if (this.#interceptorsLoaded) {
+      return
+    }
+    this.#interceptorsLoaded = true
 
     const { router, message, i18n } = options ?? {}
 
@@ -96,7 +97,7 @@ export class HttpClient {
     const { message } = options
     this.#instance.interceptors.response.use(
       (res: AxiosResponse<R>) => {
-        if (res.config.rawResponse) {
+        if (res.config?.rawResponse) {
           return res
         }
         const { data, msg } = res.data
@@ -130,7 +131,7 @@ export class HttpClient {
           return newResponse
         }
 
-        throw response?.data.data
+        throw response?.data
       }
     )
   }

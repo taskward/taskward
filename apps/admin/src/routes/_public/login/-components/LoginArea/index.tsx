@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
-import { Link, useNavigate } from '@tanstack/react-router'
-import type { R, Tokens } from '@taskward/axios'
-import axios from 'axios'
+import { Link, useNavigate, useSearch } from '@tanstack/react-router'
+import type { Tokens } from '@taskward/axios'
+import { AuthUtils } from '@taskward/utils'
 
 import Logo from './Logo'
 import Title from './Title'
@@ -10,33 +10,30 @@ interface LoginDto {
   username: string
   password: string
 }
+
 export function LoginArea() {
   const themeStore = useThemeStore()
-  const { message } = App.useApp()
   const navigate = useNavigate()
-  const { mutateAsync, isPending } = useMutation({
-    mutationFn: (loginDto: LoginDto) => axios.post<R<Tokens>>('/base-api/auth/login', loginDto)
+  const search = useSearch({
+    from: '/_public/login'
   })
-
-  const onFinish = async (values: LoginDto) => {
-    try {
-      const { data } = (await mutateAsync(values)).data
+  const { mutate, isPending } = useMutation({
+    mutationFn: (loginDto: LoginDto) => httpClient.post<Tokens>('/base-api/auth/login', loginDto),
+    onSuccess: async (data) => {
       const { accessToken, refreshToken } = data
-      localStorage.setItem('accessToken', accessToken)
-      localStorage.setItem('refreshToken', refreshToken)
+      AuthUtils.setAccessToken(accessToken)
+      AuthUtils.setRefreshToken(refreshToken)
       navigate({
-        to: '/',
+        to: search ? search.redirect : '/',
         replace: true
       })
-    } catch (e) {
-      const msgs = (e as any).response.data.msg
-      if (Array.isArray(msgs)) {
-        msgs.map((m) => message.error(m))
-      } else {
-        message.error(msgs)
-      }
     }
+  })
+
+  const onFinish = (values: LoginDto) => {
+    mutate(values)
   }
+
   return (
     <Space
       className="w-[400px] select-none"
