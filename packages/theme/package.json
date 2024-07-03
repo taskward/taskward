@@ -37,6 +37,9 @@
       "optional": true
     }
   },
+  "dependencies": {
+    "antd": "^5.19.0"
+  },
   "private": true,
   "license": "MIT"
 }
