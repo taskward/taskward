@@ -6,7 +6,7 @@ import {
   UnauthorizedException
 } from '@nestjs/common'
 import { CustomPrismaService } from '@taskward/prisma'
-import { plainToClass } from 'class-transformer'
+import { plainToInstance } from 'class-transformer'
 
 import type { WrapperType } from '@/shared/interfaces'
 
@@ -34,21 +34,23 @@ export class UsersService {
       data: {
         ...createUserDto,
         password,
-        enabled: true,
-        authFlag: true,
         createdBy
       },
       omit: {
         password: true
       }
     })
-    const userVo = plainToClass(UserVo, user)
+    const userVo = plainToInstance(UserVo, user)
     return userVo
   }
 
   async findMany() {
-    const users = this.prisma.client.user.findMany()
-    const usersVo = plainToClass(PageUserVo, users)
+    const users = await this.prisma.client.user.findMany({
+      orderBy: {
+        createdAt: 'desc'
+      }
+    })
+    const usersVo = plainToInstance(PageUserVo, { records: users })
     return usersVo
   }
 
@@ -65,7 +67,7 @@ export class UsersService {
     if (!user) {
       throw new UnauthorizedException('用户授权失败')
     }
-    const userVo = plainToClass(UserVo, user)
+    const userVo = plainToInstance(UserVo, user)
     return userVo
   }
 
@@ -79,7 +81,7 @@ export class UsersService {
     if (!user) {
       throw new NotFoundException('用户不存在')
     }
-    const userVo = plainToClass(UserVo, user)
+    const userVo = plainToInstance(UserVo, user)
     return userVo
   }
 

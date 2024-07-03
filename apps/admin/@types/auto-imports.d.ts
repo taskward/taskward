@@ -13,6 +13,7 @@ declare global {
   const Card: typeof import('antd')['Card']
   const Checkbox: typeof import('antd')['Checkbox']
   const ConfigProvider: typeof import('antd')['ConfigProvider']
+  const DatePicker: typeof import('antd')['DatePicker']
   const Divider: typeof import('antd')['Divider']
   const ErrorPage: typeof import('../src/shared/components/ErrorPage/index')['default']
   const Flex: typeof import('antd')['Flex']

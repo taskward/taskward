@@ -1,5 +1,15 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
-import { IsNotEmpty, IsString, Length, Matches, MaxLength, NotContains } from 'class-validator'
+import {
+  IsBoolean,
+  IsDate,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  Length,
+  Matches,
+  MaxLength,
+  NotContains
+} from 'class-validator'
 
 export class CreateUserDto {
   @ApiProperty({ description: '用户名' })
@@ -24,4 +34,19 @@ export class CreateUserDto {
   @IsString({ message: '密码必须为字符串' })
   @IsNotEmpty({ message: '密码不能为空' })
   password: string
+
+  @ApiPropertyOptional({ description: '出生日期' })
+  @IsDate({ message: '出生日期格式不正确' })
+  @IsOptional()
+  birthDate?: Date
+
+  @ApiPropertyOptional({ description: '是否启用' })
+  @IsBoolean({ message: '是否启用必须为布尔值' })
+  @IsOptional()
+  enabled?: boolean
+
+  @ApiPropertyOptional({ description: '是否通过验证' })
+  @IsBoolean({ message: '是否通过验证必须为布尔值' })
+  @IsOptional()
+  authFlag?: boolean
 }

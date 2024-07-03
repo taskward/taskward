@@ -7,6 +7,7 @@ interface UserVo {
   username: string
   nickName: string
   avatarUrl: string
+  birthDate: string
 }
 
 export const profileQO = queryOptions({

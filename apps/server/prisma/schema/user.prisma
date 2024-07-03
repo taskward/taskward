@@ -17,15 +17,15 @@ model User {
   biography   String?
   website     String?
   profile     String?
-  birthDate   DateTime? @map("birth_date")
+  birthDate   DateTime? @map("birth_date") @db.Date
   enabled     Boolean   @default(true)
   authFlag    Boolean   @default(false) @map("auth_flag")
 
-  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamp(3)
+  createdAt DateTime  @default(now()) @map("created_at")
   createdBy Int?      @map("created_by")
-  updatedAt DateTime? @updatedAt @map("updated_at") @db.Timestamp(3)
+  updatedAt DateTime? @updatedAt @map("updated_at")
   updatedBy Int?      @map("updated_by")
-  deletedAt DateTime? @map("deleted_at") @db.Timestamp(3)
+  deletedAt DateTime? @map("deleted_at")
   deletedBy Int?      @map("deleted_by")
 
   userAuth UserAuth[]

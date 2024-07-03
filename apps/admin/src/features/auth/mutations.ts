@@ -3,7 +3,7 @@ import { useRouter, useSearch } from '@tanstack/react-router'
 import type { Tokens } from '@taskward/axios'
 import { AuthUtils } from '@taskward/utils'
 
-import type { LoginDto } from './types'
+import type { LoginDto, SignupDto } from './types'
 
 export const useLoginMutation = () => {
   const router = useRouter()
@@ -19,6 +19,23 @@ export const useLoginMutation = () => {
       AuthUtils.setRefreshToken(refreshToken)
       router.navigate({
         to: search ? search.redirect : '/',
+        replace: true
+      })
+    }
+  })
+}
+
+export const useSignupMutation = () => {
+  const router = useRouter()
+
+  return useMutation({
+    mutationFn: (signupDto: SignupDto) => httpClient.post<Tokens>('/auth/signup', signupDto),
+    onSuccess: async (data) => {
+      const { accessToken, refreshToken } = data
+      AuthUtils.setAccessToken(accessToken)
+      AuthUtils.setRefreshToken(refreshToken)
+      router.navigate({
+        to: '/',
         replace: true
       })
     }

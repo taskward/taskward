@@ -36,7 +36,11 @@ export class AuthService {
   ) {}
 
   async signup(signupDto: SignupDto) {
-    const userVo = await this.usersService.create(signupDto)
+    const userVo = await this.usersService.create({
+      ...signupDto,
+      enabled: true,
+      authFlag: true
+    })
 
     const { id: sub } = userVo
 

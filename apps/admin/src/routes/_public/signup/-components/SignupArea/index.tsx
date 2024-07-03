@@ -1,13 +1,17 @@
 import { Link } from '@tanstack/react-router'
+import type { FormProps } from 'antd'
 
-import { useSignupMutation } from '@/features/auth'
+import { type SignupFormValues, useSignupMutation } from '@/features/auth'
+import { confirmPasswordRule } from '@/features/form'
 
 import Logo from './Logo'
 import Title from './Title'
 
 export function SignupArea() {
   const { mutate, isPending } = useSignupMutation()
-  const [form] = Form.useForm()
+
+  const onFinish: FormProps<SignupFormValues>['onFinish'] = (values) =>
+    mutate({ ...values, birthDate: values.birthDate.format('YYYY-MM-DD') })
 
   return (
     <Space
@@ -38,8 +42,7 @@ export function SignupArea() {
             <Form
               className="w-full"
               layout="vertical"
-              initialValues={{ remember: true }}
-              onFinish={mutate}
+              onFinish={onFinish}
             >
               <Form.Item
                 name="nickName"
@@ -72,23 +75,20 @@ export function SignupArea() {
                 name="confirmPassword"
                 label="确认密码"
                 dependencies={['password']}
-                rules={[
-                  { required: true, message: '请输入确认密码' },
-                  ({ getFieldValue }) => ({
-                    validator(_, value) {
-                      if (!value || getFieldValue('password') === value) {
-                        return Promise.resolve()
-                      }
-                      return Promise.reject(new Error('两次输入的密码不一致'))
-                    }
-                  })
-                ]}
+                rules={[{ required: true, message: '请输入确认密码' }, confirmPasswordRule]}
                 hasFeedback
               >
                 <Input.Password
                   placeholder="请输入确认密码"
                   autoComplete="confirm-password"
                 />
+              </Form.Item>
+
+              <Form.Item
+                name="birthDate"
+                label="出生日期"
+              >
+                <DatePicker className="w-full" />
               </Form.Item>
 
               <Form.Item>
