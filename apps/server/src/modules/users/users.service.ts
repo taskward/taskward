@@ -34,6 +34,8 @@ export class UsersService {
       data: {
         ...createUserDto,
         password,
+        enabled: true,
+        authFlag: true,
         createdBy
       },
       omit: {

@@ -17,6 +17,7 @@ export class ErrorsInterceptor implements NestInterceptor {
         if (msg) {
           stdout.write(`Error Message: ${msg}\n`)
         }
+        console.error(err)
         return throwError(() => err)
       })
     )

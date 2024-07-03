@@ -83,7 +83,6 @@ export class AuthController {
   @ApiOkObjectResponse(TokenVo)
   @ApiBody({ type: RefreshDto })
   @UseGuards(RefreshTokenGuard)
-  @SkipThrottle()
   @IsPublic()
   @HttpCode(HttpStatus.OK)
   @Post('refresh')
