@@ -7,6 +7,8 @@ import Title from './Title'
 
 export function SignupArea() {
   const { mutate, isPending } = useSignupMutation()
+  const [form] = Form.useForm()
+
   return (
     <Space
       className="w-[400px] select-none"
@@ -60,7 +62,33 @@ export function SignupArea() {
                 label="密码"
                 rules={[{ required: true, message: '请输入密码' }]}
               >
-                <Input.Password placeholder="请输入密码" />
+                <Input.Password
+                  placeholder="请输入密码"
+                  autoComplete="password"
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="confirmPassword"
+                label="确认密码"
+                dependencies={['password']}
+                rules={[
+                  { required: true, message: '请输入确认密码' },
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (!value || getFieldValue('password') === value) {
+                        return Promise.resolve()
+                      }
+                      return Promise.reject(new Error('两次输入的密码不一致'))
+                    }
+                  })
+                ]}
+                hasFeedback
+              >
+                <Input.Password
+                  placeholder="请输入确认密码"
+                  autoComplete="confirm-password"
+                />
               </Form.Item>
 
               <Form.Item>
