@@ -5,10 +5,6 @@ import type { i18n } from 'i18next'
 
 export interface AxiosInstanceOptions {
   /**
-   * If set, only the requests with the url starting with this prefix will be added the Authorization header.
-   */
-  baseAPIPrefix?: string
-  /**
    * If set to `true`, the refresh token logic will be enabled.
    */
   enableRefreshToken?: boolean

@@ -115,7 +115,7 @@ export class HttpClient {
         }
 
         // Process the refresh token API error.
-        if (this.#isRefreshTokenAPI(config?.url)) {
+        if (config?.isRefreshRequest) {
           this.#isTokenRefreshing = false
           throw response?.data.data
         }
@@ -147,12 +147,8 @@ export class HttpClient {
    * Add the authorization to the request header.
    */
   #addAuthorization(req: InternalAxiosRequestConfig) {
-    const { url } = req
-    const { baseAPIPrefix } = this.#instanceOptions
     if (AuthUtils.isAuthenticated()) {
-      if ((baseAPIPrefix && url?.startsWith(baseAPIPrefix)) || !baseAPIPrefix) {
-        req.headers.Authorization = AuthUtils.getAuthorization()
-      }
+      req.headers.Authorization = AuthUtils.getAuthorization()
     }
   }
 
@@ -277,16 +273,17 @@ export class HttpClient {
    * - Retry the current request and pending requests after get new tokens.
    */
   async #refresh(config?: AxiosRequestConfig) {
-    const { baseAPIPrefix } = this.#instanceOptions
-
     this.#isTokenRefreshing = true
 
     const token = AuthUtils.getRefreshToken()
 
     const { accessToken, refreshToken } = await this.POST<Tokens>(
-      `${baseAPIPrefix ?? ''}/auth/refresh`,
+      '/auth/refresh',
       {
         token
+      },
+      {
+        isRefreshRequest: true
       }
     )
 
@@ -312,20 +309,6 @@ export class HttpClient {
       return newResponse
     }
     return false
-  }
-
-  /**
-   * Check whether the request is the refresh token API.
-   */
-  #isRefreshTokenAPI(url?: string) {
-    if (!url) {
-      return false
-    }
-    const { baseAPIPrefix } = this.#instanceOptions
-    if (!baseAPIPrefix) {
-      return url === this.#refreshTokenUrl
-    }
-    return url.replace(baseAPIPrefix, '') === this.#refreshTokenUrl
   }
 
   /**

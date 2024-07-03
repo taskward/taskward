@@ -18,7 +18,7 @@ export function LoginArea() {
     from: '/_public/login'
   })
   const { mutate, isPending } = useMutation({
-    mutationFn: (loginDto: LoginDto) => httpClient.post<Tokens>('/base-api/auth/login', loginDto),
+    mutationFn: (loginDto: LoginDto) => httpClient.post<Tokens>('/auth/login', loginDto),
     onSuccess: async (data) => {
       const { accessToken, refreshToken } = data
       AuthUtils.setAccessToken(accessToken)

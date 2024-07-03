@@ -11,10 +11,10 @@ interface UserVo {
 
 export const profileQO = queryOptions({
   queryKey: PROFILE_QK(),
-  queryFn: () => httpClient.get<UserVo>('/base-api/users/profile')
+  queryFn: () => httpClient.get<UserVo>('/users/profile')
 })
 
 export const usersQO = queryOptions({
   queryKey: USERS_QK(),
-  queryFn: () => httpClient.get<UserVo[]>('/base-api/users')
+  queryFn: () => httpClient.get<UserVo[]>('/users')
 })
