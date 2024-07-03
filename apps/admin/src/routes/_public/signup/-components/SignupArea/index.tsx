@@ -1,15 +1,12 @@
 import { Link } from '@tanstack/react-router'
 
-import { useLoginMutation } from '@/features/auth'
+import { useSignupMutation } from '@/features/auth'
 
 import Logo from './Logo'
 import Title from './Title'
 
-export function LoginArea() {
-  const themeStore = useThemeStore()
-
-  const { mutate, isPending } = useLoginMutation()
-
+export function SignupArea() {
+  const { mutate, isPending } = useSignupMutation()
   return (
     <Space
       className="w-[400px] select-none"
@@ -43,6 +40,14 @@ export function LoginArea() {
               onFinish={mutate}
             >
               <Form.Item
+                name="nickName"
+                label="昵称"
+                rules={[{ required: true, message: '请输入昵称' }]}
+              >
+                <Input placeholder="请输入昵称" />
+              </Form.Item>
+
+              <Form.Item
                 name="username"
                 label="用户名"
                 rules={[{ required: true, message: '请输入用户名' }]}
@@ -55,66 +60,28 @@ export function LoginArea() {
                 label="密码"
                 rules={[{ required: true, message: '请输入密码' }]}
               >
-                <Input.Password
-                  placeholder="请输入密码"
-                  autoComplete="password"
-                />
-              </Form.Item>
-
-              <Form.Item>
-                <Flex justify="space-between">
-                  <Form.Item
-                    name="remember"
-                    valuePropName="checked"
-                    noStyle
-                  >
-                    <Checkbox>记住密码</Checkbox>
-                  </Form.Item>
-                  <Link to="/forgot-password">忘记密码</Link>
-                </Flex>
+                <Input.Password placeholder="请输入密码" />
               </Form.Item>
 
               <Form.Item>
                 <Button
-                  className="w-full"
+                  className="mt-2 w-full"
                   type="primary"
                   htmlType="submit"
                   disabled={isPending}
                 >
-                  登录
+                  注册
                 </Button>
               </Form.Item>
 
-              <Divider
-                className="text-xs"
-                plain
-              >
-                第三方登录
-              </Divider>
-
-              <Flex
-                className="mb-4 w-full"
-                vertical
-                gap={8}
-              >
-                <Button
-                  className="bg-[#595d5f] text-white dark:hover:border-transparent"
-                  icon={<LogosGithubIcon />}
-                  onClick={themeStore.toggleTheme}
-                >
-                  GitHub 登录
-                </Button>
-                <Button icon={<LogosGoogleIcon />}>Google 登录</Button>
-              </Flex>
-
-              <Divider className="mb-4 mt-0" />
+              <Divider className="my-4" />
 
               <Flex
                 className="text-xs"
                 justify="center"
               >
-                <span>需要账号？</span>
-                <Link to="/signup">注册</Link>
+                <span>已有账号？</span>
+                <Link to="/login">登录</Link>
               </Flex>
             </Form>
           </ConfigProvider>

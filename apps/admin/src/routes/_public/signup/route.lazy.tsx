@@ -1,10 +1,11 @@
 import { createLazyFileRoute } from '@tanstack/react-router'
 
+import { SignupArea } from './-components'
+
 export const Route = createLazyFileRoute('/_public/signup')({
-  component: () => (
-    <ErrorPage
-      title="开发中"
-      subTitle="🚀 该功能正在火速开发中"
-    />
-  )
+  component: Page
 })
+
+function Page() {
+  return <SignupArea />
+}
