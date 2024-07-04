@@ -103,7 +103,7 @@ export function SignupArea() {
               <Form.Item
                 name="email"
                 label="邮箱"
-                rules={[{ type: 'email' }]}
+                rules={[{ type: 'email', message: '请输入正确的邮箱' }]}
               >
                 <Input placeholder="请输入邮箱" />
               </Form.Item>

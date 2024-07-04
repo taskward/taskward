@@ -4,7 +4,7 @@ export const softDeleteExtension = Prisma.defineExtension({
   name: 'soft-delete',
   model: {
     $allModels: {
-      async softDelete<T>(this: T, id: number, args?: Prisma.Args<T, 'update'>['where']) {
+      async softDelete<T>(this: T, id: number, _args?: Prisma.Args<T, 'update'>['where']) {
         const context = Prisma.getExtensionContext(this)
         const result = await (context as any).update({
           where: { id },

@@ -41,7 +41,7 @@
     "@taskward/utils": "workspace:^"
   },
   "devDependencies": {
-    "@tanstack/react-router": "^1.43.6",
+    "@tanstack/react-router": "^1.43.10",
     "antd": "^5.19.0",
     "axios": "^1.7.2",
     "i18next": "^23.11.5"
