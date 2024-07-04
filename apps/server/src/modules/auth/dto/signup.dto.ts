@@ -6,5 +6,6 @@ export class SignupDto extends PickType(CreateUserDto, [
   'username',
   'password',
   'nickName',
-  'birthDate'
+  'birthDate',
+  'email'
 ]) {}

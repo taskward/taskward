@@ -8,6 +8,7 @@ export interface LoginDto {
 export interface SignupDto extends LoginDto {
   nickName: string
   birthDate: string
+  email: string
 }
 
 export interface SignupFormValues extends Omit<SignupDto, 'birthDate'> {

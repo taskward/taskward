@@ -25,7 +25,8 @@ export class AuthController {
           username: 'admin',
           nickName: 'Bruce',
           password: '123456',
-          birthDate: '1999-01-01'
+          birthDate: '1999-01-01',
+          email: 'bruce@example.com'
         }
       }
     }
