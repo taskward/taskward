@@ -2,6 +2,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
 import {
   IsBoolean,
   IsDate,
+  IsEmail,
   IsNotEmpty,
   IsOptional,
   IsString,
@@ -39,6 +40,12 @@ export class CreateUserDto {
   @IsDate({ message: '出生日期格式不正确' })
   @IsOptional()
   birthDate?: Date
+
+  @ApiPropertyOptional({ description: '邮箱' })
+  @MaxLength(50, { message: '邮箱长度不得超过 50 位' })
+  @IsEmail(undefined, { message: '邮箱格式不正确' })
+  @IsOptional()
+  email?: string
 
   @ApiPropertyOptional({ description: '是否启用' })
   @IsBoolean({ message: '是否启用必须为布尔值' })

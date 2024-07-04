@@ -100,6 +100,14 @@ export function SignupArea() {
                 />
               </Form.Item>
 
+              <Form.Item
+                name="email"
+                label="邮箱"
+                rules={[{ type: 'email' }]}
+              >
+                <Input placeholder="请输入邮箱" />
+              </Form.Item>
+
               <Form.Item>
                 <Button
                   className="mt-2 w-full"
