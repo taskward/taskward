@@ -23,20 +23,6 @@ function Page() {
         <h1>nickname: {data.nickName}</h1>
         <Avatar src={data.avatarUrl} />
       </div>
-
-      {(userlist as any).records.map((user: any) => (
-        <Card key={user.id}>
-          <h1>username: {user.username}</h1>
-          <h1>nickname: {user.nickName}</h1>
-          <Avatar src={user.avatarUrl} />
-          <DatePicker
-            value={dayjs(user.birthDate).isValid() ? dayjs(user.birthDate) : null}
-            minDate={dayjs('1900-01-01')}
-            maxDate={dayjs()}
-          />
-          {user.birthDate}
-        </Card>
-      ))}
     </Skeleton>
   )
 }

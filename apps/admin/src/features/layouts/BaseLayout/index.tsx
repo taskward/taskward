@@ -1,18 +1,14 @@
-import type { PropsWithChildren } from 'react'
-
 import Content from './Content'
 import Header from './Header'
 import Sidebar from './Sidebar'
 
-export default function BaseLayout(props: PropsWithChildren) {
-  const { children } = props
+export default function BaseLayout() {
   return (
-    <main className="flex h-screen flex-col">
-      <Header />
-      <div className="flex grow">
-        <Sidebar />
+    <main className="flex h-screen overflow-hidden border">
+      <Sidebar />
+      <div className="flex grow flex-col">
+        <Header />
         <Content />
-        {children}
       </div>
     </main>
   )

@@ -17,7 +17,7 @@ const isAppearanceTransition = () =>
   document.startViewTransition !== undefined &&
   !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-export default function ThemeSwitch() {
+export default function ThemeToggle() {
   const themeStore = useThemeStore()
 
   const handleToggleTheme = async (event: MouseEvent) => {

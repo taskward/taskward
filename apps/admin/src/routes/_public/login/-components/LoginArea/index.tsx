@@ -62,7 +62,10 @@ export function LoginArea() {
               </Form.Item>
 
               <Form.Item>
-                <Flex justify="space-between">
+                <Flex
+                  justify="space-between"
+                  align="center"
+                >
                   <Form.Item
                     name="remember"
                     valuePropName="checked"
