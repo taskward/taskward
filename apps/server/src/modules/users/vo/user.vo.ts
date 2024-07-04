@@ -1,8 +1,8 @@
 import { ApiHideProperty, ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
-import { Exclude, Expose, Transform } from 'class-transformer'
-import dayjs from 'dayjs'
+import { Exclude, Expose } from 'class-transformer'
 
 import { ResourceVo } from '@/shared/class'
+import { ToDateString } from '@/shared/decorators'
 
 export class UserVo extends ResourceVo {
   @ApiProperty({ description: 'ID' })
@@ -67,7 +67,7 @@ export class UserVo extends ResourceVo {
   profile?: string
 
   @ApiProperty({ description: '出生日期' })
-  @Transform(({ value }) => (dayjs(value).isValid() ? dayjs(value).format('YYYY-MM-DD') : null))
+  @ToDateString()
   birthDate?: Date
 
   @ApiProperty({ description: '是否启用' })

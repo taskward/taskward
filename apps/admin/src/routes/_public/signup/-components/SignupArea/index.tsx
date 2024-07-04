@@ -1,11 +1,15 @@
 import { Link } from '@tanstack/react-router'
 import type { FormProps } from 'antd'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 import { type SignupFormValues, useSignupMutation } from '@/features/auth'
 import { confirmPasswordRule } from '@/features/form'
 
 import Logo from './Logo'
 import Title from './Title'
+
+dayjs.extend(customParseFormat)
 
 export function SignupArea() {
   const { mutate, isPending } = useSignupMutation()
@@ -88,7 +92,12 @@ export function SignupArea() {
                 name="birthDate"
                 label="出生日期"
               >
-                <DatePicker className="w-full" />
+                <DatePicker
+                  className="w-full"
+                  defaultPickerValue={dayjs('2000-01-01')}
+                  minDate={dayjs('1900-01-01')}
+                  maxDate={dayjs()}
+                />
               </Form.Item>
 
               <Form.Item>

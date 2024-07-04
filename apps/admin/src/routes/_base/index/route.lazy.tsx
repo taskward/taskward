@@ -1,8 +1,11 @@
 import { useSuspenseQueries } from '@tanstack/react-query'
 import { createLazyFileRoute } from '@tanstack/react-router'
 import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 import { profileQO, usersQO } from '@/features/users'
+
+dayjs.extend(customParseFormat)
 
 export const Route = createLazyFileRoute('/_base/')({
   component: Page
@@ -27,8 +30,9 @@ function Page() {
           <h1>nickname: {user.nickName}</h1>
           <Avatar src={user.avatarUrl} />
           <DatePicker
-            value={dayjs(user.birthDate)}
-            disabled
+            value={dayjs(user.birthDate).isValid() ? dayjs(user.birthDate) : null}
+            minDate={dayjs('1900-01-01')}
+            maxDate={dayjs()}
           />
           {user.birthDate}
         </Card>
