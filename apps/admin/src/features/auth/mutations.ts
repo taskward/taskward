@@ -3,7 +3,7 @@ import { useRouter, useSearch } from '@tanstack/react-router'
 import type { Tokens } from '@taskward/axios'
 import { AuthUtils } from '@taskward/utils'
 
-import type { LoginDto, SignupDto } from './types'
+import type { LoginDto, LoginFormValues, SignupDto } from './types'
 
 export const useLoginMutation = () => {
   const router = useRouter()
@@ -11,16 +11,9 @@ export const useLoginMutation = () => {
     from: '/_public/login'
   })
 
-  const rememberStore = useRememberStore()
-
   return useMutation({
     mutationFn: (loginDto: LoginDto) => httpClient.post<Tokens>('/auth/login', loginDto),
-    onSuccess: async (data, loginDto) => {
-      if (loginDto.remember) {
-        rememberStore.setRemember(loginDto)
-      } else {
-        rememberStore.clearRemember()
-      }
+    onSuccess: async (data, variables: LoginFormValues) => {
       const { accessToken, refreshToken } = data
       AuthUtils.setAccessToken(accessToken)
       AuthUtils.setRefreshToken(refreshToken)
@@ -28,6 +21,14 @@ export const useLoginMutation = () => {
         to: search ? search.redirect : '/',
         replace: true
       })
+
+      // Process remember account
+      const { remember, ...loginDto } = variables
+      if (remember) {
+        AuthUtils.setRememberedAccount(JSON.stringify(loginDto))
+      } else {
+        AuthUtils.clearRememberedAccount()
+      }
     }
   })
 }
