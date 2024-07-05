@@ -2,8 +2,8 @@ import { Link } from '@tanstack/react-router'
 import type { FormProps } from 'antd'
 import dayjs from 'dayjs'
 
+import { confirmPasswordRule } from '@/features/antd'
 import { type SignupFormValues, useSignupMutation } from '@/features/auth'
-import { confirmPasswordRule } from '@/features/form'
 
 import Header from './Header'
 import Logo from './Logo'
