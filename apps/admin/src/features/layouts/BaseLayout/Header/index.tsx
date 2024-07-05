@@ -17,6 +17,7 @@ export default function Header() {
         onClick={() => {
           AuthUtils.clearAccessToken()
           AuthUtils.clearRefreshToken()
+          AuthUtils.clearRememberedAccount()
           router.history.flush()
           navigate({ to: '/login', replace: true })
           message.success('退出成功')

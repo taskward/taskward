@@ -54,6 +54,7 @@ declare global {
   const useMemo: typeof import('react')['useMemo']
   const useReducer: typeof import('react')['useReducer']
   const useRef: typeof import('react')['useRef']
+  const useRememberStore: typeof import('../src/shared/store/remember')['useRememberStore']
   const useRouteStaticData: typeof import('../src/shared/hooks/useRouteStaticData')['useRouteStaticData']
   const useRoutesStaticData: typeof import('../src/shared/hooks/useRoutesStaticData')['useRoutesStaticData']
   const useSidebarStore: typeof import('../src/shared/store/sidebar')['useSidebarStore']

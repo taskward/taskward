@@ -1,14 +1,28 @@
 import { Link } from '@tanstack/react-router'
+import { AuthUtils } from '@taskward/utils'
 
-import { useLoginMutation } from '@/features/auth'
+import { type LoginFormValues, useLoginMutation } from '@/features/auth'
 
 import Header from './Header'
 import Logo from './Logo'
 
 export function LoginArea() {
   const themeStore = useThemeStore()
+  const [form] = Form.useForm<LoginFormValues>()
 
   const { mutate, isPending } = useLoginMutation()
+
+  useEffect(() => {
+    try {
+      const rememberedAccount = JSON.parse(AuthUtils.getRememberedAccount() ?? '')
+      if (rememberedAccount) {
+        form.setFieldsValue({ ...rememberedAccount, remember: true })
+      }
+    } catch {
+      //
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Space
@@ -39,7 +53,7 @@ export function LoginArea() {
             <Form
               className="w-full"
               layout="vertical"
-              initialValues={{ remember: true }}
+              form={form}
               onFinish={mutate}
             >
               <Form.Item

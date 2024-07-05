@@ -11,6 +11,10 @@ export interface SignupDto extends LoginDto {
   email: string
 }
 
+export interface LoginFormValues extends LoginDto {
+  remember: boolean
+}
+
 export interface SignupFormValues extends Omit<SignupDto, 'birthDate'> {
   birthDate: Dayjs
 }
