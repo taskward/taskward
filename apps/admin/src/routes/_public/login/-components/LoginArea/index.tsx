@@ -9,6 +9,7 @@ export function LoginArea() {
   const themeStore = useThemeStore()
 
   const { mutate, isPending } = useLoginMutation()
+  const { loginDto } = useRememberStore()
 
   return (
     <Space
@@ -39,7 +40,7 @@ export function LoginArea() {
             <Form
               className="w-full"
               layout="vertical"
-              initialValues={{ remember: true }}
+              initialValues={{ ...loginDto, remember: true }}
               onFinish={mutate}
             >
               <Form.Item

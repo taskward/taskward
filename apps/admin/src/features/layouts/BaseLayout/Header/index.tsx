@@ -8,6 +8,7 @@ export default function Header() {
   const router = useRouter()
   const navigate = useNavigate()
   const { message } = App.useApp()
+  const rememberStore = useRememberStore()
 
   return (
     <div className="z-50 flex h-16 items-center justify-between border-b p-4 shadow-sm dark:bg-gray-400">
@@ -17,6 +18,7 @@ export default function Header() {
         onClick={() => {
           AuthUtils.clearAccessToken()
           AuthUtils.clearRefreshToken()
+          rememberStore.clearRemember()
           router.history.flush()
           navigate({ to: '/login', replace: true })
           message.success('退出成功')

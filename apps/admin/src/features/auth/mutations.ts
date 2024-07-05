@@ -11,9 +11,16 @@ export const useLoginMutation = () => {
     from: '/_public/login'
   })
 
+  const rememberStore = useRememberStore()
+
   return useMutation({
     mutationFn: (loginDto: LoginDto) => httpClient.post<Tokens>('/auth/login', loginDto),
-    onSuccess: async (data) => {
+    onSuccess: async (data, loginDto) => {
+      if (loginDto.remember) {
+        rememberStore.setRemember(loginDto)
+      } else {
+        rememberStore.clearRemember()
+      }
       const { accessToken, refreshToken } = data
       AuthUtils.setAccessToken(accessToken)
       AuthUtils.setRefreshToken(refreshToken)
