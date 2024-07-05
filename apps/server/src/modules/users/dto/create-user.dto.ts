@@ -36,16 +36,16 @@ export class CreateUserDto {
   @IsNotEmpty({ message: '密码不能为空' })
   password: string
 
+  @ApiPropertyOptional({ description: '邮箱' })
+  @MaxLength(50, { message: '邮箱长度不得超过 30 位' })
+  @IsEmail(undefined, { message: '邮箱格式不正确' })
+  @IsOptional()
+  email?: string
+
   @ApiPropertyOptional({ description: '出生日期' })
   @IsDate({ message: '出生日期格式不正确' })
   @IsOptional()
   birthDate?: Date
-
-  @ApiPropertyOptional({ description: '邮箱' })
-  @MaxLength(50, { message: '邮箱长度不得超过 50 位' })
-  @IsEmail(undefined, { message: '邮箱格式不正确' })
-  @IsOptional()
-  email?: string
 
   @ApiPropertyOptional({ description: '是否启用' })
   @IsBoolean({ message: '是否启用必须为布尔值' })

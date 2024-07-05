@@ -6,51 +6,51 @@ import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 interface State {
   /**
-   * 主题模式
-   * @description
-   * 可选值：`light` | `dark`
+   * Theme mode.
+   * @enum `light` | `dark`
    */
   theme: Theme
   /**
-   * 全局亮色主题配置项
+   * Global light theme configuration.
    */
   lightThemeConfig: ThemeConfig
   /**
-   * 全局暗色主题配置项
+   * Global dark theme configuration.
    */
   darkThemeConfig: ThemeConfig
   /**
-   * 是否开启 antd 快乐工作主题，默认开启
+   * Whether to enable the happy work theme.
+   * @default `true`
    */
   enableHappyWorkTheme: boolean
 }
 
 interface Actions {
   /**
-   * 是否为亮色主题
+   * Whether the current theme is light.
    */
   isLightTheme: () => boolean
   /**
-   * 是否为暗色主题
+   * Whether the current theme is dark.
    */
   isDarkTheme: () => boolean
   /**
-   * 修改主题模式
+   * Change the theme mode.
    * @description
-   * - 切换主题模式时，会自动添加或移除 document 上 `dark` 类名
-   * - 将主题模式存储到 localStorage 中，以便下次打开页面时读取
+   * - When the theme mode is switched, the `dark` class name is automatically added or removed on the `Document`.
+   * - Store the theme mode in `localStorage` for reading next time the page is opened.
    */
   changeTheme: (theme: Theme) => void
   /**
-   * 切换主题模式
+   * Toggle the theme mode.
    */
   toggleTheme: () => void
   /**
-   * 启用/禁用快乐工作主题
+   * Change the happy work theme.
    */
   setHappyWorkTheme: (enable: boolean) => void
   /**
-   * 切换快乐工作主题
+   * Toggle the happy work theme.
    */
   toggleHappyWorkTheme: () => void
 }
@@ -84,10 +84,10 @@ export const useThemeStore = create<State & Actions>()(
 )
 
 /**
- * 监听主题改变
+ * Subscribe to the theme mode.
  * @description
- * - 切换主题模式时，会自动添加或移除 document 上 `dark` 类名
- * - 将主题模式存储到 localStorage 中，以便下次打开页面时读取
+ * - When the theme mode is switched, the `dark` class name is automatically added or removed on the `Document`.
+ * - Store the theme mode in `localStorage` for reading next time the page is opened.
  */
 useThemeStore.subscribe(
   (state) => state.theme,

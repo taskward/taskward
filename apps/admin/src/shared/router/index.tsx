@@ -8,15 +8,21 @@ import { routeTree } from './routeTree.gen'
 export const router = createRouter({
   routeTree,
   context: { queryClient },
-  defaultPreload: 'intent', // 默认预加载策略
-  defaultPreloadStaleTime: 0, // 使用外部缓存库 Tanstack Query 来管理缓存，需要设置为 0
+  defaultPreload: 'intent',
+  defaultPreloadStaleTime: 0, // We use @tanstack/react-query, so we don't need to cache the data in the router.
   defaultPendingComponent: GlobalLoading,
-  defaultErrorComponent: () => <div>error</div>
+  defaultErrorComponent: () => (
+    <ErrorPage
+      title="出错了"
+      subTitle="🚧 请联系系统管理员"
+    />
+  )
 })
 
 export const getRouterStaticData = (path: string) =>
   router.matchRoutes(path, {}).at(-1)!.staticData ?? {}
 
+// NProgress
 nprogress.configure({ showSpinner: false })
 router.subscribe('onBeforeLoad', ({ pathChanged }) => pathChanged && nprogress.start())
 router.subscribe('onLoad', () => nprogress.done())

@@ -9,31 +9,33 @@ interface State {
 
 interface Actions {
   /**
-   * 修改折叠状态
+   * Change the collapse state.
    */
   setIsCollapse: (isCollapse: boolean) => void
   /**
-   * 切换折叠状态
+   * Toggle the collapse state.
    */
   toggleCollapse: () => void
   /**
-   * 修改显示状态
+   * Change the display state.
    */
   setIsDisplay: (isDisplay: boolean) => void
   /**
-   * 切换显示状态
+   * Toggle the display state.
    */
   toggleDisplay: () => void
 }
 
 const initialState: State = {
   /**
-   * 是否折叠侧边栏，默认不折叠
+   * Whether the sidebar is collapsed.
+   * @default `false`
    */
   isCollapse: false,
-
   /**
-   * 是否显示侧边栏，默认显示
+   * Whether to display the sidebar.
+   * @description
+   * - Default is `true` when the device is not mobile.
    */
   isDisplay: !BrowserUtils.isMobile()
 }

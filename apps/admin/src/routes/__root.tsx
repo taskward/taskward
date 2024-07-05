@@ -25,6 +25,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 })
 
 function Root() {
+  useTitle()
   return (
     <>
       <ScrollRestoration />

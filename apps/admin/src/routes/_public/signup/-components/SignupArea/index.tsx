@@ -1,15 +1,12 @@
 import { Link } from '@tanstack/react-router'
 import type { FormProps } from 'antd'
 import dayjs from 'dayjs'
-import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 import { type SignupFormValues, useSignupMutation } from '@/features/auth'
 import { confirmPasswordRule } from '@/features/form'
 
+import Header from './Header'
 import Logo from './Logo'
-import Title from './Title'
-
-dayjs.extend(customParseFormat)
 
 export function SignupArea() {
   const { mutate, isPending } = useSignupMutation()
@@ -31,7 +28,7 @@ export function SignupArea() {
           align="center"
           gap={8}
         >
-          <Title />
+          <Header />
 
           <ConfigProvider
             theme={{
@@ -53,7 +50,10 @@ export function SignupArea() {
                 label="昵称"
                 rules={[{ required: true, message: '请输入昵称' }]}
               >
-                <Input placeholder="请输入昵称" />
+                <Input
+                  placeholder="请输入昵称"
+                  allowClear
+                />
               </Form.Item>
 
               <Form.Item
@@ -61,7 +61,10 @@ export function SignupArea() {
                 label="用户名"
                 rules={[{ required: true, message: '请输入用户名' }]}
               >
-                <Input placeholder="请输入用户名" />
+                <Input
+                  placeholder="请输入用户名"
+                  allowClear
+                />
               </Form.Item>
 
               <Form.Item
@@ -80,11 +83,21 @@ export function SignupArea() {
                 label="确认密码"
                 dependencies={['password']}
                 rules={[{ required: true, message: '请输入确认密码' }, confirmPasswordRule]}
-                hasFeedback
               >
                 <Input.Password
                   placeholder="请输入确认密码"
                   autoComplete="confirm-password"
+                />
+              </Form.Item>
+
+              <Form.Item
+                name="email"
+                label="邮箱"
+                rules={[{ type: 'email', message: '请输入正确的邮箱' }]}
+              >
+                <Input
+                  placeholder="请输入邮箱"
+                  allowClear
                 />
               </Form.Item>
 
@@ -97,15 +110,8 @@ export function SignupArea() {
                   defaultPickerValue={dayjs('2000-01-01')}
                   minDate={dayjs('1900-01-01')}
                   maxDate={dayjs()}
+                  allowClear
                 />
-              </Form.Item>
-
-              <Form.Item
-                name="email"
-                label="邮箱"
-                rules={[{ type: 'email', message: '请输入正确的邮箱' }]}
-              >
-                <Input placeholder="请输入邮箱" />
               </Form.Item>
 
               <Form.Item>
@@ -113,6 +119,7 @@ export function SignupArea() {
                   className="mt-2 w-full"
                   type="primary"
                   htmlType="submit"
+                  loading={isPending}
                   disabled={isPending}
                 >
                   注册

@@ -6,5 +6,8 @@ const searchSchema = z.object({
 })
 
 export const Route = createFileRoute('/_public/login')({
+  staticData: {
+    title: '登录'
+  },
   validateSearch: searchSchema
 })

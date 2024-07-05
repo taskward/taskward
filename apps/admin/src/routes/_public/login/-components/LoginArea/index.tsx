@@ -2,8 +2,8 @@ import { Link } from '@tanstack/react-router'
 
 import { useLoginMutation } from '@/features/auth'
 
+import Header from './Header'
 import Logo from './Logo'
-import Title from './Title'
 
 export function LoginArea() {
   const themeStore = useThemeStore()
@@ -24,7 +24,7 @@ export function LoginArea() {
           align="center"
           gap={8}
         >
-          <Title />
+          <Header />
 
           <ConfigProvider
             theme={{
@@ -47,7 +47,10 @@ export function LoginArea() {
                 label="用户名"
                 rules={[{ required: true, message: '请输入用户名' }]}
               >
-                <Input placeholder="请输入用户名" />
+                <Input
+                  placeholder="请输入用户名"
+                  allowClear
+                />
               </Form.Item>
 
               <Form.Item
@@ -82,6 +85,7 @@ export function LoginArea() {
                   className="w-full"
                   type="primary"
                   htmlType="submit"
+                  loading={isPending}
                   disabled={isPending}
                 >
                   登录
