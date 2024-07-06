@@ -1,10 +1,4 @@
 services:
-  # admin:
-  #   container_name: taskward-admin
-  #   build:
-  #     context: ./apps/admin
-  #   ports:
-  #     - 4070:80
   postges:
     container_name: taskward-postgres
     image: postgres:16
@@ -12,7 +6,7 @@ services:
     ports:
       - 5432:5432
     env_file:
-      - path: .env.local
+      - path: apps/server/.env.local
         required: false
-      - path: .env
+      - path: apps/server/.env
         required: false
