@@ -38,6 +38,9 @@
       "optional": true
     }
   },
+  "devDependencies": {
+    "dayjs": "^1.11.11"
+  },
   "private": true,
   "license": "MIT"
 }

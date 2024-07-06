@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { AuthUtils } from '@taskward/utils'
+import { useTranslation } from 'react-i18next'
 
 import { type LoginFormValues, useLoginMutation } from '@/features/auth'
 
@@ -8,6 +9,7 @@ import Logo from './Logo'
 
 export function LoginArea() {
   const themeStore = useThemeStore()
+  const { t, i18n } = useTranslation('AUTH')
   const [form] = Form.useForm<LoginFormValues>()
 
   const { mutate, isPending } = useLoginMutation()
@@ -31,6 +33,12 @@ export function LoginArea() {
       size="middle"
     >
       <Logo />
+
+      <Button
+        onClick={() => {
+          i18n.changeLanguage(i18n.language === 'en-US' ? 'zh-CN' : 'en-US')
+        }}
+      />
 
       <Card>
         <Flex
@@ -102,7 +110,7 @@ export function LoginArea() {
                   loading={isPending}
                   disabled={isPending}
                 >
-                  登录
+                  {t('LOGIN')}
                 </Button>
               </Form.Item>
 
@@ -135,7 +143,7 @@ export function LoginArea() {
                 justify="center"
               >
                 <span>需要账号？</span>
-                <Link to="/signup">注册</Link>
+                <Link to="/signup">{t('SIGNUP')}</Link>
               </Flex>
             </Form>
           </ConfigProvider>

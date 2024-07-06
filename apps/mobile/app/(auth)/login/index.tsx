@@ -1,11 +1,14 @@
 import { appConfig } from '@taskward/config'
 import { router } from 'expo-router'
-import { Button, Image, StyleSheet, Text, TextInput, View } from 'react-native'
+import { useTranslation } from 'react-i18next'
+import { Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 import { useAuthStore } from '@/store'
 
 export default function LoginScreen() {
   const authStore = useAuthStore()
+
+  const { t, i18n } = useTranslation('AUTH')
 
   const handleLogin = async () => {
     await new Promise((resolve) => {
@@ -26,9 +29,14 @@ export default function LoginScreen() {
       <Text style={styles.title}>{appConfig.APP_NAME}</Text>
       <TextInput placeholder="请输入用户名" />
       <TextInput placeholder="请输入密码" />
+      <TouchableOpacity onPress={handleLogin}>
+        <Text>{t('LOGIN')}</Text>
+      </TouchableOpacity>
       <Button
-        title="登录"
-        onPress={handleLogin}
+        title="切换语言"
+        onPress={() => {
+          i18n.changeLanguage(i18n.language === 'en_US' ? 'zh_CN' : 'en_US')
+        }}
       />
     </View>
   )

@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import type { FormProps } from 'antd'
 import dayjs from 'dayjs'
+import { useTranslation } from 'react-i18next'
 
 import { confirmPasswordRule } from '@/features/antd'
 import { type SignupFormValues, useSignupMutation } from '@/features/auth'
@@ -9,6 +10,8 @@ import Header from './Header'
 import Logo from './Logo'
 
 export function SignupArea() {
+  const { t } = useTranslation('AUTH')
+
   const { mutate, isPending } = useSignupMutation()
 
   const onFinish: FormProps<SignupFormValues>['onFinish'] = (values) =>
@@ -122,7 +125,7 @@ export function SignupArea() {
                   loading={isPending}
                   disabled={isPending}
                 >
-                  注册
+                  {t('SIGNUP')}
                 </Button>
               </Form.Item>
 
@@ -132,8 +135,8 @@ export function SignupArea() {
                 className="text-xs"
                 justify="center"
               >
-                <span>已有账号？</span>
-                <Link to="/login">登录</Link>
+                <span>{t('ALREADY.HAVE.ACCOUNT')}</span>
+                <Link to="/login">{t('LOGIN')}</Link>
               </Flex>
             </Form>
           </ConfigProvider>

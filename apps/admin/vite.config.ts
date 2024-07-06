@@ -49,6 +49,7 @@ export default defineConfig(({ mode }) => {
         include: [/\.[tj]sx?$/, /\.md$/],
         imports: [
           'react',
+          'react-i18next',
           {
             from: 'clsx',
             imports: [['default', 'clsx']]
@@ -98,8 +99,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('src', import.meta.url))
-      },
-      extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']
+      }
     },
     esbuild: {
       drop: mode === 'production' ? ['console', 'debugger'] : []

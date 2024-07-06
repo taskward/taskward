@@ -63,4 +63,5 @@ declare global {
   const useThemeStore: typeof import('../src/shared/store/theme')['useThemeStore']
   const useTitle: typeof import('../src/shared/hooks/useTitle')['useTitle']
   const useTransition: typeof import('react')['useTransition']
+  const useTranslation: typeof import('react-i18next')['useTranslation']
 }

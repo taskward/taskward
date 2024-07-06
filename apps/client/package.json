@@ -28,7 +28,7 @@
     "@taskward/config": "workspace:^",
     "@taskward/theme": "workspace:^",
     "@taskward/utils": "workspace:^",
-    "antd": "^5.19.0",
+    "antd": "^5.19.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "immer": "^10.1.1",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@bit-ocean/auto-import": "^0.0.36",
-    "@tanstack/react-query-devtools": "^5.49.2",
+    "@tanstack/react-query-devtools": "^5.50.1",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

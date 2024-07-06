@@ -19,6 +19,13 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
@@ -32,17 +39,12 @@
   "peerDependencies": {
     "axios": "^1.7.2"
   },
-  "peerDependenciesMeta": {
-    "axios": {
-      "optional": true
-    }
-  },
   "dependencies": {
     "@taskward/utils": "workspace:^"
   },
   "devDependencies": {
-    "@tanstack/react-router": "^1.43.10",
-    "antd": "^5.19.0",
+    "@tanstack/react-router": "^1.43.12",
+    "antd": "^5.19.1",
     "axios": "^1.7.2",
     "i18next": "^23.11.5"
   },

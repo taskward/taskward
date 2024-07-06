@@ -1,24 +1,25 @@
 {
-  "name": "@taskward/theme",
-  "description": "✅ Taskward project theme configuration.",
+  "name": "@taskward/locales",
+  "description": "✅ Taskward i18n resources.",
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "homepage": "https://github.com/taskward/taskward#readme",
   "bugs": "https://github.com/taskward/taskward/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/taskward/taskward.git",
-    "directory": "packages/theme"
+    "url": "https://github.com/taskward/infra.git",
+    "directory": "packages/locales"
   },
   "keywords": [
     "taskward",
-    "theme"
+    "i18n",
+    "locales",
+    "resources",
+    "translations"
   ],
   "files": [
-    "dist"
+    "dist",
+    "resources"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
@@ -29,16 +30,8 @@
     "prettier:check": "prettier --check --cache --ignore-unknown --ignore-path=../../.prettierignore .",
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
-  "peerDependencies": {
-    "antd": "^5.19.1"
-  },
-  "peerDependenciesMeta": {
-    "antd": {
-      "optional": true
-    }
-  },
   "dependencies": {
-    "antd": "^5.19.1"
+    "@taskward/i18n": "workspace:^"
   },
   "private": true,
   "license": "MIT"
