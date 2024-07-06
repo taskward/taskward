@@ -134,6 +134,7 @@ export function SignupArea() {
               <Flex
                 className="text-xs"
                 justify="center"
+                gap={4}
               >
                 <span>{t('ALREADY.HAVE.ACCOUNT')}</span>
                 <Link to="/login">{t('LOGIN')}</Link>
