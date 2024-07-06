@@ -108,8 +108,12 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks: (id) => {
-            if (id.includes('node_modules')) {
-              return id.toString().split('node_modules/')[1].split('/')[0].toString()
+            if (/node_modules/.test(id)) {
+              const name = id.split('node_modules/')[1].split('/')
+              if (name[0] === '.pnpm') {
+                return `vendor-${name[1]}`
+              }
+              return `vendor-${name[0]}`
             }
             // if (id.includes('node_modules')) {
             //   return 'vendor'

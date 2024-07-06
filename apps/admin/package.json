@@ -13,6 +13,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:staging": "NODE_ENV=staging vite build --mode staging",
+    "build:prod": "NODE_ENV=production vite build --mode production",
     "preview": "vite preview",
     "type:check": "tsc --pretty --noEmit",
     "cspell:check": "cspell --no-progress --show-suggestions --show-context --cache **",
