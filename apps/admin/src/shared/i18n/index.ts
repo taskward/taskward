@@ -17,4 +17,4 @@ i18nInstance
   )
   .init()
 
-export default i18nInstance.getInstance()
+export const i18n = i18nInstance.getInstance()
