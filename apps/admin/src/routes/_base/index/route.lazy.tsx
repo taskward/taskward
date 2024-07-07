@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 import { profileQO, usersQO } from '@/features/users'
+import { dependencies, devDependencies } from '~build/package'
 
 dayjs.extend(customParseFormat)
 
@@ -23,6 +24,18 @@ function Page() {
         <h1>nickname: {data.nickName}</h1>
         <Avatar src={data.avatarUrl} />
       </div>
+      项目依赖情况:
+      {Object.keys(dependencies).map((d) => (
+        <div key={d}>
+          {d}: {dependencies[d]}
+        </div>
+      ))}
+      开发依赖情况:
+      {Object.keys(devDependencies).map((d) => (
+        <div key={d}>
+          {d}: {devDependencies[d]}
+        </div>
+      ))}
     </Skeleton>
   )
 }

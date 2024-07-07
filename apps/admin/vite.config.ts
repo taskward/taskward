@@ -8,6 +8,7 @@ import ReactSWC from '@vitejs/plugin-react-swc'
 import AutoImport from 'unplugin-auto-import/vite'
 import iconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
+import Info from 'unplugin-info/vite'
 import TurboConsole from 'unplugin-turbo-console/vite'
 import { defineConfig, loadEnv, type ProxyOptions } from 'vite'
 import Compression from 'vite-plugin-compression'
@@ -84,6 +85,12 @@ export default defineConfig(({ mode }) => {
         autoInstall: true,
         compiler: 'jsx',
         jsx: 'react'
+      }),
+      Info({
+        package: {
+          dependencies: true,
+          devDependencies: true
+        }
       }),
       TurboConsole(),
       WebfontDownload(),

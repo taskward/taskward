@@ -11,13 +11,11 @@ const TanStackRouterDevtools = import.meta.env.PROD
       }))
     )
 
-const ReactQueryDevtools = import.meta.env.PROD
-  ? () => null
-  : lazy(() =>
-      import('@tanstack/react-query-devtools').then((res) => ({
-        default: res.ReactQueryDevtools
-      }))
-    )
+const ReactQueryDevtools = lazy(() =>
+  import('@tanstack/react-query-devtools').then((res) => ({
+    default: res.ReactQueryDevtools
+  }))
+)
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   component: Root,
@@ -26,6 +24,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function Root() {
   useTitle()
+
+  const [showDevtools, setShowDevtools] = useState(false)
+
+  useEffect(() => {
+    window.toggleDevtools = () => setShowDevtools(!showDevtools)
+  }, [])
+
   return (
     <>
       <ScrollRestoration />
@@ -33,8 +38,12 @@ function Root() {
         <Outlet />
       </AnimatePresence>
       <Suspense fallback={null}>
-        <TanStackRouterDevtools position="bottom-right" />
-        <ReactQueryDevtools buttonPosition="bottom-left" />
+        {showDevtools && (
+          <>
+            <TanStackRouterDevtools position="bottom-right" />
+            <ReactQueryDevtools buttonPosition="bottom-left" />
+          </>
+        )}
       </Suspense>
     </>
   )
