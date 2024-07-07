@@ -15,6 +15,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
+    "@bit-ocean/bootstrap-animation": "^0.0.36",
     "@bit-ocean/cli": "^0.0.36",
     "@bit-ocean/commitlint-config": "^0.0.36",
     "@bit-ocean/cspell": "^0.0.36",

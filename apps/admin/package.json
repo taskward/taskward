@@ -50,7 +50,9 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.3.1",
     "react-i18next": "^14.1.2",
+    "socket.io-client": "^4.7.5",
     "use-immer": "^0.10.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz",
     "zod": "^3.23.8",
     "zustand": "^4.5.4"
   },

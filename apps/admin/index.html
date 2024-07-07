@@ -2,14 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="✅ A minimalist Todo&Tasks web application."
+    />
+    <meta
+      name="keywords"
+      content="Taskward, Todo, Admin"
+    />
+    <meta
+      name="author"
+      content="Bruce Song"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <link
       rel="icon"
       type="image/svg+xml"
       href="/favicon.ico"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
     <link
       rel="preconnect"
@@ -28,7 +40,7 @@
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Roboto:wght@100&display=swap"
       rel="stylesheet"
     />
-    <title>Taskward Admin</title>
+    <title>Taskward</title>
   </head>
   <body>
     <div id="root"></div>
@@ -36,17 +48,9 @@
       type="module"
       src="/src/main.tsx"
     ></script>
-    <script type="module">
-      import { DateUtils } from '@taskward/utils'
-      import { commitMessage, committer, committerDate } from '~build/git'
-      ;(function () {
-        console.log(
-          `%c${'提交者：' + committer}\n${'提交信息：' + commitMessage}\n${
-            '提交时间：' + DateUtils.formatTime(committerDate)
-          }`,
-          'color: #fff; background-color: #007acc; padding: 2px 4px; border-radius: 2px;'
-        )
-      })()
-    </script>
+    <script
+      type="module"
+      src="/src/console.ts"
+    ></script>
   </body>
 </html>

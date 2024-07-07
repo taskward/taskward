@@ -3,7 +3,9 @@ import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 
 import { antdResolver } from '@bit-ocean/auto-import'
+import { BootstrapAnimation } from '@bit-ocean/bootstrap-animation'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
+import { appConfig } from '@taskward/config'
 import ReactSWC from '@vitejs/plugin-react-swc'
 import AutoImport from 'unplugin-auto-import/vite'
 import iconsResolver from 'unplugin-icons/resolver'
@@ -20,24 +22,29 @@ export default defineConfig(({ mode }) => {
   const envPath = path.resolve(process.cwd())
   const environment = loadEnv(mode, envPath) as ImportMetaEnv
   const {
-    VITE_ADMIN_PORT,
-    VITE_ADMIN_BASE_API_PREFIX,
-    VITE_ADMIN_BASE_API_URL,
-    VITE_ADMIN_MOCK_API_PREFIX,
-    VITE_ADMIN_MOCK_API_URL
+    VITE_PORT,
+    VITE_BASE_API_PREFIX,
+    VITE_BASE_API_URL,
+    VITE_MOCK_API_PREFIX,
+    VITE_MOCK_API_URL
   } = environment
 
-  const port = Number.parseInt(VITE_ADMIN_PORT, 10) || DEFAULT_APP_PORT
+  const port = Number.parseInt(VITE_PORT, 10) || DEFAULT_APP_PORT
   const proxy: Record<string, string | ProxyOptions> = {
-    [VITE_ADMIN_BASE_API_PREFIX]: {
-      target: VITE_ADMIN_BASE_API_URL,
+    [VITE_BASE_API_PREFIX]: {
+      target: VITE_BASE_API_URL,
       changeOrigin: true,
-      rewrite: (p: string) => p.replace(VITE_ADMIN_BASE_API_PREFIX, '')
+      rewrite: (p: string) => p.replace(VITE_BASE_API_PREFIX, '')
     },
-    [VITE_ADMIN_MOCK_API_PREFIX]: {
-      target: VITE_ADMIN_MOCK_API_URL,
+    [VITE_MOCK_API_PREFIX]: {
+      target: VITE_MOCK_API_URL,
       changeOrigin: true,
-      rewrite: (p: string) => p.replace(VITE_ADMIN_MOCK_API_PREFIX, '')
+      rewrite: (p: string) => p.replace(VITE_MOCK_API_PREFIX, '')
+    },
+    '/socket.io': {
+      target: VITE_BASE_API_URL,
+      ws: true,
+      changeOrigin: true
     }
   }
 
@@ -51,18 +58,10 @@ export default defineConfig(({ mode }) => {
         imports: [
           'react',
           'react-i18next',
-          {
-            from: 'clsx',
-            imports: [['default', 'clsx']]
-          },
-          {
-            from: '@/shared/router',
-            imports: ['router']
-          },
-          {
-            from: '@/shared/query-client',
-            imports: ['queryClient']
-          }
+          { from: 'clsx', imports: [['default', 'clsx']] },
+          { from: 'use-immer', imports: ['useImmer'] },
+          { from: '@/shared/router', imports: ['router'] },
+          { from: '@/shared/query-client', imports: ['queryClient'] }
         ],
         dirs: [
           'src/shared/api/*',
@@ -101,6 +100,10 @@ export default defineConfig(({ mode }) => {
         algorithm: 'gzip',
         ext: '.gz',
         deleteOriginFile: true
+      }),
+      BootstrapAnimation({
+        name: appConfig.APP_NAME,
+        description: appConfig.DESCRIPTION
       })
     ],
     resolve: {

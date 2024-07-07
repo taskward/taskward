@@ -48,6 +48,7 @@ declare global {
   const useDeferredValue: typeof import('react')['useDeferredValue']
   const useEffect: typeof import('react')['useEffect']
   const useId: typeof import('react')['useId']
+  const useImmer: typeof import('use-immer')['useImmer']
   const useImperativeHandle: typeof import('react')['useImperativeHandle']
   const useInsertionEffect: typeof import('react')['useInsertionEffect']
   const useLayoutEffect: typeof import('react')['useLayoutEffect']
