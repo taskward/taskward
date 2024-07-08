@@ -1,41 +1,73 @@
-import { useSuspenseQueries } from '@tanstack/react-query'
 import { createLazyFileRoute } from '@tanstack/react-router'
-import dayjs from 'dayjs'
-import customParseFormat from 'dayjs/plugin/customParseFormat'
 
-import { profileQO, usersQO } from '@/features/users'
-import { dependencies, devDependencies } from '~build/package'
-
-dayjs.extend(customParseFormat)
+import {
+  ActiveUsersChart,
+  activeUsersData,
+  UserGrowthChart,
+  userGrowthData
+} from '@/features/dashboard'
+import type { ChartData } from '@/shared/charts'
 
 export const Route = createLazyFileRoute('/_base/')({
   component: Page
 })
 
 function Page() {
-  const [{ data, isLoading, refetch }, { data: userlist }] = useSuspenseQueries({
-    queries: [profileQO, usersQO]
+  const [userGrowthD, setUserGrowthD] = useState<ChartData>({
+    xAxis: [...userGrowthData.xAxis],
+    yAxis: []
+  })
+  const [activeUsersD, setActiveUsersD] = useState<ChartData>({
+    xAxis: [...activeUsersData.xAxis],
+    yAxis: []
   })
 
+  useEffect(() => {
+    setTimeout(() => {
+      setUserGrowthD(userGrowthData)
+      setActiveUsersD(activeUsersData)
+    }, 500)
+  }, [])
+
   return (
-    <Skeleton loading={isLoading}>
-      <div onClick={() => refetch()}>
-        <h1>username: {data.username}</h1>
-        <h1>nickname: {data.nickName}</h1>
-        <Avatar src={data.avatarUrl} />
-      </div>
-      项目依赖情况:
-      {Object.keys(dependencies).map((d) => (
-        <div key={d}>
-          {d}: {dependencies[d]}
-        </div>
-      ))}
-      开发依赖情况:
-      {Object.keys(devDependencies).map((d) => (
-        <div key={d}>
-          {d}: {devDependencies[d]}
-        </div>
-      ))}
-    </Skeleton>
+    <Flex
+      vertical
+      gap={12}
+    >
+      <span className="text-2xl">Dashboard</span>
+      <Row gutter={[12, 12]}>
+        <Col span={6}>
+          <Card>
+            <div className="h-28">123</div>
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card>
+            <div className="h-28">Card5</div>
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card>
+            <div className="h-28">Card5</div>
+          </Card>
+        </Col>
+        <Col span={6}>
+          <Card>
+            <div className="h-28">Card5</div>
+          </Card>
+        </Col>
+
+        <Col span={12}>
+          <Card>
+            <UserGrowthChart data={userGrowthD} />
+          </Card>
+        </Col>
+        <Col span={12}>
+          <Card>
+            <ActiveUsersChart data={activeUsersD} />
+          </Card>
+        </Col>
+      </Row>
+    </Flex>
   )
 }

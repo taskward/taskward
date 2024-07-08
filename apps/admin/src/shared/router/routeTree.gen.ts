@@ -17,6 +17,7 @@ import { Route as SplatRouteImport } from './../../routes/$/route'
 import { Route as PublicSignupRouteImport } from './../../routes/_public/signup/route'
 import { Route as PublicLoginRouteImport } from './../../routes/_public/login/route'
 import { Route as PublicForgotPasswordRouteImport } from './../../routes/_public/forgot-password/route'
+import { Route as BaseDevRouteImport } from './../../routes/_base/dev/route'
 import { Route as Base404RouteImport } from './../../routes/_base/404/route'
 import { Route as BaseIndexRouteImport } from './../../routes/_base/index/route'
 
@@ -62,6 +63,13 @@ const PublicForgotPasswordRouteRoute = PublicForgotPasswordRouteImport.update({
   import('./../../routes/_public/forgot-password/route.lazy').then(
     (d) => d.Route,
   ),
+)
+
+const BaseDevRouteRoute = BaseDevRouteImport.update({
+  path: '/dev',
+  getParentRoute: () => BaseRouteRoute,
+} as any).lazy(() =>
+  import('./../../routes/_base/dev/route.lazy').then((d) => d.Route),
 )
 
 const Base404RouteRoute = Base404RouteImport.update({
@@ -117,6 +125,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Base404RouteImport
       parentRoute: typeof BaseRouteImport
     }
+    '/_base/dev': {
+      id: '/_base/dev'
+      path: '/dev'
+      fullPath: '/dev'
+      preLoaderRoute: typeof BaseDevRouteImport
+      parentRoute: typeof BaseRouteImport
+    }
     '/_public/forgot-password': {
       id: '/_public/forgot-password'
       path: '/forgot-password'
@@ -148,6 +163,7 @@ export const routeTree = rootRoute.addChildren({
   BaseRouteRoute: BaseRouteRoute.addChildren({
     BaseIndexRouteRoute,
     Base404RouteRoute,
+    BaseDevRouteRoute,
   }),
   PublicRouteRoute: PublicRouteRoute.addChildren({
     PublicForgotPasswordRouteRoute,
@@ -176,7 +192,8 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "_base/route.tsx",
       "children": [
         "/_base/",
-        "/_base/404"
+        "/_base/404",
+        "/_base/dev"
       ]
     },
     "/_public": {
@@ -193,6 +210,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_base/404": {
       "filePath": "_base/404/route.tsx",
+      "parent": "/_base"
+    },
+    "/_base/dev": {
+      "filePath": "_base/dev/route.tsx",
       "parent": "/_base"
     },
     "/_public/forgot-password": {
