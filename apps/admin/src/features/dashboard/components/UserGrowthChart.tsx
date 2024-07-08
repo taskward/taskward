@@ -22,10 +22,18 @@ export function UserGrowthChart(props: UserGrowthChartProps) {
           }
         },
         grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
+          left: 0,
+          right: 120,
+          bottom: 10,
+          tooltip: true,
           containLabel: true
+        },
+        legend: {
+          data: data?.yAxis.map((i) => i.label),
+          align: 'left',
+          right: 0,
+          top: 'center',
+          orient: 'vertical'
         },
         xAxis: {
           type: 'category',
@@ -34,12 +42,24 @@ export function UserGrowthChart(props: UserGrowthChartProps) {
             alignWithLabel: true
           }
         },
-        yAxis: { type: 'value' },
+        yAxis: {
+          type: 'value'
+        },
         series: data?.yAxis.map((i) => ({
           type: 'bar',
           name: i.label,
           data: i.value
-        }))
+        })),
+        toolbox: {
+          feature: {
+            magicType: {
+              type: ['stack']
+            },
+            saveAsImage: {
+              pixelRatio: 2
+            }
+          }
+        }
       }}
     />
   )

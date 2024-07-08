@@ -18,7 +18,16 @@ export default function ReactChart(props: ReactChartProps) {
   const [chart, setChart] = useState<EChartsInstance | null>(null)
   const chartRef = useRef<HTMLDivElement | null>(null)
 
-  const resize = useCallback(() => chart?.resize(), [chart])
+  const resize = useCallback(
+    () =>
+      chart?.resize({
+        animation: {
+          duration: 3000,
+          easing: 'cubicIn'
+        }
+      }),
+    [chart]
+  )
 
   const setOption = useCallback(() => chart?.setOption(option), [chart, option])
 
@@ -36,7 +45,7 @@ export default function ReactChart(props: ReactChartProps) {
     }
     init()
     return () => chart?.dispose()
-  }, [chart, initOptions, setOption, themeStore.theme])
+  }, [])
 
   useEffect(() => {
     window.addEventListener('resize', resize)

@@ -2,9 +2,9 @@ import { createLazyFileRoute } from '@tanstack/react-router'
 
 import {
   ActiveUsersChart,
-  activeUsersData,
-  UserGrowthChart,
-  userGrowthData
+  generateActiveUsersData,
+  generateUserGrowthData,
+  UserGrowthChart
 } from '@/features/dashboard'
 import type { ChartData } from '@/shared/charts'
 
@@ -14,19 +14,26 @@ export const Route = createLazyFileRoute('/_base/')({
 
 function Page() {
   const [userGrowthD, setUserGrowthD] = useState<ChartData>({
-    xAxis: [...userGrowthData.xAxis],
+    xAxis: [],
     yAxis: []
   })
   const [activeUsersD, setActiveUsersD] = useState<ChartData>({
-    xAxis: [...activeUsersData.xAxis],
+    xAxis: [],
     yAxis: []
   })
 
   useEffect(() => {
     setTimeout(() => {
-      setUserGrowthD(userGrowthData)
-      setActiveUsersD(activeUsersData)
+      setUserGrowthD(generateUserGrowthData())
+      setActiveUsersD(generateActiveUsersData())
     }, 500)
+
+    const interval = setInterval(() => {
+      setUserGrowthD(generateUserGrowthData())
+      setActiveUsersD(generateActiveUsersData())
+    }, 5000)
+
+    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -38,22 +45,33 @@ function Page() {
       <Row gutter={[12, 12]}>
         <Col span={6}>
           <Card>
-            <div className="h-28">123</div>
+            <div className="h-40">
+              TODO:
+              <ul>
+                <li>Table</li>
+                <li>✅ Multi-BarChart</li>
+                <li>Multi-BarChart(Reverse)</li>
+                <li>✅ Multi-LineChart</li>
+                <li>PieChart</li>
+                <li>GaugeChart</li>
+                <li>BarLineCompChart</li>
+              </ul>
+            </div>
           </Card>
         </Col>
         <Col span={6}>
           <Card>
-            <div className="h-28">Card5</div>
+            <div className="h-40">Card5</div>
           </Card>
         </Col>
         <Col span={6}>
           <Card>
-            <div className="h-28">Card5</div>
+            <div className="h-40">Card5</div>
           </Card>
         </Col>
         <Col span={6}>
           <Card>
-            <div className="h-28">Card5</div>
+            <div className="h-40">Card5</div>
           </Card>
         </Col>
 

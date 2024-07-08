@@ -1,39 +1,39 @@
 import type { ChartData } from '@/shared/charts'
 
-import { generateRandomDataValues } from './utils'
+import { generateRandomDataValues, getLastWeek } from './utils'
 
-export const userGrowthData: ChartData = {
-  xAxis: [],
+export const generateUserGrowthData = (): ChartData => ({
+  xAxis: getLastWeek().map((i) => ({ label: i })),
   yAxis: [
     {
       label: 'Web',
-      value: generateRandomDataValues(),
+      value: generateRandomDataValues(7),
       color: '#0078d7'
     },
     {
       label: 'iOS',
-      value: generateRandomDataValues(),
+      value: generateRandomDataValues(7),
       color: '#00bc70'
     },
     {
       label: 'Android',
-      value: generateRandomDataValues(),
+      value: generateRandomDataValues(7),
       color: '#f503f2'
     },
     {
       label: 'Desktop',
-      value: generateRandomDataValues(),
+      value: generateRandomDataValues(7),
       color: '#f2a103'
     },
     {
       label: 'Mini App',
-      value: generateRandomDataValues(),
+      value: generateRandomDataValues(7),
       color: '#f20303'
     },
     {
       label: 'Website',
-      value: generateRandomDataValues(),
+      value: generateRandomDataValues(7),
       color: '#f203f2'
     }
   ]
-}
+})

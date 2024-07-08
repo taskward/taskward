@@ -7,6 +7,7 @@ import type {
   GridComponentOption,
   LegendComponentOption,
   TitleComponentOption,
+  ToolboxComponentOption,
   TooltipComponentOption
 } from 'echarts/components'
 import {
@@ -16,6 +17,7 @@ import {
   GridComponent,
   LegendComponent,
   TitleComponent,
+  ToolboxComponent,
   TooltipComponent,
   TransformComponent
 } from 'echarts/components'
@@ -30,6 +32,7 @@ type ECOption = ComposeOption<
   | PieSeriesOption
   | TitleComponentOption
   | TooltipComponentOption
+  | ToolboxComponentOption
   | AxisPointerComponentOption
   | GridComponentOption
   | DatasetComponentOption
@@ -45,6 +48,7 @@ echarts.use([
   LegendComponent,
   TitleComponent,
   TooltipComponent,
+  ToolboxComponent,
   TransformComponent,
   BarChart,
   LineChart,

@@ -23,10 +23,17 @@ export function ActiveUsersChart(props: ActiveUsersChartProps) {
         },
         grid: {
           left: 0,
-          right: 0,
+          right: 120,
           bottom: 10,
           tooltip: true,
           containLabel: true
+        },
+        legend: {
+          data: data?.yAxis.map((i) => i.label),
+          align: 'left',
+          right: 0,
+          top: 'center',
+          orient: 'vertical'
         },
         xAxis: {
           type: 'category',
@@ -35,13 +42,26 @@ export function ActiveUsersChart(props: ActiveUsersChartProps) {
             alignWithLabel: true
           }
         },
-        yAxis: { type: 'value' },
+        yAxis: {
+          type: 'value'
+        },
         series:
-          data?.yAxis.map((i) => ({
+          data?.yAxis.map((i, idx) => ({
             type: 'line',
             name: i.label,
-            data: i.value
-          })) ?? []
+            data: i.value,
+            animationDelay: (index) => index * 10 + idx * 100
+          })) ?? [],
+        toolbox: {
+          feature: {
+            magicType: {
+              type: ['stack']
+            },
+            saveAsImage: {
+              pixelRatio: 2
+            }
+          }
+        }
       }}
     />
   )
