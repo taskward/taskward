@@ -11,6 +11,9 @@ export function UserGrowthChart(props: UserGrowthChartProps) {
     <ReactChart
       className="h-80 w-full"
       option={{
+        textStyle: {
+          fontFamily: 'inherit'
+        },
         title: {
           text: 'User Growth',
           left: 'center'

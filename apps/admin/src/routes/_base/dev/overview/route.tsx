@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { profileQO, usersQO } from '@/features/users'
 
-export const Route = createFileRoute('/_base/dev')({
+export const Route = createFileRoute('/_base/dev/overview')({
   staticData: {
     title: 'Dev'
   },

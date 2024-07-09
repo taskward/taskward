@@ -1,4 +1,4 @@
-import { useNavigate } from '@tanstack/react-router'
+import { useNavigate, useRouter } from '@tanstack/react-router'
 import { appConfig } from '@taskward/config'
 
 import logo from '@/assets/images/logo/square.png'
@@ -6,6 +6,7 @@ import logo from '@/assets/images/logo/square.png'
 import styles from './index.module.scss'
 
 export default function Header() {
+  const router = useRouter()
   const navigate = useNavigate()
 
   const [isTitleHover, setIsTitleHover] = useState(false)
@@ -22,11 +23,15 @@ export default function Header() {
         height={36}
         loading="eager"
         onClick={navToHome}
+        onMouseOver={() => router.preloadRoute({ to: '/' })}
       />
       <span
         className="cursor-pointer text-lg font-medium"
         onClick={navToHome}
-        onMouseOver={() => setIsTitleHover(true)}
+        onMouseOver={() => {
+          router.preloadRoute({ to: '/' })
+          setIsTitleHover(true)
+        }}
         onMouseOut={() => setIsTitleHover(false)}
       >
         {appConfig.APP_NAME}

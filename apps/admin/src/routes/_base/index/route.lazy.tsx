@@ -1,4 +1,4 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { createLazyFileRoute, Link } from '@tanstack/react-router'
 
 import {
   ActiveUsersChart,
@@ -23,10 +23,8 @@ function Page() {
   })
 
   useEffect(() => {
-    setTimeout(() => {
-      setUserGrowthD(generateUserGrowthData())
-      setActiveUsersD(generateActiveUsersData())
-    }, 500)
+    setUserGrowthD(generateUserGrowthData())
+    setActiveUsersD(generateActiveUsersData())
 
     const interval = setInterval(() => {
       setUserGrowthD(generateUserGrowthData())
@@ -61,7 +59,11 @@ function Page() {
         </Col>
         <Col span={6}>
           <Card>
-            <div className="h-40">Card5</div>
+            <div className="h-40">
+              <Link to="/dev/charts">
+                <Button>Chart Demo</Button>
+              </Link>
+            </div>
           </Card>
         </Col>
         <Col span={6}>

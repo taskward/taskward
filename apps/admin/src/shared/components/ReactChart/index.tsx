@@ -1,10 +1,10 @@
-import type { EChartsInitOpts } from 'echarts'
+import type { EChartsInitOpts, EChartsOption } from 'echarts'
 import type { CSSProperties } from 'react'
 
-import type { EChartsInstance, ECOption } from '@/shared/charts'
+import type { EChartsInstance } from '@/shared/charts'
 
 interface ReactChartProps {
-  option?: ECOption
+  option?: EChartsOption
   initOptions?: EChartsInitOpts
   className?: string
   style?: CSSProperties
@@ -31,6 +31,11 @@ export default function ReactChart(props: ReactChartProps) {
 
   const setOption = useCallback(() => chart?.setOption(option), [chart, option])
 
+  /**
+   * When the following properties change, the chart will be re-rendered, but before that, the chart will be disposed first.
+   * - initOptions
+   * - theme
+   */
   useLayoutEffect(() => {
     const init = () => {
       const alreadyInit = echarts.getInstanceByDom(chartRef.current!)
@@ -45,7 +50,7 @@ export default function ReactChart(props: ReactChartProps) {
     }
     init()
     return () => chart?.dispose()
-  }, [])
+  }, [chart, initOptions, setOption, themeStore.theme])
 
   useEffect(() => {
     window.addEventListener('resize', resize)

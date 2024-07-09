@@ -17,9 +17,10 @@ import { Route as SplatRouteImport } from './../../routes/$/route'
 import { Route as PublicSignupRouteImport } from './../../routes/_public/signup/route'
 import { Route as PublicLoginRouteImport } from './../../routes/_public/login/route'
 import { Route as PublicForgotPasswordRouteImport } from './../../routes/_public/forgot-password/route'
-import { Route as BaseDevRouteImport } from './../../routes/_base/dev/route'
 import { Route as Base404RouteImport } from './../../routes/_base/404/route'
 import { Route as BaseIndexRouteImport } from './../../routes/_base/index/route'
+import { Route as BaseDevOverviewRouteImport } from './../../routes/_base/dev/overview/route'
+import { Route as BaseDevChartsRouteImport } from './../../routes/_base/dev/charts/route'
 
 // Create/Update Routes
 
@@ -65,13 +66,6 @@ const PublicForgotPasswordRouteRoute = PublicForgotPasswordRouteImport.update({
   ),
 )
 
-const BaseDevRouteRoute = BaseDevRouteImport.update({
-  path: '/dev',
-  getParentRoute: () => BaseRouteRoute,
-} as any).lazy(() =>
-  import('./../../routes/_base/dev/route.lazy').then((d) => d.Route),
-)
-
 const Base404RouteRoute = Base404RouteImport.update({
   path: '/404',
   getParentRoute: () => BaseRouteRoute,
@@ -84,6 +78,20 @@ const BaseIndexRouteRoute = BaseIndexRouteImport.update({
   getParentRoute: () => BaseRouteRoute,
 } as any).lazy(() =>
   import('./../../routes/_base/index/route.lazy').then((d) => d.Route),
+)
+
+const BaseDevOverviewRouteRoute = BaseDevOverviewRouteImport.update({
+  path: '/dev/overview',
+  getParentRoute: () => BaseRouteRoute,
+} as any).lazy(() =>
+  import('./../../routes/_base/dev/overview/route.lazy').then((d) => d.Route),
+)
+
+const BaseDevChartsRouteRoute = BaseDevChartsRouteImport.update({
+  path: '/dev/charts',
+  getParentRoute: () => BaseRouteRoute,
+} as any).lazy(() =>
+  import('./../../routes/_base/dev/charts/route.lazy').then((d) => d.Route),
 )
 
 // Populate the FileRoutesByPath interface
@@ -125,13 +133,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Base404RouteImport
       parentRoute: typeof BaseRouteImport
     }
-    '/_base/dev': {
-      id: '/_base/dev'
-      path: '/dev'
-      fullPath: '/dev'
-      preLoaderRoute: typeof BaseDevRouteImport
-      parentRoute: typeof BaseRouteImport
-    }
     '/_public/forgot-password': {
       id: '/_public/forgot-password'
       path: '/forgot-password'
@@ -153,6 +154,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicSignupRouteImport
       parentRoute: typeof PublicRouteImport
     }
+    '/_base/dev/charts': {
+      id: '/_base/dev/charts'
+      path: '/dev/charts'
+      fullPath: '/dev/charts'
+      preLoaderRoute: typeof BaseDevChartsRouteImport
+      parentRoute: typeof BaseRouteImport
+    }
+    '/_base/dev/overview': {
+      id: '/_base/dev/overview'
+      path: '/dev/overview'
+      fullPath: '/dev/overview'
+      preLoaderRoute: typeof BaseDevOverviewRouteImport
+      parentRoute: typeof BaseRouteImport
+    }
   }
 }
 
@@ -163,7 +178,8 @@ export const routeTree = rootRoute.addChildren({
   BaseRouteRoute: BaseRouteRoute.addChildren({
     BaseIndexRouteRoute,
     Base404RouteRoute,
-    BaseDevRouteRoute,
+    BaseDevChartsRouteRoute,
+    BaseDevOverviewRouteRoute,
   }),
   PublicRouteRoute: PublicRouteRoute.addChildren({
     PublicForgotPasswordRouteRoute,
@@ -193,7 +209,8 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/_base/",
         "/_base/404",
-        "/_base/dev"
+        "/_base/dev/charts",
+        "/_base/dev/overview"
       ]
     },
     "/_public": {
@@ -212,10 +229,6 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "_base/404/route.tsx",
       "parent": "/_base"
     },
-    "/_base/dev": {
-      "filePath": "_base/dev/route.tsx",
-      "parent": "/_base"
-    },
     "/_public/forgot-password": {
       "filePath": "_public/forgot-password/route.tsx",
       "parent": "/_public"
@@ -227,6 +240,14 @@ export const routeTree = rootRoute.addChildren({
     "/_public/signup": {
       "filePath": "_public/signup/route.tsx",
       "parent": "/_public"
+    },
+    "/_base/dev/charts": {
+      "filePath": "_base/dev/charts/route.tsx",
+      "parent": "/_base"
+    },
+    "/_base/dev/overview": {
+      "filePath": "_base/dev/overview/route.tsx",
+      "parent": "/_base"
     }
   }
 }

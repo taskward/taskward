@@ -8,7 +8,7 @@ import { dependencies, devDependencies } from '~build/package'
 
 dayjs.extend(customParseFormat)
 
-export const Route = createLazyFileRoute('/_base/dev')({
+export const Route = createLazyFileRoute('/_base/dev/overview')({
   component: Page
 })
 

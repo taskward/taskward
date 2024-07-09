@@ -11,6 +11,9 @@ export function ActiveUsersChart(props: ActiveUsersChartProps) {
     <ReactChart
       className="h-80 w-full"
       option={{
+        textStyle: {
+          fontFamily: 'inherit'
+        },
         title: {
           text: 'Active Users',
           left: 'center'
