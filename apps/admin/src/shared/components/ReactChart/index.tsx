@@ -111,4 +111,7 @@ const ReactChart = forwardRef<ReactChartRef, ReactChartProps>((props, ref) => {
     />
   )
 })
+
+ReactChart.displayName = 'ReactChart'
+
 export default ReactChart
