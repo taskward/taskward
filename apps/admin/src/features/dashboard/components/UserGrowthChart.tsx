@@ -18,7 +18,7 @@ export function UserGrowthChart(props: UserGrowthChartProps) {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
-            type: 'shadow'
+            type: 'cross'
           }
         },
         grid: {

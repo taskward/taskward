@@ -6,7 +6,7 @@ export const getLastWeek = (): string[] => {
   const lastTwoWeeks = Array.from({ length: 7 }, (_, i) => {
     const date = new Date(today)
     date.setDate(today.getDate() - i)
-    return date.toISOString().split('T')[0]
+    return date.toLocaleDateString('en-US', { month: '2-digit', day: '2-digit' })
   })
   return lastTwoWeeks.reverse()
 }

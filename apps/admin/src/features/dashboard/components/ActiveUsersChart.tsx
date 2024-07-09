@@ -18,7 +18,7 @@ export function ActiveUsersChart(props: ActiveUsersChartProps) {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
-            type: 'shadow'
+            type: 'cross'
           }
         },
         grid: {
@@ -46,11 +46,10 @@ export function ActiveUsersChart(props: ActiveUsersChartProps) {
           type: 'value'
         },
         series:
-          data?.yAxis.map((i, idx) => ({
+          data?.yAxis.map((i) => ({
             type: 'line',
             name: i.label,
-            data: i.value,
-            animationDelay: (index) => index * 10 + idx * 100
+            data: i.value
           })) ?? [],
         toolbox: {
           feature: {
