@@ -13,19 +13,10 @@ export const Route = createLazyFileRoute('/_base/')({
 })
 
 function Page() {
-  const [userGrowthD, setUserGrowthD] = useState<ChartData>({
-    xAxis: [],
-    yAxis: []
-  })
-  const [activeUsersD, setActiveUsersD] = useState<ChartData>({
-    xAxis: [],
-    yAxis: []
-  })
+  const [userGrowthD, setUserGrowthD] = useState<ChartData>(generateUserGrowthData())
+  const [activeUsersD, setActiveUsersD] = useState<ChartData>(generateActiveUsersData())
 
   useEffect(() => {
-    setUserGrowthD(generateUserGrowthData())
-    setActiveUsersD(generateActiveUsersData())
-
     const interval = setInterval(() => {
       setUserGrowthD(generateUserGrowthData())
       setActiveUsersD(generateActiveUsersData())

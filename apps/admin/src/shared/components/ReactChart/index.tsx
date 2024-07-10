@@ -30,9 +30,9 @@ const ReactChart = forwardRef<ReactChartRef, ReactChartProps>((props, ref) => {
 
   const themeStore = useThemeStore()
 
-  const initialResized = useRef(false)
   const chartInstance = useRef<EChartsInstance | null>(null)
   const chartRef = useRef<HTMLDivElement | null>(null)
+  const initialResize = useRef(false)
 
   const resize = useCallback(() => {
     chartInstance.current?.resize({
@@ -41,7 +41,7 @@ const ReactChart = forwardRef<ReactChartRef, ReactChartProps>((props, ref) => {
         duration: 500
       }
     })
-    initialResized.current = true
+    initialResize.current = true
   }, [])
 
   const setOption = useCallback(() => chartInstance.current?.setOption(option ?? {}), [option])
@@ -52,32 +52,28 @@ const ReactChart = forwardRef<ReactChartRef, ReactChartProps>((props, ref) => {
    * - options
    * - theme
    */
-  useLayoutEffect(() => {
-    const init = () => {
-      const alreadyInit = echarts.getInstanceByDom(chartRef.current!)
-      if (!alreadyInit) {
-        chartInstance.current = echarts.init(chartRef.current!, themeStore.theme, {
-          renderer: 'svg',
-          ...initOptions
-        })
-        if (!initialResized.current) {
-          resize()
-        }
-      }
+  useEffect(() => {
+    if (!chartInstance.current) {
+      chartInstance.current = echarts.init(chartRef.current, themeStore.theme, {
+        renderer: 'svg',
+        ...initOptions
+      })
     }
-    init()
+    if (!initialResize.current) {
+      resize()
+    }
     return () => {
       chartInstance.current?.dispose()
       chartInstance.current = null
     }
   }, [initOptions, resize, themeStore.theme])
 
+  useEffect(() => setOption(), [setOption, themeStore.theme])
+
   useEffect(() => {
     window.addEventListener('resize', resize)
     return () => window.removeEventListener('resize', resize)
   }, [resize])
-
-  useEffect(() => setOption(), [setOption])
 
   const divProps = useMemo(
     () => ({
