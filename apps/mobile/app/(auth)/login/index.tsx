@@ -3,7 +3,7 @@ import { router } from 'expo-router'
 import { useTranslation } from 'react-i18next'
 import { Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
-import { useAuthStore } from '@/store'
+import { useAuthStore } from '@/shared/store'
 
 export default function LoginScreen() {
   const authStore = useAuthStore()
@@ -34,9 +34,7 @@ export default function LoginScreen() {
       </TouchableOpacity>
       <Button
         title="切换语言"
-        onPress={() => {
-          i18n.changeLanguage(i18n.language === 'en_US' ? 'zh_CN' : 'en_US')
-        }}
+        onPress={() => i18n.changeLanguage(i18n.language === 'en_US' ? 'zh_CN' : 'en_US')}
       />
     </View>
   )

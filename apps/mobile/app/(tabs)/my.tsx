@@ -1,6 +1,6 @@
 import { Button, Text, View } from 'react-native'
 
-import { useAuthStore } from '@/store'
+import { useAuthStore } from '@/shared/store'
 
 export default function MyScreen() {
   const authStore = useAuthStore()

@@ -41,6 +41,7 @@ declare global {
   const echarts: typeof import('../src/shared/charts/index')['echarts']
   const forwardRef: typeof import('react')['forwardRef']
   const httpClient: typeof import('../src/shared/api/index')['httpClient']
+  const i18n: typeof import('../src/shared/i18n/index')['default']
   const lazy: typeof import('react')['lazy']
   const memo: typeof import('react')['memo']
   const queryClient: typeof import('@/shared/query-client')['queryClient']
