@@ -1,15 +1,22 @@
-import type { ChartData } from '@/shared/charts'
+import { generateActiveUsersData } from '../mock'
 
-interface ActiveUsersChartProps {
-  data?: ChartData
-}
+export function ActiveUsersChart() {
+  const themeStore = useThemeStore()
 
-export function ActiveUsersChart(props: ActiveUsersChartProps) {
-  const { data } = props
+  const [data, setData] = useState(generateActiveUsersData())
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setData(generateActiveUsersData())
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <ReactChart
       className="h-80 w-full"
+      theme={themeStore.theme}
       option={{
         textStyle: {
           fontFamily: 'inherit'

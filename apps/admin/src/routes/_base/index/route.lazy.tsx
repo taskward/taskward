@@ -1,30 +1,12 @@
 import { createLazyFileRoute, Link } from '@tanstack/react-router'
 
-import {
-  ActiveUsersChart,
-  generateActiveUsersData,
-  generateUserGrowthData,
-  UserGrowthChart
-} from '@/features/dashboard'
-import type { ChartData } from '@/shared/charts'
+import { ActiveUsersChart, UserDistributionChart, UserGrowthChart } from '@/features/dashboard'
 
 export const Route = createLazyFileRoute('/_base/')({
   component: Page
 })
 
 function Page() {
-  const [userGrowthD, setUserGrowthD] = useState<ChartData>(generateUserGrowthData())
-  const [activeUsersD, setActiveUsersD] = useState<ChartData>(generateActiveUsersData())
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setUserGrowthD(generateUserGrowthData())
-      setActiveUsersD(generateActiveUsersData())
-    }, 5000)
-
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <Flex
       vertical
@@ -70,12 +52,18 @@ function Page() {
 
         <Col span={12}>
           <Card>
-            <UserGrowthChart data={userGrowthD} />
+            <UserGrowthChart />
           </Card>
         </Col>
         <Col span={12}>
           <Card>
-            <ActiveUsersChart data={activeUsersD} />
+            <ActiveUsersChart />
+          </Card>
+        </Col>
+
+        <Col span={12}>
+          <Card>
+            <UserDistributionChart />
           </Card>
         </Col>
       </Row>

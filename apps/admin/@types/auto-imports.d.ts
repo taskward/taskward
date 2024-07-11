@@ -38,7 +38,7 @@ declare global {
   const Tooltip: typeof import('antd')['Tooltip']
   const clsx: typeof import('clsx')['default']
   const createRef: typeof import('react')['createRef']
-  const echarts: typeof import('../src/shared/charts/index')['echarts']
+  const echarts: typeof import('../src/shared/echarts/index')['default']
   const forwardRef: typeof import('react')['forwardRef']
   const httpClient: typeof import('../src/shared/api/index')['httpClient']
   const i18n: typeof import('../src/shared/i18n/index')['default']

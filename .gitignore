@@ -112,3 +112,6 @@ apps/mobile/android
 
 # Nest
 .nestjs_repl_history
+
+# Geo
+apps/admin/src/assets/json/geo

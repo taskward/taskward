@@ -1,4 +1,4 @@
-import { BarChart, LineChart, PieChart } from 'echarts/charts'
+import { BarChart, LineChart, MapChart, PieChart } from 'echarts/charts'
 import {
   AxisPointerComponent,
   DatasetComponent,
@@ -8,7 +8,8 @@ import {
   TitleComponent,
   ToolboxComponent,
   TooltipComponent,
-  TransformComponent
+  TransformComponent,
+  VisualMapComponent
 } from 'echarts/components'
 import * as echarts from 'echarts/core'
 import { LabelLayout, UniversalTransition } from 'echarts/features'
@@ -24,33 +25,14 @@ echarts.use([
   TooltipComponent,
   ToolboxComponent,
   TransformComponent,
+  VisualMapComponent,
   BarChart,
   LineChart,
   PieChart,
+  MapChart,
   LabelLayout,
   CanvasRenderer,
   SVGRenderer,
   UniversalTransition
 ])
-
-type ECharts = typeof echarts
-type EChartsInstance = echarts.ECharts
-
-export { echarts }
-export type { ECharts, EChartsInstance }
-
-export interface ChartData {
-  xAxis: ChartDataXAxisItem[]
-  yAxis: ChartDataYAxisItem[]
-}
-
-export interface ChartDataXAxisItem {
-  label: string
-  color?: string
-}
-
-export interface ChartDataYAxisItem {
-  label: string
-  value: number[]
-  color?: string
-}
+export default echarts

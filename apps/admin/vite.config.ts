@@ -65,8 +65,8 @@ export default defineConfig(({ mode }) => {
         ],
         dirs: [
           'src/shared/api/*',
-          'src/shared/charts/*',
           'src/shared/components/*',
+          'src/shared/echarts/*',
           'src/shared/hooks/*',
           'src/shared/i18n/*',
           'src/shared/providers/*',

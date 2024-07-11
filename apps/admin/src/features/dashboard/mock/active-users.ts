@@ -1,8 +1,6 @@
-import type { ChartData } from '@/shared/charts'
-
 import { generateRandomDataValues, getLastWeek } from './utils'
 
-export const generateActiveUsersData = (): ChartData => ({
+export const generateActiveUsersData = () => ({
   xAxis: getLastWeek().map((i) => ({ label: i })),
   yAxis: [
     {

@@ -1,17 +1,22 @@
-import type { EChartsInitOpts, EChartsOption } from 'echarts'
+import type { EChartsInitOpts, EChartsOption, EChartsType } from 'echarts'
+import { init } from 'echarts'
+import type { SetOptionOpts } from 'echarts/core'
 import type { CSSProperties } from 'react'
-
-import type { EChartsInstance } from '@/shared/charts'
 
 export interface ReactChartProps {
   option?: EChartsOption
-  initOptions?: EChartsInitOpts
+  initOps?: EChartsInitOpts
+  setOptionOps?: SetOptionOpts
+  theme?: string | Record<string, any>
+  loading?: boolean
+  autoResize?: boolean
   className?: string
   style?: CSSProperties
+  onChartReady?: (instance: EChartsType) => void
 }
 
 export interface ReactChartRef {
-  instance: EChartsInstance | null
+  instance: EChartsType | null
   chartRef: HTMLDivElement | null
   resize: () => void
   setOption: () => void
@@ -26,11 +31,19 @@ export interface ReactChartRef {
  * @see https://github.com/apache/echarts/issues/18255
  */
 const ReactChart = forwardRef<ReactChartRef, ReactChartProps>((props, ref) => {
-  const { option, initOptions, className, style } = props
+  const {
+    option,
+    initOps,
+    setOptionOps,
+    theme,
+    loading,
+    autoResize = true,
+    className,
+    style,
+    onChartReady
+  } = props
 
-  const themeStore = useThemeStore()
-
-  const chartInstance = useRef<EChartsInstance | null>(null)
+  const chartInstance = useRef<EChartsType | null>(null)
   const chartRef = useRef<HTMLDivElement | null>(null)
   const initialResize = useRef(false)
 
@@ -44,31 +57,48 @@ const ReactChart = forwardRef<ReactChartRef, ReactChartProps>((props, ref) => {
     initialResize.current = true
   }, [])
 
-  const setOption = useCallback(() => chartInstance.current?.setOption(option ?? {}), [option])
+  const setOption = useCallback(
+    () => chartInstance.current?.setOption(option ?? {}, setOptionOps ?? {}),
+    [option, setOptionOps]
+  )
 
   /**
    * When the following properties change, the chart will be re-rendered, but before that, the chart will be disposed first.
-   * - initOptions
+   * - initOps
    * - options
    * - theme
    */
   useEffect(() => {
     if (!chartInstance.current) {
-      chartInstance.current = echarts.init(chartRef.current, themeStore.theme, {
+      chartInstance.current = init(chartRef.current, theme, {
         renderer: 'svg',
-        ...initOptions
+        ...initOps
       })
     }
-    if (!initialResize.current) {
+
+    if (typeof onChartReady === 'function') {
+      onChartReady(chartInstance.current)
+    }
+
+    if (!initialResize.current && autoResize) {
       resize()
     }
+
     return () => {
       chartInstance.current?.dispose()
       chartInstance.current = null
     }
-  }, [initOptions, resize, themeStore.theme])
+  }, [autoResize, initOps, theme, onChartReady, resize])
 
-  useEffect(() => setOption(), [setOption, themeStore.theme])
+  useEffect(() => setOption(), [theme, setOption])
+
+  useEffect(() => {
+    if (loading) {
+      chartInstance.current?.showLoading()
+    } else {
+      chartInstance.current?.hideLoading()
+    }
+  }, [loading])
 
   useEffect(() => {
     window.addEventListener('resize', resize)

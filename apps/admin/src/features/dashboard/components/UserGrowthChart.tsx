@@ -1,15 +1,22 @@
-import type { ChartData } from '@/shared/charts'
+import { generateUserGrowthData } from '../mock'
 
-interface UserGrowthChartProps {
-  data?: ChartData
-}
+export function UserGrowthChart() {
+  const themeStore = useThemeStore()
 
-export function UserGrowthChart(props: UserGrowthChartProps) {
-  const { data } = props
+  const [data, setData] = useState(generateUserGrowthData())
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setData(generateUserGrowthData())
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <ReactChart
       className="h-80 w-full"
+      theme={themeStore.theme}
       option={{
         textStyle: {
           fontFamily: 'inherit'
