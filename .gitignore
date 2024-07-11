@@ -113,5 +113,8 @@ apps/mobile/android
 # Nest
 .nestjs_repl_history
 
+# Report
+stats.html
+
 # Geo
 apps/admin/src/assets/json/geo

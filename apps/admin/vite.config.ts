@@ -7,6 +7,7 @@ import { BootstrapAnimation } from '@bit-ocean/bootstrap-animation'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import { appConfig } from '@taskward/config'
 import ReactSWC from '@vitejs/plugin-react-swc'
+import { visualizer as Visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import iconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
@@ -104,6 +105,10 @@ export default defineConfig(({ mode }) => {
         ext: '.gz',
         deleteOriginFile: true
       }),
+      Visualizer({
+        open: false,
+        gzipSize: true
+      }),
       BootstrapAnimation({
         name: appConfig.APP_NAME,
         description: appConfig.DESCRIPTION
@@ -121,16 +126,47 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks: (id) => {
-            if (/node_modules/.test(id)) {
-              const name = id.split('node_modules/')[1].split('/')
-              if (name[0] === '.pnpm') {
-                return `vendor-${name[1]}`
-              }
-              return `vendor-${name[0]}`
-            }
-            // if (id.includes('node_modules')) {
-            //   return 'vendor'
+            // if (/node_modules/.test(id)) {
+            //   const packagePath = id.split('node_modules/')[1]
+            //   const innerPath = packagePath.split('/')
+            //   if (packagePath.includes('@bit-ocean')) {
+            //     return 'vendor-bit-ocean'
+            //   }
+            //   if (packagePath.includes('@tanstack')) {
+            //     return 'vendor-tanstack'
+            //   }
+            //   if (packagePath.includes('antd')) {
+            //     return 'vendor-antd'
+            //   }
+            //   if (packagePath.includes('@ant-design')) {
+            //     return 'vendor-antd'
+            //   }
+            //   if (packagePath.includes('rc-')) {
+            //     return 'vendor-rc'
+            //   }
+            //   if (packagePath.includes('framer-motion')) {
+            //     return 'vendor-framer-motion'
+            //   }
+            //   if (packagePath.includes('axios')) {
+            //     return 'vendor-axios'
+            //   }
+            //   if (packagePath.includes('react-i18next') || packagePath.includes('i18next')) {
+            //     return 'vendor-i18n'
+            //   }
+            //   if (packagePath.includes('lodash')) {
+            //     return 'vendor-lodash'
+            //   }
+            //   if (packagePath.includes('react') || packagePath.includes('react-dom')) {
+            //     return 'vendor-react'
+            //   }
+            //   if (innerPath[0] === '.pnpm') {
+            //     return `vendor-auto-${innerPath[1]}`
+            //   }
+            //   return `vendor-auto-${innerPath[0]}`
             // }
+            if (id.includes('node_modules')) {
+              return 'vendor'
+            }
             return undefined
           }
         }

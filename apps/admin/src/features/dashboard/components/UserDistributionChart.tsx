@@ -1,3 +1,4 @@
+import { themeBaseToken } from '@taskward/theme'
 import type { EChartsOption } from 'echarts'
 
 import chinaJson from '@/assets/json/geo/china.json'
@@ -14,7 +15,7 @@ export function UserDistributionChart() {
   const mapOption: EChartsOption = useMemo(
     () => ({
       textStyle: {
-        fontFamily: 'inherit'
+        fontFamily: themeBaseToken.fontFamily
       },
       visualMap: {
         left: 'right',
@@ -63,7 +64,7 @@ export function UserDistributionChart() {
   const barOption: EChartsOption = useMemo(
     () => ({
       textStyle: {
-        fontFamily: 'inherit'
+        fontFamily: themeBaseToken.fontFamily
       },
       title: {
         text: 'User Distribution',
@@ -122,6 +123,7 @@ export function UserDistributionChart() {
       className="h-80 w-full"
       theme={themeStore.theme}
       option={currentOption}
+      initOps={{ renderer: 'canvas' }}
       setOptionOps={{ notMerge: true }}
     />
   )
