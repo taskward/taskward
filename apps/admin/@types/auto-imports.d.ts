@@ -28,7 +28,7 @@ declare global {
   const LogosGoogleIcon: typeof import('~icons/logos/google-icon.jsx')['default']
   const Menu: typeof import('antd')['Menu']
   const QueryProvider: typeof import('../src/shared/providers/QueryProvider/index')['default']
-  const ReactChart: typeof import('../src/shared/components/ReactChart/index')['default']
+  const ReactChart: typeof import('@bit-ocean/echarts')['ReactChart']
   const Result: typeof import('antd')['Result']
   const Row: typeof import('antd')['Row']
   const Skeleton: typeof import('antd')['Skeleton']

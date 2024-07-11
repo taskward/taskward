@@ -5,7 +5,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "@types/*.d.ts"],
+  "include": ["src", "@types"],
   "references": [
     {
       "path": "./tsconfig.node.json"

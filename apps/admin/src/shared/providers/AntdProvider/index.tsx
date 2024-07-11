@@ -34,7 +34,7 @@ export default function AntdProvider(props: PropsWithChildren) {
     >
       <StyleProvider
         // TODO: https://github.com/ant-design/ant-design/issues/49377
-        layer
+        layer={false}
         transformers={[px2rem]}
       >
         <App message={messageConfig}>

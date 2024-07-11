@@ -1,4 +1,5 @@
 import '@/shared/i18n'
+import '@/shared/echarts'
 
 import { RouterProvider } from '@tanstack/react-router'
 import { enableMapSet } from 'immer'

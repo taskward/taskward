@@ -61,7 +61,8 @@ export default defineConfig(({ mode }) => {
           { from: 'clsx', imports: [['default', 'clsx']] },
           { from: 'use-immer', imports: ['useImmer'] },
           { from: '@/shared/router', imports: ['router'] },
-          { from: '@/shared/query-client', imports: ['queryClient'] }
+          { from: '@/shared/query-client', imports: ['queryClient'] },
+          { from: '@bit-ocean/echarts', imports: ['ReactChart'] }
         ],
         dirs: [
           'src/shared/api/*',

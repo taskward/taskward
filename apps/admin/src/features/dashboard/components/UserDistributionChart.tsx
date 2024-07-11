@@ -1,14 +1,12 @@
 import type { EChartsOption } from 'echarts'
 
 import chinaJson from '@/assets/json/geo/china.json'
-import type { ReactChartRef } from '@/shared/components/ReactChart'
 
 import { userDistributionData } from '../mock'
 
 export function UserDistributionChart() {
   const themeStore = useThemeStore()
 
-  const chartRef = useRef<ReactChartRef>(null)
   const [currentOption, setOption] = useState<EChartsOption>({})
 
   userDistributionData.sort((a, b) => a.value - b.value)
@@ -122,7 +120,6 @@ export function UserDistributionChart() {
   return (
     <ReactChart
       className="h-80 w-full"
-      ref={chartRef}
       theme={themeStore.theme}
       option={currentOption}
       setOptionOps={{ notMerge: true }}
