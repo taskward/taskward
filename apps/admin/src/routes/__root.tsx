@@ -28,7 +28,7 @@ function Root() {
   const [showDevtools, setShowDevtools] = useState(false)
 
   useEffect(() => {
-    window.toggleDevtools = () => setShowDevtools(!showDevtools)
+    window.toggleDevtools = () => setShowDevtools((v) => !v)
   }, [])
 
   return (
