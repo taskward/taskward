@@ -20,9 +20,7 @@ function Page() {
               TODO:
               <ul>
                 <li>Table</li>
-                <li>✅ Multi-BarChart</li>
                 <li>Multi-BarChart(Reverse)</li>
-                <li>✅ Multi-LineChart</li>
                 <li>PieChart</li>
                 <li>GaugeChart</li>
                 <li>BarLineCompChart</li>

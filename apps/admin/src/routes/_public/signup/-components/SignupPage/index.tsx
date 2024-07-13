@@ -9,7 +9,7 @@ import { type SignupFormValues, useSignupMutation } from '@/features/auth'
 import Header from './Header'
 import Logo from './Logo'
 
-export function SignupArea() {
+export function SignupPage() {
   const { t } = useTranslation('AUTH')
 
   const { mutate, isPending } = useSignupMutation()

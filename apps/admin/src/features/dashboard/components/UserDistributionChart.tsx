@@ -115,7 +115,7 @@ export function UserDistributionChart() {
     setOption(mapOption)
     const interval = setInterval(() => {
       setOption((prev) => (prev.visualMap ? barOption : mapOption))
-    }, 5000)
+    }, 10000)
     return () => clearInterval(interval)
   }, [barOption, mapOption])
 

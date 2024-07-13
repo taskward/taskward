@@ -1,4 +1,4 @@
-export default function Title() {
+export default function Header() {
   return (
     <Space
       direction="vertical"

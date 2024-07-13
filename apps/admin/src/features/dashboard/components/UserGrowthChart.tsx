@@ -8,7 +8,7 @@ export function UserGrowthChart() {
   useEffect(() => {
     const interval = setInterval(() => {
       setData(generateUserGrowthData())
-    }, 5000)
+    }, 10000)
 
     return () => clearInterval(interval)
   }, [])

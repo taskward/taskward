@@ -1,1 +1,1 @@
-export * from './SignupArea'
+export * from './SignupPage'

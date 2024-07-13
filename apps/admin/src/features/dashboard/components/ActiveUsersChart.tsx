@@ -8,7 +8,7 @@ export function ActiveUsersChart() {
   useEffect(() => {
     const interval = setInterval(() => {
       setData(generateActiveUsersData())
-    }, 5000)
+    }, 10000)
 
     return () => clearInterval(interval)
   }, [])

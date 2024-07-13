@@ -1,1 +1,1 @@
-export * from './LoginArea'
+export { default as LoginPage } from './LoginPage'

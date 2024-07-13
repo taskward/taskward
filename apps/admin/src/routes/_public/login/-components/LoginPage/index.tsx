@@ -7,9 +7,9 @@ import { type LoginFormValues, useLoginMutation } from '@/features/auth'
 import Header from './Header'
 import Logo from './Logo'
 
-export function LoginArea() {
+export default function LoginPage() {
   const themeStore = useThemeStore()
-  const { t, i18n } = useTranslation('AUTH')
+  const { t } = useTranslation('AUTH')
   const [form] = Form.useForm<LoginFormValues>()
 
   const { mutate, isPending } = useLoginMutation()
@@ -23,8 +23,7 @@ export function LoginArea() {
     } catch {
       //
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [form])
 
   return (
     <Space
@@ -33,12 +32,6 @@ export function LoginArea() {
       size="middle"
     >
       <Logo />
-
-      <Button
-        onClick={() => {
-          i18n.changeLanguage(i18n.language === 'en-US' ? 'zh-CN' : 'en-US')
-        }}
-      />
 
       <Card>
         <Flex
