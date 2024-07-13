@@ -45,9 +45,9 @@ export function UserDistributionChart() {
           type: 'map',
           roam: true,
           map: 'China',
+          data: userDistributionData,
           animationDurationUpdate: 1000,
-          universalTransition: true,
-          data: userDistributionData
+          universalTransition: true
         }
       ],
       toolbox: {
@@ -81,11 +81,12 @@ export function UserDistributionChart() {
         },
         data: userDistributionData.map((i) => i.name)
       },
-      animationDurationUpdate: 1000,
       series: {
         type: 'bar',
         id: 'users',
+        colorBy: 'data',
         data: userDistributionData.map((i) => i.value),
+        animationDurationUpdate: 1000,
         universalTransition: true
       },
       toolbox: {
