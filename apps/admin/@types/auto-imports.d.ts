@@ -22,6 +22,8 @@ declare global {
   const GlobalLoading: typeof import('../src/shared/components/GlobalLoading/index')['default']
   const Input: typeof import('antd')['Input']
   const Layout: typeof import('antd')['Layout']
+  const LineMdMenuFoldLeft: typeof import('~icons/line-md/menu-fold-left.jsx')['default']
+  const LineMdMenuFoldRight: typeof import('~icons/line-md/menu-fold-right.jsx')['default']
   const LineMdMoonAltToSunnyOutlineLoopTransition: typeof import('~icons/line-md/moon-alt-to-sunny-outline-loop-transition.jsx')['default']
   const LineMdSunnyFilledLoopToMoonAltFilledLoopTransition: typeof import('~icons/line-md/sunny-filled-loop-to-moon-alt-filled-loop-transition.jsx')['default']
   const LogosGithubIcon: typeof import('~icons/logos/github-icon.jsx')['default']

@@ -10,8 +10,17 @@ export default function Header() {
   const { message } = App.useApp()
 
   return (
-    <div className="z-50 flex h-16 items-center justify-between border-b p-4 shadow-sm dark:bg-gray-400">
-      <MenuVisibilityToggle />
+    <Layout.Header
+      className="z-50 flex items-center justify-between border-y border-gray-300 p-2 shadow-sm sm:p-4 dark:border-gray-950"
+      style={{
+        padding: '0 15px',
+        height: '56px'
+      }}
+    >
+      <div className="flex items-center justify-start space-x-4">
+        <MenuVisibilityToggle />
+      </div>
+
       <ThemeToggle />
       <Button
         onClick={() => {
@@ -25,6 +34,6 @@ export default function Header() {
       >
         退出登录
       </Button>
-    </div>
+    </Layout.Header>
   )
 }

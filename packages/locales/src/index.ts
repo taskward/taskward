@@ -1,5 +1,5 @@
-import AUTH from '../resources/auth/en-US.json'
-import COMMON from '../resources/common/en-US.json'
+import AUTH from '../resources/en-US/auth.json'
+import COMMON from '../resources/en-US/common.json'
 
 export const resource = {
   COMMON,

@@ -45,14 +45,9 @@ class I18nInstance {
 
   #loadTrans() {
     this.#resources
-      .map<[string, string, Record<string, unknown>]>(([path, resource]) => [
-        path.match(/([^/]+)\.json$/)![1],
-        path
-          .replace(/^.*?locales\/resources\//, '')
-          .replace(/\/[^/]+$/, '')
-          .toUpperCase(),
-        resource
-      ])
+      .map<
+        [string, string, Record<string, unknown>]
+      >(([path, resource]) => [path.replace(/^.*?locales\/resources\//, '').replace(/\/[^/]+$/, ''), path.match(/([^/]+)\.json$/)![1].toUpperCase(), resource])
       .forEach((transItem) => this.#instance.addResourceBundle(...transItem))
     this.#resources = []
   }
