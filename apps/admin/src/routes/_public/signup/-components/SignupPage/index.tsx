@@ -15,7 +15,7 @@ export function SignupPage() {
   const { mutate, isPending } = useSignupMutation()
 
   const onFinish: FormProps<SignupFormValues>['onFinish'] = (values) =>
-    mutate({ ...values, birthDate: values.birthDate.format('YYYY-MM-DD') })
+    mutate({ ...values, birthDate: values.birthDate?.format('YYYY-MM-DD') })
 
   return (
     <Space
