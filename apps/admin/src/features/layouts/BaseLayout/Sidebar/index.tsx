@@ -9,7 +9,7 @@ export default function Sidebar() {
     <>
       <Layout.Sider
         className={clsx(
-          'absolute inset-y-0 left-0 z-[100] h-screen overflow-hidden border border-gray-300 shadow-sm sm:!static dark:border-gray-950',
+          '!absolute inset-y-0 left-0 z-[100] h-screen overflow-hidden border border-gray-300 shadow-sm sm:!static dark:border-gray-950',
           !sidebarStore.isDisplay && 'border-r-0'
         )}
         collapsible
