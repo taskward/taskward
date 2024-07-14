@@ -34,12 +34,6 @@ export class HttpClient {
   #instanceOptions: AxiosInstanceOptions = {}
 
   /**
-   * The URL to refresh the token.
-   * @default '/auth/refresh'
-   */
-  #refreshTokenUrl = '/auth/refresh'
-
-  /**
    * The flag to indicate whether the interceptors are loaded.
    */
   #interceptorsLoaded = false
