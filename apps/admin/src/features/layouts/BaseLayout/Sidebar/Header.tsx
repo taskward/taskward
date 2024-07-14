@@ -23,7 +23,7 @@ export default function Header() {
         onClick={navToHome}
       >
         <Image
-          className="cursor-pointer rounded-md shadow-md"
+          className="cursor-pointer rounded-md shadow-sm"
           src={logo}
           alt="Logo"
           width={32}
@@ -33,7 +33,7 @@ export default function Header() {
         />
         <span
           className={clsx([
-            'cursor-pointer whitespace-nowrap text-lg tracking-wide transition-[margin,width]',
+            'cursor-pointer whitespace-nowrap text-lg transition-[margin,width]',
             sidebarStore.isDisplay && sidebarStore.isCollapse ? 'ml-0 hidden' : 'ml-1 w-auto',
             !sidebarStore.isDisplay && 'hidden'
           ])}
