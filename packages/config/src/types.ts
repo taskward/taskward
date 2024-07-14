@@ -16,7 +16,12 @@ export interface AppConfig {
   GITHUB_URL: string
   /**
    * The URL of the application's website.
-   * @default 'https://taskward.bit-ocean.studio'
+   * @default 'https://taskward.bit-ocean.org'
    */
   WEBSITE_URL: string
+  /**
+   * The URL of the application's documentation.
+   * @default 'https://taskward-docs.bit-ocean.org'
+   */
+  DOCS_URL: string
 }

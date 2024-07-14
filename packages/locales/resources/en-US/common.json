@@ -8,5 +8,6 @@
   "LOG.OUT": "Logout",
   "LOG.OUT.SUCCESS": "Logout Success",
   "FULLSCREEN": "Fullscreen",
-  "EXIT.FULLSCREEN": "Exit Fullscreen"
+  "EXIT.FULLSCREEN": "Exit Fullscreen",
+  "DOCS": "Docs"
 }

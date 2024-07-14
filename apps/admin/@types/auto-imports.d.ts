@@ -29,6 +29,7 @@ declare global {
   const LineMdSunnyFilledLoopToMoonAltFilledLoopTransition: typeof import('~icons/line-md/sunny-filled-loop-to-moon-alt-filled-loop-transition.jsx')['default']
   const LogosGithubIcon: typeof import('~icons/logos/github-icon.jsx')['default']
   const LogosGoogleIcon: typeof import('~icons/logos/google-icon.jsx')['default']
+  const LucideBookOpenText: typeof import('~icons/lucide/book-open-text.jsx')['default']
   const LucideExpand: typeof import('~icons/lucide/expand.jsx')['default']
   const LucideLanguages: typeof import('~icons/lucide/languages.jsx')['default']
   const LucideShrink: typeof import('~icons/lucide/shrink.jsx')['default']

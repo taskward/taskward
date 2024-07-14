@@ -8,5 +8,6 @@
   "LOG.OUT": "登出",
   "LOG.OUT.SUCCESS": "登出成功",
   "FULLSCREEN": "全屏",
-  "EXIT.FULLSCREEN": "退出全屏"
+  "EXIT.FULLSCREEN": "退出全屏",
+  "DOCS": "文档"
 }

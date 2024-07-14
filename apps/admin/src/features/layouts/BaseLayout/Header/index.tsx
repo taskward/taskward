@@ -1,3 +1,4 @@
+import DocsButton from './DocsButton'
 import FullscreenButton from './FullscreenButton'
 import LanguageButton from './LanguageButton'
 import MenuVisibilityToggle from './MenuVisibilityToggle'
@@ -30,6 +31,7 @@ export default function Header() {
           justify="start"
           gap={16}
         >
+          <DocsButton />
           <FullscreenButton />
           <LanguageButton />
           <ThemeToggle />
