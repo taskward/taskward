@@ -1,4 +1,5 @@
 import FullscreenButton from './FullscreenButton'
+import LanguageButton from './LanguageButton'
 import MenuVisibilityToggle from './MenuVisibilityToggle'
 import ThemeToggle from './ThemeToggle'
 import UserAvatar from './UserAvatar'
@@ -30,6 +31,7 @@ export default function Header() {
           gap={16}
         >
           <FullscreenButton />
+          <LanguageButton />
           <ThemeToggle />
         </Flex>
 
