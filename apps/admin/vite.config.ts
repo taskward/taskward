@@ -80,7 +80,7 @@ export default defineConfig(({ mode }) => {
           iconsResolver({
             prefix: false,
             extension: 'jsx',
-            enabledCollections: ['line-md', 'logos']
+            enabledCollections: ['line-md', 'logos', 'lucide']
           })
         ]
       }),
