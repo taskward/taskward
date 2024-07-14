@@ -75,12 +75,15 @@ export default function UserAvatar() {
       {profile.avatarUrl ? (
         <Avatar
           src={profile.avatarUrl}
-          size={22}
-          className="cursor-pointer bg-gray-300 hover:shadow"
+          size={36}
+          className="cursor-pointer hover:shadow"
         />
       ) : (
-        <div />
-        // <MaterialSymbolsAccountCircle className="cursor-pointer text-lg" />
+        <Avatar
+          src={`https://api.dicebear.com/9.x/initials/svg?seed=${profile.username}`}
+          size={36}
+          className="cursor-pointer hover:shadow"
+        />
       )}
     </Dropdown>
   )

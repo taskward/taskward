@@ -21,10 +21,18 @@ export default function Header() {
 
       <Flex
         align="center"
-        justify="start"
-        gap={16}
+        gap={8}
       >
-        <ThemeToggle />
+        <Flex
+          align="center"
+          justify="start"
+          gap={16}
+        >
+          <ThemeToggle />
+        </Flex>
+
+        <Divider type="vertical" />
+
         <UserAvatar />
       </Flex>
     </Layout.Header>
