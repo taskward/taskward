@@ -1,5 +1,6 @@
 import DocsButton from './DocsButton'
 import FullscreenButton from './FullscreenButton'
+import GitHubButton from './GitHubButton'
 import LanguageButton from './LanguageButton'
 import MenuVisibilityToggle from './MenuVisibilityToggle'
 import ThemeToggle from './ThemeToggle'
@@ -29,8 +30,9 @@ export default function Header() {
         <Flex
           align="center"
           justify="start"
-          gap={16}
+          gap={20}
         >
+          <GitHubButton />
           <DocsButton />
           <FullscreenButton />
           <LanguageButton />
