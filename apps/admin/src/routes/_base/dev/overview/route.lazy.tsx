@@ -14,7 +14,7 @@ export const Route = createLazyFileRoute('/_base/dev/overview')({
 
 function Page() {
   const [{ data, isLoading, refetch }, { data: userlist }] = useSuspenseQueries({
-    queries: [profileQO, usersQO]
+    queries: [profileQO(), usersQO()]
   })
 
   return (

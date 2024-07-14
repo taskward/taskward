@@ -16,6 +16,7 @@ declare global {
   const ConfigProvider: typeof import('antd')['ConfigProvider']
   const DatePicker: typeof import('antd')['DatePicker']
   const Divider: typeof import('antd')['Divider']
+  const Dropdown: typeof import('antd')['Dropdown']
   const ErrorPage: typeof import('../src/shared/components/ErrorPage/index')['default']
   const Flex: typeof import('antd')['Flex']
   const Form: typeof import('antd')['Form']

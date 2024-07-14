@@ -17,6 +17,8 @@ import { Route as SplatRouteImport } from './../../routes/$/route'
 import { Route as PublicSignupRouteImport } from './../../routes/_public/signup/route'
 import { Route as PublicLoginRouteImport } from './../../routes/_public/login/route'
 import { Route as PublicForgotPasswordRouteImport } from './../../routes/_public/forgot-password/route'
+import { Route as BaseProfileRouteImport } from './../../routes/_base/profile/route'
+import { Route as BaseChangePasswordRouteImport } from './../../routes/_base/change-password/route'
 import { Route as Base404RouteImport } from './../../routes/_base/404/route'
 import { Route as BaseIndexRouteImport } from './../../routes/_base/index/route'
 import { Route as BaseDevOverviewRouteImport } from './../../routes/_base/dev/overview/route'
@@ -62,6 +64,22 @@ const PublicForgotPasswordRouteRoute = PublicForgotPasswordRouteImport.update({
   getParentRoute: () => PublicRouteRoute,
 } as any).lazy(() =>
   import('./../../routes/_public/forgot-password/route.lazy').then(
+    (d) => d.Route,
+  ),
+)
+
+const BaseProfileRouteRoute = BaseProfileRouteImport.update({
+  path: '/profile',
+  getParentRoute: () => BaseRouteRoute,
+} as any).lazy(() =>
+  import('./../../routes/_base/profile/route.lazy').then((d) => d.Route),
+)
+
+const BaseChangePasswordRouteRoute = BaseChangePasswordRouteImport.update({
+  path: '/change-password',
+  getParentRoute: () => BaseRouteRoute,
+} as any).lazy(() =>
+  import('./../../routes/_base/change-password/route.lazy').then(
     (d) => d.Route,
   ),
 )
@@ -133,6 +151,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Base404RouteImport
       parentRoute: typeof BaseRouteImport
     }
+    '/_base/change-password': {
+      id: '/_base/change-password'
+      path: '/change-password'
+      fullPath: '/change-password'
+      preLoaderRoute: typeof BaseChangePasswordRouteImport
+      parentRoute: typeof BaseRouteImport
+    }
+    '/_base/profile': {
+      id: '/_base/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof BaseProfileRouteImport
+      parentRoute: typeof BaseRouteImport
+    }
     '/_public/forgot-password': {
       id: '/_public/forgot-password'
       path: '/forgot-password'
@@ -178,6 +210,8 @@ export const routeTree = rootRoute.addChildren({
   BaseRouteRoute: BaseRouteRoute.addChildren({
     BaseIndexRouteRoute,
     Base404RouteRoute,
+    BaseChangePasswordRouteRoute,
+    BaseProfileRouteRoute,
     BaseDevChartsRouteRoute,
     BaseDevOverviewRouteRoute,
   }),
@@ -209,6 +243,8 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/_base/",
         "/_base/404",
+        "/_base/change-password",
+        "/_base/profile",
         "/_base/dev/charts",
         "/_base/dev/overview"
       ]
@@ -227,6 +263,14 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_base/404": {
       "filePath": "_base/404/route.tsx",
+      "parent": "/_base"
+    },
+    "/_base/change-password": {
+      "filePath": "_base/change-password/route.tsx",
+      "parent": "/_base"
+    },
+    "/_base/profile": {
+      "filePath": "_base/profile/route.tsx",
       "parent": "/_base"
     },
     "/_public/forgot-password": {

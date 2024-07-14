@@ -1,8 +1,10 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { AuthUtils } from '@taskward/utils'
 
+import { profileQO } from '@/features/users'
+
 export const Route = createFileRoute('/_base')({
-  beforeLoad: (ctx) => {
+  beforeLoad: async (ctx) => {
     const { location } = ctx
     if (!AuthUtils.isAuthenticated()) {
       throw redirect({
@@ -13,5 +15,6 @@ export const Route = createFileRoute('/_base')({
         }
       })
     }
+    await queryClient.ensureQueryData(profileQO())
   }
 })

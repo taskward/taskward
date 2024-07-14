@@ -10,12 +10,14 @@ interface UserVo {
   birthDate: string
 }
 
-export const profileQO = queryOptions({
-  queryKey: PROFILE_QK(),
-  queryFn: () => httpClient.get<UserVo>('/users/profile')
-})
+export const profileQO = () =>
+  queryOptions({
+    queryKey: PROFILE_QK(),
+    queryFn: ({ signal }) => httpClient.get<UserVo>('/users/profile', {}, { signal })
+  })
 
-export const usersQO = queryOptions({
-  queryKey: USERS_QK(),
-  queryFn: () => httpClient.get<UserVo[]>('/users')
-})
+export const usersQO = () =>
+  queryOptions({
+    queryKey: USERS_QK(),
+    queryFn: ({ signal }) => httpClient.get<UserVo[]>('/users', {}, { signal })
+  })

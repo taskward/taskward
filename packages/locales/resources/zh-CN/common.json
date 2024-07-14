@@ -1,5 +1,10 @@
 {
   "SAVE": "保存",
   "HIDE.SIDEBAR": "隐藏侧边栏",
-  "SHOW.SIDEBAR": "显示侧边栏"
+  "SHOW.SIDEBAR": "显示侧边栏",
+  "SWITCH.THEME": "切换主题",
+  "PROFILE": "个人资料",
+  "CHANGE.PASSWORD": "修改密码",
+  "LOG.OUT": "登出",
+  "LOG.OUT.SUCCESS": "登出成功"
 }

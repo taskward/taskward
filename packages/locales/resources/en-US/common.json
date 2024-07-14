@@ -1,5 +1,10 @@
 {
   "SAVE": "Save",
   "HIDE.SIDEBAR": "Hide Sidebar",
-  "SHOW.SIDEBAR": "Show Sidebar"
+  "SHOW.SIDEBAR": "Show Sidebar",
+  "SWITCH.THEME": "Switch Theme",
+  "PROFILE": "Profile",
+  "CHANGE.PASSWORD": "Change Password",
+  "LOG.OUT": "Logout",
+  "LOG.OUT.SUCCESS": "Logout Success"
 }

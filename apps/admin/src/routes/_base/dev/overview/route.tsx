@@ -8,8 +8,8 @@ export const Route = createFileRoute('/_base/dev/overview')({
   },
   beforeLoad: async () => {
     await Promise.allSettled([
-      queryClient.ensureQueryData(profileQO),
-      queryClient.ensureQueryData(usersQO)
+      queryClient.ensureQueryData(profileQO()),
+      queryClient.ensureQueryData(usersQO())
     ])
   }
 })

@@ -1,23 +1,11 @@
-import type { MouseEvent, SVGProps } from 'react'
-
-interface IconProps extends SVGProps<SVGSVGElement> {
-  isLightTheme: boolean
-}
-
-function Icon(iconProps: IconProps) {
-  const { isLightTheme, ...props } = iconProps
-  return isLightTheme ? (
-    <LineMdMoonAltToSunnyOutlineLoopTransition {...props} />
-  ) : (
-    <LineMdSunnyFilledLoopToMoonAltFilledLoopTransition {...props} />
-  )
-}
+import type { MouseEvent } from 'react'
 
 const isAppearanceTransition = () =>
   document.startViewTransition !== undefined &&
   !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 export default function ThemeToggle() {
+  const { t } = useTranslation()
   const themeStore = useThemeStore()
 
   const handleToggleTheme = async (event: MouseEvent) => {
@@ -46,19 +34,31 @@ export default function ThemeToggle() {
     )
   }
 
+  const iconColor = useMemo(() => (themeStore.isLightTheme() ? '#FDC022' : '#FED736'), [themeStore])
+
+  const Icon = useMemo(
+    () => (
+      <>
+        {themeStore.isLightTheme() ? (
+          <LineMdMoonAltToSunnyOutlineLoopTransition color={iconColor} />
+        ) : (
+          <LineMdSunnyFilledLoopToMoonAltFilledLoopTransition color={iconColor} />
+        )}
+      </>
+    ),
+    [iconColor, themeStore]
+  )
+
   return (
     <Tooltip
-      title="切换主题"
+      title={t('SWITCH.THEME')}
       placement="bottom"
     >
       <div
         className="cursor-pointer text-lg"
         onClick={handleToggleTheme}
       >
-        <Icon
-          isLightTheme={themeStore.isLightTheme()}
-          color={themeStore.isLightTheme() ? '#FDC022' : '#FED736'}
-        />
+        {Icon}
       </div>
     </Tooltip>
   )
