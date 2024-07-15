@@ -9,32 +9,32 @@ importers:
   .:
     devDependencies:
       '@bit-ocean/bootstrap-animation':
-        specifier: ^0.0.40
-        version: 0.0.40
+        specifier: ^0.0.41
+        version: 0.0.41
       '@bit-ocean/cli':
-        specifier: ^0.0.40
-        version: 0.0.40
+        specifier: ^0.0.41
+        version: 0.0.41
       '@bit-ocean/commitlint-config':
-        specifier: ^0.0.40
-        version: 0.0.40(@commitlint/cli@19.3.0(@types/node@20.14.10)(typescript@5.5.3))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.10)(typescript@5.5.3))(cz-git@1.9.3)
+        specifier: ^0.0.41
+        version: 0.0.41(@commitlint/cli@19.3.0(@types/node@20.14.10)(typescript@5.5.3))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.10)(typescript@5.5.3))(cz-git@1.9.3)
       '@bit-ocean/cspell':
-        specifier: ^0.0.40
-        version: 0.0.40(cspell@8.10.4)
+        specifier: ^0.0.41
+        version: 0.0.41(cspell@8.10.4)
       '@bit-ocean/eslint-config':
-        specifier: ^0.0.40
-        version: 0.0.40(eslint@8.57.0)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3)))(typescript@5.5.3)
+        specifier: ^0.0.41
+        version: 0.0.41(eslint@8.57.0)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3)))(typescript@5.5.3)
       '@bit-ocean/prettier-config':
-        specifier: ^0.0.40
-        version: 0.0.40(prettier@3.3.2)
+        specifier: ^0.0.41
+        version: 0.0.41(prettier@3.3.2)
       '@bit-ocean/renovate-config':
-        specifier: ^0.0.40
-        version: 0.0.40
+        specifier: ^0.0.41
+        version: 0.0.41
       '@bit-ocean/tailwind':
-        specifier: ^0.0.40
-        version: 0.0.40(antd@5.19.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3)))
+        specifier: ^0.0.41
+        version: 0.0.41(antd@5.19.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3)))
       '@bit-ocean/tsconfig':
-        specifier: ^0.0.40
-        version: 0.0.40(typescript@5.5.3)
+        specifier: ^0.0.41
+        version: 0.0.41(typescript@5.5.3)
       '@commitlint/cli':
         specifier: ^19.3.0
         version: 19.3.0(@types/node@20.14.10)(typescript@5.5.3)
@@ -90,11 +90,11 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(antd@5.19.1(date-fns@2.30.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@bit-ocean/config':
-        specifier: ^0.0.40
-        version: 0.0.40
+        specifier: ^0.0.41
+        version: 0.0.41
       '@bit-ocean/echarts':
-        specifier: ^0.0.40
-        version: 0.0.40(echarts@5.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.0.41
+        version: 0.0.41(echarts@5.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-query':
         specifier: ^5.51.1
         version: 5.51.1(react@18.3.1)
@@ -181,8 +181,8 @@ importers:
         version: 4.5.4(@types/react@18.3.3)(immer@10.1.1)(react@18.3.1)
     devDependencies:
       '@bit-ocean/auto-import':
-        specifier: ^0.0.40
-        version: 0.0.40(unplugin-auto-import@0.18.0(rollup@4.18.0))
+        specifier: ^0.0.41
+        version: 0.0.41(unplugin-auto-import@0.18.0(rollup@4.18.0))
       '@iconify/json':
         specifier: ^2.2.227
         version: 2.2.227
@@ -308,8 +308,8 @@ importers:
         version: 4.5.4(@types/react@18.3.3)(immer@10.1.1)(react@18.3.1)
     devDependencies:
       '@bit-ocean/auto-import':
-        specifier: ^0.0.40
-        version: 0.0.40(unplugin-auto-import@0.18.0(rollup@4.18.0))
+        specifier: ^0.0.41
+        version: 0.0.41(unplugin-auto-import@0.18.0(rollup@4.18.0))
       '@tanstack/react-query-devtools':
         specifier: ^5.51.1
         version: 5.51.1(@tanstack/react-query@5.51.1(react@18.3.1))(react@18.3.1)
@@ -1590,23 +1590,23 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@bit-ocean/auto-import@0.0.40':
-    resolution: {integrity: sha512-JBnd3G9Lg8Vc7uGvCjk14FQFYBhwjASVxpZzueE1vgHs42BaO56yxm3gxfAX5nSqGguygtJ5of3I+Uum6nCgJg==}
+  '@bit-ocean/auto-import@0.0.41':
+    resolution: {integrity: sha512-+2OZfe4N5WwqiQp8p82IEpT7mlhZDD6OAN1AVff3o8VFhF15JW7yn7d41R/Y1YfzSAdEnI5XW0b8RJJq2oarEw==}
     peerDependencies:
-      unplugin-auto-import: ^0.17.6
+      unplugin-auto-import: ^0.18.0
     peerDependenciesMeta:
       unplugin-auto-import:
         optional: true
 
-  '@bit-ocean/bootstrap-animation@0.0.40':
-    resolution: {integrity: sha512-TjLJWbGZtep/4YnU5VZbbqx1yZATBc5j9/ng1lR6gbLGU+Rw+CaeLJB6Zw55WZzVDRzpvyzCGa618OlQZnYPQQ==}
+  '@bit-ocean/bootstrap-animation@0.0.41':
+    resolution: {integrity: sha512-da0T0GSGUMYobP2ikczrFJywmGCrXepMYs+I0668n25Czl31LCY6rSy/CzqXvE1Ie5/GajBTFag7dZ03TSPFxQ==}
 
-  '@bit-ocean/cli@0.0.40':
-    resolution: {integrity: sha512-VRTnp6/nBLTXS4bQdrvCETka7u+DjfHzNiAps74HTEEcV3nPRNyD8hQkWB5RVIqL9a3wFwDHGFYgfae//VZbsg==}
+  '@bit-ocean/cli@0.0.41':
+    resolution: {integrity: sha512-ENSqICEHnsEQSlT2E2RkXqo/MF/ZLJLLpzJbGshFIbw3aVy5yYu+42qbXiRE0hy5aYBKQ3ptMWeR18d3NS6jOQ==}
     hasBin: true
 
-  '@bit-ocean/commitlint-config@0.0.40':
-    resolution: {integrity: sha512-LcEIX7fHukA3uDkJpXlL4s+y68YXLD1TiGUXwtCCybcwOdiDtNLGjWd8pXcPt/LADTzOgEf0WJlMYcIFaOFr2w==}
+  '@bit-ocean/commitlint-config@0.0.41':
+    resolution: {integrity: sha512-UysWzHaYQ4DnfujidNjCFx6B0Q4TyJBkaElh9B4dyoWyu5VMi26zqVNY3Oitl7m3nMBjxoyLqpsNK1vRiiHtVQ==}
     peerDependencies:
       '@commitlint/cli': ^19.3.0
       '@commitlint/config-conventional': ^19.2.2
@@ -1616,49 +1616,49 @@ packages:
       cz-git:
         optional: true
 
-  '@bit-ocean/config@0.0.40':
-    resolution: {integrity: sha512-TXmjKoHWn8ZgDhwHmWr8ghkIFmlmOLbOmioazrAJIgzF4rgqU1+QyYHYNQ71xHT3JfaOhhdQgx+P0VvcwVpyjQ==}
+  '@bit-ocean/config@0.0.41':
+    resolution: {integrity: sha512-ZX6hkXBbPwJtsa1APGG72jzTHEbwOyi9LzfNC6AWrsx83r2R3y01BZPt0+FxUjFb9ScKtuMaL3vm4nXKmnCe4A==}
 
-  '@bit-ocean/cspell@0.0.40':
-    resolution: {integrity: sha512-p6Pr3F2/p4tLK+Mqs1YEPn2diYGW/LtsCIP7CIE+1URu14MhZlS5jx9zyIfF4zxApu2Z7SZi+QF+nWXNfFMS/w==}
+  '@bit-ocean/cspell@0.0.41':
+    resolution: {integrity: sha512-qrf+ftHwQW8YSDx1w3ZltV1FWKyLG7eAlqM1/HafYXiwqMqpRpwvMGhpNMc1iDXf02iXyHuxytUXQVB6OBGAwg==}
     peerDependencies:
       cspell: ^8.0.0
 
-  '@bit-ocean/echarts@0.0.40':
-    resolution: {integrity: sha512-ZBF17FqpxXTI/okjjFcqcrOkLy7HEm7tQp+g95XXJNqw+qfz4muq0MUK3eF/aqR9wMraBWxAvQYUMIi33Jb1Og==}
+  '@bit-ocean/echarts@0.0.41':
+    resolution: {integrity: sha512-5LLvwUFgfLo8XRh4Fnt9uNpjOO2x1evjfTGmktXO/KnATIlHGYMjBgZ6CewLsUy3FOSTe/QxyC3ov7CpyOSPVw==}
     peerDependencies:
       echarts: '>=5'
       react: '>=18'
       react-dom: '>=18'
 
-  '@bit-ocean/eslint-config@0.0.40':
-    resolution: {integrity: sha512-98lZfN8Nmcgb9tyYKensK/iLaeaIa5SHuwWur5EJcIIqn86oBEgmtksH1DmKt2LztVknTwreKB84jZC+NaIJuw==}
+  '@bit-ocean/eslint-config@0.0.41':
+    resolution: {integrity: sha512-CclEI1I7uWOmMg7mq6yO2mrgSdN3wBoPQ+5CbkQeaPUF3MwnXZhs6Tm75TuB8XnVGUEI7GnZCu+dRPUV57FhWQ==}
     peerDependencies:
       eslint: ^8.0.0
 
-  '@bit-ocean/prettier-config@0.0.40':
-    resolution: {integrity: sha512-KeW5hGM/83BMP1kvdBfAu70AEwg6yUKz2x78y2alOhEPNelnfJnniWbFXh7OLpxN40ppD9kLvuLR6Hv4ZJlLUA==}
+  '@bit-ocean/prettier-config@0.0.41':
+    resolution: {integrity: sha512-nf022fm2xRELncfBxmMZwkDxhErWOFO22kXZcK63ggzoc01emIYiJq6xKl2KqCo7PCS1q6Zb6tMQoZoVT9NXNQ==}
     peerDependencies:
       prettier: ^3.3.2
 
-  '@bit-ocean/renovate-config@0.0.40':
-    resolution: {integrity: sha512-LtQUaVQvwOHhGx7iEreK1qfv1BHTffoWmwF3o3yltf0HStVVO9nOJIXg7JBai3uSfcIctCNxB1vT3wUzE2+oAA==}
+  '@bit-ocean/renovate-config@0.0.41':
+    resolution: {integrity: sha512-RCGX2sY7bJCTzjVI8f0LrpcdhkjuH2pKBNFkO6wZOezlVcA24km8UsNdaSpvHIM6p7zfx7QWUTDTbOez3VcK3A==}
 
-  '@bit-ocean/tailwind@0.0.40':
-    resolution: {integrity: sha512-6xyVqLw+7NFBV8voTVJvsw/2nDKtmHnH7mq+AjH7DKa0r8hx0Y3tK6+Hvv+i+GIBqU4VKOotsMU+AtaAsnTqWg==}
+  '@bit-ocean/tailwind@0.0.41':
+    resolution: {integrity: sha512-QHDAdHmxEqUHCxN+SDIl0Lp49zsQajfFYiCOqLeuD70r0COzL6WG3vclYTPHSV92EKFPys/BpX8Ob043SpmQEg==}
     peerDependencies:
       tailwindcss: ^3.4.4
 
-  '@bit-ocean/theme@0.0.40':
-    resolution: {integrity: sha512-yUMd24NFvybqdnCPw4+FIRpfWl76FEYriHZzvMUYSk4k00la259ebwSvaLZaun4gQYDdg2Yo14jMsnl5c4OI9A==}
+  '@bit-ocean/theme@0.0.41':
+    resolution: {integrity: sha512-cFjXqUMit8SKlUrSbkMPbIy54fbxuXz4mH2Z9kJNFbjXwt/Bz+8FbK1PjJgKz7GzOHXFHDQzzXOCT+2Ch6axMQ==}
     peerDependencies:
       antd: ^5.19.1
     peerDependenciesMeta:
       antd:
         optional: true
 
-  '@bit-ocean/tsconfig@0.0.40':
-    resolution: {integrity: sha512-gUzZPN79weYd0it9wRmp5CjM6ZCcnCjsjuAgpdUnsoK+1chFUcnSlC02AF3RsR2032LsGyHx2W7L+Y5SoPGQPg==}
+  '@bit-ocean/tsconfig@0.0.41':
+    resolution: {integrity: sha512-jDgH6R2YH2ySyNzeT8Yq9px++LVggNzOQvJlYxJXcvOiYJsRLYa0828LDROIMtWBpv37YyC2v9wsKZb8P6PyjQ==}
     peerDependencies:
       typescript: ^4.0.0 || ^5.0.0
 
@@ -11148,8 +11148,8 @@ snapshots:
 
   '@babel/helper-builder-binary-assignment-operator-visitor@7.24.7':
     dependencies:
-      '@babel/traverse': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/traverse': 7.24.8
+      '@babel/types': 7.24.8
     transitivePeerDependencies:
       - supports-color
 
@@ -11727,7 +11727,7 @@ snapshots:
   '@babel/plugin-transform-modules-amd@7.24.7(@babel/core@7.24.8)':
     dependencies:
       '@babel/core': 7.24.8
-      '@babel/helper-module-transforms': 7.24.7(@babel/core@7.24.8)
+      '@babel/helper-module-transforms': 7.24.8(@babel/core@7.24.8)
       '@babel/helper-plugin-utils': 7.24.7
     transitivePeerDependencies:
       - supports-color
@@ -11745,7 +11745,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.8
       '@babel/helper-hoist-variables': 7.24.7
-      '@babel/helper-module-transforms': 7.24.7(@babel/core@7.24.8)
+      '@babel/helper-module-transforms': 7.24.8(@babel/core@7.24.8)
       '@babel/helper-plugin-utils': 7.24.7
       '@babel/helper-validator-identifier': 7.24.7
     transitivePeerDependencies:
@@ -11754,7 +11754,7 @@ snapshots:
   '@babel/plugin-transform-modules-umd@7.24.7(@babel/core@7.24.8)':
     dependencies:
       '@babel/core': 7.24.8
-      '@babel/helper-module-transforms': 7.24.7(@babel/core@7.24.8)
+      '@babel/helper-module-transforms': 7.24.8(@babel/core@7.24.8)
       '@babel/helper-plugin-utils': 7.24.7
     transitivePeerDependencies:
       - supports-color
@@ -11966,11 +11966,11 @@ snapshots:
 
   '@babel/preset-env@7.24.7(@babel/core@7.24.8)':
     dependencies:
-      '@babel/compat-data': 7.24.7
+      '@babel/compat-data': 7.24.8
       '@babel/core': 7.24.8
-      '@babel/helper-compilation-targets': 7.24.7
+      '@babel/helper-compilation-targets': 7.24.8
       '@babel/helper-plugin-utils': 7.24.7
-      '@babel/helper-validator-option': 7.24.7
+      '@babel/helper-validator-option': 7.24.8
       '@babel/plugin-bugfix-firefox-class-in-computed-class-key': 7.24.7(@babel/core@7.24.8)
       '@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression': 7.24.7(@babel/core@7.24.8)
       '@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining': 7.24.7(@babel/core@7.24.8)
@@ -12062,7 +12062,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.8
       '@babel/helper-plugin-utils': 7.24.7
-      '@babel/types': 7.24.7
+      '@babel/types': 7.24.8
       esutils: 2.0.3
 
   '@babel/preset-react@7.24.7(@babel/core@7.24.8)':
@@ -12153,19 +12153,19 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@bit-ocean/auto-import@0.0.40(unplugin-auto-import@0.18.0(rollup@4.18.0))':
+  '@bit-ocean/auto-import@0.0.41(unplugin-auto-import@0.18.0(rollup@4.18.0))':
     optionalDependencies:
       unplugin-auto-import: 0.18.0(rollup@4.18.0)
 
-  '@bit-ocean/bootstrap-animation@0.0.40':
+  '@bit-ocean/bootstrap-animation@0.0.41':
     dependencies:
-      '@bit-ocean/config': 0.0.40
+      '@bit-ocean/config': 0.0.41
       figlet: 1.7.0
       gradient-string: 2.0.2
 
-  '@bit-ocean/cli@0.0.40':
+  '@bit-ocean/cli@0.0.41':
     dependencies:
-      '@bit-ocean/config': 0.0.40
+      '@bit-ocean/config': 0.0.41
       commander: 12.1.0
       cross-fetch: 4.0.0
       cross-spawn: 7.0.3
@@ -12175,7 +12175,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@bit-ocean/commitlint-config@0.0.40(@commitlint/cli@19.3.0(@types/node@20.14.10)(typescript@5.5.3))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.10)(typescript@5.5.3))(cz-git@1.9.3)':
+  '@bit-ocean/commitlint-config@0.0.41(@commitlint/cli@19.3.0(@types/node@20.14.10)(typescript@5.5.3))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.10)(typescript@5.5.3))(cz-git@1.9.3)':
     dependencies:
       '@commitlint/cli': 19.3.0(@types/node@20.14.10)(typescript@5.5.3)
       '@commitlint/config-conventional': 19.2.2
@@ -12183,19 +12183,19 @@ snapshots:
     optionalDependencies:
       cz-git: 1.9.3
 
-  '@bit-ocean/config@0.0.40': {}
+  '@bit-ocean/config@0.0.41': {}
 
-  '@bit-ocean/cspell@0.0.40(cspell@8.10.4)':
+  '@bit-ocean/cspell@0.0.41(cspell@8.10.4)':
     dependencies:
       cspell: 8.10.4
 
-  '@bit-ocean/echarts@0.0.40(echarts@5.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@bit-ocean/echarts@0.0.41(echarts@5.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       echarts: 5.5.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@bit-ocean/eslint-config@0.0.40(eslint@8.57.0)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3)))(typescript@5.5.3)':
+  '@bit-ocean/eslint-config@0.0.41(eslint@8.57.0)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3)))(typescript@5.5.3)':
     dependencies:
       '@tanstack/eslint-plugin-query': 5.51.1(eslint@8.57.0)(typescript@5.5.3)
       '@typescript-eslint/eslint-plugin': 7.16.0(@typescript-eslint/parser@7.16.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
@@ -12225,7 +12225,7 @@ snapshots:
       - tailwindcss
       - typescript
 
-  '@bit-ocean/prettier-config@0.0.40(prettier@3.3.2)':
+  '@bit-ocean/prettier-config@0.0.41(prettier@3.3.2)':
     dependencies:
       prettier: 3.3.2
       prettier-plugin-astro: 0.14.0
@@ -12246,20 +12246,20 @@ snapshots:
       - prettier-plugin-style-order
       - prettier-plugin-svelte
 
-  '@bit-ocean/renovate-config@0.0.40': {}
+  '@bit-ocean/renovate-config@0.0.41': {}
 
-  '@bit-ocean/tailwind@0.0.40(antd@5.19.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3)))':
+  '@bit-ocean/tailwind@0.0.41(antd@5.19.1)(tailwindcss@3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3)))':
     dependencies:
-      '@bit-ocean/theme': 0.0.40(antd@5.19.1)
+      '@bit-ocean/theme': 0.0.41(antd@5.19.1)
       tailwindcss: 3.4.4(ts-node@10.9.2(@swc/core@1.6.13)(@types/node@20.14.10)(typescript@5.5.3))
     transitivePeerDependencies:
       - antd
 
-  '@bit-ocean/theme@0.0.40(antd@5.19.1)':
+  '@bit-ocean/theme@0.0.41(antd@5.19.1)':
     optionalDependencies:
       antd: 5.19.1(date-fns@2.30.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  '@bit-ocean/tsconfig@0.0.40(typescript@5.5.3)':
+  '@bit-ocean/tsconfig@0.0.41(typescript@5.5.3)':
     dependencies:
       typescript: 5.5.3
 
