@@ -3,7 +3,7 @@ export default function Mask() {
   return (
     <div
       className={clsx(
-        'absolute inset-0 z-[75] bg-black opacity-40 sm:hidden',
+        'fixed inset-0 z-[75] bg-black opacity-40 sm:hidden dark:opacity-60',
         sidebarStore.isDisplay ? 'block' : 'hidden'
       )}
       onClick={sidebarStore.toggleDisplay}

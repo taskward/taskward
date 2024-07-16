@@ -57,7 +57,10 @@ function Page() {
         </Col>
 
         <Col span={halfSpan}>
-          <Card>{/* <UserDistributionChart /> */}</Card>
+          <Card>
+            <div className="h-80">Card5</div>
+            {/* <UserDistributionChart /> */}
+          </Card>
         </Col>
       </Row>
     </Flex>

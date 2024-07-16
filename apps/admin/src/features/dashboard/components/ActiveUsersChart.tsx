@@ -13,6 +13,7 @@ export function ActiveUsersChart() {
         textStyle: {
           fontFamily: 'inherit'
         },
+        backgroundColor: '',
         title: {
           text: 'Active Users',
           left: 'center'

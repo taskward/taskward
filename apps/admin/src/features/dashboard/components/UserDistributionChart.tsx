@@ -17,6 +17,7 @@ export function UserDistributionChart() {
       textStyle: {
         fontFamily: themeBaseToken.fontFamily
       },
+      backgroundColor: '',
       visualMap: {
         left: 'right',
         min: 0,

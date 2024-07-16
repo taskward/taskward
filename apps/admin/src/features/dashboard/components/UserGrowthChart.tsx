@@ -13,6 +13,7 @@ export function UserGrowthChart() {
         textStyle: {
           fontFamily: 'inherit'
         },
+        backgroundColor: '',
         title: {
           text: 'User Growth',
           left: 'center'
