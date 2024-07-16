@@ -9,10 +9,9 @@ import UserAvatar from './UserAvatar'
 export default function Header() {
   return (
     <Layout.Header
-      className="sticky top-0 z-50 flex items-center justify-between border-y border-gray-300 p-2 shadow-sm sm:p-4 dark:border-gray-950"
+      className="sticky top-0 z-50 flex h-14 w-full items-center justify-between border-b border-gray-300 p-2 shadow-sm sm:p-4 dark:border-gray-950"
       style={{
-        padding: '0 15px',
-        height: '56px'
+        padding: '0 15px'
       }}
     >
       <Flex

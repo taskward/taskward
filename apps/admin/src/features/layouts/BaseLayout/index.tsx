@@ -1,41 +1,20 @@
-import { useResponsive } from 'ahooks'
-
 import Content from './Content'
 import Footer from './Footer'
 import Header from './Header'
 import Sidebar from './Sidebar'
 
 export default function BaseLayout() {
-  const sidebarStore = useSidebarStore()
-  const responsive = useResponsive()
-
-  const marginLeft = useMemo(() => {
-    if (!sidebarStore.isDisplay || !responsive.sm) {
-      return 0
-    }
-    if (sidebarStore.isCollapse) {
-      return 64
-    }
-    return 224
-  }, [sidebarStore.isCollapse, sidebarStore.isDisplay, responsive.sm])
-
   return (
     <Layout
+      className="flex h-screen overflow-hidden border border-gray-300 dark:border-gray-950"
       hasSider
-      className="overflow-x-hidden"
     >
       <Sidebar />
-      <Layout
-        style={{
-          marginLeft,
-          transition: 'margin-left 0.2s',
-          transitionTimingFunction: 'ease'
-        }}
-      >
+      <div className="h-screen grow overflow-y-auto">
         <Header />
         <Content />
         <Footer />
-      </Layout>
+      </div>
     </Layout>
   )
 }

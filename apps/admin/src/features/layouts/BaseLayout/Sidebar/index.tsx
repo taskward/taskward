@@ -8,8 +8,7 @@ export default function Sidebar() {
   return (
     <>
       <Layout.Sider
-        className="z-[100] h-screen overflow-hidden shadow-md sm:shadow-sm"
-        style={{ height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }}
+        className="!absolute left-0 z-[100] h-full overflow-hidden border-gray-300 shadow-md sm:!static sm:border-r sm:shadow-sm dark:border-gray-950"
         collapsible
         collapsed={sidebarStore.isCollapse}
         onCollapse={sidebarStore.setIsCollapse}
