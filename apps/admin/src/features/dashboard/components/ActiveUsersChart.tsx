@@ -3,15 +3,7 @@ import { generateActiveUsersData } from '../mock'
 export function ActiveUsersChart() {
   const themeStore = useThemeStore()
 
-  const [data, setData] = useState(generateActiveUsersData())
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setData(generateActiveUsersData())
-    }, 10000)
-
-    return () => clearInterval(interval)
-  }, [])
+  const data = generateActiveUsersData()
 
   return (
     <ReactChart

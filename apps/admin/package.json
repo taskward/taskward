@@ -1,6 +1,7 @@
 {
   "name": "admin",
   "description": "✅ Taskward admin app.",
+  "version": "0.0.1",
   "author": "Bruce Song <recall4056@gmail.com> (https://github.com/recallwei/)",
   "homepage": "https://github.com/taskward/taskward#readme",
   "bugs": "https://github.com/taskward/taskward/issues",
@@ -26,8 +27,8 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/happy-work-theme": "^1.0.0",
-    "@bit-ocean/config": "^0.0.41",
-    "@bit-ocean/echarts": "^0.0.41",
+    "@bit-ocean/config": "^0.0.42",
+    "@bit-ocean/echarts": "^0.0.42",
     "@tanstack/react-query": "^5.51.1",
     "@tanstack/react-router": "^1.44.4",
     "@taskward/axios": "workspace:^",
@@ -58,7 +59,7 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
-    "@bit-ocean/auto-import": "^0.0.41",
+    "@bit-ocean/auto-import": "^0.0.42",
     "@iconify/json": "^2.2.227",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",

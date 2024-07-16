@@ -9,7 +9,7 @@ export default function BaseLayout() {
       {/* NOTE: `flex-row` is required to avoid flashing issue */}
       <Layout className="!flex h-screen !flex-row">
         <Sidebar />
-        <Layout className="border-r border-gray-300 dark:border-gray-950">
+        <Layout className="overflow-y-auto border-r border-gray-300 dark:border-gray-950">
           <Header />
           <Content />
           <Footer />

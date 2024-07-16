@@ -1,12 +1,18 @@
 import { createLazyFileRoute, Link } from '@tanstack/react-router'
+import { useResponsive } from 'ahooks'
 
-import { ActiveUsersChart, UserDistributionChart, UserGrowthChart } from '@/features/dashboard'
+import { ActiveUsersChart, UserGrowthChart } from '@/features/dashboard'
 
 export const Route = createLazyFileRoute('/_base/')({
   component: Page
 })
 
 function Page() {
+  const responsive = useResponsive()
+
+  const quartSpan = useMemo(() => (responsive.sm ? 6 : 24), [responsive.sm])
+  const halfSpan = useMemo(() => (responsive.sm ? 12 : 24), [responsive.sm])
+
   return (
     <Flex
       vertical
@@ -14,21 +20,12 @@ function Page() {
     >
       <span className="text-2xl">Dashboard</span>
       <Row gutter={[12, 12]}>
-        <Col span={6}>
+        <Col span={quartSpan}>
           <Card>
-            <div className="h-40">
-              TODO:
-              <ul>
-                <li>Table</li>
-                <li>Multi-BarChart(Reverse)</li>
-                <li>PieChart</li>
-                <li>GaugeChart</li>
-                <li>BarLineCompChart</li>
-              </ul>
-            </div>
+            <div className="h-40">Card5</div>
           </Card>
         </Col>
-        <Col span={6}>
+        <Col span={quartSpan}>
           <Card>
             <div className="h-40">
               <Link to="/dev/charts">
@@ -37,32 +34,30 @@ function Page() {
             </div>
           </Card>
         </Col>
-        <Col span={6}>
+        <Col span={quartSpan}>
           <Card>
             <div className="h-40">Card5</div>
           </Card>
         </Col>
-        <Col span={6}>
+        <Col span={quartSpan}>
           <Card>
             <div className="h-40">Card5</div>
           </Card>
         </Col>
 
-        <Col span={12}>
+        <Col span={halfSpan}>
           <Card>
             <UserGrowthChart />
           </Card>
         </Col>
-        <Col span={12}>
+        <Col span={halfSpan}>
           <Card>
             <ActiveUsersChart />
           </Card>
         </Col>
 
-        <Col span={12}>
-          <Card>
-            <UserDistributionChart />
-          </Card>
+        <Col span={halfSpan}>
+          <Card>{/* <UserDistributionChart /> */}</Card>
         </Col>
       </Row>
     </Flex>

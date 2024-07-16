@@ -3,15 +3,7 @@ import { generateUserGrowthData } from '../mock'
 export function UserGrowthChart() {
   const themeStore = useThemeStore()
 
-  const [data, setData] = useState(generateUserGrowthData())
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setData(generateUserGrowthData())
-    }, 10000)
-
-    return () => clearInterval(interval)
-  }, [])
+  const data = generateUserGrowthData()
 
   return (
     <ReactChart
