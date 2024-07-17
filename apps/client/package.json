@@ -28,7 +28,7 @@
     "@taskward/config": "workspace:^",
     "@taskward/theme": "workspace:^",
     "@taskward/utils": "workspace:^",
-    "antd": "^5.19.1",
+    "antd": "^5.19.2",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "immer": "^10.1.1",
@@ -39,18 +39,18 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
-    "@bit-ocean/auto-import": "^0.0.42",
-    "@tanstack/react-query-devtools": "^5.51.1",
-    "@types/node": "^20.14.10",
+    "@bit-ocean/auto-import": "^0.0.43",
+    "@tanstack/react-query-devtools": "^5.51.5",
+    "@types/node": "^20.14.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
     "sass": "^1.77.8",
-    "tailwindcss": "^3.4.4",
+    "tailwindcss": "^3.4.6",
     "typescript": "^5.5.3",
     "unplugin-auto-import": "^0.18.0",
-    "unplugin-turbo-console": "^1.9.3"
+    "unplugin-turbo-console": "^1.9.11"
   },
   "private": true,
   "license": "MIT"

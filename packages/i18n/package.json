@@ -37,15 +37,15 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "peerDependencies": {
-    "i18next": "^23.11.5",
-    "react-i18next": "^14.1.2"
+    "i18next": "^23.12.1",
+    "react-i18next": "^15.0.0"
   },
   "dependencies": {
     "@taskward/utils": "workspace:^"
   },
   "devDependencies": {
-    "i18next": "^23.11.5",
-    "react-i18next": "^14.1.2"
+    "i18next": "^23.12.1",
+    "react-i18next": "^15.0.0"
   },
   "private": true,
   "license": "MIT"
