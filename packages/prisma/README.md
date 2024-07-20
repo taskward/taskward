@@ -1,5 +1,7 @@
 # @taskward/prisma
 
+[![Made with Prisma](http://made-with.prisma.io/dark.svg)](https://prisma.io)
+
 > Universal Prisma module.
 
 ## License

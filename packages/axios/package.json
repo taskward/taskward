@@ -43,10 +43,10 @@
     "@taskward/utils": "workspace:^"
   },
   "devDependencies": {
-    "@tanstack/react-router": "^1.45.4",
-    "antd": "^5.19.2",
+    "@tanstack/react-router": "^1.45.6",
+    "antd": "^5.19.3",
     "axios": "^1.7.2",
-    "i18next": "^23.12.1"
+    "i18next": "^23.12.2"
   },
   "private": true,
   "license": "MIT"

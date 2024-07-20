@@ -26,19 +26,19 @@
     "@bit-ocean/tsconfig": "^0.0.43",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@nx/workspace": "19.4.4",
+    "@nx/workspace": "19.5.1",
     "@taskward/cspell": "workspace:^",
     "commitizen": "^4.3.0",
     "cspell": "^8.11.0",
-    "cz-git": "^1.9.3",
+    "cz-git": "^1.9.4",
     "eslint": "^8.57.0",
-    "husky": "^9.0.11",
+    "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
-    "nx": "19.4.4",
+    "nx": "19.5.1",
     "pm2": "^5.4.2",
     "prettier": "^3.3.3",
     "tslib": "^2.6.3",
-    "tsup": "^8.1.2"
+    "tsup": "^8.2.0"
   },
   "config": {
     "commitizen": {

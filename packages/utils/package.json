@@ -31,7 +31,7 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "peerDependencies": {
-    "dayjs": "^1.11.11"
+    "dayjs": "^1.11.12"
   },
   "peerDependenciesMeta": {
     "dayjs": {
@@ -39,7 +39,7 @@
     }
   },
   "devDependencies": {
-    "dayjs": "^1.11.11"
+    "dayjs": "^1.11.12"
   },
   "private": true,
   "license": "MIT"
