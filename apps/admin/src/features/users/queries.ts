@@ -1,23 +1,22 @@
 import { queryOptions } from '@tanstack/react-query'
 
-import { PROFILE_QK, USERS_QK } from './query-keys'
-
-interface UserVo {
-  id: number
-  username: string
-  nickName: string
-  avatarUrl: string
-  birthDate: string
-}
+import { profileQK, userQK, usersQK } from './query-keys'
+import type { UserVo } from './types'
 
 export const profileQO = () =>
   queryOptions({
-    queryKey: PROFILE_QK(),
+    queryKey: profileQK(),
     queryFn: ({ signal }) => httpClient.get<UserVo>('/users/profile', {}, { signal })
   })
 
 export const usersQO = () =>
   queryOptions({
-    queryKey: USERS_QK(),
+    queryKey: usersQK(),
     queryFn: ({ signal }) => httpClient.get<UserVo[]>('/users', {}, { signal })
+  })
+
+export const userQO = (id: number) =>
+  queryOptions({
+    queryKey: userQK(id),
+    queryFn: ({ signal }) => httpClient.get<UserVo>(`/users/${id}`, {}, { signal })
   })

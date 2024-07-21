@@ -37,6 +37,7 @@ declare global {
   const LucideLanguages: typeof import('~icons/lucide/languages.jsx')['default']
   const LucideShrink: typeof import('~icons/lucide/shrink.jsx')['default']
   const Menu: typeof import('antd')['Menu']
+  const PageContainer: typeof import('../src/shared/components/PageContainer/index')['default']
   const QueryProvider: typeof import('../src/shared/providers/QueryProvider/index')['default']
   const ReactChart: typeof import('@bit-ocean/echarts')['ReactChart']
   const Result: typeof import('antd')['Result']

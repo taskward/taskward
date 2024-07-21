@@ -1,7 +1,15 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
+import { createLazyFileRoute, Outlet } from '@tanstack/react-router'
 
 import { BaseLayout } from '@/features/layouts'
 
 export const Route = createLazyFileRoute('/_base')({
-  component: BaseLayout
+  component: Layout
 })
+
+function Layout() {
+  return (
+    <BaseLayout>
+      <Outlet />
+    </BaseLayout>
+  )
+}

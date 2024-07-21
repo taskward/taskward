@@ -4,10 +4,10 @@ import { appConfig } from '@taskward/config'
  * Dynamic change document title.
  */
 export const useTitle = () => {
-  const routeMeta = useRouteStaticData()
+  const routeStaticData = useRouteStaticData()
 
   useEffect(() => {
-    const { title } = routeMeta
+    const { title } = routeStaticData
     document.title = title ? `${title} | ${appConfig.APP_NAME}` : appConfig.APP_NAME
-  }, [routeMeta])
+  }, [routeStaticData])
 }

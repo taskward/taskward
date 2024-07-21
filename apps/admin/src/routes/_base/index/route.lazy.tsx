@@ -14,11 +14,7 @@ function Page() {
   const halfSpan = useMemo(() => (responsive.sm ? 12 : 24), [responsive.sm])
 
   return (
-    <Flex
-      vertical
-      gap={12}
-    >
-      <span className="text-2xl">Dashboard</span>
+    <PageContainer>
       <Row gutter={[12, 12]}>
         <Col span={quartSpan}>
           <Card>
@@ -63,6 +59,6 @@ function Page() {
           </Card>
         </Col>
       </Row>
-    </Flex>
+    </PageContainer>
   )
 }
