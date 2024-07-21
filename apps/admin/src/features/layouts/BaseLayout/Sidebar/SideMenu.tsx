@@ -1,6 +1,8 @@
 import { useLocation, useNavigate } from '@tanstack/react-router'
 import { type MenuProps, theme } from 'antd'
 
+import { staticMenus } from '@/features/menus'
+
 export default function SideMenu() {
   const { siderBg } = theme.useToken().token.Layout!
   const navigate = useNavigate()
@@ -15,17 +17,14 @@ export default function SideMenu() {
       location.pathname
         .split('/')
         .filter((i) => i)
-        .reduce<string[]>((acc, cur) => {
-          const key = `${acc}/${cur}`
-          return [...acc, key]
-        }, [])
+        .reduce<string[]>((acc, cur) => [...acc, `${acc}/${cur}`], [])
         .concat(value)
     )
   }, [location.pathname])
 
-  const handleClickMenuItem: MenuProps['onClick'] = (menuInfo) => {
-    if (menuInfo?.key && typeof menuInfo.key === 'string') {
-      navigate({ to: menuInfo.key })
+  const handleClickMenuItem: MenuProps['onClick'] = (menuItem) => {
+    if (menuItem?.key && typeof menuItem.key === 'string') {
+      navigate({ to: menuItem.key })
     }
   }
 
@@ -38,11 +37,11 @@ export default function SideMenu() {
         width: '100%',
         overflowY: 'auto'
       }}
-      items={[]}
+      items={staticMenus}
+      mode="inline"
       selectedKeys={selectedKeys}
       openKeys={openKeys}
       onOpenChange={setOpenKeys}
-      mode="inline"
       onClick={handleClickMenuItem}
     />
   )

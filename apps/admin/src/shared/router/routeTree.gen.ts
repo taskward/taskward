@@ -21,6 +21,7 @@ import { Route as BaseProfileRouteImport } from './../../routes/_base/profile/ro
 import { Route as BaseChangePasswordRouteImport } from './../../routes/_base/change-password/route'
 import { Route as Base404RouteImport } from './../../routes/_base/404/route'
 import { Route as BaseIndexRouteImport } from './../../routes/_base/index/route'
+import { Route as BaseSystemUsersRouteImport } from './../../routes/_base/system/users/route'
 import { Route as BaseDevOverviewRouteImport } from './../../routes/_base/dev/overview/route'
 import { Route as BaseDevChartsRouteImport } from './../../routes/_base/dev/charts/route'
 
@@ -96,6 +97,13 @@ const BaseIndexRouteRoute = BaseIndexRouteImport.update({
   getParentRoute: () => BaseRouteRoute,
 } as any).lazy(() =>
   import('./../../routes/_base/index/route.lazy').then((d) => d.Route),
+)
+
+const BaseSystemUsersRouteRoute = BaseSystemUsersRouteImport.update({
+  path: '/system/users',
+  getParentRoute: () => BaseRouteRoute,
+} as any).lazy(() =>
+  import('./../../routes/_base/system/users/route.lazy').then((d) => d.Route),
 )
 
 const BaseDevOverviewRouteRoute = BaseDevOverviewRouteImport.update({
@@ -200,6 +208,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BaseDevOverviewRouteImport
       parentRoute: typeof BaseRouteImport
     }
+    '/_base/system/users': {
+      id: '/_base/system/users'
+      path: '/system/users'
+      fullPath: '/system/users'
+      preLoaderRoute: typeof BaseSystemUsersRouteImport
+      parentRoute: typeof BaseRouteImport
+    }
   }
 }
 
@@ -214,6 +229,7 @@ export const routeTree = rootRoute.addChildren({
     BaseProfileRouteRoute,
     BaseDevChartsRouteRoute,
     BaseDevOverviewRouteRoute,
+    BaseSystemUsersRouteRoute,
   }),
   PublicRouteRoute: PublicRouteRoute.addChildren({
     PublicForgotPasswordRouteRoute,
@@ -246,7 +262,8 @@ export const routeTree = rootRoute.addChildren({
         "/_base/change-password",
         "/_base/profile",
         "/_base/dev/charts",
-        "/_base/dev/overview"
+        "/_base/dev/overview",
+        "/_base/system/users"
       ]
     },
     "/_public": {
@@ -291,6 +308,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_base/dev/overview": {
       "filePath": "_base/dev/overview/route.tsx",
+      "parent": "/_base"
+    },
+    "/_base/system/users": {
+      "filePath": "_base/system/users/route.tsx",
       "parent": "/_base"
     }
   }
