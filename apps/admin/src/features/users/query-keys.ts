@@ -2,8 +2,8 @@ export const USERS_QK = 'users'
 
 export const PROFILE_QK = `${USERS_QK}:profile`
 
-export const profileQK = () => <const>[PROFILE_QK]
+export const profileQK = () => [PROFILE_QK] as const
 
-export const usersQK = () => <const>[USERS_QK]
+export const usersQK = () => [USERS_QK] as const
 
-export const userQK = (id: number) => <const>[USERS_QK, id]
+export const userQK = (id: number) => [USERS_QK, id] as const
