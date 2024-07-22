@@ -1,7 +1,7 @@
 import '@/assets/styles/main.scss'
-import 'nprogress/nprogress.css'
 import '@/shared/i18n'
 import '@/shared/echarts'
+import '@/shared/ag-grid'
 
 import { enableMapSet } from 'immer'
 import React from 'react'

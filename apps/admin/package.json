@@ -25,6 +25,10 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
+    "@ag-grid-community/client-side-row-model": "^32.0.2",
+    "@ag-grid-community/core": "^32.0.2",
+    "@ag-grid-community/react": "^32.0.2",
+    "@ag-grid-community/styles": "^32.0.2",
     "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/happy-work-theme": "^1.0.0",
     "@bit-ocean/config": "^0.0.43",
@@ -60,7 +64,7 @@
   },
   "devDependencies": {
     "@bit-ocean/auto-import": "^0.0.43",
-    "@iconify/json": "^2.2.229",
+    "@iconify/json": "^2.2.230",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@tanstack/react-query-devtools": "^5.51.11",

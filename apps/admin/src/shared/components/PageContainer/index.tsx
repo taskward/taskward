@@ -5,14 +5,20 @@ interface PageContainerProps extends PropsWithChildren {}
 export default function PageContainer(props: PageContainerProps) {
   const { children } = props
 
-  const routeStaticData = useRouteStaticData()
+  const { title, icon } = useRouteStaticData()
 
   return (
     <Flex
       vertical
-      gap={12}
+      gap={8}
     >
-      <span className="text-2xl">{routeStaticData.title}</span>
+      <Flex
+        align="center"
+        gap={8}
+      >
+        {icon && <span className="mb-0.5 text-xl">{icon}</span>}
+        {title && <span className="text-2xl">{title}</span>}
+      </Flex>
       {children}
     </Flex>
   )

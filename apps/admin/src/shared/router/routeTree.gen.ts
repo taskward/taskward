@@ -21,9 +21,10 @@ import { Route as BaseProfileRouteImport } from './../../routes/_base/profile/ro
 import { Route as BaseChangePasswordRouteImport } from './../../routes/_base/change-password/route'
 import { Route as Base404RouteImport } from './../../routes/_base/404/route'
 import { Route as BaseIndexRouteImport } from './../../routes/_base/index/route'
-import { Route as BaseSystemUsersRouteImport } from './../../routes/_base/system/users/route'
 import { Route as BaseDevOverviewRouteImport } from './../../routes/_base/dev/overview/route'
 import { Route as BaseDevChartsRouteImport } from './../../routes/_base/dev/charts/route'
+import { Route as BaseSystemUsersIdRouteImport } from './../../routes/_base/system/users/$id/route'
+import { Route as BaseSystemUsersIndexRouteImport } from './../../routes/_base/system/users/index/route'
 
 // Create/Update Routes
 
@@ -99,13 +100,6 @@ const BaseIndexRouteRoute = BaseIndexRouteImport.update({
   import('./../../routes/_base/index/route.lazy').then((d) => d.Route),
 )
 
-const BaseSystemUsersRouteRoute = BaseSystemUsersRouteImport.update({
-  path: '/system/users',
-  getParentRoute: () => BaseRouteRoute,
-} as any).lazy(() =>
-  import('./../../routes/_base/system/users/route.lazy').then((d) => d.Route),
-)
-
 const BaseDevOverviewRouteRoute = BaseDevOverviewRouteImport.update({
   path: '/dev/overview',
   getParentRoute: () => BaseRouteRoute,
@@ -118,6 +112,24 @@ const BaseDevChartsRouteRoute = BaseDevChartsRouteImport.update({
   getParentRoute: () => BaseRouteRoute,
 } as any).lazy(() =>
   import('./../../routes/_base/dev/charts/route.lazy').then((d) => d.Route),
+)
+
+const BaseSystemUsersIdRouteRoute = BaseSystemUsersIdRouteImport.update({
+  path: '/system/users/$id',
+  getParentRoute: () => BaseRouteRoute,
+} as any).lazy(() =>
+  import('./../../routes/_base/system/users/$id/route.lazy').then(
+    (d) => d.Route,
+  ),
+)
+
+const BaseSystemUsersIndexRouteRoute = BaseSystemUsersIndexRouteImport.update({
+  path: '/system/users/',
+  getParentRoute: () => BaseRouteRoute,
+} as any).lazy(() =>
+  import('./../../routes/_base/system/users/index/route.lazy').then(
+    (d) => d.Route,
+  ),
 )
 
 // Populate the FileRoutesByPath interface
@@ -208,11 +220,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BaseDevOverviewRouteImport
       parentRoute: typeof BaseRouteImport
     }
-    '/_base/system/users': {
-      id: '/_base/system/users'
+    '/_base/system/users/': {
+      id: '/_base/system/users/'
       path: '/system/users'
       fullPath: '/system/users'
-      preLoaderRoute: typeof BaseSystemUsersRouteImport
+      preLoaderRoute: typeof BaseSystemUsersIndexRouteImport
+      parentRoute: typeof BaseRouteImport
+    }
+    '/_base/system/users/$id': {
+      id: '/_base/system/users/$id'
+      path: '/system/users/$id'
+      fullPath: '/system/users/$id'
+      preLoaderRoute: typeof BaseSystemUsersIdRouteImport
       parentRoute: typeof BaseRouteImport
     }
   }
@@ -229,7 +248,8 @@ export const routeTree = rootRoute.addChildren({
     BaseProfileRouteRoute,
     BaseDevChartsRouteRoute,
     BaseDevOverviewRouteRoute,
-    BaseSystemUsersRouteRoute,
+    BaseSystemUsersIndexRouteRoute,
+    BaseSystemUsersIdRouteRoute,
   }),
   PublicRouteRoute: PublicRouteRoute.addChildren({
     PublicForgotPasswordRouteRoute,
@@ -263,7 +283,8 @@ export const routeTree = rootRoute.addChildren({
         "/_base/profile",
         "/_base/dev/charts",
         "/_base/dev/overview",
-        "/_base/system/users"
+        "/_base/system/users/",
+        "/_base/system/users/$id"
       ]
     },
     "/_public": {
@@ -310,8 +331,12 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "_base/dev/overview/route.tsx",
       "parent": "/_base"
     },
-    "/_base/system/users": {
-      "filePath": "_base/system/users/route.tsx",
+    "/_base/system/users/": {
+      "filePath": "_base/system/users/index/route.tsx",
+      "parent": "/_base"
+    },
+    "/_base/system/users/$id": {
+      "filePath": "_base/system/users/$id/route.tsx",
       "parent": "/_base"
     }
   }

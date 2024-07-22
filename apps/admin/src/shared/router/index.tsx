@@ -1,6 +1,6 @@
 import { createRouter } from '@tanstack/react-router'
 import nprogress from 'nprogress'
-import type { JSXElementConstructor } from 'react'
+import type { ReactNode } from 'react'
 
 import { queryClient } from '../query-client'
 import { routeTree } from './routeTree.gen'
@@ -34,6 +34,6 @@ declare module '@tanstack/react-router' {
 
   interface StaticDataRouteOption {
     title?: string
-    icon?: React.ReactElement<any, string | JSXElementConstructor<any>>
+    icon?: ReactNode
   }
 }

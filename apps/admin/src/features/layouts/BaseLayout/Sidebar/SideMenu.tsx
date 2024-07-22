@@ -30,6 +30,7 @@ export default function SideMenu() {
 
   return (
     <Menu
+      className="select-none"
       style={{
         backgroundColor: siderBg,
         border: 'none',

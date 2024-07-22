@@ -1,0 +1,13 @@
+@use 'nprogress/nprogress';
+@use '@ag-grid-community/styles' as ag;
+
+@include ag.grid-styles(
+  (
+    theme: quartz
+  )
+);
+
+.ag-theme-quartz,
+.ag-theme-quartz-dark {
+  --ag-font-family: inherit;
+}

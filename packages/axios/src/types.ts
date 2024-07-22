@@ -50,3 +50,15 @@ export interface Tokens {
   accessToken: string
   refreshToken: string
 }
+
+export interface Page<T = unknown> {
+  page: number
+  pageSize: number
+  total: number
+  records: T[]
+}
+
+export interface PageDto {
+  page: number
+  pageSize: number
+}

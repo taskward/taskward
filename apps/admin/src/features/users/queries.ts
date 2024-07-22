@@ -1,4 +1,5 @@
 import { queryOptions } from '@tanstack/react-query'
+import type { Page } from '@taskward/axios'
 
 import { profileQK, userQK, usersQK } from './query-keys'
 import type { UserVo } from './types'
@@ -12,7 +13,7 @@ export const profileQO = () =>
 export const usersQO = () =>
   queryOptions({
     queryKey: usersQK(),
-    queryFn: ({ signal }) => httpClient.get<UserVo[]>('/users', {}, { signal })
+    queryFn: ({ signal }) => httpClient.get<Page<UserVo>>('/users', {}, { signal })
   })
 
 export const userQO = (id: number) =>
