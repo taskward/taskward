@@ -1,4 +1,3 @@
-import { createFileRoute, redirect } from '@tanstack/react-router'
 import { AuthUtils } from '@taskward/utils'
 
 import { profileQO } from '@/features/users'

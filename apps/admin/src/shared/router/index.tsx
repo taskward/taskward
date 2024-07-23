@@ -1,4 +1,3 @@
-import { createRouter } from '@tanstack/react-router'
 import nprogress from 'nprogress'
 import type { ReactNode } from 'react'
 

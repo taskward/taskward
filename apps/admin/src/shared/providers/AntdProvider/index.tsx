@@ -5,7 +5,6 @@ import { HappyProvider } from '@ant-design/happy-work-theme'
 import { messageConfig } from '@taskward/theme'
 import { message } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
-import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import type { PropsWithChildren } from 'react'
 

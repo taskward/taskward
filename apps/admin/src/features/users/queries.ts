@@ -1,4 +1,3 @@
-import { queryOptions } from '@tanstack/react-query'
 import type { Page } from '@taskward/axios'
 
 import { profileQK, userQK, usersQK } from './query-keys'

@@ -1,4 +1,3 @@
-import { useLocation, useNavigate } from '@tanstack/react-router'
 import { type MenuProps, theme } from 'antd'
 
 import { staticMenus } from '@/features/menus'

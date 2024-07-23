@@ -1,7 +1,4 @@
-import { Link } from '@tanstack/react-router'
 import type { FormProps } from 'antd'
-import dayjs from 'dayjs'
-import { useTranslation } from 'react-i18next'
 
 import { confirmPasswordRule } from '@/features/antd'
 import { type SignupFormValues, useSignupMutation } from '@/features/auth'

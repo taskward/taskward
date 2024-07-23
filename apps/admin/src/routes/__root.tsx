@@ -1,6 +1,4 @@
 import type { QueryClient } from '@tanstack/react-query'
-import { createRootRouteWithContext, Outlet, ScrollRestoration } from '@tanstack/react-router'
-import { AnimatePresence } from 'framer-motion'
 import { Suspense } from 'react'
 
 const TanStackRouterDevtools = import.meta.env.PROD

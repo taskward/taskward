@@ -61,9 +61,52 @@ export default defineConfig(({ mode }) => {
           'react-i18next',
           { from: 'clsx', imports: [['default', 'clsx']] },
           { from: 'use-immer', imports: ['useImmer'] },
+          { from: 'dayjs', imports: [['default', 'dayjs']] },
+          {
+            from: '@tanstack/react-query',
+            imports: [
+              'useQuery',
+              'useSuspenseQuery',
+              'useSuspenseQueries',
+              'useMutation',
+              'useQueryClient',
+              'queryOptions',
+              'QueryClientProvider',
+              'MutationCache',
+              'QueryClient'
+            ]
+          },
+          {
+            from: '@tanstack/react-router',
+            imports: [
+              'useRouter',
+              'useRouterState',
+              'useSearch',
+              'useNavigate',
+              'useLocation',
+              'useMatches',
+              'RouterProvider',
+              'createRootRouteWithContext',
+              'createRouter',
+              'createFileRoute',
+              'createLazyFileRoute',
+              'Link',
+              'Outlet',
+              'ScrollRestoration',
+              'redirect'
+            ]
+          },
+          {
+            from: 'framer-motion',
+            imports: ['motion', 'AnimatePresence']
+          },
+          {
+            from: 'zod',
+            imports: ['z']
+          },
+          { from: '@bit-ocean/echarts', imports: ['ReactChart'] },
           { from: '@/shared/router', imports: ['router'] },
-          { from: '@/shared/query-client', imports: ['queryClient'] },
-          { from: '@bit-ocean/echarts', imports: ['ReactChart'] }
+          { from: '@/shared/query-client', imports: ['queryClient'] }
         ],
         dirs: [
           'src/shared/api/*',

@@ -1,5 +1,4 @@
 import type { TimeRangePickerProps } from 'antd'
-import dayjs from 'dayjs'
 
 export const timeRangePickerPresets: TimeRangePickerProps['presets'] = [
   { label: '今天', value: [dayjs().startOf('d'), dayjs()] },

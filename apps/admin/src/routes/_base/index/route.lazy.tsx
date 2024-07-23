@@ -1,4 +1,3 @@
-import { createLazyFileRoute, Link } from '@tanstack/react-router'
 import { useResponsive } from 'ahooks'
 
 import { ActiveUsersChart, UserGrowthChart } from '@/features/dashboard'

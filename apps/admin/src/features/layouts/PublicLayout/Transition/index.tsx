@@ -1,5 +1,3 @@
-import { useRouterState } from '@tanstack/react-router'
-import { motion } from 'framer-motion'
 import type { PropsWithChildren } from 'react'
 
 export default function Transition(props: PropsWithChildren) {

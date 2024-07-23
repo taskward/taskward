@@ -1,5 +1,3 @@
-import { Link } from '@tanstack/react-router'
-
 export interface ErrorPageProps {
   title?: string
   subTitle?: string

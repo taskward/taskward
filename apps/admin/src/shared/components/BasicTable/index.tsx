@@ -1,7 +1,5 @@
-import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model'
 import type { ColDef } from '@ag-grid-community/core'
 import { AgGridReact, type CustomCellRendererProps } from '@ag-grid-community/react'
-import { useSuspenseQuery } from '@tanstack/react-query'
 
 import type { UserVo } from '@/features/users'
 import { usersQO } from '@/features/users'
@@ -15,14 +13,15 @@ export default function BasicTable() {
 
   const colDefs = useMemo<ColDef<UserVo>[]>(
     () => [
-      { field: 'id', headerName: 'ID', width: 100, lockPosition: 'left' },
+      { field: 'id', headerName: 'ID', width: 100, lockPosition: true },
       {
         field: 'avatarUrl',
         headerName: 'Avatar Url',
-        lockPosition: 'left',
+        type: 'centerAligned',
+        lockPosition: true,
         cellRenderer: (params: CustomCellRendererProps) => <Avatar src={params.value} />
       },
-      { field: 'username', headerName: 'Username', lockPosition: 'left' },
+      { field: 'username', headerName: 'Username', lockPosition: true },
       { field: 'nickName', headerName: 'Nick Name' },
       { field: 'firstName', headerName: 'First Name' },
       { field: 'middleName', headerName: 'Middle Name' },
@@ -37,7 +36,7 @@ export default function BasicTable() {
   return (
     <div
       className={clsx(
-        'h-screen',
+        'h-[calc(100vh-200px)]',
         themeStore.isLightTheme() ? 'ag-theme-quartz' : 'ag-theme-quartz-dark'
       )}
     >
@@ -45,7 +44,6 @@ export default function BasicTable() {
         rowData={records}
         columnDefs={colDefs}
         getRowId={(params) => params.data.id.toString()}
-        modules={[ClientSideRowModelModule]}
       />
     </div>
   )

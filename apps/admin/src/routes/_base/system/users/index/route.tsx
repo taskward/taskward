@@ -1,5 +1,3 @@
-import { createFileRoute } from '@tanstack/react-router'
-
 import { usersQO } from '@/features/users'
 
 export const Route = createFileRoute('/_base/system/users/')({

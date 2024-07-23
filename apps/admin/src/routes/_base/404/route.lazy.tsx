@@ -1,5 +1,3 @@
-import { createLazyFileRoute } from '@tanstack/react-router'
-
 export const Route = createLazyFileRoute('/_base/404')({
   component: () => (
     <ErrorPage
