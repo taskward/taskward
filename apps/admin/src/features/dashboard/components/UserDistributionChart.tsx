@@ -1,4 +1,4 @@
-import { themeBaseToken } from '@taskward/theme'
+import { themeBaseToken } from '@bit-ocean/theme'
 import type { EChartsOption } from 'echarts'
 
 import chinaJson from '@/assets/json/geo/china.json'

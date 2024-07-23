@@ -1,4 +1,4 @@
-import type { Page } from '@taskward/axios'
+import type { Page } from '@bit-ocean/axios'
 
 import { profileQK, userQK, usersQK } from './query-keys'
 import type { UserVo } from './types'

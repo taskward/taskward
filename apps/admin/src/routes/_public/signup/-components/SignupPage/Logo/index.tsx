@@ -1,5 +1,3 @@
-import { appConfig } from '@taskward/config'
-
 import logo from '@/assets/images/logo/square.png'
 
 export default function Logo() {

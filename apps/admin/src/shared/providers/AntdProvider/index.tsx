@@ -2,7 +2,7 @@ import 'dayjs/locale/zh-cn'
 
 import { px2remTransformer, StyleProvider } from '@ant-design/cssinjs'
 import { HappyProvider } from '@ant-design/happy-work-theme'
-import { messageConfig } from '@taskward/theme'
+import { messageConfig } from '@bit-ocean/theme'
 import { message } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import customParseFormat from 'dayjs/plugin/customParseFormat'

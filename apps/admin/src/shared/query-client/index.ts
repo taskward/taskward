@@ -1,5 +1,3 @@
-import { MutationCache, QueryClient } from '@tanstack/react-query'
-
 export const STALE = Object.freeze({
   MINUTES: {
     ONE: 1e3 * 60,

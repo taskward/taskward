@@ -1,5 +1,3 @@
-import { appConfig } from '@taskward/config'
-
 /**
  * Dynamic change document title.
  */

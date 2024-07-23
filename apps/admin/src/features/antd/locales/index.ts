@@ -1,4 +1,4 @@
-import { Lang, LangUtils } from '@taskward/utils'
+import { Lang } from '@bit-ocean/utils'
 import type { Locale } from 'antd/lib/locale'
 import enUS from 'antd/locale/en_US'
 import zhCN from 'antd/locale/zh_CN'

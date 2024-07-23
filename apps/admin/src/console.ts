@@ -1,5 +1,3 @@
-import { DateUtils } from '@taskward/utils'
-
 import { commitMessage, committer, committerDate } from '~build/git'
 
 // eslint-disable-next-line no-console

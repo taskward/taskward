@@ -1,5 +1,3 @@
-import { AuthUtils } from '@taskward/utils'
-
 import { profileQO } from '@/features/users'
 
 export const Route = createFileRoute('/_base')({

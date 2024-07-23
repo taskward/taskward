@@ -1,9 +1,9 @@
+import { CustomPrismaModule } from '@bit-ocean/prisma'
 import { type MiddlewareConsumer, Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { APP_FILTER, APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core'
 import { JwtModule } from '@nestjs/jwt'
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
-import { CustomPrismaModule } from '@taskward/prisma'
 
 import { HttpExceptionFilter, PrismaExceptionFilter } from '@/core/filters'
 import { AccessTokenGuard } from '@/core/guards'

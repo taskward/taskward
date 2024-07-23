@@ -1,3 +1,4 @@
+import { CustomPrismaService } from '@bit-ocean/prisma'
 import {
   BadRequestException,
   forwardRef,
@@ -8,7 +9,6 @@ import {
 import type { ConfigType } from '@nestjs/config'
 import { JwtService } from '@nestjs/jwt'
 import { compare, hash } from '@node-rs/bcrypt'
-import { CustomPrismaService } from '@taskward/prisma'
 import { plainToClass } from 'class-transformer'
 
 import { JwtEnvConfig } from '@/shared/configs'

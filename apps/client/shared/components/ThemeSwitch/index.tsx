@@ -1,6 +1,6 @@
 'use client'
 
-import { Theme, ThemeUtils } from '@taskward/utils'
+import { Theme, ThemeUtils } from '@bit-ocean/utils'
 
 export default function ThemeSwitch() {
   const [theme, setTheme] = useState(Theme.LIGHT)

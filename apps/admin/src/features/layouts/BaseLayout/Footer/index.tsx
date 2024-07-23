@@ -1,6 +1,3 @@
-import { teamConfig } from '@bit-ocean/config'
-import { appConfig } from '@taskward/config'
-import { BrowserUtils } from '@taskward/utils'
 import { Image } from 'antd'
 
 import logo from '@/assets/images/logo/bit_ocean.png'

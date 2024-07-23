@@ -1,6 +1,3 @@
-import { appConfig } from '@taskward/config'
-import { BrowserUtils } from '@taskward/utils'
-
 export default function DocsButton() {
   const { t } = useTranslation()
 

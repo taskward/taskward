@@ -2,7 +2,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 
-import { antdResolver } from '@bit-ocean/auto-import'
+import { antdResolver, reactPresets } from '@bit-ocean/auto-import'
 import { BootstrapAnimation } from '@bit-ocean/bootstrap-animation'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import { appConfig } from '@taskward/config'
@@ -57,52 +57,8 @@ export default defineConfig(({ mode }) => {
         dts: '@types/auto-imports.d.ts',
         include: [/\.[tj]sx?$/, /\.md$/],
         imports: [
-          'react',
-          'react-i18next',
-          { from: 'clsx', imports: [['default', 'clsx']] },
-          { from: 'use-immer', imports: ['useImmer'] },
-          { from: 'dayjs', imports: [['default', 'dayjs']] },
-          {
-            from: '@tanstack/react-query',
-            imports: [
-              'useQuery',
-              'useSuspenseQuery',
-              'useSuspenseQueries',
-              'useMutation',
-              'useQueryClient',
-              'queryOptions',
-              'QueryClientProvider'
-            ]
-          },
-          {
-            from: '@tanstack/react-router',
-            imports: [
-              'useRouter',
-              'useRouterState',
-              'useSearch',
-              'useNavigate',
-              'useLocation',
-              'useMatches',
-              'RouterProvider',
-              'createRootRouteWithContext',
-              'createRouter',
-              'createFileRoute',
-              'createLazyFileRoute',
-              'Link',
-              'Outlet',
-              'ScrollRestoration',
-              'redirect'
-            ]
-          },
-          {
-            from: 'framer-motion',
-            imports: ['motion', 'AnimatePresence']
-          },
-          {
-            from: 'zod',
-            imports: ['z']
-          },
-          { from: '@bit-ocean/echarts', imports: ['ReactChart'] },
+          ...reactPresets,
+          { from: '@taskward/config', imports: ['appConfig'] },
           { from: '@/shared/router', imports: ['router'] },
           { from: '@/shared/query-client', imports: ['queryClient'] }
         ],

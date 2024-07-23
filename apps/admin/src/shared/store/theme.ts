@@ -1,5 +1,5 @@
-import { darkThemeConfigPresets, lightThemeConfigPresets } from '@taskward/theme'
-import { Theme, ThemeUtils } from '@taskward/utils'
+import { darkThemeConfigPresets, lightThemeConfigPresets } from '@bit-ocean/theme'
+import { Theme } from '@bit-ocean/utils'
 import type { ThemeConfig } from 'antd'
 import { create } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'

@@ -1,5 +1,4 @@
-import type { Tokens } from '@taskward/axios'
-import { AuthUtils } from '@taskward/utils'
+import type { Tokens } from '@bit-ocean/axios'
 
 import type { LoginDto, LoginFormValues, SignupDto } from './types'
 

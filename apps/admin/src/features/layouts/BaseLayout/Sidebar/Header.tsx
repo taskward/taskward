@@ -1,4 +1,3 @@
-import { appConfig } from '@taskward/config'
 import { Image } from 'antd'
 
 import logo from '@/assets/images/logo/square.png'

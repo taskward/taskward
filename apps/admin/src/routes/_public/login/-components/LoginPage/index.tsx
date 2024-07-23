@@ -1,5 +1,3 @@
-import { AuthUtils } from '@taskward/utils'
-
 import { type LoginFormValues, useLoginMutation } from '@/features/auth'
 
 import Header from './Header'

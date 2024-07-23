@@ -1,3 +1,4 @@
+import { CustomPrismaService } from '@bit-ocean/prisma'
 import {
   forwardRef,
   Inject,
@@ -5,7 +6,6 @@ import {
   NotFoundException,
   UnauthorizedException
 } from '@nestjs/common'
-import { CustomPrismaService } from '@taskward/prisma'
 import { plainToInstance } from 'class-transformer'
 
 import type { WrapperType } from '@/shared/interfaces'

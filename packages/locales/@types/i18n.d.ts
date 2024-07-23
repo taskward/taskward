@@ -1,4 +1,4 @@
-import type { DEFAULT_NS } from '@taskward/i18n'
+import type { DEFAULT_NS } from '@bit-ocean/i18n'
 
 import type { I18nResources } from '../src'
 

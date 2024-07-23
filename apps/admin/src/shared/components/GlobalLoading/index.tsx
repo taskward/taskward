@@ -1,5 +1,4 @@
 import { teamConfig } from '@bit-ocean/config'
-import { appConfig } from '@taskward/config'
 
 export default function GlobalLoading() {
   return (

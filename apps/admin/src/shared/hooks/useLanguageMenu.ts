@@ -1,4 +1,4 @@
-import { Lang } from '@taskward/utils'
+import { Lang } from '@bit-ocean/utils'
 import type { MenuProps } from 'antd'
 
 export const useLanguageMenu = () => {

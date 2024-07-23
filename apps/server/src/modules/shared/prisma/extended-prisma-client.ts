@@ -1,5 +1,5 @@
+import { softDeleteExtension } from '@bit-ocean/prisma'
 import { PrismaClient } from '@prisma/client'
-import { softDeleteExtension } from '@taskward/prisma'
 
 export const extendedPrismaClient = new PrismaClient().$extends(softDeleteExtension)
 

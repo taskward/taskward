@@ -1,4 +1,4 @@
-import { I18nInstance } from '@taskward/i18n'
+import { I18nInstance } from '@bit-ocean/i18n'
 
 const i18nInstance = new I18nInstance()
 

@@ -1,4 +1,3 @@
-import { AuthUtils } from '@taskward/utils'
 import type { MenuProps } from 'antd'
 
 import { profileQO } from '@/features/users'
