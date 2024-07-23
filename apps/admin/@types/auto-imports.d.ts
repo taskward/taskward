@@ -47,7 +47,6 @@ declare global {
   const MutationCache: typeof import('@tanstack/react-query')['MutationCache']
   const Outlet: typeof import('@tanstack/react-router')['Outlet']
   const PageContainer: typeof import('../src/shared/components/PageContainer/index')['default']
-  const QueryClient: typeof import('@tanstack/react-query')['QueryClient']
   const QueryClientProvider: typeof import('@tanstack/react-query')['QueryClientProvider']
   const QueryProvider: typeof import('../src/shared/providers/QueryProvider/index')['default']
   const ReactChart: typeof import('@bit-ocean/echarts')['ReactChart']

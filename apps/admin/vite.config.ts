@@ -71,9 +71,7 @@ export default defineConfig(({ mode }) => {
               'useMutation',
               'useQueryClient',
               'queryOptions',
-              'QueryClientProvider',
-              'MutationCache',
-              'QueryClient'
+              'QueryClientProvider'
             ]
           },
           {
