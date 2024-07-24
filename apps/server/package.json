@@ -43,7 +43,7 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
-    "@bit-ocean/prisma": "^0.0.45",
+    "@bit-ocean/prisma": "^0.0.46",
     "@nestjs/axios": "^3.0.2",
     "@nestjs/common": "^10.3.10",
     "@nestjs/config": "^3.2.3",

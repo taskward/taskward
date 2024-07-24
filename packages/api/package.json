@@ -30,7 +30,7 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
-    "@bit-ocean/axios": "^0.0.45"
+    "@bit-ocean/axios": "^0.0.46"
   },
   "private": true,
   "license": "MIT"

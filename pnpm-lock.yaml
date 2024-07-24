@@ -9,32 +9,32 @@ importers:
   .:
     devDependencies:
       '@bit-ocean/bootstrap-animation':
-        specifier: ^0.0.45
-        version: 0.0.45
+        specifier: ^0.0.46
+        version: 0.0.46
       '@bit-ocean/cli':
-        specifier: ^0.0.45
-        version: 0.0.45
+        specifier: ^0.0.46
+        version: 0.0.46
       '@bit-ocean/commitlint-config':
-        specifier: ^0.0.45
-        version: 0.0.45(@commitlint/cli@19.3.0(@types/node@20.14.11)(typescript@5.5.4))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.11)(typescript@5.5.4))(cz-git@1.9.4)
+        specifier: ^0.0.46
+        version: 0.0.46(@commitlint/cli@19.3.0(@types/node@20.14.11)(typescript@5.5.4))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.11)(typescript@5.5.4))(cz-git@1.9.4)
       '@bit-ocean/cspell':
-        specifier: ^0.0.45
-        version: 0.0.45(cspell@8.12.1)
+        specifier: ^0.0.46
+        version: 0.0.46(cspell@8.12.1)
       '@bit-ocean/eslint-config':
-        specifier: ^0.0.45
-        version: 0.0.45(eslint@8.57.0)(tailwindcss@3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))(typescript@5.5.4)
+        specifier: ^0.0.46
+        version: 0.0.46(eslint@8.57.0)(tailwindcss@3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))(typescript@5.5.4)
       '@bit-ocean/prettier-config':
-        specifier: ^0.0.45
-        version: 0.0.45(prettier@3.3.3)
+        specifier: ^0.0.46
+        version: 0.0.46(prettier@3.3.3)
       '@bit-ocean/renovate-config':
-        specifier: ^0.0.45
-        version: 0.0.45
+        specifier: ^0.0.46
+        version: 0.0.46
       '@bit-ocean/tailwind':
-        specifier: ^0.0.45
-        version: 0.0.45(antd@5.19.3)(tailwindcss@3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))
+        specifier: ^0.0.46
+        version: 0.0.46(antd@5.19.3)(tailwindcss@3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))
       '@bit-ocean/tsconfig':
-        specifier: ^0.0.45
-        version: 0.0.45(typescript@5.5.4)
+        specifier: ^0.0.46
+        version: 0.0.46(typescript@5.5.4)
       '@commitlint/cli':
         specifier: ^19.3.0
         version: 19.3.0(@types/node@20.14.11)(typescript@5.5.4)
@@ -102,23 +102,26 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(antd@5.19.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@bit-ocean/axios':
-        specifier: ^0.0.45
-        version: 0.0.45(axios@1.7.2)(dayjs@1.11.12)
+        specifier: ^0.0.46
+        version: 0.0.46(axios@1.7.2)(dayjs@1.11.12)
       '@bit-ocean/config':
-        specifier: ^0.0.45
-        version: 0.0.45
+        specifier: ^0.0.46
+        version: 0.0.46
       '@bit-ocean/echarts':
-        specifier: ^0.0.45
-        version: 0.0.45(echarts@5.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^0.0.46
+        version: 0.0.46(echarts@5.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@bit-ocean/hooks':
+        specifier: ^0.0.46
+        version: 0.0.46(@tanstack/react-router@1.45.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@bit-ocean/i18n':
-        specifier: ^0.0.45
-        version: 0.0.45(dayjs@1.11.12)(i18next@23.12.2)(react-i18next@15.0.0(i18next@23.12.2)(react@18.3.1))
+        specifier: ^0.0.46
+        version: 0.0.46(dayjs@1.11.12)(i18next@23.12.2)(react-i18next@15.0.0(i18next@23.12.2)(react-dom@18.3.1(react@18.3.1))(react-native@0.74.3(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))
       '@bit-ocean/theme':
-        specifier: ^0.0.45
-        version: 0.0.45(antd@5.19.3)
+        specifier: ^0.0.46
+        version: 0.0.46(antd@5.19.3)
       '@bit-ocean/utils':
-        specifier: ^0.0.45
-        version: 0.0.45(dayjs@1.11.12)
+        specifier: ^0.0.46
+        version: 0.0.46(dayjs@1.11.12)
       '@tanstack/react-query':
         specifier: ^5.51.11
         version: 5.51.11(react@18.3.1)
@@ -193,8 +196,8 @@ importers:
         version: 4.5.4(@types/react@18.3.3)(immer@10.1.1)(react@18.3.1)
     devDependencies:
       '@bit-ocean/auto-import':
-        specifier: ^0.0.45
-        version: 0.0.45(unplugin-auto-import@0.18.0(rollup@4.19.0))
+        specifier: ^0.0.46
+        version: 0.0.46(unplugin-auto-import@0.18.0(rollup@4.19.0))
       '@iconify/json':
         specifier: ^2.2.230
         version: 2.2.230
@@ -283,14 +286,14 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(@ant-design/cssinjs@1.21.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(antd@5.19.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(next@14.2.5(@opentelemetry/api@1.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@bit-ocean/config':
-        specifier: ^0.0.45
-        version: 0.0.45
+        specifier: ^0.0.46
+        version: 0.0.46
       '@bit-ocean/theme':
-        specifier: ^0.0.45
-        version: 0.0.45(antd@5.19.3)
+        specifier: ^0.0.46
+        version: 0.0.46(antd@5.19.3)
       '@bit-ocean/utils':
-        specifier: ^0.0.45
-        version: 0.0.45(dayjs@1.11.12)
+        specifier: ^0.0.46
+        version: 0.0.46(dayjs@1.11.12)
       '@taskward/config':
         specifier: workspace:^
         version: link:../../packages/config
@@ -323,8 +326,8 @@ importers:
         version: 4.5.4(@types/react@18.3.3)(immer@10.1.1)(react@18.3.1)
     devDependencies:
       '@bit-ocean/auto-import':
-        specifier: ^0.0.45
-        version: 0.0.45(unplugin-auto-import@0.18.0(rollup@4.19.0))
+        specifier: ^0.0.46
+        version: 0.0.46(unplugin-auto-import@0.18.0(rollup@4.19.0))
       '@tanstack/react-query-devtools':
         specifier: ^5.51.11
         version: 5.51.11(@tanstack/react-query@5.51.11(react@18.3.1))(react@18.3.1)
@@ -362,8 +365,8 @@ importers:
   apps/mobile:
     dependencies:
       '@bit-ocean/i18n':
-        specifier: ^0.0.45
-        version: 0.0.45(dayjs@1.11.12)(i18next@23.12.2)(react-i18next@15.0.0(i18next@23.12.2)(react@18.3.1))
+        specifier: ^0.0.46
+        version: 0.0.46(dayjs@1.11.12)(i18next@23.12.2)(react-i18next@15.0.0(i18next@23.12.2)(react-dom@18.3.1(react@18.3.1))(react-native@0.74.3(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))
       '@expo/vector-icons':
         specifier: ^14.0.2
         version: 14.0.2
@@ -448,7 +451,7 @@ importers:
         version: 18.3.0
       jest:
         specifier: ^29.7.0
-        version: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+        version: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       jest-expo:
         specifier: ~51.0.3
         version: 51.0.3(@babel/core@7.24.9)(jest@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))(react@18.3.1)
@@ -462,8 +465,8 @@ importers:
   apps/server:
     dependencies:
       '@bit-ocean/prisma':
-        specifier: ^0.0.45
-        version: 0.0.45(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.3.10)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@prisma/client@5.17.0(prisma@5.17.0))(prisma@5.17.0)(reflect-metadata@0.2.2)
+        specifier: ^0.0.46
+        version: 0.0.46(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.3.10)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@prisma/client@5.17.0(prisma@5.17.0))(prisma@5.17.0)(reflect-metadata@0.2.2)
       '@nestjs/axios':
         specifier: ^3.0.2
         version: 3.0.2(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(axios@1.7.2)(rxjs@7.8.1)
@@ -587,7 +590,7 @@ importers:
         version: 7.4.2
       jest:
         specifier: ^29.7.0
-        version: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+        version: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       prisma:
         specifier: ^5.17.0
         version: 5.17.0
@@ -608,7 +611,7 @@ importers:
         version: 9.5.1(typescript@5.5.4)(webpack@5.92.1(@swc/core@1.7.0(@swc/helpers@0.5.5))(esbuild@0.23.0))
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)
+        version: 10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4)
       tsconfig-paths:
         specifier: ^4.2.0
         version: 4.2.0
@@ -619,8 +622,8 @@ importers:
   packages/api:
     dependencies:
       '@bit-ocean/axios':
-        specifier: ^0.0.45
-        version: 0.0.45(axios@1.7.2)(dayjs@1.11.12)
+        specifier: ^0.0.46
+        version: 0.0.46(axios@1.7.2)(dayjs@1.11.12)
 
   packages/config: {}
 
@@ -633,8 +636,8 @@ importers:
   packages/locales:
     dependencies:
       '@bit-ocean/i18n':
-        specifier: ^0.0.45
-        version: 0.0.45(dayjs@1.11.12)(i18next@23.12.2)(react-i18next@15.0.0(i18next@23.12.2)(react@18.3.1))
+        specifier: ^0.0.46
+        version: 0.0.46(dayjs@1.11.12)(i18next@23.12.2)(react-i18next@15.0.0(i18next@23.12.2)(react-dom@18.3.1(react@18.3.1))(react-native@0.74.3(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))
 
 packages:
 
@@ -1503,28 +1506,28 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@bit-ocean/auto-import@0.0.45':
-    resolution: {integrity: sha512-D4O+xnc86AkU4MMWIWiJjEtK180yC3d80EqK5hIgPA2DWLO941+EMSKBccSjFG5kMuw1uDalyXSgpQH4V4L4xQ==}
+  '@bit-ocean/auto-import@0.0.46':
+    resolution: {integrity: sha512-0Pgix1cRo4wyoDkREMnZan+ghQ2ZwWEydABhWbl7PLF3MkusKZkBvOh3Zb7QJTRdUZ8EcpYN3KnJGRvHek005w==}
     peerDependencies:
       unplugin-auto-import: ^0.18.0
     peerDependenciesMeta:
       unplugin-auto-import:
         optional: true
 
-  '@bit-ocean/axios@0.0.45':
-    resolution: {integrity: sha512-39QJBnNeFfTS3qVqxGajMW9j8sb9nQaO/sxa1qca1QwmYhHjPxv4ckjXaL/zva0rWbWwigyuuLHUxTa8AqQ1Gw==}
+  '@bit-ocean/axios@0.0.46':
+    resolution: {integrity: sha512-2bxXTbBLfJOtXPUgkTy1xE3EdtoRD1lppVp4UC4cPisDXpMNhMlKLkf8YjETaolBBQdz2pKZSVsHlT8k6nu/Tg==}
     peerDependencies:
       axios: ^1.7.2
 
-  '@bit-ocean/bootstrap-animation@0.0.45':
-    resolution: {integrity: sha512-nTYBnWeSoaYP2LviQEytq3GBZQJs1CBiPWb48LV4qGemQMG48IN2RVSCbdd32dd7N21/MROGvN4JFxrIRT0++A==}
+  '@bit-ocean/bootstrap-animation@0.0.46':
+    resolution: {integrity: sha512-B38yq2SRdtRkafWZVIv5xPTu/LeGC1RCGoaErLbbHKWeWTqo7yNUYTdBEsSws97zUJ4mrEq/l0yPbomloiUOJw==}
 
-  '@bit-ocean/cli@0.0.45':
-    resolution: {integrity: sha512-qKmkbkyjHyPzobWZz3k0zYA3ARA4uqxel2bA12o6qex6hik7GmIJsYW2uk+d62TV0U1STU279ojKo9I2bI2SEA==}
+  '@bit-ocean/cli@0.0.46':
+    resolution: {integrity: sha512-gDLtquv3Bnm/6oizC0aXnTLoFUhziZvbl/Km9+cVEcxqbLlEESdtLCFztQT8wyokE0NVpoFhaacnt2ozAFJKbg==}
     hasBin: true
 
-  '@bit-ocean/commitlint-config@0.0.45':
-    resolution: {integrity: sha512-7CTzxAngQzF0y0jrWGyCRQvoMKrktoyWeAC6nY/28EiiJiEmf2fwTGYHe8VkKkLv5xqSxyOhdd13nMOllEi6lQ==}
+  '@bit-ocean/commitlint-config@0.0.46':
+    resolution: {integrity: sha512-VE0qzOksUWdcI+JdtngVKwGE0LbGE1PgRSCU3id8neCkz4sAqnGKErbZbHigeSH2CqIULy6nFGAKfInoaF7qSA==}
     peerDependencies:
       '@commitlint/cli': ^19.3.0
       '@commitlint/config-conventional': ^19.2.2
@@ -1534,39 +1537,47 @@ packages:
       cz-git:
         optional: true
 
-  '@bit-ocean/config@0.0.45':
-    resolution: {integrity: sha512-gPOd0ZeyHbQDpvRF7MOUm7bPqtfoZemItqtjd8wqZAcxJCxLdYxjmn6xFSO7vNgOAZJlk1hqj35TP2Gn/vSxkw==}
+  '@bit-ocean/config@0.0.46':
+    resolution: {integrity: sha512-hH4VwHhF3H8LSPs4QI2jA62Ljd2qn+UtrJzlY4k/uWYRRkeO/RQinrEbeF0oID6GI9awSZyMSqdlwyr2vqp8iw==}
 
-  '@bit-ocean/cspell@0.0.45':
-    resolution: {integrity: sha512-wRDMtXpVjsPZ8fz4IyJpn0QuXHKMuqvWPTm7UPkgWKaOBoPBZ2Iba1J1kvSKO+9drwgLIDoBnw+u81Ae3aQO9A==}
+  '@bit-ocean/cspell@0.0.46':
+    resolution: {integrity: sha512-JAN0CQ3mq6psg/IMSMGfv3kRYHojq8RnEIKTFkhS7GyK4X4LAlVA9XlVyN0zELpKSkm7ZYxGnl5vznU9SYlwKw==}
     peerDependencies:
       cspell: ^8.0.0
 
-  '@bit-ocean/echarts@0.0.45':
-    resolution: {integrity: sha512-gKrEP9KHH2KDtX2NJZV6prFjvkfbtUqDs7hWsdRGy8qvVrZXmaaVFeSxXbusW9RQsnQf7+8cNiMRJUmA3TkONA==}
+  '@bit-ocean/echarts@0.0.46':
+    resolution: {integrity: sha512-YBkML9QBd/yXl+i+PHkl3e8yqScv0BbO1A1YmUVSqk5zkxkNT/Xsaz9DPAbgtJF5YIxsqtvvvc8PDmJE0sNcug==}
     peerDependencies:
       echarts: '>=5'
       react: '>=18'
       react-dom: '>=18'
 
-  '@bit-ocean/eslint-config@0.0.45':
-    resolution: {integrity: sha512-9DZnJdKpG43MhOV4pNbAnT0yYXJ+DyqKjxdBEBLqdsSiLYsxi3Uv85n8dcn4kHu6+SeLf2JQ4HLeg3BvvgfGJQ==}
+  '@bit-ocean/eslint-config@0.0.46':
+    resolution: {integrity: sha512-Ew2EFxoKRPtPrwrm3ICVmCta9E7Mbrvq1CHsochbvg4X8Ro1a2DmyBpgmxHouxGnNwhL4/BRkTF4aJXeQLouWQ==}
     peerDependencies:
       eslint: ^8.0.0
 
-  '@bit-ocean/i18n@0.0.45':
-    resolution: {integrity: sha512-CzphG5i0xvZ5R/hTo80r6WZRTw9WQuJBxZG+gaY37XunFFZNotgSP8W4yeh666Ohb0OXovOmlBJ/c4CT3VxW7g==}
+  '@bit-ocean/hooks@0.0.46':
+    resolution: {integrity: sha512-yEZiQG/zojKpGNwXgt00jdgFWW6i2UeEgzKiXOVamUCzY9ru66ioFO7rIWq4Xmzmv07Gl6cuRGk/kxVr0PDAtQ==}
+    peerDependencies:
+      '@tanstack/react-router': ^1.45.8
+    peerDependenciesMeta:
+      '@tanstack/react-router':
+        optional: true
+
+  '@bit-ocean/i18n@0.0.46':
+    resolution: {integrity: sha512-WMlLS6TFnfin5IR8OIXDQQGpvhJOGQllqmXaM0sq71FxkHhnnATUrT4NoL4qhVkuBfkOpN3NrTRcI7rjkWR5KA==}
     peerDependencies:
       i18next: ^23.12.2
       react-i18next: ^15.0.0
 
-  '@bit-ocean/prettier-config@0.0.45':
-    resolution: {integrity: sha512-a+IHRJNcfAhjf2dYwU93TpkVbKMIsqIFL6U9pru+53CHqzqRIItiIclukqhcqDAA2RUCStCELERHmbZxL5QtsQ==}
+  '@bit-ocean/prettier-config@0.0.46':
+    resolution: {integrity: sha512-ypDHkVrBmCJ27fZKgMI0KAE6B912d43TzLwYiBA/5mi1bLeM4DEZ8mvHk2746/PRCQ7EcW81FayBOgwuuX3Ebg==}
     peerDependencies:
       prettier: ^3.3.3
 
-  '@bit-ocean/prisma@0.0.45':
-    resolution: {integrity: sha512-s2gzFVXEk1S6I2FZNA2VKbXL5GppWbTN0zDaZ2vkXv48OB24z4G5ICWZWX95LzkkziyaSnGyx7FKpDYDgETQtQ==}
+  '@bit-ocean/prisma@0.0.46':
+    resolution: {integrity: sha512-us1sfJH9d7/X3uX56clbEiRNMl6eLudjDWH2TWZgQTbJ1ARMdpyVe0xl3vlhcAboNa3UDnowrm0lHo8YBixjyw==}
     peerDependencies:
       '@nestjs/common': ^9.0.0 || ^10.0.0
       '@nestjs/core': ^9.0.0 || ^10.0.0
@@ -1574,29 +1585,29 @@ packages:
       prisma: ^5.0.0
       reflect-metadata: ^0.2.2
 
-  '@bit-ocean/renovate-config@0.0.45':
-    resolution: {integrity: sha512-f1OoZHCUDFHbNUi1/4HKSDo6kmc5D0MLDOiokvDPKq2ZOuSTZgFVlUNnIaV0fwf6aUA2nNSBIiGn47OpULQ9lg==}
+  '@bit-ocean/renovate-config@0.0.46':
+    resolution: {integrity: sha512-ebHE/8hUhhSoT103PYq+XeeiOE/bviwfwKhzXiLV6cCjE4zFlJk1UM5wg4VnEW8gqwqNm1UEOpAbnqrJhe+lHQ==}
 
-  '@bit-ocean/tailwind@0.0.45':
-    resolution: {integrity: sha512-VmLTthQTVV/I54UxmVfryqRu753jz+C0khtOT1yxxH2gNxSCM2Hnp3OqweJ2MGncy9gZiFzyhABMdwMzry50uw==}
+  '@bit-ocean/tailwind@0.0.46':
+    resolution: {integrity: sha512-LIHuhTF+DcUEGULcTrVAjAs89oI9RX9CLCOFoXn3GUHVCq7SGvS6ti69zK9x7CsSpIP1Jo9rTOeB0ykBLMi2wQ==}
     peerDependencies:
       tailwindcss: ^3.4.6
 
-  '@bit-ocean/theme@0.0.45':
-    resolution: {integrity: sha512-JNrdw0bF6X7L6S2IUl+XNzaVMTWsLYp6UdNH9jD+NI7GQSil9fUEyWlqd/s4PbUzeINirI51H3y8sbFg3TRGMA==}
+  '@bit-ocean/theme@0.0.46':
+    resolution: {integrity: sha512-YPQrr8flZR4Q41Xut7lysnbDX3IvpaZBLopQBf0mO9sviYMv0uKTA7SO6Qgw8EuhEFGv9Cie9Fib7Iy462+K6w==}
     peerDependencies:
       antd: ^5.19.3
     peerDependenciesMeta:
       antd:
         optional: true
 
-  '@bit-ocean/tsconfig@0.0.45':
-    resolution: {integrity: sha512-CB2CJtOlUianFFSMjDQI2gV6OnbRF6pMH/DbwccN8ToHKFVkRNd/aRCEZI1w8v4taaZ6yGyja9bqSUzXsWo6Cg==}
+  '@bit-ocean/tsconfig@0.0.46':
+    resolution: {integrity: sha512-NQY8mXuVa7aYLi1BhP+16mdTa7WoNX8e7eyNRnt8DYPSaCb883K7rLvg387DduTUTF3E+5P7dFi6DDyoKYdfDg==}
     peerDependencies:
       typescript: ^4.0.0 || ^5.0.0
 
-  '@bit-ocean/utils@0.0.45':
-    resolution: {integrity: sha512-9Uv+/Wn/857uo3gENb7sZ/1IfX734y8EZu8OhEWPIR/y2rvJhBxN0aNVwCKn2olET8b5cwKi4r6kgD+IvOBIhw==}
+  '@bit-ocean/utils@0.0.46':
+    resolution: {integrity: sha512-YmVPbEAJGHCCLqzfdl6GsLUCNMFjGvdf4S3YappHmR5nLYOC8OW2vUp3QHmXnzZCsa+abz5Za0/d2mu7blqiZA==}
     peerDependencies:
       dayjs: ^1.11.12
     peerDependenciesMeta:
@@ -11979,26 +11990,26 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@bit-ocean/auto-import@0.0.45(unplugin-auto-import@0.18.0(rollup@4.19.0))':
+  '@bit-ocean/auto-import@0.0.46(unplugin-auto-import@0.18.0(rollup@4.19.0))':
     optionalDependencies:
       unplugin-auto-import: 0.18.0(rollup@4.19.0)
 
-  '@bit-ocean/axios@0.0.45(axios@1.7.2)(dayjs@1.11.12)':
+  '@bit-ocean/axios@0.0.46(axios@1.7.2)(dayjs@1.11.12)':
     dependencies:
-      '@bit-ocean/utils': 0.0.45(dayjs@1.11.12)
+      '@bit-ocean/utils': 0.0.46(dayjs@1.11.12)
       axios: 1.7.2
     transitivePeerDependencies:
       - dayjs
 
-  '@bit-ocean/bootstrap-animation@0.0.45':
+  '@bit-ocean/bootstrap-animation@0.0.46':
     dependencies:
-      '@bit-ocean/config': 0.0.45
+      '@bit-ocean/config': 0.0.46
       figlet: 1.7.0
       gradient-string: 2.0.2
 
-  '@bit-ocean/cli@0.0.45':
+  '@bit-ocean/cli@0.0.46':
     dependencies:
-      '@bit-ocean/config': 0.0.45
+      '@bit-ocean/config': 0.0.46
       commander: 12.1.0
       cross-fetch: 4.0.0
       cross-spawn: 7.0.3
@@ -12008,7 +12019,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@bit-ocean/commitlint-config@0.0.45(@commitlint/cli@19.3.0(@types/node@20.14.11)(typescript@5.5.4))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.11)(typescript@5.5.4))(cz-git@1.9.4)':
+  '@bit-ocean/commitlint-config@0.0.46(@commitlint/cli@19.3.0(@types/node@20.14.11)(typescript@5.5.4))(@commitlint/config-conventional@19.2.2)(commitizen@4.3.0(@types/node@20.14.11)(typescript@5.5.4))(cz-git@1.9.4)':
     dependencies:
       '@commitlint/cli': 19.3.0(@types/node@20.14.11)(typescript@5.5.4)
       '@commitlint/config-conventional': 19.2.2
@@ -12016,19 +12027,19 @@ snapshots:
     optionalDependencies:
       cz-git: 1.9.4
 
-  '@bit-ocean/config@0.0.45': {}
+  '@bit-ocean/config@0.0.46': {}
 
-  '@bit-ocean/cspell@0.0.45(cspell@8.12.1)':
+  '@bit-ocean/cspell@0.0.46(cspell@8.12.1)':
     dependencies:
       cspell: 8.12.1
 
-  '@bit-ocean/echarts@0.0.45(echarts@5.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@bit-ocean/echarts@0.0.46(echarts@5.5.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       echarts: 5.5.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@bit-ocean/eslint-config@0.0.45(eslint@8.57.0)(tailwindcss@3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))(typescript@5.5.4)':
+  '@bit-ocean/eslint-config@0.0.46(eslint@8.57.0)(tailwindcss@3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))(typescript@5.5.4)':
     dependencies:
       '@tanstack/eslint-plugin-query': 5.51.12(eslint@8.57.0)(typescript@5.5.4)
       '@typescript-eslint/eslint-plugin': 7.17.0(@typescript-eslint/parser@7.17.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)
@@ -12058,15 +12069,19 @@ snapshots:
       - tailwindcss
       - typescript
 
-  '@bit-ocean/i18n@0.0.45(dayjs@1.11.12)(i18next@23.12.2)(react-i18next@15.0.0(i18next@23.12.2)(react@18.3.1))':
+  '@bit-ocean/hooks@0.0.46(@tanstack/react-router@1.45.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    optionalDependencies:
+      '@tanstack/react-router': 1.45.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+
+  '@bit-ocean/i18n@0.0.46(dayjs@1.11.12)(i18next@23.12.2)(react-i18next@15.0.0(i18next@23.12.2)(react-dom@18.3.1(react@18.3.1))(react-native@0.74.3(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1))':
     dependencies:
-      '@bit-ocean/utils': 0.0.45(dayjs@1.11.12)
+      '@bit-ocean/utils': 0.0.46(dayjs@1.11.12)
       i18next: 23.12.2
       react-i18next: 15.0.0(i18next@23.12.2)(react-dom@18.3.1(react@18.3.1))(react-native@0.74.3(@babel/core@7.24.9)(@babel/preset-env@7.24.8(@babel/core@7.24.9))(@types/react@18.3.3)(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - dayjs
 
-  '@bit-ocean/prettier-config@0.0.45(prettier@3.3.3)':
+  '@bit-ocean/prettier-config@0.0.46(prettier@3.3.3)':
     dependencies:
       prettier: 3.3.3
       prettier-plugin-astro: 0.14.1
@@ -12087,7 +12102,7 @@ snapshots:
       - prettier-plugin-style-order
       - prettier-plugin-svelte
 
-  '@bit-ocean/prisma@0.0.45(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.3.10)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@prisma/client@5.17.0(prisma@5.17.0))(prisma@5.17.0)(reflect-metadata@0.2.2)':
+  '@bit-ocean/prisma@0.0.46(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.3.10)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@prisma/client@5.17.0(prisma@5.17.0))(prisma@5.17.0)(reflect-metadata@0.2.2)':
     dependencies:
       '@nestjs/common': 10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
       '@nestjs/core': 10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.3.10)(reflect-metadata@0.2.2)(rxjs@7.8.1)
@@ -12095,24 +12110,24 @@ snapshots:
       prisma: 5.17.0
       reflect-metadata: 0.2.2
 
-  '@bit-ocean/renovate-config@0.0.45': {}
+  '@bit-ocean/renovate-config@0.0.46': {}
 
-  '@bit-ocean/tailwind@0.0.45(antd@5.19.3)(tailwindcss@3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))':
+  '@bit-ocean/tailwind@0.0.46(antd@5.19.3)(tailwindcss@3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)))':
     dependencies:
-      '@bit-ocean/theme': 0.0.45(antd@5.19.3)
+      '@bit-ocean/theme': 0.0.46(antd@5.19.3)
       tailwindcss: 3.4.6(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
     transitivePeerDependencies:
       - antd
 
-  '@bit-ocean/theme@0.0.45(antd@5.19.3)':
+  '@bit-ocean/theme@0.0.46(antd@5.19.3)':
     optionalDependencies:
       antd: 5.19.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  '@bit-ocean/tsconfig@0.0.45(typescript@5.5.4)':
+  '@bit-ocean/tsconfig@0.0.46(typescript@5.5.4)':
     dependencies:
       typescript: 5.5.4
 
-  '@bit-ocean/utils@0.0.45(dayjs@1.11.12)':
+  '@bit-ocean/utils@0.0.46(dayjs@1.11.12)':
     optionalDependencies:
       dayjs: 1.11.12
 
@@ -13069,7 +13084,7 @@ snapshots:
       jest-util: 29.7.0
       slash: 3.0.0
 
-  '@jest/core@29.7.0(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))':
+  '@jest/core@29.7.0(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))':
     dependencies:
       '@jest/console': 29.7.0
       '@jest/reporters': 29.7.0
@@ -13083,7 +13098,7 @@ snapshots:
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      jest-config: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -16394,13 +16409,13 @@ snapshots:
       crc-32: 1.2.2
       readable-stream: 3.6.2
 
-  create-jest@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)):
+  create-jest@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4)):
     dependencies:
       '@jest/types': 29.6.3
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      jest-config: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -18933,16 +18948,16 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
-  jest-cli@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)):
+  jest-cli@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4)):
     dependencies:
-      '@jest/core': 29.7.0(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      '@jest/core': 29.7.0(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      create-jest: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       exit: 0.1.2
       import-local: 3.2.0
-      jest-config: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      jest-config: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -18952,7 +18967,7 @@ snapshots:
       - supports-color
       - ts-node
 
-  jest-config@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)):
+  jest-config@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4)):
     dependencies:
       '@babel/core': 7.24.9
       '@jest/test-sequencer': 29.7.0
@@ -18978,7 +18993,7 @@ snapshots:
       strip-json-comments: 3.1.1
     optionalDependencies:
       '@types/node': 20.14.11
-      ts-node: 10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)
+      ts-node: 10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4)
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -19228,7 +19243,7 @@ snapshots:
     dependencies:
       ansi-escapes: 6.2.1
       chalk: 4.1.2
-      jest: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      jest: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       jest-regex-util: 29.6.3
       jest-watcher: 29.7.0
       slash: 5.1.0
@@ -19259,12 +19274,12 @@ snapshots:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jest@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)):
+  jest@29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4)):
     dependencies:
-      '@jest/core': 29.7.0(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      '@jest/core': 29.7.0(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       '@jest/types': 29.6.3
       import-local: 3.2.0
-      jest-cli: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      jest-cli: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -20741,7 +20756,7 @@ snapshots:
       yaml: 2.4.5
     optionalDependencies:
       postcss: 8.4.39
-      ts-node: 10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4)
+      ts-node: 10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4)
 
   postcss-load-config@6.0.1(jiti@1.21.6)(postcss@8.4.39)(yaml@2.4.5):
     dependencies:
@@ -22529,7 +22544,7 @@ snapshots:
       bs-logger: 0.2.6
       ejs: 3.1.10
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4))
+      jest: 29.7.0(@types/node@20.14.11)(ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4))
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
@@ -22554,7 +22569,7 @@ snapshots:
       typescript: 5.5.4
       webpack: 5.92.1(@swc/core@1.7.0(@swc/helpers@0.5.5))(esbuild@0.23.0)
 
-  ts-node@10.9.2(@swc/core@1.7.0)(@types/node@20.14.11)(typescript@5.5.4):
+  ts-node@10.9.2(@swc/core@1.7.0(@swc/helpers@0.5.5))(@types/node@20.14.11)(typescript@5.5.4):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11

@@ -25,7 +25,7 @@
     "prettier:fix": "prettier --write --cache --ignore-unknown --ignore-path=../../.prettierignore ."
   },
   "dependencies": {
-    "@bit-ocean/i18n": "^0.0.45",
+    "@bit-ocean/i18n": "^0.0.46",
     "@expo/vector-icons": "^14.0.2",
     "@react-navigation/native": "^6.1.18",
     "@taskward/config": "workspace:^",
