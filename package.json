@@ -26,7 +26,7 @@
     "@bit-ocean/tsconfig": "^0.0.46",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@nx/workspace": "19.5.2",
+    "@nx/workspace": "19.5.3",
     "@taskward/cspell": "workspace:^",
     "commitizen": "^4.3.0",
     "cspell": "^8.12.1",
@@ -34,11 +34,11 @@
     "eslint": "^8.57.0",
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
-    "nx": "19.5.2",
+    "nx": "19.5.3",
     "pm2": "^5.4.2",
     "prettier": "^3.3.3",
     "tslib": "^2.6.3",
-    "tsup": "^8.2.2"
+    "tsup": "^8.2.3"
   },
   "config": {
     "commitizen": {
