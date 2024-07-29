@@ -25,9 +25,9 @@
     "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/nextjs-registry": "^1.0.0",
-    "@bit-ocean/config": "^0.0.46",
-    "@bit-ocean/theme": "^0.0.46",
-    "@bit-ocean/utils": "^0.0.46",
+    "@bit-ocean/config": "^0.0.47",
+    "@bit-ocean/theme": "^0.0.47",
+    "@bit-ocean/utils": "^0.0.47",
     "@taskward/config": "workspace:^",
     "antd": "^5.19.3",
     "clsx": "^2.1.1",
@@ -40,7 +40,7 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
-    "@bit-ocean/auto-import": "^0.0.46",
+    "@bit-ocean/auto-import": "^0.0.47",
     "@tanstack/react-query-devtools": "^5.51.11",
     "@types/node": "^20.14.12",
     "@types/react": "^18.3.3",
