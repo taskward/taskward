@@ -21,7 +21,6 @@
     "@bit-ocean/cspell": "^0.0.48",
     "@bit-ocean/eslint-config": "^0.0.48",
     "@bit-ocean/prettier-config": "^0.0.48",
-    "@bit-ocean/renovate-config": "^0.0.48",
     "@bit-ocean/tailwind": "^0.0.48",
     "@bit-ocean/tsconfig": "^0.0.48",
     "@commitlint/cli": "^19.3.0",
