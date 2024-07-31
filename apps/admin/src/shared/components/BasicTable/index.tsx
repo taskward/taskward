@@ -17,7 +17,6 @@ export default function BasicTable() {
       {
         field: 'avatarUrl',
         headerName: 'Avatar Url',
-        type: 'centerAligned',
         lockPosition: true,
         cellRenderer: (params: CustomCellRendererProps) => <Avatar src={params.value} />
       },
