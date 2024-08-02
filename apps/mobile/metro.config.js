@@ -2,18 +2,22 @@
 const { getDefaultConfig } = require('expo/metro-config')
 const { FileStore } = require('metro-cache')
 const path = require('node:path')
+const { withNativeWind } = require('nativewind/metro')
 
 // const { withNativeWind } = require('nativewind/metro')
 
-module.exports = withManagedCache(
-  withMonorepoPaths(
-    // withNativeWind
-    getDefaultConfig(__dirname),
-    {
-      input: './src/styles.css',
-      configPath: './tailwind.config.ts'
-    }
-  )
+module.exports = withNativeWind(
+  withManagedCache(
+    withMonorepoPaths(
+      // withNativeWind
+      getDefaultConfig(__dirname),
+      {
+        input: './src/styles.css',
+        configPath: './tailwind.config.ts'
+      }
+    )
+  ),
+  { input: './global.css' }
 )
 
 /**
