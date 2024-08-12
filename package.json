@@ -23,21 +23,21 @@
     "@bit-ocean/prettier-config": "^0.0.48",
     "@bit-ocean/tailwind": "^0.0.48",
     "@bit-ocean/tsconfig": "^0.0.48",
-    "@commitlint/cli": "^19.3.0",
+    "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@nx/workspace": "19.5.3",
+    "@nx/workspace": "19.5.7",
     "@taskward/cspell": "workspace:^",
     "commitizen": "^4.3.0",
-    "cspell": "^8.12.1",
+    "cspell": "^8.13.2",
     "cz-git": "^1.9.4",
     "eslint": "^8.57.0",
-    "husky": "^9.1.3",
-    "lint-staged": "^15.2.7",
-    "nx": "19.5.3",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8",
+    "nx": "19.5.7",
     "pm2": "^5.4.2",
     "prettier": "^3.3.3",
     "tslib": "^2.6.3",
-    "tsup": "^8.2.3"
+    "tsup": "^8.2.4"
   },
   "config": {
     "commitizen": {
